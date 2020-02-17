@@ -1,6 +1,14 @@
-site_name: Sclera Documentation
+site_name: "Sclera Documentation"
 
-site_url: https://www.scleradb.com/docs
+site_description: "Documentation for Sclera and its plugins"
+
+site_author: "Sclera, Inc."
+
+copyright: "Copyright &copy; 2012 - 2020 Sclera, Inc."
+
+site_url: "https://www.scleradb.com/docs"
+
+repo_url: "https://github.com/scleradb/sclera-website"
 
 site_dir: docs
 
@@ -13,4 +21,16 @@ nav:
     - FAQ: faq.md
 
 theme:
-    name: 'material'
+    name: "material"
+    logo: "../images/sclera-logo-square.png"
+    favicon: "../images/icons/favicon.ico"
+
+extra:
+    social:
+        - type: "github"
+          link: "https://github.com/scleradb"
+        - type: "twitter"
+          link: "https://twitter.com/scleradb"
+        - type: "linkedin"
+          link: "https://www.linkedin.com/company/sclera-inc-"
+    manifest: "../images/icons/site.webmanifest"
