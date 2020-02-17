@@ -13,7 +13,7 @@ site_dir: docs
 docs_dir: docsrc
 
 nav:
-    - Home: "/"
+    - Sclera: "/"
     - Introduction: index.md
     - Overview: overview.md
     - FAQ: faq.md
