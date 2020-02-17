@@ -2,7 +2,9 @@ site_name: Sclera Documentation
 
 site_url: https://www.scleradb.com/docs
 
-site_dir: ../docs
+site_dir: docs
+
+docs_dir: docsrc
 
 nav:
     - Home: https://www.scleradb.com
