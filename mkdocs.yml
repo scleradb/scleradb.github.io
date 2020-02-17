@@ -7,5 +7,7 @@ site_dir: docs
 docs_dir: docsrc
 
 nav:
-    - Home: https://www.scleradb.com
+    - Home: "/"
+    - Introduction: index.md
+    - Overview: overview.md
     - FAQ: faq.md
