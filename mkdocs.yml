@@ -34,3 +34,7 @@ extra:
         - type: "linkedin"
           link: "https://www.linkedin.com/company/sclera-inc-"
     manifest: "../images/icons/site.webmanifest"
+
+markdown_extensions:
+    - toc:
+        permalink: "&#9668;"
