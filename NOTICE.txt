@@ -4,6 +4,7 @@ Copyright 2012 - 2020 Sclera, Inc.
 This project uses the following third-party components:
 
 MkDocs - BSD 2-Clause "Simplified" License - https://www.mkdocs.org
+Material for MkDocs - MIT License - https://squidfunk.github.io/mkdocs-material
 Bootstrap - MIT License - https://getbootstrap.com
 JQuery - MIT License - https://jquery.com
 Font Awesome - SIL OFL 1.1 - https://fontawesome.com/v4.7.0/
