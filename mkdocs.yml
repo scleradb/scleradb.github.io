@@ -22,6 +22,9 @@ theme:
     name: "material"
     logo: "../images/sclera-logo-square.png"
     favicon: "../images/icons/favicon.ico"
+    palette:
+        primary: 'black'
+        accent: 'indigo'
 
 extra:
     social:
