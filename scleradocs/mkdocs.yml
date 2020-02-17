@@ -1,0 +1,9 @@
+site_name: Sclera Documentation
+
+site_url: https://www.scleradb.com/docs
+
+site_dir: ../docs
+
+nav:
+    - Home: https://www.scleradb.com
+    - FAQ: faq.md
