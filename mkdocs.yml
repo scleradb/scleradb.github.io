@@ -11,3 +11,6 @@ nav:
     - Introduction: index.md
     - Overview: overview.md
     - FAQ: faq.md
+
+theme:
+    name: 'material'
