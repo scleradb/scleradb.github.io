@@ -50,3 +50,25 @@ body {
     background-color: rgba(0, 100, 150, 0.9);
     z-index: -1;
 }
+
+nav.navbar.sclera-footer {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+nav.navbar.sclera-footer ul.navbar-nav {
+    flex-direction: row;
+}
+
+nav.navbar.sclera-footer ul.navbar-nav li.nav-item {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+}
