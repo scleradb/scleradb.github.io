@@ -1,6 +1,7 @@
 body {
     padding-top: 2.75rem;
     min-width: 334px;
+    font-family: 'Open Sans', sans-serif
 }
 
 nav.sclera-top.navbar {
@@ -83,4 +84,16 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
 
 .bg-dark {
     background-color: rgba(0, 0, 0, 0.9)!important;
+}
+
+.jumbotron .display-5 {
+    font-family: 'Gruppo', 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.jumbotron .btn-outline-primary {
+    color: #fff;
+    border-color: #fff;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.2);
 }
