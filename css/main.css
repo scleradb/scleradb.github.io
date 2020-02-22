@@ -97,3 +97,7 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0.2);
 }
+
+.jumbotron p {
+    font-size: 1.25rem;
+}
