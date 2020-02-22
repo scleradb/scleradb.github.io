@@ -30,7 +30,7 @@ nav.sclera-top.navbar .navbar-toggler {
     font-weight: bold;
 }
 
-.jumbotron .btn-outline-primary {
+.jumbotron .btn {
     color: #fff;
     border-color: #fff;
     border-radius: 0;
@@ -104,7 +104,7 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
 }
 
 .sclera-features {
-  padding: 50px 0;
+  padding: 30px 0;
   background-color: #F5F5F5;
 }
 
@@ -158,6 +158,24 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
   font-size: 22px;
   line-height: 10px;
   position: relative;
+}
+
+.sclera-examples {
+    background-color: #eaeaea;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.sclera-examples .btn {
+    color: #fff;
+    border-color: #fff;
+    background-color: rgba(0, 100, 150, 0.9);
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.sclera-examples .btn:hover {
+    background-color: rgba(0, 100, 150, 1.0);
 }
 
 .sclera-headline-center {
