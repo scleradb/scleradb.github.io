@@ -1,5 +1,6 @@
 body {
     padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
     min-width: 334px;
     font-family: 'Open Sans', sans-serif
 }
@@ -15,7 +16,8 @@ nav.sclera-top.navbar .navbar-brand span img {
 }
 
 nav.sclera-top.navbar .navbar-toggler {
-    border-color: transparent;
+    border: none;
+    outline: none;
     color: #fff;
 }
 
@@ -182,21 +184,91 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
   text-align: center;
 }
 
-.sclera-headline-center h2 {
-  color: #555;
-  font-size: 24px;
-  margin-bottom: 0px;
-  padding-bottom: 15px;
-}
-
 .sclera-headline-center p {
   color: #222;
   font-size: 18px;
   padding: 0 150px;
 }
 
+.sclera-headline-center h2 {
+  color: #222;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px;
+  text-transform: uppercase;
+}
+
 @media (max-width: 991px) {
   .sclera-headline-center p {
     padding: 0 50px;
   }
+}
+
+.sclera-faq {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.sclera-faq .sclera-faq-headline {
+    border-bottom: 2px dotted #3498db;
+    margin-bottom: 0.75rem;
+}
+
+.sclera-faq .sclera-faq-headline h3 {
+    padding: 0.25rem 0;
+    font-size: 18px;
+    display: inline-block;
+    border-bottom: 2px solid #3498db;
+    margin-bottom: -2px;
+}
+
+.sclera-faq p {
+    font-size: 16px;
+}
+
+.sclera-faq .accordion .marker {
+    display: none;
+}
+
+.sclera-faq .accordion .collapsed .marker {
+    display: inline;
+}
+
+.sclera-faq .accordion button {
+    text-decoration: none;
+    text-align: left;
+    color: #333;
+}
+
+.sclera-faq .accordion .card {
+    border: none;
+    margin-bottom: 10px;
+}
+
+/*
+.sclera-faq .accordion .card:hover {
+    -webkit-box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:    1px 1px 12px rgba(0, 0, 0, 0.1);
+    box-shadow:         1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+*/
+
+.sclera-faq .accordion .card .card-header {
+    color: #222;
+    background-color: #fcfcfc;
+    font-size: 16px;
+    padding: 0;
+}
+
+.sclera-faq .accordion .card .card-header button span {
+    display: none;
+}
+
+.sclera-faq .accordion .card .card-header button.collapsed span {
+    display: block;
+}
+
+.sclera-faq .accordion .card .card-body {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 }
