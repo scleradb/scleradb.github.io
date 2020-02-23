@@ -245,7 +245,7 @@
                         <div id="faq-body-21" class="collapse" aria-labelledby="faq-heading-21">
                             <div class="card-body">
                                 <p>Sclera simplifies the path from idea to insights. Using Sclera saves the need for deep systems skills, months of resources, and hundreds of lines of code in building analytics applications, the accompanying test and maintenance, and so on.</p>
-                                <p>This simplicity enables you to quickly experiment and iterate over alternatives, and focus on your analytics tasks without bothering about the complex implementation details.</p>
+                                <p>This simplicity enables you to quickly experiment and iterate over alternatives, and focus on your analytics tasks without bothering about the complex implementation details. Moreover, you can start with your existing infrastructure, identify the bottlenecks, and add more resources intelligently as and when needed &mdash; all without modifying your applications.</p>
                             </div>
                         </div>
                     </div>
@@ -266,10 +266,84 @@
                                 <ul>
                                     <li><p>The query compiler compiles the input query into a plan &mdash; this happens once per query, before the evaluation, and the compilation time is negligible as compared to the evaluation time. If the entire query gets pushed to an underlying database system, the cost is thus effectively zero.</p></li>
                                     <li><p>The embedded streaming SQL processor is used to evaluate SQL (relational) operators on streaming data. This evaluation proceeds in a pipeline, in a single pass, with minimal memory overheads, and in the same JVM as your application.</p></li>
-                                    <li><p>The embedded analytics evaluator, likewise, proceeds in a pipeline, in a single pass, and in the same JVM as your application. A handcoded Java program would have identical overheads when it uses the same library.</p></li>
+                                    <li><p>The embedded analytics evaluator, likewise, proceeds in a pipeline, in a single pass, and in the same JVM as your application. A handcoded program would have identical overheads when it uses the same library.</p></li>
                                 </ul>
 
-                                <p>Sclera also includes a query optimizer that optimizes the workflow before each run. These optimizations can potentially speed up the evaluation in ways that a handcoded Java application cannot.</p>
+                                <p>Sclera also includes a query optimizer that optimizes the workflow before each run. These optimizations can potentially speed up the evaluation in ways that a handcoded application cannot.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="faq-heading-23">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#faq-body-23" aria-expanded="false" aria-controls="faq-body-23">
+                                    How fast is Sclera? 
+                                    <span class="float-right"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="faq-body-23" class="collapse" aria-labelledby="faq-heading-23">
+                            <div class="card-body">
+                                <p>Sclera aggressively pushes down query computations to the underlying database systems, and uses external analytics libraries for analytics evaluation where needed. Sclera's performance is thus largely determined by the performance of the underlying database systems and analytics libraries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sclera-faq-headline">
+                    <h3>How is Sclera different from other platforms?</h3>
+                </div>
+                <div class="accordion" id="faq-accordion-3">
+                    <div class="card">
+                        <div class="card-header" id="faq-heading-31">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#faq-body-31" aria-expanded="false" aria-controls="faq-body-31">
+                                    How is Sclera different from a database system? 
+                                    <span class="float-right"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="faq-body-31" class="collapse" aria-labelledby="faq-heading-31">
+                            <div class="card-body">
+                                <p>To the user, Sclera is just like a relational database system &mdash; with SQL as the interface language, and JDBC as the access mechanism from the application programs. However:</p>
+                                <ul>
+                                    <li><p>Sclera does not store data. It works on data from the connected database system and/or external data sources (on-disk file, web-service, etc.) specified in your query. Sclera queries can work on data across multiple database systems and external data sources.</p></li>
+                                    <li><p> Sclera natively supports analytics. Analytics operations (such as classification) are provided as SQL language extensions, and analytics objects (such as classifiers) as first class-objects, at par with SQL tables.</p></li>
+                                    <li><p> Sclera includes an embedded SQL processor, but also pushes SQL computation to an underlying database systems wherever possible. Sclera's optimizer understands the capabilities of the underlying database systems and the data stored therein, and intelligently decides where to locate the computations.</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="faq-heading-32">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#faq-body-32" aria-expanded="false" aria-controls="faq-body-32">
+                                    Does Sclera replace my database system? 
+                                    <span class="float-right"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="faq-body-32" class="collapse" aria-labelledby="faq-heading-32">
+                            <div class="card-body">
+                                <p>No, Sclera complements your database systems. Sclera works with your database systems, and extends their capability to perform advanced analytics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="faq-heading-33">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#faq-body-33" aria-expanded="false" aria-controls="faq-body-33">
+                                    How is Sclera different from Apache Drill? 
+                                    <span class="float-right"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="faq-body-33" class="collapse" aria-labelledby="faq-heading-33">
+                            <div class="card-body">
+                                <p>TODO</p>
                             </div>
                         </div>
                     </div>
