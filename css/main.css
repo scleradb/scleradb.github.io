@@ -222,8 +222,8 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
     margin-bottom: -2px;
 }
 
-.sclera-faq p {
-    font-size: 16px;
+.sclera-faq .accordion {
+    margin-bottom: 15px;
 }
 
 .sclera-faq .accordion .marker {
@@ -242,22 +242,15 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
 
 .sclera-faq .accordion .card {
     border: none;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
-
-/*
-.sclera-faq .accordion .card:hover {
-    -webkit-box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow:    1px 1px 12px rgba(0, 0, 0, 0.1);
-    box-shadow:         1px 1px 12px rgba(0, 0, 0, 0.1);
-}
-*/
 
 .sclera-faq .accordion .card .card-header {
     color: #222;
-    background-color: #fcfcfc;
+    background-color: #f9f9f9;
     font-size: 16px;
     padding: 0;
+    border: none;
 }
 
 .sclera-faq .accordion .card .card-header button span {
@@ -271,4 +264,9 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
 .sclera-faq .accordion .card .card-body {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+    padding-bottom: 0;
+}
+
+.sclera-faq .accordion .card .card-body p {
+    font-size: 16px;
 }

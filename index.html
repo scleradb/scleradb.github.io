@@ -188,7 +188,7 @@
 
                         <div id="faq-body-11" class="collapse" aria-labelledby="faq-heading-11">
                             <div class="card-body">
-                                Sclera helps you exploit the power of sophisticated machine learning and text processing libraries, incorporate external data from web-services, and perform complex event processing and stream analytics, and more &mdash; all using familiar SQL. Moreover, it works on your existing database systems, with no need to move your data.
+                                <p>Sclera helps you exploit the power of sophisticated machine learning and text processing libraries, incorporate external data from web-services, perform complex event processing and stream analytics, and more &mdash; all using familiar SQL. Moreover, it works on your existing database systems, with no need to move your data.</p>
                             </div>
                         </div>
                     </div>
@@ -205,7 +205,8 @@
 
                         <div id="faq-body-12" class="collapse" aria-labelledby="faq-heading-12">
                             <div class="card-body">
-                                Sclera provides a highly customizable end-to-end stack for analytics, enabling experimentation and iteration at the speed of thought. Further, Sclera's modular architecture significantly reduces the maintenance complexity and simplifies upgrades. New technologies (database systems, analytics libraries) can be incorporated by simply adding appropriate plugins, with minimal change to the application.
+                                <p>Sclera provides a highly customizable end-to-end stack for analytics, enabling experimentation and iteration at the speed of thought.</p>
+                                <p>Further, Sclera's modular architecture significantly reduces the maintenance complexity and simplifies upgrades. New technologies (database systems, analytics libraries) can be incorporated by simply adding appropriate plugins, with minimal change to the application.</p>
                             </div>
                         </div>
                     </div>
@@ -222,11 +223,58 @@
 
                         <div id="faq-body-13" class="collapse" aria-labelledby="faq-heading-13">
                             <div class="card-body">
-                                Sclera gives you a standardized interface to run your algorithms within extended SQL, and a clean API (in the Sclera's Extensions SDK) that you can use to integrate your algorithms in just a few lines of code. You can now quickly experiment, iterate and thus focus on your analytics tasks, while Sclera takes care of the legwork.
+                                <p>Sclera gives you a standardized interface to run your algorithms within extended SQL, and a clean API (in the Sclera's Extensions SDK) that you can use to integrate your algorithms in just a few lines of code. You can now quickly experiment, iterate and thus focus on your analytics tasks, while Sclera takes care of the legwork.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="sclera-faq-headline">
+                    <h3>What is the performance and productivity impact?</h3>
+                </div>
+                <div class="accordion" id="faq-accordion-2">
+                    <div class="card">
+                        <div class="card-header" id="faq-heading-21">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#faq-body-21" aria-expanded="false" aria-controls="faq-body-21">
+                                    What is the productivity impact of using Sclera? 
+                                    <span class="float-right"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="faq-body-21" class="collapse" aria-labelledby="faq-heading-21">
+                            <div class="card-body">
+                                <p>Sclera simplifies the path from idea to insights. Using Sclera saves the need for deep systems skills, months of resources, and hundreds of lines of code in building analytics applications, the accompanying test and maintenance, and so on.</p>
+                                <p>This simplicity enables you to quickly experiment and iterate over alternatives, and focus on your analytics tasks without bothering about the complex implementation details.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="faq-heading-22">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#faq-body-22" aria-expanded="false" aria-controls="faq-body-22">
+                                    What is the performance impact of using Sclera? 
+                                    <span class="float-right"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="faq-body-22" class="collapse" aria-labelledby="faq-heading-22">
+                            <div class="card-body">
+                                <p>Sclera's SQL engine has three components: the query compiler, the embedded streaming SQL processor, and the embedded analytics evaluator.</p>
+
+                                <ul>
+                                    <li><p>The query compiler compiles the input query into a plan &mdash; this happens once per query, before the evaluation, and the compilation time is negligible as compared to the evaluation time. If the entire query gets pushed to an underlying database system, the cost is thus effectively zero.</p></li>
+                                    <li><p>The embedded streaming SQL processor is used to evaluate SQL (relational) operators on streaming data. This evaluation proceeds in a pipeline, in a single pass, with minimal memory overheads, and in the same JVM as your application.</p></li>
+                                    <li><p>The embedded analytics evaluator, likewise, proceeds in a pipeline, in a single pass, and in the same JVM as your application. A handcoded Java program would have identical overheads when it uses the same library.</p></li>
+                                </ul>
+
+                                <p>Sclera also includes a query optimizer that optimizes the workflow before each run. These optimizations can potentially speed up the evaluation in ways that a handcoded Java application cannot.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <nav class="sclera-footer navbar fixed-bottom navbar-dark bg-dark">
