@@ -21,6 +21,18 @@ nav.sclera-top.navbar .navbar-toggler {
     color: #fff;
 }
 
+nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu {
+    border-radius: 0;
+}
+
+nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu a.dropdown-item {
+    color: #fff;
+}
+
+nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu a.dropdown-item:hover {
+    color: #000;
+}
+
 .jumbotron {
     position: relative;
     color: #fff;
