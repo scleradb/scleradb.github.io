@@ -168,7 +168,7 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
 
 .sclera-examples .btn {
     color: #fff;
-    border-color: #fff;
+    border: none;
     background-color: rgba(0, 100, 150, 0.9);
     border-radius: 0;
     text-transform: uppercase;
