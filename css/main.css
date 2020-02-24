@@ -25,12 +25,15 @@ nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu {
     border-radius: 0;
 }
 
+nav.sclera-top.navbar.navbar-dark ul.navbar-nav li.nav-item a.nav-link,
 nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu a.dropdown-item {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.7);
 }
 
+nav.sclera-top.navbar.navbar-dark ul.navbar-nav li.nav-item a.nav-link:hover,
 nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu a.dropdown-item:hover {
-    color: #000;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .jumbotron {
@@ -174,13 +177,13 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
   position: relative;
 }
 
-.sclera-examples {
+.sclera-info {
     background-color: #eaeaea;
     padding: 10px 0;
     text-align: center;
 }
 
-.sclera-examples .btn {
+.sclera-info .btn {
     color: #fff;
     border: none;
     background-color: rgba(0, 100, 150, 0.9);
@@ -188,7 +191,7 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
     text-transform: uppercase;
 }
 
-.sclera-examples .btn:hover {
+.sclera-info .btn:hover {
     background-color: rgba(0, 100, 150, 1.0);
 }
 
