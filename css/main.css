@@ -73,7 +73,7 @@ nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu a.dropdo
     background-image: url(/images/patternmatch.jpg);
     background-color: #fff;
     width: 100%;
-    z-index: -1;
+    z-index: 1000;
 }
 
 .jumbotron.imagecover:before {
