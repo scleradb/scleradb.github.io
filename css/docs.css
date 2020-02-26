@@ -3,3 +3,35 @@
 .md-typeset h2 {
     margin-top: 1rem;
 }
+
+a.btn.btn-block:hover {
+    background-color: rgba(80, 90, 100, 1.0);
+    color: #fff;
+}
+
+a.btn.btn-block {
+    display: block;
+    width: 100%;
+    color: #fff;
+    background-color: rgba(80, 90, 100, 0.95);
+}
+
+a.btn {
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 0.8rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
