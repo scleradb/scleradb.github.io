@@ -16,8 +16,8 @@ The syntax is as follows:
 
 where:
 
-- `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression)
-- `target_columns` is a comma-separated list of columns in `table_expression` for which the type inference is to be done. If the type of any of these columns is not `CHAR` or `VARCHAR`, it is silently ignored. We can also specify a [wildcard](/doc/ref/sqlregular#abbreviations) instead of an explicit column list. If the `target_columns` list is not specified, all columns of type `CHAR` or `VARCHAR` in the input are included.
+- `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression)
+- `target_columns` is a comma-separated list of columns in `table_expression` for which the type inference is to be done. If the type of any of these columns is not `CHAR` or `VARCHAR`, it is silently ignored. We can also specify a [wildcard](../sclerasql/sqlregular.md#abbreviations) instead of an explicit column list. If the `target_columns` list is not specified, all columns of type `CHAR` or `VARCHAR` in the input are included.
 - `null_values` is a list of values which, if seen in any of the `target_columns`, must be substituted for `NULL`. For instance, a common string used to mark unavailable values in datasets is "N/A" and "not found". Saying `NULLS("N/A", "not found")` will replace all occurence of the strings with NULL in the output.
 - `limit` is the number of rows that the operator should see before it decides on the column types. If not specified, all input rows will be scanned to infer the column types, and then a second scan will cast the values in each row to the inferred types.
 
@@ -39,7 +39,7 @@ The syntax is:
 
 where:
 
-- `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression)
+- `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression)
 - `patterns` is a [Java regular expression](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html), containing one or more [capturing groups](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html), which are subpatterns enclosed in parenthesis
 - `input_column` is a column in the output of the `table_expression`, of type `CHAR` or `VARCHAR`
 - `target_columns` is a list of column names, one for each capturing group in the `pattern`; each column in the list is associated with a capturing group, in order of occurrence
@@ -84,12 +84,12 @@ The harder case is when you *do not* know how to compute the value to fill in; t
 
 ### Data Imputation using Machine Learning
 
-Recall that [classifiers](/doc/ref/sqlextml#classification) learn how to compute the value of a given column (target) given the values of other columns in a row.
+Recall that [classifiers](../sclerasql/sqlextml.md#classification) learn how to compute the value of a given column (target) given the values of other columns in a row.
 
 The idea behind the machine learning approach to data imputation is to:
 
-- [Train a classifier](/doc/ref/sqlextml#classifier-training) on clean dataset. This clean dataset could be a subset of the input dataset, containing rows with all values available. Or, it could be a reference dataset available independently.
-- [Apply the classifier](/doc/ref/sqlextml#classifier-application) to the rows with missing values of the classifier's target column. This will generate estimates for the missing values.
+- [Train a classifier](../sclerasql/sqlextml.md#classifier-training) on clean dataset. This clean dataset could be a subset of the input dataset, containing rows with all values available. Or, it could be a reference dataset available independently.
+- [Apply the classifier](../sclerasql/sqlextml.md#classifier-application) to the rows with missing values of the classifier's target column. This will generate estimates for the missing values.
 
 The syntax is as follows:
 
@@ -97,7 +97,7 @@ The syntax is as follows:
 
 where:
 
-- `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression)
+- `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression)
 - `classifier_name` is the name of classifier, already trained on a clean subset of the given dataset
 - `target_column` is the column containing the missing values, which need to be estimated and filled in
 - `flag_column` is an optional column name -- if specified, a column of this name in the result will contain a value `true` if the `target_column` was originally `NULL` and is now filled with an estimated value, or `false` otherwise.

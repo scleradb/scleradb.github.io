@@ -109,12 +109,12 @@ The syntax of the operator is:
 
 where:
 
-- `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression)
+- `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression)
 - `partn_columns` is an optional comma-separated list of columns in the result of `table_expression`. When specified:
     - The result of `table_expression` is partitioned on this set of columns; the aggregation happens independently on the rows within each partition.
     - These columns will be included in each output row, alongside the aggregates for the corresponding partition.
-- `aggr_func` is an [aggregate function](/doc/ref/sqlmisc#aggregate-functions)
-- `aggr_params` is a comma-separated list of [scalar expressions](/doc/ref/sqlregular#scalar-expressions), all of whose column references are contained in the result of `table_alias`. These are the parameters of the aggregate function `aggr_func`
+- `aggr_func` is an [aggregate function](../sclerasql/sqlmisc.md#aggregate-functions)
+- `aggr_params` is a comma-separated list of [scalar expressions](../sclerasql/sqlregular.md#scalar-expressions), all of whose column references are contained in the result of `table_alias`. These are the parameters of the aggregate function `aggr_func`
 - `target_column` is the `GROUP BY` column, but the values are restricted to the `target_value` list specified next
 - `target_value` are values of `target_column`, these are the values on which the grouping of rows happens (within a partition).
     - The respective aggregates will be included in the output rows as separate columns.
@@ -172,7 +172,7 @@ The syntax of the operator is:
 
 where:
 
-- `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression).
+- `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression).
 - `label_value_column` is a column in the output of `table_expression`
 - `label` is the string-valued label associated with the column `label_value_column`; if unspecified, the name of `label_value_column` is taken as the label
 - `value_column` is the column in the result that will contain the unpivoted values

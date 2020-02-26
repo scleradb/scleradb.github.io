@@ -1,6 +1,6 @@
-The Sclera command line shell provides an interactive interface to manage and analyze your data, and also explore the Sclera metadata. The command-line is a lightweight alternative to the [Sclera Visual Shell](/doc/ref/visualshell) and does not support the [Sclera Visualization](/doc/ref/visualization) language extensions.
+The Sclera command line shell provides an interactive interface to manage and analyze your data, and also explore the Sclera metadata.
 
-The shell can be started by executing the script `$SCLERA_HOME/bin/sclera.sh`, where `$SCLERA_HOME` is the [directory where Sclera is installed](/doc/ref/install#sclera-home).
+The shell can be started by executing the script `$SCLERA_HOME/bin/sclera`, where `$SCLERA_HOME` is the [directory where Sclera is installed](../setup/install.md#sclera-home).
 
 This section lists the commands that are accepted by the shell. The commands can be given on the command line, and executed interactively. Or, they can be put in a script and executed using the `source` command.
 
@@ -12,17 +12,17 @@ In the following, the keywords appear in upper case to distinguish them from the
 This set of commands enable you to manage the configuration parameters.
 
 ### Setting the default and cache locations
-The following command sets [the `DEFAULT` location](/doc/ref/configuration#sclera-location-default) to a predefined location with name specified in `location_name`:
+The following command sets [the `DEFAULT` location](../setup/configuration.md#sclera-location-default) to a predefined location with name specified in `location_name`:
 
     SET DEFAULT LOCATION = location_name;
 
-Similarly, the following command sets [the `CACHE` location](/doc/ref/technical#cache-store) to a predefined location with name specified in `location_name`:
+Similarly, the following command sets [the `CACHE` location](../intro/technical.md#cache-store) to a predefined location with name specified in `location_name`:
 
     SET CACHE LOCATION = location_name;
 
-In either case, the `location_name` must be defined earlier using the [`ADD LOCATION` command](/doc/ref/dbms#connecting-to-database-systems).
+In either case, the `location_name` must be defined earlier using the [`ADD LOCATION` command](../setup/dbms.md#connecting-to-database-systems).
 
-The update is for the current shell session only. It does not affect the locations used in a concurrent session, or when Sclera is [accessed through `JDBC`](/doc/ref/jdbc). To persistently change the locations, please update the [`sclera.location.datacache`](/doc/ref/configuration#sclera-location-datacache) and [`sclera.location.default`](/doc/ref/configuration#sclera-location-default) configuration parameters.
+The update is for the current shell session only. It does not affect the locations used in a concurrent session, or when Sclera is [accessed through `JDBC`](../interface/jdbc.md). To persistently change the locations, please update the [`sclera.location.datacache`](../setup/configuration.md#sclera-location-datacache) and [`sclera.location.default`](../setup/configuration.md#sclera-location-default) configuration parameters.
 
 ### Activating and Deactivating Runtime Explain
 The queries and commands on the command line are translated by Sclera into a sequence of subqueries and subcommands that execute on the underlying database systems. The `EXPLAIN SCRIPT` command enables you to activate or decativate the display of these commands on the console as they are executed.
@@ -43,7 +43,7 @@ The following command shows the current default location, cache location and run
     SHOW OPTIONS;
 
 ### Display the Configuration Parameters
-The following command shows the current [configuration settings](/doc/ref/configuration):
+The following command shows the current [configuration settings](../setup/configuration.md):
 
     SHOW CONFIG;
 
@@ -52,14 +52,14 @@ The following command shows the current logging configuration:
     LOGGERCONFIG;
 
 ## Metadata Management
-Commands to manage (add and remove) data sources and underlying tables are covered in the [Sclera Database System Connection Reference](/doc/ref/dbms) document.These commands can be submitted on the command line prompt.
+Commands to manage (add and remove) data sources and underlying tables are covered in the [Sclera Database System Connection Reference](../setup/dbms.md) document.These commands can be submitted on the command line prompt.
 
 ### Creating and Dropping Metadata Tables
-In addition, the following command creates the metadata (aka schema) tables on the [designated metadata store](/doc/ref/configuration#sclera-location-schema-database):
+In addition, the following command creates the metadata (aka schema) tables on the [designated metadata store](../setup/configuration.md#sclera-location-schema-database):
 
     CREATE SCHEMA;
 
-This is needed, for instance, if you want to change the [location of the metadata store](/doc/ref/configuration#sclera-location-schema-database).
+This is needed, for instance, if you want to change the [location of the metadata store](../setup/configuration.md#sclera-location-schema-database).
 
 Also, the following command deletes the tables in the designated metadata store:
 
@@ -78,24 +78,22 @@ The following table presents the possible values of the optional parameter `list
 
 | `list_spec` | Object List |
 | ----------- | --------------- |
-| (not specified) | All objects ([tables](/doc/ref/sqlregular#creating-base-tables) across all [locations](/doc/ref/dbms#location), [views](/doc/ref/sqlregular#creating-views), [classifiers](/doc/ref/sqlextml#classification), [clusterers](/doc/ref/sqlextml#clustering) and [associators](/doc/ref/sqlextml#association-rule-mining)) |
-| `REMAINING location_name` | All [tables](/doc/ref/sqlregular#creating-base-tables) in [location](/doc/ref/dbms#location) `location_name` that have not been added  |
-| `[ TABLE ] location_name.*` | All [tables](/doc/ref/sqlregular#creating-base-tables) in [location](/doc/ref/dbms#location) `location_name` that have already been added |
-| `[ TABLE ] location_name.table_name` | [Table](/doc/ref/sqlregular#creating-base-tables) with name `table_name` added to location `location_name`, if it exists; otherwise empty |
-| `TABLE` | All [tables](/doc/ref/sqlregular#creating-base-tables) across all locations |
-| `TABLE table_name` | All [tables](/doc/ref/sqlregular#creating-base-tables) with name `table_name` across all locations |
-| `VIEW` | All [views](/doc/ref/sqlregular#creating-views) |
-| `VIEW view_name` | [View](/doc/ref/sqlregular#creating-views) with name `view_name`, if it exists; otherwise empty |
-| `CLASSIFIER` | All [classifiers](/doc/ref/sqlextml#classification) |
-| `CLASSIFIER classifier_name` | [Classifier](/doc/ref/sqlextml#classification) with name `classifier_name`, if it exists; otherwise empty |
-| `CLUSTERER` | All [clusterers](/doc/ref/sqlextml#clustering) |
-| `CLUSTERER clusterer_name` | [Clusterer](/doc/ref/sqlextml#clustering) with name `clusterer_name`, if it exists; otherwise empty |
-| `ASSOCIATOR` | All [associators](/doc/ref/sqlextml#association-rule-mining) |
-| `ASSOCIATOR associator_name` | [Associator](/doc/ref/sqlextml#association-rule-mining) with name `associator_name`, if it exists; otherwise empty |
-| `LOCATION` | All [locations](/doc/ref/dbms#location) |
+| (not specified) | All objects ([tables](../sclerasql/sqlregular.md#creating-base-tables) across all [locations](../setup/dbms.md#location), [views](../sclerasql/sqlregular.md#creating-views), [classifiers](../sclerasql/sqlextml.md#classification), [clusterers](../sclerasql/sqlextml.md#clustering) and [associators](../sclerasql/sqlextml.md#association-rule-mining)) |
+| `REMAINING location_name` | All [tables](../sclerasql/sqlregular.md#creating-base-tables) in [location](../setup/dbms.md#location) `location_name` that have not been added  |
+| `[ TABLE ] location_name.*` | All [tables](../sclerasql/sqlregular.md#creating-base-tables) in [location](../setup/dbms.md#location) `location_name` that have already been added |
+| `[ TABLE ] location_name.table_name` | [Table](../sclerasql/sqlregular.md#creating-base-tables) with name `table_name` added to location `location_name`, if it exists; otherwise empty |
+| `TABLE` | All [tables](../sclerasql/sqlregular.md#creating-base-tables) across all locations |
+| `TABLE table_name` | All [tables](../sclerasql/sqlregular.md#creating-base-tables) with name `table_name` across all locations |
+| `VIEW` | All [views](../sclerasql/sqlregular.md#creating-views) |
+| `VIEW view_name` | [View](../sclerasql/sqlregular.md#creating-views) with name `view_name`, if it exists; otherwise empty |
+| `CLASSIFIER` | All [classifiers](../sclerasql/sqlextml.md#classification) |
+| `CLASSIFIER classifier_name` | [Classifier](../sclerasql/sqlextml.md#classification) with name `classifier_name`, if it exists; otherwise empty |
+| `CLUSTERER` | All [clusterers](../sclerasql/sqlextml.md#clustering) |
+| `CLUSTERER clusterer_name` | [Clusterer](../sclerasql/sqlextml.md#clustering) with name `clusterer_name`, if it exists; otherwise empty |
+| `LOCATION` | All [locations](../setup/dbms.md#location) |
 
 ## ScleraSQL Commands
-ScleraSQL queries and commands accepted by Sclera are discussed in the [ScleraSQL Reference](/doc/ref/sqlintro) document. These can be submitted on the command line prompt. Commands are executed silently, while returned query results are displayed in a table format.
+ScleraSQL queries and commands accepted by Sclera are discussed in the [ScleraSQL Reference](../sclerasql/sqlintro.md) document. These can be submitted on the command line prompt. Commands are executed silently, while returned query results are displayed in a table format.
 
 ### Looking Deeper with the Explain Command
 In addition, the shell has an `EXPLAIN` command that explains a query is executed by Sclera. The `EXPLAIN` command comes in two variants.
@@ -110,9 +108,9 @@ The second variant, called the compile-time explain, has the following syntax:
 
     EXPLAIN table_expression;
 
-This variant takes a [table expression `table_expression`](/doc/ref/sqlregular#table-expression) (i.e. [a SQL query](/doc/ref/sqlregular#querying-data-using-generalized-table-expressions)) as a parameter.
+This variant takes a [table expression `table_expression`](../sclerasql/sqlregular.md#table-expression) (i.e. [a SQL query](../sclerasql/sqlregular.md#querying-data-using-generalized-table-expressions)) as a parameter.
 
-The `table_expression` is [parsed and optimized by the query processor](/doc/ref/technical#query-processor), and the resulting plan is then displayed on the console. Note that unlike the `EXPLAIN SCRIPT`, the query is not executed; the output shows how Sclera *plans* to execute the query if given without the `EXPLAIN`.
+The `table_expression` is [parsed and optimized by the query processor](../intro/technical.md#query-processor), and the resulting plan is then displayed on the console. Note that unlike the `EXPLAIN SCRIPT`, the query is not executed; the output shows how Sclera *plans* to execute the query if given without the `EXPLAIN`.
 
 This variant is useful when you want to explore how a query will be evaluated by Sclera, without actually evaluating the same.
 
@@ -127,7 +125,7 @@ where `script_file_path` is the full path of the command script to be executed.
 The file is read, and each command therein is executed in sequence; the output of the command, if any, is displayed on the console as the command is executed.
 
 ## Usability Features
-The shell maintains a command history, at a location given by the [`sclera.shell.history` configuration parameter](/doc/ref/configuration#sclera-shell-history). You can navigate the history using the up/down keys.
+The shell maintains a command history, at a location given by the [`sclera.shell.history` configuration parameter](../setup/configuration.md#sclera-shell-history). You can navigate the history using the up/down keys.
 
 You can complete words by pressing tab. The word completion alternatives presented are not context sensitive, but that may change in future versions.
 
@@ -142,16 +140,3 @@ This is equivalent to exiting and restarting the shell.
 A line with two consecutive hyphens (`"--"`) as the first non-whitespace characters is considered a comment, and is ignored. Unlike standard SQL and PostgreSQL, comments cannot start midway in a line, after a valid input.
 
 Comments are only permitted in the shell, and in scripts input to the shell.
-
-## JDBC/ODBC Server
-
-Starting with Sclera 2.2, the shell can be used to start a TCP server that implements the [PostgreSQL backend protocol](http://www.postgresql.org/docs/9.4/static/protocol-overview.html) 3.0, which is compatible with PostgreSQL 7.4+.
-
-Though this server, Sclera can interface with the latest [PostgreSQL ODBC](https://odbc.postgresql.org/) and [JDBC](https://jdbc.postgresql.org/) drivers, [PostgreSQL’s shell (`psql`)](http://www.postgresql.org/docs/9.4/static/app-psql.html), and anything else that uses [PostgreSQL’s native protocol (libpq)](http://www.postgresql.org/docs/9.4/static/libpq.html).
-
-Details on how to start/stop this server and configure the connections appear in a [separate document](/doc/ref/server).
-
-## User and Password Management
-
-Starting with Sclera 2.2, the shell can be used to add a password, and to create and remove users. This is discussed in a [separate document](/doc/ref/users).
-

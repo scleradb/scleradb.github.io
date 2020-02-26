@@ -11,7 +11,7 @@ The query processor is responsible for compiling and evaluating the input query,
 #### Parsing
 The query is parsed into an operator plan. This plan contains the details of the base data and the relational operations to be performed on that data to get the final result.
 
-The data source can be a [table in a linked datastore](/doc/ref/dbms#importing-database-tables), or a [text](/doc/ref/sqlextdataaccess#sclera-textfile) or [CSV](/doc/ref/sqlextdataaccess#sclera-csv) file on the disk, or a [web service](/doc/ref/sqlextdataaccess#sclera-stockticker). The operations can be standard *relational operators* (e.g. filters, project, join, group-by aggregation), or *extension operators* (e.g. classification, clustering, entity extraction).
+The data source can be a [table in a linked datastore](../setup/dbms.md#importing-database-tables), or a [text](../sclerasql/sqlextdataaccess.md#sclera-textfile) or [CSV](../sclerasql/sqlextdataaccess.md#sclera-csv) file on the disk, or a [web service](../sclerasql/sqlextdataaccess.md#sclera-stockticker). The operations can be standard *relational operators* (e.g. filters, project, join, group-by aggregation), or *extension operators* (e.g. classification, clustering, entity extraction).
 
 #### Optimization
 A query optimizer rewrites the plan by reordering the operations to make it more efficient.
@@ -30,7 +30,7 @@ Let us consider single-input relational operators first. If the input to the rel
 
 Planning of multi-input operators is more involved. We take the example of `JOIN`.
 
-[Recall](/doc/ref/sqlregular#from-table-join) that comma-separated `from_items` appear in the `FROM` clause are converted into a sequence of binary cross-products, which may later be converted into binary joins based on the predicates in the `WHERE` clause. In this section, we only consider planning of a join with two inputs.
+[Recall](../sclerasql/sqlregular.md#from-table-join) that comma-separated `from_items` appear in the `FROM` clause are converted into a sequence of binary cross-products, which may later be converted into binary joins based on the predicates in the `WHERE` clause. In this section, we only consider planning of a join with two inputs.
 
 The inputs to the join are planned recursively; after planning, each input is either an expression that is to be pushed down to an underlying system as a query for evaluation, or a data stream that is the either the result of prior in-memory computations, or ingested from an external source. Further, we assume if an input is a data stream, it is the left input -- if the left input is not a data stream, but the right input is, the join is rewritten to commute its inputs.
 
@@ -65,7 +65,7 @@ In this case, the join expression is pushed down to the common location, and is 
 This is a cross-system join. To evaluate a cross-system join, Sclera needs all the inputs to be present at a single location; let us call this the "target location" for the join. This target location is decided as follows:
 
 - For each input, Sclera finds the location of the underlying data. These locations are the candidates for the target location, and are listed in the order of appearance of the corresponding `from_item` in the `FROM` clause. The list may contain duplicates.
-- From this list, Sclera then removes the [cache store](#cache-store), if present, as well as the ["read-only" locations](/doc/ref/dbms#read-write-versus-read-only-mode).
+- From this list, Sclera then removes the [cache store](#cache-store), if present, as well as the ["read-only" locations](../setup/dbms.md#read-write-versus-read-only-mode).
 - If the list is empty, Sclera assigns the [cache store](#cache-store) as the target location. This has the effect that cross-system joins across multiple read-only locations are evaluated by moving all the data to the cache store; the join is then computed at the cache store.
 - If the list is not empty, Sclera assigns the location of the left input the target location. This has the effect that all the data from locations other than the assigned target location is moved to the target location, where the join is then computed.
 
@@ -73,7 +73,7 @@ The ordering of the `from_item`s in a `FROM` clause thus matters when evaluating
 
 Specifically, when specifying a join between a relational database and HBase, if large amount of data in HBase is expected to be involved in the join, then you should place the HBase source leftmost in the `FROM` list; this will ensure that HBase is picked as the target location in the join.
 
-In any case, when evaluating a query with a cross-system join, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](/doc/ref/shell#compile-time-explain)) before submitting the query.
+In any case, when evaluating a query with a cross-system join, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](../interface/shell.md#compile-time-explain)) before submitting the query.
 
 In the current version, Sclera moves data from a "source" to a "target" database system by reading in the data from the source and inserting it into a temporary table in the target. This transfer is done in a streaming (pipelined) manner wherever possible, to avoid reading the entire result in memory. This could be a bottleneck when large amounts of data (millions of rows) are transferred. More efficient data transfer mechanisms will be in place in later versions of Sclera.
 
@@ -82,7 +82,7 @@ These operators are evaluated using external libraries available through a compo
 
 If the input is not already available in memory (entirely, or as a stream/iterator from a datastore), it is fetched using the datastore's interface (e.g. JDBC/SQL for a RDBMS). The component then passes the input to the associated library (after appropriate transformations, if needed); the operator's result is then computed using the library's API.
 
-An operator could be evaluated using multiple alternative [components](/doc/ref/components). For instance, the ["classification"](/doc/ref/sqlextml#classification) operator could be evaluated using [WEKA](http://www.cs.waikato.ac.nz/ml/weka/) ([component: `sclera-weka`](/doc/ref/components#sclera-weka)) or using [Apache Mahout](http://mahout.apache.org) ([component: `sclera-mahout`](/doc/ref/components#sclera-mahout)). The specific library/component used can be enforced by the query, or through defaults in the configuration. See the [SQL documentation](/doc/ref/sqlextml#extended-syntax-for-using-specific-libraries-and-algorithms) for details.
+An operator could be evaluated using multiple alternative [components](../setup/components.md). For instance, the ["classification"](../sclerasql/sqlextml.md#classification) operator could be evaluated using [WEKA](http://www.cs.waikato.ac.nz/ml/weka/) ([component: `sclera-weka`](../setup/components.md#sclera-weka)), or any other machine learning plugin. The specific library/component used can be enforced by the query, or through defaults in the configuration. See the [SQL documentation](../sclerasql/sqlextml.md#extended-syntax-for-using-specific-libraries-and-algorithms) for details.
 
 Note that the way the input is prepared and/or the result is obtained could be very different for different libraries. Without Sclera, moving from one library to an alternative library with similar functionality would be a messy "porting" job. With Sclera, all that complexity is taken care of under the hood.
 
@@ -97,11 +97,11 @@ In either case, Sclera interfaces with the underlying systems' APIs to get the t
 ## Schema Store
 The schema store contains the metadata that enables the [SQL processor](#sql-processor) to plan the SQL statements for execution on the underlying systems. This metadata includes:
 
-- The connection parameters for every [database system that is connected to Sclera](/doc/ref/dbms#connecting-to-database-systems).
-- The schema of the [tables imported from the connected database systems](/doc/ref/dbms#importing-database-tables)
-- Specification of the [virtual tables](/doc/ref/sqlregular#creating-views)
+- The connection parameters for every [database system that is connected to Sclera](../setup/dbms.md#connecting-to-database-systems).
+- The schema of the [tables imported from the connected database systems](../setup/dbms.md#importing-database-tables)
+- Specification of the [virtual tables](../sclerasql/sqlregular.md#creating-views)
 
-By default, an embedded [H2 database](http://www.h2database.com) is used as a data store. This default can be changed by modifying the [configuration](/doc/ref/configuration#sclera-location-schema-database).
+By default, an embedded [H2 database](http://www.h2database.com) is used as a data store. This default can be changed by modifying the [configuration](../setup/configuration.md#sclera-location-schema-database).
 
 ## Cache Store
-The cache store is used by the [query processor](#query-processor) for evaluationg relational operators on intermediate results. By default, an embedded [H2 main-memory database](http://www.h2database.com) is used as a cache data store. This default can be changed by modifying the [configuration](/doc/ref/configuration#sclera-location-datacache).
+The cache store is used by the [query processor](#query-processor) for evaluationg relational operators on intermediate results. By default, an embedded [H2 main-memory database](http://www.h2database.com) is used as a cache data store. This default can be changed by modifying the [configuration](../setup/configuration.md#sclera-location-datacache).

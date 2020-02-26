@@ -1,7 +1,5 @@
 This document provides the information you need to know to start using Sclera's embedded JDBC driver. The Sclera JDBC driver provides a standard API to manage and analyze your data from within a Java (more generally, JVM) application.
 
-The embedded JDBC interface discussed in this document is an alternative to the [server mode operation](/doc/ref/server), where you first need to start a server, and the JDBC driver then interfaces with the server over a network connection. For more on the server mode operation, please refer to the [Sclera server documentation](/doc/ref/server).
-
 This document is not a tutorial on how to use JDBC. JDBC is a Java standard; to get started on the basics, please refer to the the excellent tutorials and references provided by [Oracle](http://docs.oracle.com/javase/tutorial/jdbc/basics/index.html) and [PostgreSQL](http://jdbc.postgresql.org/documentation/92/index.html). Also, the [Wikipedia entry on JDBC](http://en.wikipedia.org/wiki/Java_Database_Connectivity) gives a quick overview.
 
 ## Setting the `CLASSPATH`
@@ -11,15 +9,15 @@ The bash script `$SCLERA_HOME/bin/setclasspath.sh` sets the required `CLASSPATH`
 
     source $SCLERA_HOME/bin/setclasspath.sh
 
-In the above, `$SCLERA_HOME` is the [directory where Sclera is installed](/doc/ref/install#sclera-home).
+In the above, `$SCLERA_HOME` is the [directory where Sclera is installed](../setup/install.md#sclera-home).
 
 ## JDBC URL
 The JDBC driver is accessed through the URL `jdbc:scleradb`.
 
 ## Supported Statements
-The JDBC driver accepts all [SQL statements supported by Sclera](/doc/ref/sqlintro).
+The JDBC driver accepts all [SQL statements supported by Sclera](../sclerasql/sqlintro.md).
 
-The queries return [`ResultSet` objects](http://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html), as required by the standard. However, the non-query statements (`CREATE`, `INSERT`, `UPDATE` and `DELETE`), which may be [required by the standard](http://jdbc.postgresql.org/documentation/92/update.html) to return the number of rows inserted or updated, may not return the correct number; this is because the underlying sources with non-SQL/JDBC interfaces (such as [Apache HBase](/doc/ref/components#sclera-hbase)) may not return the required information.
+The queries return [`ResultSet` objects](http://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html), as required by the standard. However, the non-query statements (`CREATE`, `INSERT`, `UPDATE` and `DELETE`), which may be [required by the standard](http://jdbc.postgresql.org/documentation/92/update.html) to return the number of rows inserted or updated, may not return the correct number; this is because the underlying sources with non-SQL/JDBC interfaces (such as [Apache HBase](../setup/components.md#sclera-hbase)) may not return the required information.
 
 ## Limitations
 The JDBC support is partial (for instance, functions related to transaction processing and cursors are not supported, and only forward scans of resultsets are permitted). However, the supported API should suffice for most analytics applications, and for interfacing with most JDBC-compliant BI tools.
@@ -34,6 +32,6 @@ The JDBC support also enables your existing applications and reporting tools to 
 
 You need to [set the classpath](#setting-the-classpath) to make Sclera visible to the application. Note that Sclera's SQL is largely compatible with PostgreSQL, so you can mention PostgreSQL when asked, but actually use Sclera's JDBC driver.
 
-Some applications and reporting tools can only accept (or generate) [standard SQL](/doc/ref/sqlregular). Such tools do not accept the [SQL extensions](/doc/ref/sqlintro) needed to perform advanced analytics within your queries. To use such extensions, you need to define [views](/doc/ref/sqlregular#creating-views) within Sclera to perform the required analytics, and then have the application or reporting tool use these views in its queries.
+Some applications and reporting tools can only accept (or generate) [standard SQL](../sclerasql/sqlregular.md). Such tools do not accept the [SQL extensions](../sclerasql/sqlintro.md) needed to perform advanced analytics within your queries. To use such extensions, you need to define [views](../sclerasql/sqlregular.md#creating-views) within Sclera to perform the required analytics, and then have the application or reporting tool use these views in its queries.
 
 The exact directions depend upon the specific application that you want to link. If you face a problem in linking your application to Sclera, please let us know by sending an email to support@scleradb.com, or [filing a support ticket](/support).

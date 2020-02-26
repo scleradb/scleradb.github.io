@@ -72,9 +72,9 @@ No, Sclera complements your database systems. Sclera works with your database sy
 
 Sclera is a "SQL-on-Anything" system.
 
-The [Sclera - Apache HBase Connector](/doc/ref/components#sclera-hbase) enables Sclera to run SQL on Apache HBase (which sits over Hadoop).
+The [Sclera - Apache HBase Connector](../setup/components.md#sclera-hbase) enables Sclera to run SQL on Apache HBase (which sits over Hadoop).
 
-If you need to work on files stored in HDFS, you can build a custom connector using the [Hadoop FileSystem API](https://hadoop.apache.org/docs/current/api/index.html?org/apache/hadoop/fs/FileSystem.html) and the [Sclera Extensions SDK](/doc/sdk/sdkextdataaccess). Sclera can provide a pre-built extension on request  -- please send a mail to support@scleradb.com.
+If you need to work on files stored in HDFS, you can build a custom connector using the [Hadoop FileSystem API](https://hadoop.apache.org/docs/current/api/index.html?org/apache/hadoop/fs/FileSystem.html) and the [Sclera Extensions SDK](../sdk/sdkextdataaccess.md). Sclera can provide a pre-built extension on request  -- please send a mail to support@scleradb.com.
 
 ## How does Sclera compare with R?
 
@@ -86,7 +86,7 @@ Further, it is hard to efficiently integrate R with the rest of your eco-system.
 
 Sclera does not claim to provide the functionality in the hundreds of R modules -- but its own set of analytics extensions should provide most of the capabilities you need, and are well-integrated with your existing ecosystem.
 
-As an alternative, the [Sclera Extensions SDK](/doc/sdk/sdkextdataaccess) can be used to call R from with SQL, using the [Java/R Interface - JRI](http://rforge.net/JRI/).
+As an alternative, the [Sclera Extensions SDK](../sdk/sdkextdataaccess.md) can be used to call R from with SQL, using the [Java/R Interface - JRI](http://rforge.net/JRI/).
 
 <a class="anchor" name="scleraviz"></a>
 ## How does Sclera Visualization compare with ggplot2 and D3?
@@ -95,7 +95,7 @@ As an alternative, the [Sclera Extensions SDK](/doc/sdk/sdkextdataaccess) can be
 
 [D3](http://d3js.org) is a brilliant Javascript library for creating dynamic, interactive graphs in your browser. To use D3, you need to be a proficient Javascript programmer. Support for streaming data has to be built from ground-up in Javascript as well. Furthermore, D3 is confined to the web-browser, so all the needed data transformations needed for visualization happen within the browser, which is computationally expensive for devices such as mobile phones.
 
-[Sclera Visualization (ScleraViz)](/scleraviz), like `ggplot2`, is also inspired by the [Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html). ScleraViz is implemented as an extension to [ScleraSQL](/doc/ref/sqlintro) and uses [D3](http://d3js.org) as the rendering engine.
+[Sclera Visualization (ScleraViz)](/scleraviz), like `ggplot2`, is also inspired by the [Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html). ScleraViz is implemented as an extension to [ScleraSQL](../sclerasql/sqlintro.md) and uses [D3](http://d3js.org) as the rendering engine.
 
 ScleraViz brings the expressibility of `ggplot2` and the power of D3 to SQL users. Unlike `ggplot2`, ScleraViz can clean, analyze and plot streaming data. Also, unlike visualization implemented in D3, Sclera pushes expensive computations to the backend database servers, keeping the rendering lean and efficient.
 
@@ -103,23 +103,23 @@ ScleraViz brings the expressibility of `ggplot2` and the power of D3 to SQL user
 
 Yes. Sclera works with any database system that can be accessed with an API. You just need a connector to interface with the system.
 
-[Google Cloud SQL](https://cloud.google.com/sql/) is compatible with MySQL, and [Amazon RDS](http://aws.amazon.com/rds/) provides MySQL, PostgreSQL and Oracle instances in the cloud. These database systems can be accessed using the relevant included database connector ([sclera-mysql](/doc/ref/components#sclera-mysql-connector), [sclera-postgresql](/doc/ref/components#sclera-postgresql-connector) or [sclera-oracle](/doc/ref/components#sclera-oracle-connector)), simply by putting the appropriate JDBC URL in the [ADD LOCATION](/doc/ref/dbms#connecting-to-database-systems) statements.
+[Google Cloud SQL](https://cloud.google.com/sql/) is compatible with MySQL, and [Amazon RDS](http://aws.amazon.com/rds/) provides MySQL, PostgreSQL and Oracle instances in the cloud. These database systems can be accessed using the relevant included database connector ([sclera-mysql](../setup/components.md#sclera-mysql-connector), [sclera-postgresql](../setup/components.md#sclera-postgresql-connector) or [sclera-oracle](../setup/components.md#sclera-oracle-connector)), simply by putting the appropriate JDBC URL in the [ADD LOCATION](../setup/dbms.md#connecting-to-database-systems) statements.
 
 ## Can Sclera work with web-services?
 
-Sclera provides a [Sclera Extensions SDK](/doc/sdk/sdkextdataaccess) that enables ingestion of data from of any data source into Sclera. A specific connector for the [Google Finance web-service](/doc/ref/components#stock-ticker) is included as an [illustrative example](/doc/sdk/sdkextdataaccess#example). The code for the same can be accessed at [GitHub](https://github.com/scleradb).
+Sclera provides a [Sclera Extensions SDK](../sdk/sdkextdataaccess.md) that enables ingestion of data from of any data source into Sclera. A specific connector for the [Google Finance web-service](../setup/components.md#stock-ticker) is included as an [illustrative example](../sdk/sdkextdataaccess.md#example). The code for the same can be accessed at [GitHub](https://github.com/scleradb).
 
 ## Can Sclera work with my legacy data store?
 
-The [Sclera Extensions SDK for external data access](/doc/sdk/sdkextdataaccess) or the [Sclera Extension SDK for database systems](/doc/sdk/sdkdbms) can be used to build custom connectors to your legacy data store. The former is used when you just want to source data from the data sore, and the latter when you want to push computation (such as filter, join) to the data store.
+The [Sclera Extensions SDK for external data access](../sdk/sdkextdataaccess.md) or the [Sclera Extension SDK for database systems](../sdk/sdkextdbms.md) can be used to build custom connectors to your legacy data store. The former is used when you just want to source data from the data sore, and the latter when you want to push computation (such as filter, join) to the data store.
 
-You can build the connector yourself using the [Sclera Extensions SDK](/doc/sdk/sdkextdbms), or request us by sending a mail to support@scleradb.com with the details.
+You can build the connector yourself using the [Sclera Extensions SDK](../sdk/sdkextdbms.md), or request us by sending a mail to support@scleradb.com with the details.
 
 ## Can Sclera work with my reporting software?
 
 Sclera understands a large subset of PostgreSQL's dialect of SQL. Therefore, Sclera should work with any reporting tool that works with PostgreSQL.
 
-In such tools, Sclera's JDBC driver, downloaded as a part of the installation, can be used as a drop-in replacement for PostgreSQL JDBC driver. The details on the usage of the driver appear in the [Sclera JDBC reference](/doc/ref/jdbc) document.
+In such tools, Sclera's JDBC driver, downloaded as a part of the installation, can be used as a drop-in replacement for PostgreSQL JDBC driver. The details on the usage of the driver appear in the [Sclera JDBC reference](../interface/jdbc.md) document.
 
 Alternatively, Sclera can work in a server mode that implements the [PostgreSQL backend protocol](http://www.postgresql.org/docs/9.4/static/protocol-overview.html) 3.0, which is compatible with PostgreSQL 7.4+.
 
@@ -129,17 +129,17 @@ Though this server, Sclera can interface with the latest [PostgreSQL ODBC](https
 
 Connected to Sclera, your reporting software can be used to query data across multiple underlying data sources. However, since these tools do not understand Sclera's extensions, they cannot generate queries with embedded analytics.
 
-A simple workaround is to [create views](/doc/ref/sqlregular#views) in Sclera -- the view definition can contain arbitrary Sclera extensions, but to the external tool, they are equivalent to a relational table. Any query on such a view generated by the tool will evaluate the analytics operators included in the view definition.
+A simple workaround is to [create views](../sclerasql/sqlregular.md#views) in Sclera -- the view definition can contain arbitrary Sclera extensions, but to the external tool, they are equivalent to a relational table. Any query on such a view generated by the tool will evaluate the analytics operators included in the view definition.
 
 ## Can Sclera work with an analytics library of my choice?
 
-Yes, but the support is currenly limited to classification, clustering and association rule mining. You will need to map the classification, clustering and/or association rule API in the [Sclera Extensions SDK](/doc/sdk/sdkextml) to your library's API.
+Yes, but the support is currenly limited to classification, clustering and association rule mining. You will need to map the classification, clustering and/or association rule API in the [Sclera Extensions SDK](../sdk/sdkextml.md) to your library's API.
 
-The code for the [Sclera - Weka Connector](/doc/ref/components#sclera-weka) appears as an illustrative example on [GitHub](https://github.com/scleradb/sclera-extensions-scala).
+The code for the [Sclera - Weka Connector](../setup/components.md#sclera-weka) appears as an illustrative example on [GitHub](https://github.com/scleradb/sclera-extensions-scala).
 
 ## How do I ingest data streams into Sclera?
 
-Sclera provides a very simple API though the [Sclera Extensions SDK](/doc/sdk/sdkextdataaccess). A connector built using this API can be used to ingest data streams -- these data streams can then be used in the `FROM` clause of SQL queries.
+Sclera provides a very simple API though the [Sclera Extensions SDK](../sdk/sdkextdataaccess.md). A connector built using this API can be used to ingest data streams -- these data streams can then be used in the `FROM` clause of SQL queries.
 
 ## What do I need to know before using Sclera?
 
