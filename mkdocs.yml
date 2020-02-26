@@ -25,8 +25,8 @@ nav:
         - 'Data Platform Connection Reference': setup/dbms.md
         - 'Configuration Reference': setup/configuration.md
     - 'ScleraSQL':
-        - 'Examples': sclerasql/sqlexamples.md
-        - 'Introduction': sclerasql/sqlintro.md
+        - 'ScleraSQL Examples': sclerasql/sqlexamples.md
+        - 'ScleraSQL Introduction': sclerasql/sqlintro.md
         - 'Standard SQL': sclerasql/sqlregular.md
         - 'Using Cross-Tabulation': sclerasql/sqlcrosstab.md
         - 'Processing Ordered Data': sclerasql/sqlextordered.md
@@ -42,11 +42,11 @@ nav:
         - 'Command Line Shell Reference': interface/shell.md
         - 'Embedded JDBC Reference': interface/jdbc.md
     - 'Sclera Extensions SDK':
-        - 'Introduction': sdk/sdkintro.md
-        - 'Data Access Connectors': sdk/sdkextdataaccess.md
-        - 'Database System Connectors': sdk/sdkextdbms.md
-        - 'Machine Learning Library Connectors': sdk/sdkextml.md
-        - 'Text Analytics Library Connectors': sdk/sdkexttext.md
+        - 'Extensions SDK Introduction': sdk/sdkintro.md
+        - 'Data Access Plugins': sdk/sdkextdataaccess.md
+        - 'Database System Plugins': sdk/sdkextdbms.md
+        - 'Machine Learning Library Plugins': sdk/sdkextml.md
+        - 'Text Analytics Library Plugins': sdk/sdkexttext.md
     - 'Component Third Party Dependencies': misc/dependencies.md
     - 'Component Licenses': misc/licenses.md
 
@@ -55,8 +55,11 @@ theme:
     logo: "../images/sclera-logo-square.png"
     favicon: "../images/icons/favicon.ico"
     palette:
-        primary: 'black'
+        primary: 'indigo'
         accent: 'indigo'
+
+extra_css:
+    - ../css/docs.css
 
 extra:
     social:
