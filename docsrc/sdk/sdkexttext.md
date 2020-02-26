@@ -1,6 +1,6 @@
 In this document, we show how to build custom connectors to any NLP / text analytics library to perform text analytics tasks. These connectors handle the invocation of the underlying library to process text data in table columns, in the query processing pipeline.
 
-The component [Sclera - Apache OpenNLP Connector](/doc/ref/components#sclera-opennlp) is built using this SDK. For examples of how the connector is used in Sclera, please refer to the [documentation on using text analytics in SQL](/doc/ref/sqlexttext).
+The component [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-opennlp) is built using this SDK. For examples of how the connector is used in Sclera, please refer to the [documentation on using text analytics in SQL](../sclerasql/sqlexttext.md).
 
 ## Building Text Analytics Library Connectors
 
@@ -14,21 +14,21 @@ To build a custom datasource connector, you need to provide implementations of t
     - Wrapper over classes implementing text analytics algorithms.
     - Provides a function `eval` that takes a data stream (an iterator over rows, with associated metadata) as input and returns the same data stream, with each row augmented by columns `resultCols` containing the output of executing the task `taskName` on the text in column `inputCol`. If the evaluation on a row emits multiple evaluation results, the input row is repeated in the output for each such result.
 
-The [Sclera - Apache OpenNLP Connector](/doc/ref/components#sclera-opennlp), included with the Sclera platform, is open source and implements the interface mentioned above. The code for the [Sclera - Apache OpenNLP Connector](/doc/ref/components#sclera-opennlp), in Scala, also appears as an illustrative example in the [Sclera Extensions (Scala) Github repository](https://github.com/scleradb/sclera-extensions-scala).
+The [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-opennlp), included with the Sclera platform, is open source and implements the interface mentioned above. The code for the [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-opennlp), in Scala, also appears as an illustrative example in the [Sclera Extensions (Scala) Github repository](https://github.com/scleradb/sclera-extensions-scala).
  
 ## Packaging and Deploying the Connector
 
-The included [Sclera - Apache OpenNLP Connector](/doc/ref/components#sclera-mysql) implementation uses [sbt](http://www.scala-sbt.org) for building the connector [(installation details)](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt). This is not a requirement -- any other build tool can be used instead.
+The included [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-mysql) implementation uses [sbt](http://www.scala-sbt.org) for building the connector [(installation details)](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt). This is not a requirement -- any other build tool can be used instead.
 
 ### Dependencies
 
 For Scala:
 
-- The Scala implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-opennlp/build.sbt) for the details. Note that the dependency is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Scala implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-opennlp/build.sbt) for the details. Note that the dependency is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 For Java:
 
-- The Java implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). Note that the dependency on `"sclera-core"` is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Java implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). Note that the dependency on `"sclera-core"` is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 ### Deployment Steps
 

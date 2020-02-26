@@ -1,10 +1,10 @@
 This section lists the supported [aggregate functions](#aggregate-functions), [data types](#data-types) and [reserved words](#reserved-words) in Sclera' SQL.
 
 ## Aggregate Functions
-The aggregate functions supported in Sclera can be [order-insensitive](#order-insensitive-aggregate-functions), which apply to both [ordered](/doc/ref/sqlextordered#running-aggregates) and [unordered data](/doc/ref/sqlregular#aggregation), or [order-sensitive](#order-sensitive-aggregate-functions), which apply only to [ordered data](/doc/ref/sqlextordered#running-aggregates).
+The aggregate functions supported in Sclera can be [order-insensitive](#order-insensitive-aggregate-functions), which apply to both [ordered](../sclerasql/sqlextordered.md#running-aggregates) and [unordered data](../sclerasql/sqlregular.md#aggregation), or [order-sensitive](#order-sensitive-aggregate-functions), which apply only to [ordered data](../sclerasql/sqlextordered.md#running-aggregates).
 
 ### Order-Insensitive Aggregate Functions
-These functions can be used in standard [SQL aggregates](/doc/ref/sqlregular#aggregation) as well as in [running aggregates on ordered data](/doc/ref/sqlextordered#running-aggregates) (table adapted from [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/functions-aggregate.html)):
+These functions can be used in standard [SQL aggregates](../sclerasql/sqlregular.md#aggregation) as well as in [running aggregates on ordered data](../sclerasql/sqlextordered.md#running-aggregates) (table adapted from [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/functions-aggregate.html)):
 
 | Aggregate | Argument Type | Return Type | Description |
 | --------- | ------------- | ----------- | ----------- |
@@ -37,7 +37,7 @@ These functions can be used in standard [SQL aggregates](/doc/ref/sqlregular#agg
 | `var_samp(expression)` | any numeric type | `FLOAT` | sample variance of the input values (square of the sample standard deviation) |
 
 ### Order-Sensitive Aggregate Functions
-These functions can only be used in [running aggregates on ordered data](/doc/ref/sqlextordered#running-aggregates) (table adapted from [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/functions-window.html#FUNCTIONS-WINDOW-TABLE)):
+These functions can only be used in [running aggregates on ordered data](../sclerasql/sqlextordered.md#running-aggregates) (table adapted from [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/functions-window.html#FUNCTIONS-WINDOW-TABLE)):
 
 | Function | Return Type | Description |
 | -------- | ----------- | ----------- |

@@ -6,14 +6,14 @@ We can think of `ALIGN` as a type of `JOIN` for ordered sequences. The differenc
 
 The alignment is done using a technique called [Dynamic Time Warping](https://en.wikipedia.org/wiki/Dynamic_time_warping).
 
-The syntax is similar to the SQL [`JOIN`](/doc/ref/sqlregular#from-table-join) syntax, and is as follows:
+The syntax is similar to the SQL [`JOIN`](../sclerasql/sqlregular.md#from-table-join) syntax, and is as follows:
 
         table_expression ALIGN table_expression [ ON distance [ MARGIN margin ] ]
 
 where:
 
-- `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression)
-- `distance` is a numeric [scalar expression](/doc/ref/sqlregular#scalar-expressions) that gives the distance between a row in the left input and a row in the right input
+- `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression)
+- `distance` is a numeric [scalar expression](../sclerasql/sqlregular.md#scalar-expressions) that gives the distance between a row in the left input and a row in the right input
 - `margin` specifies the maximum number of skipped rows between two aligned rows, as [explained earlier](#margin)
 
 If the distance is not specified or is a constant, or if the margin is `zero`, the operator simply aligns the rows at position `i` in one input with the row in position `i` in the right input.

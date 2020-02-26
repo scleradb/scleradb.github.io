@@ -1,4 +1,4 @@
-In this section, we describe the standard SQL constructs and query clauses supported by Sclera. The extensions are covered in [later sections](/doc/ref/sqlintro).
+In this section, we describe the standard SQL constructs and query clauses supported by Sclera. The extensions are covered in [later sections](../sclerasql/sqlintro.md).
 
 The SQL constructs discussed below enable you to create, populate, query, update and delete base tables; these lie at the core of Sclera, and are supported across all editions.
 
@@ -49,7 +49,7 @@ The `FROM` clause specifies the input to the query as a list of `from_item` elem
 <a class="anchor" name="from-item"></a>Each `from_item` in the `FROM` clause can be one of:
 
 - <a class="anchor" name="from-table-name"></a>`[location_name.]table_name [ [ AS ] alias [ ( column_alias [, ...] ) ] ]`
-    - `table_name` is a base table at the data [location](/doc/ref/dbms#location) `location_name`.
+    - `table_name` is a base table at the data [location](../setup/dbms.md#location) `location_name`.
         - If the `table_name` is unique across the locations, you can omit the `location_name`.
     - `alias`, when specified, becomes the substitute name for `table_name` within the scope of the query. If `alias` is specified, `table_name` can no longer be used in any [expression](#scalar-expressions).
     - <a class="anchor" name="column-alias"></a>`column_alias`, when specified, becomes the substitute name for the corresponding column in the table `table_name`. If `column_alias` is specified for a column, the original column name can no longer be used in any [expression](#scalar-expressions).
@@ -82,11 +82,11 @@ This clause is compliant with the supported subset of the SQL standard and [Post
 #### Cross-System Joins
 When a join contains inputs from more than one database system, it is a cross-system join.
 
-While planning the evaluation of cross-system joins, Sclera considers the left input of a join larger than the right input, and prefers moving the right input to the left input's location. The ordering of the `from_item`s in a `FROM` clause thus matters when evaluating cross-system joins (see the [technical documentation](/doc/ref/technical#relational-operators) for details). While this enables you to control how data is moved while evaluating a query, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.
+While planning the evaluation of cross-system joins, Sclera considers the left input of a join larger than the right input, and prefers moving the right input to the left input's location. The ordering of the `from_item`s in a `FROM` clause thus matters when evaluating cross-system joins (see the [technical documentation](../intro/technical.md#relational-operators) for details). While this enables you to control how data is moved while evaluating a query, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.
 
 Specifically, when specifying a join between a relational database and HBase, if large amount of data in HBase is expected to be involved in the join, then you should place the HBase source leftmost in the `FROM` list; this will ensure that data from the relational database is moved to HBase for the join, not vice-versa.
 
-In any case, when evaluating a query with a cross-system join, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](/doc/ref/shell#compile-time-explain)) before submitting the query.
+In any case, when evaluating a query with a cross-system join, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](../interface/shell.md#compile-time-explain)) before submitting the query.
 
 ### `WHERE` Clause
 The `WHERE` clause specifies a boolean [expression](#scalar-expressions) on the column names in the output of the [`FROM` clause](#from-clause). This boolean expression is used to filter the rows in the input.
@@ -136,7 +136,7 @@ If the `SELECT` expressions include [aggregate expressions](#aggregate-expressio
 
 If a [`GROUP BY` clause](#group-by-clause) is present, there is a group for each distinct combination of the `GROUP BY` expression values; otherwise all the input rows form a single group. The rows in each group are aggregated based on the aggregate expressions, resulting in one output row for each group.
 
-For the above computation to be valid, all column names that do not appear as expressions in the `GROUP BY` clause (and are hence not constant within a group), must appear within an [aggregation function](/doc/ref/sqlmisc#aggregate-functions).
+For the above computation to be valid, all column names that do not appear as expressions in the `GROUP BY` clause (and are hence not constant within a group), must appear within an [aggregation function](../sclerasql/sqlmisc.md#aggregate-functions).
 
 The `SELECT` clause in Sclera is compliant with the SQL standard and [PostgreSQL](http://www.postgresql.org/docs/current/static/sql-select.html#SQL-SELECT-LIST).
 
@@ -160,15 +160,15 @@ When the clause contains queries evaluated at more than one system, it specifies
 To evaluate a cross-system set operation, Sclera needs both the query results to be present at a single location; let us call this the "target location" for the set operation. This target location is decided as follows:
 
 - For each query, Sclera finds the location of the query result after evaluation. These locations are the candidates for the target location, and are listed in the order of appearance of the corresponding queries.
-- From this list, Sclera then removes the [Cache Store](/doc/ref/technical#cache-store), if present, as well as the ["read-only" locations](/doc/ref/dbms#read-write-versus-read-only-mode).
-- If the list is empty, Sclera assigns the [Cache Store](/doc/ref/technical#cache-store) as the target location. This has the effect that cross-system set operations across read-only locations are evaluated by evaluating both the queries, and moving the query results to the cache store; the set operation is then computed at the cache store.
+- From this list, Sclera then removes the [Cache Store](../intro/technical.md#cache-store), if present, as well as the ["read-only" locations](../setup/dbms.md#read-write-versus-read-only-mode).
+- If the list is empty, Sclera assigns the [Cache Store](../intro/technical.md#cache-store) as the target location. This has the effect that cross-system set operations across read-only locations are evaluated by evaluating both the queries, and moving the query results to the cache store; the set operation is then computed at the cache store.
 - If the list is not empty, Sclera assigns the location on the left in the list as the target location. This has the effect that the query in the other location is evaluated, and its result is moved to the target location. The set operation is then computed along with the evaluation of the query in the target location.
 
 The ordering of the queries thus matters when evaluating cross-system set operations. While this enables you to control how data is moved while evaluating the queries containing set operations, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.
 
 Specifically, when specifying a set operation between queries evaluated in a relational database and HBase respectively, if the HBase query's result is expected to be large, then you should place the HBase query before (that is, to the left of) the other query; this will ensure that HBase is picked as the target location in the set operation.
 
-In any case, when evaluating a query with a cross-system set operation, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](/doc/ref/shell#compile-time-explain)) before submitting the query.
+In any case, when evaluating a query with a cross-system set operation, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](../interface/shell.md#compile-time-explain)) before submitting the query.
 
 In the current version, Sclera moves data from a "source" to a "target" database system by reading in the data from the source and inserting it into a temporary table in the target. This transfer is done in a streaming (pipelined) manner wherever possible, to avoid reading the entire result in memory. This could be a bottleneck when large amounts of data (millions of rows) are transferred. More efficient data transfer mechanisms will be in place in later versions of Sclera.
 
@@ -261,7 +261,7 @@ In this section we describe Sclera's SQL commands for creating, updating and del
 
 ### Creating Base Tables
 
-Creating tables in Sclera is different from [adding tables to Sclera using the `ADD TABLE` command](/doc/ref/dbms#importing-database-tables). The latter merely imports the metadata of an *existing* table into Sclera. The `create table` commands, described below, create a new table.
+Creating tables in Sclera is different from [adding tables to Sclera using the `ADD TABLE` command](../setup/dbms.md#importing-database-tables). The latter merely imports the metadata of an *existing* table into Sclera. The `create table` commands, described below, create a new table.
 
 The net effect of these commands is (a) creating the table on the underlying database system, and (b) adding the table metadata to Sclera's metadata store.
 
@@ -277,7 +277,7 @@ The syntax of the `CREATE TABLE` command is as follows:
       [ , table_constraint [, ...] ]
     )
 
-This creates a new, empty table (persistent or [temporary](#temporary-modifier)) with the name `table_name` at location `location_name` (or the [default location](/doc/ref/configuration#sclera-location-default), if `location_name` is omitted), consisting of columns with names and types given by the associated `column_name` and `column_type`, and with column and table constraints specified by `column_constraint` and `table_constraint`. These terms are described in turn below.
+This creates a new, empty table (persistent or [temporary](#temporary-modifier)) with the name `table_name` at location `location_name` (or the [default location](../setup/configuration.md#sclera-location-default), if `location_name` is omitted), consisting of columns with names and types given by the associated `column_name` and `column_type`, and with column and table constraints specified by `column_constraint` and `table_constraint`. These terms are described in turn below.
 
 ##### Temporary Modifier
 The optional `TEMPORARY` (shortened form: `TEMP`) modifier in `CREATE TEMPORARY TABLE` creates a table that exists for the duration of the Sclera session only. When the session ends, the table is deleted from the underlying database system and its metadata is removed from Sclera's metadata store.
@@ -285,7 +285,7 @@ The optional `TEMPORARY` (shortened form: `TEMP`) modifier in `CREATE TEMPORARY 
 ##### Table Name
 The mandatory `table_name` is the name of the table to be created.
 
-You can optionally qualify the name with `location_name`, the name of the [location](/doc/ref/dbms#location) where the table is to be created. If the `location_name` is omitted, the table is created at the [default location](/doc/ref/configuration#sclera-location-default).
+You can optionally qualify the name with `location_name`, the name of the [location](../setup/dbms.md#location) where the table is to be created. If the `location_name` is omitted, the table is created at the [default location](../setup/configuration.md#sclera-location-default).
 
 ##### Columns and Their Types
 A table needs to have at least one column. You can specify the list of columns and their types as a comma-separated list of `column_name` and `data_type` pairs.
@@ -410,7 +410,7 @@ This syntax is a restricted version of that supported in the SQL standard and [P
 ### Dropping Base Tables
 The `DROP TABLE` statement drops a base table from Sclera as well as the underlying database system.
 
-This statement is similar to the [`REMOVE TABLE` statement](/doc/ref/dbms#removing-database-tables). However, `REMOVE TABLE` only removes the metadata of the named table from Sclera; it does not drop the table from the underlying data store. `DROP TABLE` remove the table's metadata from Sclera and also drops the table from the underlying datastore.
+This statement is similar to the [`REMOVE TABLE` statement](../setup/dbms.md#removing-database-tables). However, `REMOVE TABLE` only removes the metadata of the named table from Sclera; it does not drop the table from the underlying data store. `DROP TABLE` remove the table's metadata from Sclera and also drops the table from the underlying datastore.
 
 The syntax supported in Sclera is as follows:
 
@@ -436,7 +436,7 @@ This statement creates a view with the specified `view_name` and associates it w
 
 The optional `TEMPORARY` or `TEMP` modifier creates a view that exists for the duration of the Sclera session only. When the session ends, the view is deleted and its metadata is removed from Sclera's metadata store.
 
-Unlike a base table, a view is not attached to a [location](/doc/ref/dbms#location); this is because the underlying query (specified by the `table_expression` above) can span multiple locations.
+Unlike a base table, a view is not attached to a [location](../setup/dbms.md#location); this is because the underlying query (specified by the `table_expression` above) can span multiple locations.
 
 This statement is restricted in comparison, but compliant with the SQL standard and [PostgreSQL](http://www.postgresql.org/docs/current/static/sql-createview.html).
 

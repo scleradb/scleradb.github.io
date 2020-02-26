@@ -1,6 +1,6 @@
-Sclera's visualization component, ScleraViz, enables quick and easy visualization of your query results. ScleraViz is integrated with [ScleraSQL](/doc/ref/sqlintro); this means a few lines of ScleraSQL can fetch, clean, analyze and visualize your data in a single sweep.
+Sclera's visualization component, ScleraViz, enables quick and easy visualization of your query results. ScleraViz is integrated with [ScleraSQL](../sclerasql/sqlintro.md); this means a few lines of ScleraSQL can fetch, clean, analyze and visualize your data in a single sweep.
 
-ScleraViz is inspired by [Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html), specifically [R's ggplot2](http://ggplot2.org/) -- but is implemented as an extension to [ScleraSQL](/doc/ref/sqlintro) and uses [D3](http://d3js.org) as the rendering engine. Moreover, unlike ggplot2, ScleraViz can clean, analyze and plot *streaming* data.
+ScleraViz is inspired by [Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html), specifically [R's ggplot2](http://ggplot2.org/) -- but is implemented as an extension to [ScleraSQL](../sclerasql/sqlintro.md) and uses [D3](http://d3js.org) as the rendering engine. Moreover, unlike ggplot2, ScleraViz can clean, analyze and plot *streaming* data.
 
 Sclera Visualization was introduced in Sclera 3.0. An online preview, with a number of examples with code, is available at [http://www.scleradb.com/scleraviz](/scleraviz).
 
@@ -329,7 +329,7 @@ Formally, the ScleraViz specification is as follows (recall that `|` means alter
 
     query plot_spec [ , ... ] [ facet_spec ] [ axis_spec ] [ ... ] [ layout_spec ] [ grid_spec ] [ display_spec ]
 
-where the `query` is a [ScleraSQL query](/doc/ref/sqlintro). The plot specification `plot_spec` can appear one or more times, each `plot_spec` defining a new plot, followed by an optional facet specification `facet_spec`, zero or more `axis_spec` if we need to change the axis defaults. A `layout_spec` then gives the layout preferences. This is followed by a `grid_spec` if we need to change the grid defaults, and a `display_spec` to change the display area defaults.
+where the `query` is a [ScleraSQL query](../sclerasql/sqlintro.md). The plot specification `plot_spec` can appear one or more times, each `plot_spec` defining a new plot, followed by an optional facet specification `facet_spec`, zero or more `axis_spec` if we need to change the axis defaults. A `layout_spec` then gives the layout preferences. This is followed by a `grid_spec` if we need to change the grid defaults, and a `display_spec` to change the display area defaults.
 
 ### Plot / Layer Specification
 
@@ -524,7 +524,7 @@ The optional `GROUP` expression groups data points; each group is then rendered 
 
     GROUP = scalar_expr
 
-where `scalar_expr` is a [ScleraSQL scalar expression](/doc/ref/sqlregular#scalar-expressions) on the input.
+where `scalar_expr` is a [ScleraSQL scalar expression](../sclerasql/sqlregular.md#scalar-expressions) on the input.
 
 #### Key
 
@@ -534,7 +534,7 @@ The syntax is:
 
     KEY = scalar_expr
 
-where `scalar_expr` is a [ScleraSQL scalar expression](/doc/ref/sqlregular#scalar-expressions) on the input.
+where `scalar_expr` is a [ScleraSQL scalar expression](../sclerasql/sqlregular.md#scalar-expressions) on the input.
 
 If `KEY` is not specified, a new datapoint is created for each input row.
 
@@ -634,7 +634,7 @@ At runtime, the renderer sorts the available layers on increasing `display_order
 
 Faceting a plot on an expression involves displaying separate plots for datapoints partitioned by distinct values of the expression. ScleraViz allows faceting on a single expression, or a pair of expression; the resulting plots can be layed out in a row or columns or a row/column grid.
 
-The syntax has the following alternatives (`scalar_expr` is a [ScleraSQL scalar expression](/doc/ref/sqlregular#scalar-expressions) on the input):
+The syntax has the following alternatives (`scalar_expr` is a [ScleraSQL scalar expression](../sclerasql/sqlregular.md#scalar-expressions) on the input):
 
 * `FACET ( ROWS = scalar_expr )`
     * Generates a plot for each distinct value of the given expression. The resulting plots are layed out in a row, their widths adjusted to fit the available total width.

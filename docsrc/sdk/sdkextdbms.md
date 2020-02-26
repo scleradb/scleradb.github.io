@@ -1,6 +1,6 @@
 In this document, we show how to build custom connectors to any relational/non-relational database management system. These connectors interface Sclera with an arbitrary database system, relational or non-relational, providing access to the underlying data, and also enable Sclera to push down computations in relevant parts user queries and commands on the interfaced database system.
 
-[Sclera - Oracle Connector](/doc/ref/components#sclera-oracle), [Sclera - MySQL Connector](/doc/ref/components#sclera-mysql), [Sclera - PostgreSQL Connector](/doc/ref/components#sclera-postgresql), and [Sclera - Apache HBase Connector](/doc/ref/components#sclera-hbase) are built using this SDK.  For examples of how these connectors are used in Sclera, please refer to the [documentation on connecting Sclera to database systems](/doc/ref/dbms).
+[Sclera - Oracle Connector](../setup/components.md#sclera-oracle), [Sclera - MySQL Connector](../setup/components.md#sclera-mysql), [Sclera - PostgreSQL Connector](../setup/components.md#sclera-postgresql), and [Sclera - Apache HBase Connector](../setup/components.md#sclera-hbase) are built using this SDK.  For examples of how these connectors are used in Sclera, please refer to the [documentation on connecting Sclera to database systems](../setup/dbms.md).
 
 ## Building Database System Connectors
 
@@ -32,21 +32,21 @@ If the underlying system is a relational database system, which talks SQL and us
 - <a class="anchor" name="sqlmapper"></a> `SqlMapper` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.sql.mapper.SqlMapper), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.sql.mapper.SqlMapper))
     - Translates Sclera's internal SQL representation to the SQL for the underlying system. This is needed because the [SQL clauses and constructs across different systems vary significantly and sometimes do not follow the standard](http://troels.arvin.dk/db/rdbms/).
 
-The [Sclera - MySQL Connector](/doc/ref/components#sclera-mysql), included with the Sclera platform, is open source and implements the relational database interface mentioned above.
+The [Sclera - MySQL Connector](../setup/components.md#sclera-mysql), included with the Sclera platform, is open source and implements the relational database interface mentioned above.
  
 ## Packaging and Deploying the Connector
 
-The included [Sclera - MySQL Connector](/doc/ref/components#sclera-mysql) implementation uses [sbt](http://www.scala-sbt.org) for building the connector [(installation details)](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt). This is not a requirement -- any other build tool can be used instead.
+The included [Sclera - MySQL Connector](../setup/components.md#sclera-mysql) implementation uses [sbt](http://www.scala-sbt.org) for building the connector [(installation details)](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt). This is not a requirement -- any other build tool can be used instead.
 
 ### Dependencies
 
 For Scala:
 
-- The Scala implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). Note that the dependency should be annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Scala implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). Note that the dependency should be annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 For Java:
 
-- The Java implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). The dependency on `"sclera-core"` should be annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Java implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). The dependency on `"sclera-core"` should be annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 ### Deployment Steps
 

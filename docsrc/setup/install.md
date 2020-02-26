@@ -72,7 +72,7 @@ This completes the installation. Sclera is now ready for use.
 
 ### Manual Installation
 
-Manual installation enables you to install the components one at a time. This makes sense if you do not need all the licensed components immediately -- for instance, in the trial version, you may not want to install [sclera-hbase](/doc/ref/components#sclera-hbase) if you do not have Apache HBase installed.
+Manual installation enables you to install the components one at a time. This makes sense if you do not need all the licensed components immediately -- for instance, in the trial version, you may not want to install [sclera-hbase](../setup/components.md#sclera-hbase) if you do not have Apache HBase installed.
 
 The first step in the manual installation is to download the license. This is done as follows:
 

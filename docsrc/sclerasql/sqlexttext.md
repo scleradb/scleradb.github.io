@@ -1,4 +1,4 @@
-Sclera can identify and extract entities, such as person and location names, from free-form text. This is done using the [Sclera - Apache OpenNLP Connector](/doc/ref/components#sclera-opennlp) which builds on the [Apache OpenNLP](http://opennlp.apache.org) library.
+Sclera can identify and extract entities, such as person and location names, from free-form text. This is done using the [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-opennlp) which builds on the [Apache OpenNLP](http://opennlp.apache.org) library.
 
 While we may do not know the context in which these entities were mentioned in the text, this is still very useful as it enables you to identify related information from your database by doing joins with tables containing product information, and also filter and/or aggregate the messages based on location, persons mentioned, and so on.
 
@@ -37,7 +37,7 @@ To be able to extract an `entity_type` in the language specified by `language_co
 - `"$SCLERA_ASSETS/opennlp/{language_code}-sent.bin"`, containing the sentence detector model for the language
 - `"$SCLERA_ASSETS/opennlp/{language_code}-ner-{entity_type}.bin"`, containing the extraction model for the entity type in the language
 
-In the above, `$SCLERA_ASSETS` is the directory given by the [configuration parameter `sclera.services.assetdir`](/doc/ref/configuration#sclera-services-assetdir).
+In the above, `$SCLERA_ASSETS` is the directory given by the [configuration parameter `sclera.services.assetdir`](../setup/configuration.md#sclera-services-assetdir).
 
 For instance, to use a `location` model for English (`"en"`), the sentence detector file `"$SCLERA_ASSETS/opennlp/en-sent.bin"` and the extraction model file `"$SCLERA_ASSETS/opennlp/en-ner-location.bin"` need to exist.
 

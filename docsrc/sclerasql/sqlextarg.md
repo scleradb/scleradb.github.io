@@ -55,7 +55,7 @@ Sclera provides a construct, called `ARG`, that eliminates the redundancy and in
 
 Unlike the earlier query, this query is evaluated in a single pass over the data.
 
-We can think of `ARG` as a special "filter", similar to [`WHERE`](/doc/ref/sqlregular#where-clause) and [`HAVING`](/doc/ref/sqlregular#having-clause). However, while `WHERE` and `HAVING` compute their output by applying a condition one row at a time, the output rows of `ARG` is computed based on the entire input (or the [input partition](#arg-on-partitioned-input)).
+We can think of `ARG` as a special "filter", similar to [`WHERE`](../sclerasql/sqlregular.md#where-clause) and [`HAVING`](../sclerasql/sqlregular.md#having-clause). However, while `WHERE` and `HAVING` compute their output by applying a condition one row at a time, the output rows of `ARG` is computed based on the entire input (or the [input partition](#arg-on-partitioned-input)).
 
 We can get the rows containing optimal values for multiple aggregates as well -- the following query returns the row with the earliest `visittime` past `11:00`, in addition to the rows above.
 
@@ -79,7 +79,7 @@ It is easy to do a cascaded computation. For instance, to find the row with the 
     -----------+-----------+----------+--------
     (1 row)
 
-We can use `ARG` with the [`MATCH` operator](/doc/ref/sqlextordered#pattern-matching-with-match) as well. For instance, the following query finds the product views on which visitor id `1` hovered the most in a session:
+We can use `ARG` with the [`MATCH` operator](../sclerasql/sqlextordered.md#pattern-matching-with-match) as well. For instance, the following query finds the product views on which visitor id `1` hovered the most in a session:
 
     > (vhclicks WHERE visitorid = 1 ORDER BY visittime) ARG prodview.MAX(hcount)
       OVER MATCH "login.(prodview | search | checkout)*.logout" ON pagetype;
@@ -91,7 +91,7 @@ We can use `ARG` with the [`MATCH` operator](/doc/ref/sqlextordered#pattern-matc
     -----------+-----------+----------+--------
     (2 rows)
 
-A set of rows will be output for *every* match of the [`MATCH` regular expression](/doc/ref/sqlextordered#match-syntax). Note that the order of the input is relevant for the above query.
+A set of rows will be output for *every* match of the [`MATCH` regular expression](../sclerasql/sqlextordered.md#match-syntax). Note that the order of the input is relevant for the above query.
 
 ## `ARG` on Partitioned Input
 We can use `ARG` on partitioned input. The following query find the pages with the highest `hcount` for each visitor after `11:00`.
@@ -120,7 +120,7 @@ Similarly, the following query finds, for each visitor, the product views on whi
     (3 rows)
 
 ## `ARG` Syntax
-This section introduced a new [table expression](/doc/ref/sqlregular#table-expression) with the following syntax:
+This section introduced a new [table expression](../sclerasql/sqlregular.md#table-expression) with the following syntax:
 
     table_expression [ PARTITION BY ( partn_columns ) ]
     ARG ( [ label . ] aggr_func ( aggr_params ) [, ...] )
@@ -128,12 +128,12 @@ This section introduced a new [table expression](/doc/ref/sqlregular#table-expre
 
 where:
 
-- `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression).
+- `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression).
 - `partn_columns` is an optional comma-separated list of columns in the result of `table_expression`. When specified:
     - The result of `table_expression` is partitioned on this set of columns; the aggregation happens independently on the rows within each partition.
-- `aggr_func` is an [aggregate function](/doc/ref/sqlmisc#aggregate-functions)
-- `aggr_params` is a comma-separated list of [scalar expressions](/doc/ref/sqlregular#scalar-expressions), all of whose column references are contained in the result of `table_alias`. These are the parameters of the aggregate function `aggr_func`.
-- `match_expression` is an optional [`MATCH` expression](/doc/ref/sqlextordered#match-syntax)
+- `aggr_func` is an [aggregate function](../sclerasql/sqlmisc.md#aggregate-functions)
+- `aggr_params` is a comma-separated list of [scalar expressions](../sclerasql/sqlregular.md#scalar-expressions), all of whose column references are contained in the result of `table_alias`. These are the parameters of the aggregate function `aggr_func`.
+- `match_expression` is an optional [`MATCH` expression](../sclerasql/sqlextordered.md#match-syntax)
 - `label` is optional. When specified, it can be:
     - When `MATCH` is not present, it is the `table_alias` for the `table_expression`, or
-    - When `MATCH` is present, it is a label identifying a subsequence in the [`MATCH` regular expression](/doc/ref/sqlextordered#regular-expression).
+    - When `MATCH` is present, it is a label identifying a subsequence in the [`MATCH` regular expression](../sclerasql/sqlextordered.md#regular-expression).

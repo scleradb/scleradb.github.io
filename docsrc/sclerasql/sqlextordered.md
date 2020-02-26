@@ -7,7 +7,7 @@ Since evaluation of the constructs discussed in this section takes a single pass
 We describe these constructs in the sections below, and also illustrate their utility using a number of use cases.
 
 - We first present [the constructs that enable queries to access the prior rows of a base table or intermediate result, and define running aggregates over them](#accessing-history-without-self-joins). This generalizes the [window functions](http://www.postgresql.org/docs/current/static/functions-window.html) of standard SQL.
-- We then generalize the above, and show [how to use regular expressions to form aggregation groups within a base table or an intermediate result](#pattern-matching-with-match), based on column values along with positional constraints. This generalizes the [window functions](http://www.postgresql.org/docs/current/static/functions-window.html) as well as the [`GROUP BY` clause](/doc/ref/sqlregular#group-by-clause) of SQL.
+- We then generalize the above, and show [how to use regular expressions to form aggregation groups within a base table or an intermediate result](#pattern-matching-with-match), based on column values along with positional constraints. This generalizes the [window functions](http://www.postgresql.org/docs/current/static/functions-window.html) as well as the [`GROUP BY` clause](../sclerasql/sqlregular.md#group-by-clause) of SQL.
 
 ## Accessing History Without Self-Joins
 
@@ -34,9 +34,9 @@ In Sclera, we get first class access to `T`'s current row, as well as all prior 
 <a class="anchor" name="indexed-alias"></a>
 ### Table Alias as an Array of Rows
 
-Recall that a table alias in a standard SQL query identifies a [table expression](/doc/ref/sqlregular#table-expression) in the [`FROM` clause](/doc/ref/sqlregular#from-clause).
+Recall that a table alias in a standard SQL query identifies a [table expression](../sclerasql/sqlregular.md#table-expression) in the [`FROM` clause](../sclerasql/sqlregular.md#from-clause).
 
-In standard SQL, each column reference is explicitly or [implicitly](/doc/ref/sqlregular#column-reference) associated with a table alias. Operationally, the table alias stands for the *current* row of the result of the [table expression](/doc/ref/sqlregular#table-expression) identified by the alias (hereafter called the intermediate result associated with the table alias).
+In standard SQL, each column reference is explicitly or [implicitly](../sclerasql/sqlregular.md#column-reference) associated with a table alias. Operationally, the table alias stands for the *current* row of the result of the [table expression](../sclerasql/sqlregular.md#table-expression) identified by the alias (hereafter called the intermediate result associated with the table alias).
 
 Sclera generalizes the use of table alias by introducing an optional index to retrieve prior rows for the associated intermediate result. In other words, the history is considered a list, starting at the first emitted row, and ending at the previous emitted row.
 
@@ -47,11 +47,11 @@ For instance, the following query returns, for each input row, the difference of
 
 The use of negative indexes as offsets from the end of the list is borrowed from [Python](http://www.openbookproject.net/thinkcs/python/english2e/ch09.html#accessing-elements).
 
-For the "previous row" of `T` to be well defined in the above query, the intermediate result associated with `T` needs to be ordered -- since the data here is coming from a base table on disk, an `ORDER BY ts` is needed; this is not needed if the [input is already sorted](/doc/ref/sqlextdataaccess).
+For the "previous row" of `T` to be well defined in the above query, the intermediate result associated with `T` needs to be ordered -- since the data here is coming from a base table on disk, an `ORDER BY ts` is needed; this is not needed if the [input is already sorted](../sclerasql/sqlextdataaccess.md).
 
 <a class="anchor" name="indexed-alias-syntax"></a> The index is optional, and can be an arbitrary integer. Specifically, given the table alias `T`:
 
-- `T` represents the current row (this is consistent with [standard SQL](/doc/ref/sqlregular#column-reference))
+- `T` represents the current row (this is consistent with [standard SQL](../sclerasql/sqlregular.md#column-reference))
 - `T[0]` is the first row, `T[1]` is the second row, and so on.
 - `T[-1]` is the previous row, `T[-2]` is one previous to that, and so on.
 
@@ -136,9 +136,9 @@ Formally, the syntax of the running aggregate is:
 
 where:
 
-- `table_alias` identifies a [table expression](/doc/ref/sqlregular#table-expression) in the [`FROM` clause](/doc/ref/sqlregular#from-clause)
-- `aggregate_function` is an [aggregate function](/doc/ref/sqlmisc#aggregate-functions)
-- `aggr_params` is a comma-separated list of [scalar expressions](/doc/ref/sqlregular#scalar-expressions), all of whose column references are contained in the result of `table_alias`.
+- `table_alias` identifies a [table expression](../sclerasql/sqlregular.md#table-expression) in the [`FROM` clause](../sclerasql/sqlregular.md#from-clause)
+- `aggregate_function` is an [aggregate function](../sclerasql/sqlmisc.md#aggregate-functions)
+- `aggr_params` is a comma-separated list of [scalar expressions](../sclerasql/sqlregular.md#scalar-expressions), all of whose column references are contained in the result of `table_alias`.
 
 ### Indexed Table Alias and Running Aggregates on Partitioned Input
 
@@ -146,7 +146,7 @@ The input rows can be partitioned by specifying a set of columns in a `PARTITION
 
 Given the table alias `T`:
 
-- `T` represents the current row, as [earlier](#indexed-alias-syntax) and consistent with [standard SQL](/doc/ref/sqlregular#column-reference).
+- `T` represents the current row, as [earlier](#indexed-alias-syntax) and consistent with [standard SQL](../sclerasql/sqlregular.md#column-reference).
 - `T[0]` is the first row with the same values of the partition columns as the current row, `T[1]` is the second such row, and so on.
 - `T[-1]` is the previous row with the same values of the partition columns as the current row, `T[-2]` is such a row previous to that, and so on.
 
@@ -218,7 +218,7 @@ In Sclera, regular expressions can also be used to match, query and aggregate a 
 
 The regular expression is matched progressively with the incoming sequence of tuples. Specifically, a match occurs at a row when a segment of rows upto that row match the regular expression. Multiple segments upto the row may match the regular expression -- in this case, the longest matching segment is taken as the match and the others are ignored.
 
-As soon as a match occurs, a row is emitted to the output. The output rows are constructed by evaluating [aggregates](/doc/ref/sqlmisc#aggregate-functions) on the subsequence of rows matching the respective labels in the regular expression.
+As soon as a match occurs, a row is emitted to the output. The output rows are constructed by evaluating [aggregates](../sclerasql/sqlmisc.md#aggregate-functions) on the subsequence of rows matching the respective labels in the regular expression.
 
 We illustrate with a number of examples.
 
@@ -587,13 +587,13 @@ If the data contains a large number of visitors, it may be more efficient to sor
     (16 rows)
 
 ### `MATCH` Syntax
-This section introduced a new [table expression](/doc/ref/sqlregular#table-expression) with the following syntax:
+This section introduced a new [table expression](../sclerasql/sqlregular.md#table-expression) with the following syntax:
 
     table_expression [ PARTITION BY ( partn_columns ) ] MATCH regular_expression [ON labeler]
 
 where:
 
-- <a class="anchor" name="table-expression"></a> `table_expression` is an arbitrary [table expression](/doc/ref/sqlregular#table-expression)
+- <a class="anchor" name="table-expression"></a> `table_expression` is an arbitrary [table expression](../sclerasql/sqlregular.md#table-expression)
 - `partn_columns` is an optional comma-separated list of columns in the result of `table_expression`.
     - When specified, the result of `table_expression` is partitioned on this set of columns; the matching happens independently on the rows within each partition.
 - <a class="anchor" name="regular-expression"></a> `regular_expression`, with:
@@ -730,7 +730,7 @@ Use of a positive index for a column requires storing the value in the row at th
 
 Use of a negative index for a column, on the other hand, requires storing the previous values of the column upto the index. The overhead of a negative index thus depends upon the absolute value of the index. Since the query only allows constants as index, this overhead is bounded for a given query.
 
-The memory overhead of a running aggregate depends on the state being maintained incrementally by the aggregate -- this is a constant (i.e. independent of the number of rows in the input), with the singular exception of [`string_agg`](/doc/ref/sqlmisc#order-sensitive-aggregate-functions), in which case the overhead is linear in the number of input rows.
+The memory overhead of a running aggregate depends on the state being maintained incrementally by the aggregate -- this is a constant (i.e. independent of the number of rows in the input), with the singular exception of [`string_agg`](../sclerasql/sqlmisc.md#order-sensitive-aggregate-functions), in which case the overhead is linear in the number of input rows.
 
 When there is no `PARTITION BY`, or when the input is coming sorted on the partition columns, all rows of the same partition are processed together, before the rows of the next partition -- the overheads therefore are independent of the number of partitions as well.
 

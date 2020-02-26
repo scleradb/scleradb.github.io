@@ -1,4 +1,4 @@
-Sclera enables a consolidated relational view of multiple underlying relational/non-relational data stores. We now describe how to connect your existing database systems to Sclera. This will enable you to seamlessly execute cross-platform computations via SQL, as discussed in the [ScleraSQL Reference](/doc/ref/sqlregular) document.
+Sclera enables a consolidated relational view of multiple underlying relational/non-relational data stores. We now describe how to connect your existing database systems to Sclera. This will enable you to seamlessly execute cross-platform computations via SQL, as discussed in the [ScleraSQL Reference](../sclerasql/sqlregular.md) document.
 
 In the following, the keywords appear in upper case to distinguish them from the other terms; however, Sclera is case-insensitive and keywords in actual commands and queries can be in upper or lower case.
 
@@ -33,9 +33,9 @@ If the the server is running on `localhost` (port `1521`), you can omit the host
 
     > ADD LOCATION oraloc AS ORACLE("oradb");
 
-The JDBC connection is set up using the [Oracle Thin JDBC Driver for JDK 1.7](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html), which is *not* downloaded during the [Sclera-Oracle Connector](/doc/ref/components#sclera-oracle) installation. You will need to download this driver before using this component, as explained [later](#sclera-oracle-setup)
+The JDBC connection is set up using the [Oracle Thin JDBC Driver for JDK 1.7](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html), which is *not* downloaded during the [Sclera-Oracle Connector](components.md#sclera-oracle) installation. You will need to download this driver before using this component, as explained [later](#sclera-oracle-setup)
 
-Sclera stores the JDBC configuration in its [metadata store](/doc/ref/technical#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
+Sclera stores the JDBC configuration in its [metadata store](../intro/technical.md#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
 
 **Connection Properties**
 
@@ -69,11 +69,11 @@ If the the server is running on `localhost`, you can omit the host name:
 
     > ADD LOCATION myloc AS MYSQL("mydb");
 
-The JDBC connection is set up using [MySQL Connector/J](http://dev.mysql.com/doc/refman/5.6/en/connector-j.html), which is downloaded during the [Sclera-MySQL Connector](/doc/ref/components#sclera-mysql) installation.
+The JDBC connection is set up using [MySQL Connector/J](http://dev.mysql.com/doc/refman/5.6/en/connector-j.html), which is downloaded during the [Sclera-MySQL Connector](components.md#sclera-mysql) installation.
 
 (Note: Sclera assumes that MySQL runs in a [case-insensitive mode](http://dev.mysql.com/doc/refman/5.6/en/identifier-case-sensitivity.html).)
 
-Sclera stores the JDBC configuration in its [metadata store](/doc/ref/technical#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
+Sclera stores the JDBC configuration in its [metadata store](../intro/technical.md#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
 
 **Connection Properties**
 
@@ -101,9 +101,9 @@ If the the server is running on `localhost`, you can omit the host name:
 
     > ADD LOCATION pgloc AS POSTGRESQL("pgdb");
 
-The JDBC connection is set up using the [PostgreSQL JDBC Driver](http://jdbc.postgresql.org), which is downloaded during the [Sclera-PostgreSQL Connector](/doc/ref/components#sclera-postgresql) installation.
+The JDBC connection is set up using the [PostgreSQL JDBC Driver](http://jdbc.postgresql.org), which is downloaded during the [Sclera-PostgreSQL Connector](components.md#sclera-postgresql) installation.
 
-Sclera stores the JDBC configuration in its [metadata store](/doc/ref/technical#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
+Sclera stores the JDBC configuration in its [metadata store](../intro/technical.md#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
 
 **Connection Properties**
 
@@ -121,9 +121,9 @@ Values of all properties (for instance, passwords) may not be mentioned in the c
 
 ### Connecting to Apache HBase
 
-Sclera provides a relational view of your data stored in [Apache HBase](http://hbase.apache.org). HBase tables support the notion of rows; but instead of traditional columns, they have column families which contain an arbitrary set of key-value pairs. Sclera interprets this structure as a relational table, as discussed in the [technical details](/doc/ref/technical#sclera-hbase).
+Sclera provides a relational view of your data stored in [Apache HBase](http://hbase.apache.org). HBase tables support the notion of rows; but instead of traditional columns, they have column families which contain an arbitrary set of key-value pairs. Sclera interprets this structure as a relational table, as discussed in the [technical details](../intro/technical.md#sclera-hbase).
 
-Sclera connects to [Apache HBase](http://hbase.apache.org) using [Apache Pig](http://pig.apache.org), which works with [Apache Hadoop](http://hadoop.apache.org). Apache Pig is downloaded during the installation of the [Sclera-HBase Connector](/doc/ref/components#sclera-hbase).
+Sclera connects to [Apache HBase](http://hbase.apache.org) using [Apache Pig](http://pig.apache.org), which works with [Apache Hadoop](http://hadoop.apache.org). Apache Pig is downloaded during the installation of the [Sclera-HBase Connector](components.md#sclera-hbase).
 
 Sclera can connect to HBase on Hadoop running in single-machine `local` mode, or multi-machine `mapreduce` node. See [Pig's documentation on execution modes](http://pig.apache.org/docs/r0.11.0/start.html#execution-modes) for a description of these modes.
 
@@ -142,7 +142,7 @@ HBase can now be accessed using the name `hbaseloc` in Sclera.
 The current version of this component works with the [Cloudera CDH4.5.0](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh.html) distribution, which includes Hadoop and HBase. [Cloudera CDH4.5.0](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh.html) should already be [installed](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/CDH4-Installation-Guide.html) before using this component. Further:
 
 - The `CLASSPATH` should include the full path to the [CDH4.5.0 Apache HBase](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_20.html) jar file `hbase-0.94.6-cdh4.5.0-security.jar`, and the path to the Hadoop configuration.
-- The [Sclera configuration parameter `sclera.hbase.dependencies`](/doc/ref/configuration#sclera-hbase-dependencies) should include (a) the full path to the HBase jar mentioned above, and (b) full path to the [CDH4.5.0 Apache Zookeeper](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_21.html) jar file `zookeeper-3.4.5-cdh4.5.0.jar` (see the [CDH4.5.0 documentation](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_16_3.html) for details).
+- The [Sclera configuration parameter `sclera.hbase.dependencies`](configuration.md#sclera-hbase-dependencies) should include (a) the full path to the HBase jar mentioned above, and (b) full path to the [CDH4.5.0 Apache Zookeeper](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_21.html) jar file `zookeeper-3.4.5-cdh4.5.0.jar` (see the [CDH4.5.0 documentation](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_16_3.html) for details).
 
 Further, to avoid Hadoop and HBase dumping logs on the Sclera console, you may want to [change the log level and/or the appender specification in the `log4j.properties` file](http://logging.apache.org/log4j/1.2/manual.html), located in the Hadoop and HBase configuration directories.
 
@@ -164,7 +164,7 @@ The parameter is the `DATABASE_URL` in the format provided by Heroku -- see [Her
 
 The JDBC connection is set up using the [PostgreSQL JDBC Driver](http://jdbc.postgresql.org).
 
-Sclera stores the JDBC configuration in its [metadata store](/doc/ref/technical#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
+Sclera stores the JDBC configuration in its [metadata store](../intro/technical.md#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
 
 *Note: Heroku Postgres connectivity was introduced in Sclera 3.0 and is currently in beta.*
 
@@ -206,7 +206,7 @@ Sclera requires that all tables under a location be removed or deleted before re
 
 After a database system has been connected, you can pick tables from the database system and add to Sclera.
 
-By default, adding a table involves reading (or computing) the metadata -- the set of columns, their data types, the key constraints, etc. -- of the table and storing in the metadata store, so that you can [manage the data and frame queries on the same](/doc/ref/sqlregular).
+By default, adding a table involves reading (or computing) the metadata -- the set of columns, their data types, the key constraints, etc. -- of the table and storing in the metadata store, so that you can [manage the data and frame queries on the same](../sclerasql/sqlregular.md).
 
 The command to add tables has the following syntax:
 
@@ -215,7 +215,7 @@ The command to add tables has the following syntax:
       [ , table_constraint [, ...] ]
     ) ]
 
-This command adds to Sclera a new table named `table_name` from the database system connected as location `location_name`. You can optionally specify the table schema and constraints explicitly. The details of the parameters used in the schema specifications are similar to that in the [`CREATE TABLE` statement](/doc/ref/sqlregular#creating-empty-tables); please see the associated discussion on [column names and types](/doc/ref/sqlregular#columns-and-their-types) and [column constraints](/doc/ref/sqlregular#column-constraints).
+This command adds to Sclera a new table named `table_name` from the database system connected as location `location_name`. You can optionally specify the table schema and constraints explicitly. The details of the parameters used in the schema specifications are similar to that in the [`CREATE TABLE` statement](../sclerasql/sqlregular.md#creating-empty-tables); please see the associated discussion on [column names and types](../sclerasql/sqlregular.md#columns-and-their-types) and [column constraints](../sclerasql/sqlregular.md#column-constraints).
 
 For instance, the following add a new table `mytable` from location `loc` and lets Sclera determine the table's schema:
 
@@ -231,7 +231,7 @@ When the table metadata is specified explicitly, the actual table metadata is no
 
 For instance, [Apache HBase](#connecting-to-apache-hbase) does not explicitly store the list of all columns (aka keys) in a table. If the metadata is not specified explicitly, then Sclera needs to scan each row of the table and collect the set of keys across the rows, which become the set of columns in the vitualized table. If the metadata is specified explicitly, the scan is not necessary.
 
-The [Sclera Command-Line Shell](/doc/ref/shell#exploring-metadata) provides commands to list the set of imported tables under a location, tables in the location available for import, and so on.
+The [Sclera Command-Line Shell](../interface/shell.md#exploring-metadata) provides commands to list the set of imported tables under a location, tables in the location available for import, and so on.
 
 ## Removing Database Tables
 When you no longer need a table `table_name` in location `location_name`, you can remove it as follows:
@@ -240,4 +240,4 @@ When you no longer need a table `table_name` in location `location_name`, you ca
 
 The `location_name` can be omitted if the `table_name` is unique across locations.
 
-This command only removes the metadata for the table from Sclera's [metadata store](/doc/ref/technical#metadata-store). The actual table in the underlying data store is not deleted.
+This command only removes the metadata for the table from Sclera's [metadata store](../intro/technical.md#metadata-store). The actual table in the underlying data store is not deleted.

@@ -1,4 +1,4 @@
-Sclera provides machine learning via first-class constructs in SQL. You can create objects such as classifiers, clusterers, associators as easily as you create tables -- using a single `CREATE ... AS` statement. Further, Sclera provides SQL operators that enable classification/clustering of rows as a part of a SQL query.
+Sclera provides machine learning via first-class constructs in SQL. You can create objects such as classifiers and clusterers as easily as you create tables -- using a single `CREATE ... AS` statement. Further, Sclera provides SQL operators that enable classification/clustering of rows as a part of a SQL query.
 
 Off the shelf libraries such as [Weka](http://www.cs.waikato.ac.nz/ml/weka/) and [Apache Mahout](http://mahout.apache.org/) enable you to write applications with embedded machine learning. But to use these libraries without Sclera, you need to learn the proprietary APIs, and write code that complies with the same. This takes a lot of preparation and background, and is highly disruptive.
 
@@ -38,7 +38,7 @@ The formal syntax for creating a classifier is as follows:
 
     CREATE [ { TEMPORARY | TEMP } ] CLASSIFIER classifier_name ( target_column_name ) USING table_expression
 
-This creates a classifier with the name specified by `classifier_name`. The classifier is trained using the result of the [table expression](/doc/ref/sqlregular#table-expression) `table_expression`, with the column with the name specified by `target_column_name` as the target, and all the remaining columns in the result as features. The optional `TEMPORARY` (shortened form: `TEMP`) modifier creates a classifier that exists for the duration of the Sclera session only; when the session ends, the classifier is deleted.
+This creates a classifier with the name specified by `classifier_name`. The classifier is trained using the result of the [table expression](../sclerasql/sqlregular.md#table-expression) `table_expression`, with the column with the name specified by `target_column_name` as the target, and all the remaining columns in the result as features. The optional `TEMPORARY` (shortened form: `TEMP`) modifier creates a classifier that exists for the duration of the Sclera session only; when the session ends, the classifier is deleted.
 
 Notice the similarity with the [`CREATE TABLE AS` statement](#creating-tables-with-query-results).
 
@@ -46,18 +46,18 @@ In our running example, the following creates the classifier `myclassifier` and 
 
     > CREATE CLASSIFIER myclassifier(isinterested) USING survey;
 
-After the classifier is created, you can see the classifier description using the [`DESCRIBE` command](/doc/ref/shell#describe):
+After the classifier is created, you can see the classifier description using the [`DESCRIBE` command](../interface/shell.md#describe):
 
     > DESCRIBE myclassifier;
 
 ### Classifier Application
 The [classifier training](#classifier-training) learns a function that estimates the value of the target column given the values of the feature columns. Applying the classifier on a table involves computing this function on each row of the table.
 
-This feature introduces a new [table expression](/doc/ref/sqlregular#table-expression) with the following syntax:
+This feature introduces a new [table expression](../sclerasql/sqlregular.md#table-expression) with the following syntax:
 
     table_expression CLASSIFIED WITH classifier_name ( class_column_name )
 
-In this expression, the classifier with the name specified by `classifier_name` is used to classify the rows in the result of the [table expression](/doc/ref/sqlregular#table-expression) `table_expression`, which must include all the feature columns present in the data on which the [classifier was trained](#classifier-training) (it can include additional columns).
+In this expression, the classifier with the name specified by `classifier_name` is used to classify the rows in the result of the [table expression](../sclerasql/sqlregular.md#table-expression) `table_expression`, which must include all the feature columns present in the data on which the [classifier was trained](#classifier-training) (it can include additional columns).
 
 The result contains one row per input row. Each row contains all the columns in the input `table_expressions` and a new column, with the name as specified in `class_column_name`, containing the classifier output -- which is the classifier's estimate of the target variable given the feature values in the row.
 
@@ -99,7 +99,7 @@ The formal syntax for creating a classifier is as follows:
 
     CREATE [ { TEMPORARY | TEMP } ] CLUSTERER clusterer_name USING table_expression
 
-This creates a classifier with the name specified by `clusterer_name`. The clusterer is trained using the result of the [table expression](/doc/ref/sqlregular#table-expression) `table_expression`, with all the columns in the result as features. The optional `TEMPORARY` (shortened form: `TEMP`) modifier creates a clusterer that exists for the duration of the Sclera session only; when the session ends, the clusterer is deleted.
+This creates a classifier with the name specified by `clusterer_name`. The clusterer is trained using the result of the [table expression](../sclerasql/sqlregular.md#table-expression) `table_expression`, with all the columns in the result as features. The optional `TEMPORARY` (shortened form: `TEMP`) modifier creates a clusterer that exists for the duration of the Sclera session only; when the session ends, the clusterer is deleted.
 
 Notice the similarity with the [`CREATE TABLE AS` statement](#creating-tables-with-query-results) and [`CREATE CLASSIFIER` statement](#classifier-training).
 
@@ -107,18 +107,18 @@ In our running example, the following creates the clusterer `myclusterer` and tr
 
     > CREATE CLUSTERER myclusterer USING customers;
 
-After the clusterer is created, you can see the clusterer description using the [`DESCRIBE` command](/doc/ref/shell#describe):
+After the clusterer is created, you can see the clusterer description using the [`DESCRIBE` command](../interface/shell.md#describe):
 
     > DESCRIBE myclusterer;
 
 ### Clusterer Application
 The [clusterer training](#clusterer-training) learns a function that computes the cluster for a data instance given the values of all the feature columns. Applying the clusterer on a table involves computing this function on each row of the table.
 
-This feature introduces a new [table expression](/doc/ref/sqlregular#table-expression) with the following syntax:
+This feature introduces a new [table expression](../sclerasql/sqlregular.md#table-expression) with the following syntax:
 
     table_expression CLUSTERED WITH clusterer_name ( cluster_column_name )
 
-In this expression, the clusterer with the name specified by `clusterer_name` is used to assign clusters to the rows in the result of the [table expression](/doc/ref/sqlregular#table-expression) `table_expression`, which must include all the feature columns present in the data on which the [clusterer was trained](#clusterer-training) (it can include additional columns).
+In this expression, the clusterer with the name specified by `clusterer_name` is used to assign clusters to the rows in the result of the [table expression](../sclerasql/sqlregular.md#table-expression) `table_expression`, which must include all the feature columns present in the data on which the [clusterer was trained](#clusterer-training) (it can include additional columns).
 
 The result contains one row per input row. Each row contains all the columns in the input `table_expressions` and a new column, with the name as specified in `cluster_column_name`, containing the clusterer output.
 
@@ -136,36 +136,19 @@ This expression can be used in a query just like a table or a view. For instance
       FROM (customers CLUSTERED WITH myclusterer(clusterid))
       GROUP BY clusterid;
 
-## Association Rule Mining
-Consider a table `sales` containing a row per customer and, given a set of products, one column for each product containing whether or not the customer has bought the product. We want to find statistically significant rules saying that if a customer buys product `A`, `C` and `D`, then he/she also buys product `B`. Such rules are called [association rules](http://en.wikipedia.org/wiki/Association_rule_learning).
-
-An associator is an object that contains all such rules in a dataset provided as input. The formal syntax for creating an associator is as follows (also see: [extended syntax](#extended-syntax-for-association-rule-mining)):
-
-    CREATE [ { TEMPORARY | TEMP } ] ASSOCIATOR associator_name USING table_expression
-
-This creates an associator with the name specified by `associator_name`. The clusterer is trained using the result of the [table expression](/doc/ref/sqlregular#table-expression) `table_expression`. The optional `TEMPORARY` (shortened form: `TEMP`) modifier creates an associator that exists for the duration of the Sclera session only; when the session ends, the associator is deleted.
-
-Notice the similarity with the [`CREATE TABLE AS` statement](#creating-tables-with-query-results), [`CREATE CLASSIFIER` statement](#classifier-training) and [`CREATE CLUSTERER` statement](#clusterer-training).
-
-In our example, the following creates the associator `myassociator` and trains it on the table `sales`:
-
-    > CREATE ASSOCIATOR myassociator USING sales;
-
-After the associator is created, you can list the rules using the [`DESCRIBE` command](/doc/ref/shell#describe):
-
-    > DESCRIBE myassociator;
-
 <a class="anchor" name="sclera-weka"></a><a class="anchor" name="sclera-mahout"></a>
 ## Extended Syntax for Using Specific Libraries and Algorithms
-The classifier/clusterer/associator syntax above is agnostic of the underlying library. Sclera uses [Weka](http://www.cs.waikato.ac.nz/ml/weka/) as the default library, and specific classification/clustering/association rule mining algorithms as default. The default library is specified in the [configuration file](/doc/ref/configuration#sclera-service-default-mlservice), and can be changed if required to an alternative supported library, such as [Apache Mahout](http://mahout.apache.org/)), and the algorithms therein.
+The classifier/clusterer syntax above is agnostic of the underlying library. Sclera uses [Weka](http://www.cs.waikato.ac.nz/ml/weka/) as the default library, and specific classification/clustering algorithms as default. The default library is specified in the [configuration file](../setup/configuration.md#sclera-service-default-mlservice), and can be changed if required to an alternative supported library, such as [Apache Mahout](http://mahout.apache.org/)), and the algorithms therein.
 
-The [default library](/doc/ref/configuration#sclera-service-default-mlservice) can be overriden by explicitly mentioning the library (currently, [`WEKA`](http://www.cs.waikato.ac.nz/ml/weka/) or [`MAHOUT`](http://mahout.apache.org)) in the `CREATE` statements.
+The [default library](../setup/configuration.md#sclera-service-default-mlservice) can be overriden by explicitly mentioning the library (currently, [`WEKA`](http://www.cs.waikato.ac.nz/ml/weka/) or [`MAHOUT`](http://mahout.apache.org)) in the `CREATE` statements.
 
-Moreover, you can select the specific algorithms to use for classification/clustering/association, and even provide the parameters. The algorithm names and parameters depend on the specific library. Sclera does not interpret the specified algorithm parameters, and merely passes them on to the appropriate APIs of the chosen library.
+Moreover, you can select the specific algorithms to use for classification/clustering, and even provide the parameters. The algorithm names and parameters depend on the specific library. Sclera does not interpret the specified algorithm parameters, and merely passes them on to the appropriate APIs of the chosen library.
 
-For instance, the following uses Mahout as the underlying library for creating the classifier (instead of the default, [as earlier](#classifier-training)):
+For instance, the following uses `FOOBARML` as the underlying library for creating the classifier (instead of the default, [as earlier](#classifier-training)):
 
-    > CREATE MAHOUT CLASSIFIER myclassifier(isinterested) USING survey;
+    > CREATE FOOBARML CLASSIFIER myclassifier(isinterested) USING survey;
+
+(The above assumes that a [plugin for `FOOBAR`](../sdk/sdkextml.md) has been installed.)
 
 The following specifies the use of [`SIMPLEKMEANS` algorithm](http://weka.sourceforge.net/doc.dev/weka/clusterers/SimpleKMeans.html) for clustering in Weka:
 
@@ -175,7 +158,7 @@ To further specify cluster counts as 3 (overriding the default 2):
 
     > CREATE WEKA CLUSTERER("SIMPLEKMEANS", "-N 3") myclusterer USING customers;
 
-The extended formal syntax for classification/clustering/association, incorporating these overrides, is discussed below.
+The extended formal syntax for classification/clustering, incorporating these overrides, is discussed below.
 
 ### Extended Syntax for Classification
 The extended formal syntax for creating a classifier is as follows:
@@ -184,7 +167,7 @@ The extended formal syntax for creating a classifier is as follows:
 
 - The optional `library_name` specifies the machine learning library to use for the task.
     - Valid options are `WEKA` and `MAHOUT`.
-    - If not specified, the `WEKA` is used (this default can be modified using the [`sclera.service.default.mlservice` configuration parameter](/doc/ref/configuration#sclera-service-default-mlservice)).
+    - If not specified, the `WEKA` is used (this default can be modified using the [`sclera.service.default.mlservice` configuration parameter](../setup/configuration.md#sclera-service-default-mlservice)).
 - The optional `algorithm_name` identifies the algorithm to be used in training the classifier.
     - The following are supported: for `WEKA`:
         - `J48` ([documentation](http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/J48.html))
@@ -216,7 +199,7 @@ The extended formal syntax for creating an clusterer is as follows:
 
 - The optional `library_name` specifies the machine learning library to use for the task.
     - Valid options are `WEKA` and `MAHOUT`. However, in the current version, only `WEKA` is accepted as Sclera currently only interfaces with [Weka](http://www.cs.waikato.ac.nz/ml/weka) for clustering.
-    - If not specified, `WEKA` is used (this default can be modified using the [`sclera.service.default.mlservice` configuration parameter](/doc/ref/configuration#sclera-service-default-mlservice)).
+    - If not specified, `WEKA` is used (this default can be modified using the [`sclera.service.default.mlservice` configuration parameter](../setup/configuration.md#sclera-service-default-mlservice)).
 - The optional `algorithm_name` identifies the algorithm to be used in training the clusterer.
     - The following are supported for `WEKA`:
         - `SIMPLEKMEANS` ([documentation](http://weka.sourceforge.net/doc.dev/weka/clusterers/SimpleKMeans.html))
@@ -230,22 +213,3 @@ The extended formal syntax for creating an clusterer is as follows:
     - Please refer to the Weka documentation the respective algorithms, linked above, for details of the accepted options and defaults.
     - If not specified, the default parameters for the specified algorithm are used.
 - Remaining parameters are as in the [abridged syntax](#clusterer-training) discussed earlier.
-
-### Extended Syntax for Association Rule Mining
-The extended formal syntax for creating an associator is as follows:
-
-    CREATE [ { TEMPORARY | TEMP } ] [ library_name ] ASSOCIATOR [ ( algorithm_name [ , algorithm_options ] ) ] associator_name USING table_expression
-
-- The optional `library_name` specifies the machine learning library to use for the task.
-    - Valid options are `WEKA` and `MAHOUT`. However, in the current version, only `WEKA` is accepted as Sclera currently only interfaces with [Weka](http://www.cs.waikato.ac.nz/ml/weka) for association rule mining.
-    - If not specified, `WEKA` is used (this default can be modified using the [`sclera.service.default.mlservice` configuration parameter](/doc/ref/configuration#sclera-service-default-mlservice)).
-- The optional `algorithm_name` identifies the algorithm to be used in training the associator.
-    - The following are supported for `WEKA`:
-        - `APRIORI` ([documentatation](http://weka.sourceforge.net/doc.dev/weka/associations/Apriori.html))
-        - `FPGROWTH` ([documentation](http://weka.sourceforge.net/doc.dev/weka/associations/FPGrowth.html))
-    - If not specified, `APRIORI` is used as the default.
-- The optional `algorithm_options` provides the configuration options (parameters) for the algorithm identified by `algorithm_name`.
-    - These options are passed as a *single* string, just as in a command line.
-    - Please refer to the Weka documentation the respective algorithms, linked above, for details of the accepted options and defaults.
-    - If not specified, the default parameters for the specified algorithm are used.
-- Remaining parameters are as in the [abridged syntax](#association-rule-mining) discussed earlier.

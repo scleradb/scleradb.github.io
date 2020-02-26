@@ -1,6 +1,6 @@
 In this document, we show how to build custom connectors to any data source. These connectors enable ingestion of data from arbitrary sources in a ScleraSQL query. You only need to format the data as rows of a table, and Sclera will take care of evaluating your SQL queries on the same -- these queries can include transforming, filtering and aggregating this data, as well as joining this data with data ingested from other connectors, or with data in tables stored in other data stores.
 
-[Sclera - Stock Ticker Connector](/doc/ref/components#sclera-stockticker), [Sclera - CSV Connector](/doc/ref/components#sclera-csv), and [Sclera - Text Files Connector](/doc/ref/components#sclera-textfiles) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation for external data access](/doc/ref/sqlextdataaccess).
+[Sclera - Stock Ticker Connector](../setup/components.md#sclera-stockticker), [Sclera - CSV Connector](../setup/components.md#sclera-csv), and [Sclera - Text Files Connector](../setup/components.md#sclera-textfiles) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation for external data access](../sclerasql/sqlextdataaccess.md).
 
 ## Building Data Access Connectors
 
@@ -21,11 +21,11 @@ To build a custom datasource connector, you need to provide implementations of t
 <a class="anchor" name="example"></a>
 ## Example: Building a Stock Ticker Connector
 
-This section shows how to implement the [stock ticker connector](/doc/ref/components#sclera-stockticker) using the Sclera Extensions SDK. This connector enables using data from a stock ticker web service within a SQL query, and is included in all Sclera subscription packages; see the [component documentation](/doc/ref/sqlextdataaccess#sclera-stockticker) for the details.
+This section shows how to implement the [stock ticker connector](../setup/components.md#sclera-stockticker) using the Sclera Extensions SDK. This connector enables using data from a stock ticker web service within a SQL query, and is included in all Sclera subscription packages; see the [component documentation](../sclerasql/sqlextdataaccess.md#sclera-stockticker) for the details.
 
 The referenced code is available in the `sclera-stockticker` subdirectory of the example repository ([Scala](https://github.com/scleradb/sclera-extensions-scala), [Java](https://github.com/scleradb/sclera-extensions-java)).
 
-Consider a simple SQL query that uses the connector ([full syntax](/doc/ref/sqlextdataaccess#sclera-stockticker)):
+Consider a simple SQL query that uses the connector ([full syntax](../sclerasql/sqlextdataaccess.md#sclera-stockticker)):
 
     SELECT * FROM EXTERNAL STOCKTICKER("NYSE:IBM", 120, 1);
 
@@ -43,12 +43,12 @@ For the query above, Sclera calls the method `createSource` of the `TickerServic
 
 The class `TickerSource` implements the following methods, as required by the [abstract class `DataSource`](#datasource):
 
-- The method `toString` provides a printable string, which will be used for this datasource when [`EXPLAIN` is run on a query](/doc/ref/shell#compile-time-explain) using this datasource.
+- The method `toString` provides a printable string, which will be used for this datasource when [`EXPLAIN` is run on a query](../interface/shell.md#compile-time-explain) using this datasource.
 - The method `columns` (`columnsList` in Java) provides Sclera with the schema of the output that this datasource will emit at runtime. The schema contains the name of each column, and its type (in Java, the helper methods of the utility [JavaUtil object](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.util.JavaUtil$) are used to construct the column and type specifications).
 - The method `resultOrderOpt` (`sortExprs` in Java) tells Sclera how the output is sorted. This information is optional, but helps in eliminating redundant sorts on the emitted result.
 - The method `result` is called by Sclera at runtime, and returns an object of the class `TickerResult`, which implements the [abstract class `TableResult`](#tableresult) mentioned above.
 
-Sclera [plans](/doc/ref/technical#query-processor) the query mentioned above taking into account the schema and result sort order provided by the `TickerSource` object. When the plan is [evaluated](/doc/ref/technical#evaluation), the object's `result` method returns the object `TickerResult`, which retrieves the data from the stock ticker web service, as discussed in a moment.
+Sclera [plans](../intro/technical.md#query-processor) the query mentioned above taking into account the schema and result sort order provided by the `TickerSource` object. When the plan is [evaluated](../intro/technical.md#evaluation), the object's `result` method returns the object `TickerResult`, which retrieves the data from the stock ticker web service, as discussed in a moment.
 
 The class `TickerResult` implements the following method, as required by the [abstract class `TableResult`](#tableresult):
 
@@ -66,11 +66,11 @@ The implementation uses [sbt](http://www.scala-sbt.org) for building the connect
 
 For Scala:
 
-- The Scala implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-stockticker/build.sbt) for the details. Note that the dependency is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Scala implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-stockticker/build.sbt) for the details. Note that the dependency is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 For Java:
 
-- The Java implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-java/blob/master/sclera-stockticker/build.sbt) for the details. Note that the dependency on `"sclera-core"` is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Java implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-java/blob/master/sclera-stockticker/build.sbt) for the details. Note that the dependency on `"sclera-core"` is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 ### Deployment Steps
 
@@ -102,4 +102,4 @@ The connector should now be visible to Sclera, and can be used in the queries.
 
 **Note:** Please ensure that the identifier you assign to the connector is unique, that is - does not conflict with the identifier of any other available [`DataService`](#dataservice) instance.
 
-While deploying or experimenting with the [example discussed above](#example), please change the [service identifier](#serviceid) to something other than `"STOCKTICKER"` before deployment, since the [`"STOCKTICKER"` service is already available as a part of your Sclera package](/doc/ref/sqlextdataaccess#sclera-stockticker).
+While deploying or experimenting with the [example discussed above](#example), please change the [service identifier](#serviceid) to something other than `"STOCKTICKER"` before deployment, since the [`"STOCKTICKER"` service is already available as a part of your Sclera package](../sclerasql/sqlextdataaccess.md#sclera-stockticker).

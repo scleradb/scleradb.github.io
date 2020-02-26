@@ -1,8 +1,8 @@
-In this document, we show how to build custom connectors to any machine learning library. These connectors enable Sclera to include machine learning objects (such as classifiers) as first-class SQL objects (at par with [Tables](/doc/ref/sqlregular#base-tables) and [Views](/doc/ref/sqlregular#views), for instance), and also include machine learning tasks (such as classification) as relational operators within SQL.
+In this document, we show how to build custom connectors to any machine learning library. These connectors enable Sclera to include machine learning objects (such as classifiers) as first-class SQL objects (at par with [Tables](../sclerasql/sqlregular.md#base-tables) and [Views](../sclerasql/sqlregular.md#views), for instance), and also include machine learning tasks (such as classification) as relational operators within SQL.
 
 This is achieved by mapping the training and execution to the interfaced library's API, transforming the input and the output, and converting the result to a relational stream for consumption of other SQL operators.
 
-[Sclera - Weka Connector](/doc/ref/components#sclera-weka) and [Sclera - Apache Mahout Connector](/doc/ref/components#sclera-mahout) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [documentation on using machine learning in SQL](/doc/ref/sqlextml).
+[Sclera - Weka Connector](../setup/components.md#sclera-weka) and [Sclera - Apache Mahout Connector](../setup/components.md#sclera-mahout) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [documentation on using machine learning in SQL](../sclerasql/sqlextml.md).
 
 ## Building Machine Learning Library Connectors
 
@@ -11,31 +11,29 @@ To build a custom datasource connector, you need to provide implementations of t
 - <a class="anchor" name="mlservice"></a> `MLService` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.ml.service.MLService), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.ml.service.DBService))
     - Provides machine learning operators as a service to Sclera, using the specified library.
     - Contains an `id` that identifies this service.
-    - Contains the method `createAssociator`, `createClassifier`, `createClusterer` that is used to create (i.e. train), respectively, a new [Classifier](#classifier), [Clusterer](#clusterer), or [Associator](#associator) for this service.
+    - Contains the method `createClassifier`, `createClusterer` that is used to create (i.e. train), respectively, a new [Classifier](#classifier) or [Clusterer](#clusterer) for this service.
 - <a class="anchor" name="classifier"></a> `Classifier` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.ml.classifier.objects.Classifier), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.ml.classifier.objects.Classifier))
-    - Wrapper over classes implementing clustering algorithms. [Training](/doc/ref/sqlextml#classifier-training) involves learning a classifier with a designated `targetAttr` using the feature attributes `featureAttrs`, all of which must be present in the input.
-    - Provides a function `classifyOpt` that returns the label for a new data point, if one can be assigned by the classifier; this is used by the [`CLASSIFIED WITH` clause](/doc/ref/sqlextml#classifier-application).
+    - Wrapper over classes implementing clustering algorithms. [Training](../sclerasql/sqlextml.md#classifier-training) involves learning a classifier with a designated `targetAttr` using the feature attributes `featureAttrs`, all of which must be present in the input.
+    - Provides a function `classifyOpt` that returns the label for a new data point, if one can be assigned by the classifier; this is used by the [`CLASSIFIED WITH` clause](../sclerasql/sqlextml.md#classifier-application).
 - <a class="anchor" name="clusterer"></a> `Clusterer` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.ml.clusterer.objects.Clusterer), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.ml.clusterer.objects.Clusterer))
-    - Wrapper over classes implementing clustering algorithms. [Training](/doc/ref/sqlextml#clusterer-training) involves clustering the given data.
-    - Provides a function `cluster` that assigns a cluster id to a new data point; this is used by the [`CLUSTERED WITH` clause](/doc/ref/sqlextml#clusterer-application).
-- <a class="anchor" name="associator"></a> `Associator` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.ml.associator.objects.Associator), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.ml.associator.objects.Associator))
-    - Wrapper over classes implementing association rule mining algorithms. [Training](#/doc/ref/sqlextml#association-rule-mining) involves learning association rules over the given data.
+    - Wrapper over classes implementing clustering algorithms. [Training](../sclerasql/sqlextml.md#clusterer-training) involves clustering the given data.
+    - Provides a function `cluster` that assigns a cluster id to a new data point; this is used by the [`CLUSTERED WITH` clause](../sclerasql/sqlextml.md#clusterer-application).
 
-The [Sclera - Weka Connector](/doc/ref/components#sclera-weka), included with the Sclera platform, is open source and implements the interface mentioned above. The code for the [Sclera - Weka Connector](/doc/ref/components#sclera-weka), in Scala, also appears as an illustrative example in the [Sclera Extensions (Scala) Github repository](https://github.com/scleradb/sclera-extensions-scala).
+The [Sclera - Weka Connector](../setup/components.md#sclera-weka), included with the Sclera platform, is open source and implements the interface mentioned above. The code for the [Sclera - Weka Connector](../setup/components.md#sclera-weka), in Scala, also appears as an illustrative example in the [Sclera Extensions (Scala) Github repository](https://github.com/scleradb/sclera-extensions-scala).
  
 ## Packaging and Deploying the Connector
 
-The included [Sclera - Weka Connector](/doc/ref/components#sclera-mysql) implementation uses [sbt](http://www.scala-sbt.org) for building the connector [(installation details)](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt). This is not a requirement -- any other build tool can be used instead.
+The included [Sclera - Weka Connector](../setup/components.md#sclera-mysql) implementation uses [sbt](http://www.scala-sbt.org) for building the connector [(installation details)](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt). This is not a requirement -- any other build tool can be used instead.
 
 ### Dependencies
 
 For Scala:
 
-- The Scala implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-weka/build.sbt) for the details. Note that the dependency is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Scala implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-weka/build.sbt) for the details. Note that the dependency is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 For Java:
 
-- The Java implementation has a dependency on the [`"sclera-core"` library](/doc/sdk/sdkintro#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). Note that the dependency on `"sclera-core"` is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- The Java implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). Note that the dependency on `"sclera-core"` is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
 
 ### Deployment Steps
 
