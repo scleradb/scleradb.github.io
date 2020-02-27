@@ -13,7 +13,6 @@ The syntax of the file should be self-evident. A detailed description of the und
 | <a class="anchor" name="sclera-service-assetdir"></a>`sclera.service.assetdir` | Directory for storing component assets
 | <a class="anchor" name="sclera-service-default-mlservice"></a>`sclera.service.default.mlservice` | Default machine learning service
 | <a class="anchor" name="sclera-service-default-nlpservice"></a>`sclera.service.default.nlpservice` | Default natural language processing service
-| <a class="anchor" name="sclera-service-licensedir"></a>`sclera.service.licensedir` | Directory for storing license information
 | <a class="anchor" name="sclera-shell-explain"></a>`sclera.shell.explain` | Default value for explain (true = on, or false = off)
 | <a class="anchor" name="sclera-shell-history"></a>`sclera.shell.history` | File for storing Sclera shell history
 | <a class="anchor" name="sclera-shell-prompt"></a>`sclera.shell.prompt` | Shell prompt
@@ -21,4 +20,3 @@ The syntax of the file should be self-evident. A detailed description of the und
 | <a class="anchor" name="sclera-storage-objectdir"></a>`sclera.storage.objectdir`| Directory for storing Sclera objects 
 | <a class="anchor" name="sclera-user-email"></a>`sclera.user.email` | Email address (your login at the Sclera website)
 | <a class="anchor" name="sclera-web-baseurl"></a>`sclera.web.baseurl` | Sclera website URL
-| <a class="anchor" name="sclera-web-licenseurl"></a>`sclera.web.licenseurl` | URL for downloading the Sclera license
