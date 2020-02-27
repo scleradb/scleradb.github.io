@@ -12,14 +12,14 @@ a.btn.btn-block:hover {
 a.btn.btn-block {
     display: block;
     width: 100%;
-    color: #fff;
-    background-color: rgba(80, 90, 100, 0.95);
+    background-color: #fff;
+    color: rgba(80, 90, 100, 0.95);
 }
 
 a.btn {
     display: inline-block;
     outline: none;
-    border: none;
+    border: 1px solid rgba(80, 90, 100, 1.0);
     border-radius: 0;
     text-transform: uppercase;
     font-weight: 400;
