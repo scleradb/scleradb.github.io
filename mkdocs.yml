@@ -6,15 +6,15 @@ site_author: "Sclera, Inc."
 
 copyright: "Copyright &copy; 2012 - 2020 Sclera, Inc."
 
-site_url: "https://www.scleradb.com/docs"
+site_url: "https://www.scleradb.com"
 
 site_dir: docs
 
 docs_dir: docsrc
 
 nav:
-    - 'Sclera': "/"
-    - 'Documentation Index': index.md
+    - 'Home': "/"
+    - 'Documentation Contents': index.md
     - 'Introduction':
         - 'Why Sclera?': intro/whysclera.md
         - 'FAQ': intro/faq.md
@@ -47,8 +47,9 @@ nav:
         - 'Database System Plugins': sdk/sdkextdbms.md
         - 'Machine Learning Library Plugins': sdk/sdkextml.md
         - 'Text Analytics Library Plugins': sdk/sdkexttext.md
-    - 'Component Third Party Dependencies': misc/dependencies.md
-    - 'Component Licenses': misc/licenses.md
+    - 'Acknowledgements':
+        - 'Component Third Party Dependencies': misc/dependencies.md
+        - 'Component Licenses': misc/licenses.md
 
 theme:
     name: "material"
