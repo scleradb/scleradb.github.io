@@ -51,11 +51,7 @@ The connector uses [MySQL Connector/J](http://dev.mysql.com/doc/connector-j/en/i
 Details on how to link your MySQL source to with Sclera can be found in the [Sclera Database System Connection Reference](../setup/dbms.md#connecting-to-mysql) document.
 
 <a class="anchor" name="sclera-mysql-license"></a> **Important**
-The [MySQL Connector/J](http://dev.mysql.com/doc/connector-j/en/index.html) JDBC driver is licensed under the [GNU General Public License version 2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html). For [compatibility](http://www.gnu.org/licenses/gpl-faq.html#AllCompatibility), this component is licensed under the [GNU General Public License version 2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) as well. Please use this component in accordance with this license. To get a commercial license for MySQL Connector/J, please refer to the [MySQL documentation](http://www.mysql.com/about/legal/licensing/oem/).
-
-In keeping with the provisions of the GNU General Public License version 2, the source code for this component is available for download at the [Sclera repository](https://s3.amazonaws.com/scleradb.releases/com.scleradb/sclera-weka_2.9.3/1.0.140115-BETA/srcs/sclera-mysql_2.9.3-sources.jar).
-
-*This component is an OPTIONAL extension. As such, this component's license does NOT affect your use of any other Sclera component, or the core Sclera platform.*
+The [MySQL Connector/J](http://dev.mysql.com/doc/connector-j/en/index.html) JDBC driver is licensed under the [GNU General Public License version 2 with FOSS exception](https://oss.oracle.com/licenses/universal-foss-exception/). Sclera - MySQL Connector is licensed under the [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0), which is compatible with the said FOSS exception.
 
 <a class="anchor" name="sclera-postgresql"></a>
 ### Sclera - PostgreSQL Connector
