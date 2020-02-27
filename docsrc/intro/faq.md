@@ -6,7 +6,7 @@ Sclera is a stand-alone SQL processor with native support for machine learning, 
 
 As a BI professional, you are conversant with SQL, and understand the need to move to advanced analytics. But so far, exploring advanced analytics has meant sparing valuable time learning the myriad APIs, and getting down to coding in Java, R, Python, or whatever it takes.
 
-For you, Sclera is the most efficient way to build analytics applications. You only need to learn a handful of SQL extensions to start exploiting the power of sophisticated libraries such as Weka and Apache Mahout, incorporate external data from web-services, and perform complex event processing and stream analytics, and more -- all using familiar SQL. Moreover, it works on your existing database systems, with no need for any hardware setup and no need to move your data.
+For you, Sclera is the most efficient way to build analytics applications. You only need to learn a handful of SQL extensions to start exploiting the power of sophisticated libraries such as Weka, incorporate external data from web-services, and perform complex event processing and stream analytics, and more -- all using familiar SQL. Moreover, it works on your existing database systems, with no need for any hardware setup and no need to move your data.
 
 ## I am an analytics consultant. Why do I need Sclera?
 
@@ -68,13 +68,13 @@ To the user, Sclera is just like a relational database system -- with SQL as the
 
 No, Sclera complements your database systems. Sclera works with your database systems, and extends their capability to perform advanced analytics.
 
-## Is Sclera another SQL-on-Hadoop system?
+## How is Sclera different from Apache Drill? 
 
-Sclera is a "SQL-on-Anything" system.
+[Apache Drill](https://drill.apache.org) is a data virtualization solution, enabling standard SQL on Hadoop distributions, NoSQL datastores, cloud storage and local files with a variety of data formats. For data virtualization, thus, it is more versatile than Sclera.
 
-The [Sclera - Apache HBase Connector](../setup/components.md#sclera-hbase) enables Sclera to run SQL on Apache HBase (which sits over Hadoop).
+Unlike Sclera, however, Apache Drill does not provide the ability to plug in your own data processing extensions. Supporting standard SQL, it also does not provide stream pattern matching, machine learning, text analytics, data cleaning, visualization, and other capabilities that are baked into Sclera.
 
-If you need to work on files stored in HDFS, you can build a custom connector using the [Hadoop FileSystem API](https://hadoop.apache.org/docs/current/api/index.html?org/apache/hadoop/fs/FileSystem.html) and the [Sclera Extensions SDK](../sdk/sdkextdataaccess.md). Sclera can provide a pre-built extension on request  -- please send a mail to support@scleradb.com.
+In the near term, we plan to provide a plugin based on Apache Drill that brings its extensive virtualization capabilities to Sclera.
 
 ## How does Sclera compare with R?
 

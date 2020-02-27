@@ -1,6 +1,6 @@
 In this document, we show how to build custom connectors to any relational/non-relational database management system. These connectors interface Sclera with an arbitrary database system, relational or non-relational, providing access to the underlying data, and also enable Sclera to push down computations in relevant parts user queries and commands on the interfaced database system.
 
-[Sclera - Oracle Connector](../setup/components.md#sclera-oracle), [Sclera - MySQL Connector](../setup/components.md#sclera-mysql), [Sclera - PostgreSQL Connector](../setup/components.md#sclera-postgresql), and [Sclera - Apache HBase Connector](../setup/components.md#sclera-hbase) are built using this SDK.  For examples of how these connectors are used in Sclera, please refer to the [documentation on connecting Sclera to database systems](../setup/dbms.md).
+[Sclera - Oracle Connector](../setup/components.md#sclera-oracle), [Sclera - MySQL Connector](../setup/components.md#sclera-mysql), and [Sclera - PostgreSQL Connector](../setup/components.md#sclera-postgresql) are built using this SDK.  For examples of how these connectors are used in Sclera, please refer to the [documentation on connecting Sclera to database systems](../setup/dbms.md).
 
 ## Building Database System Connectors
 

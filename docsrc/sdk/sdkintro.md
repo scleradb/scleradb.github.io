@@ -17,7 +17,7 @@ The following type of components are covered:
 
 These connectors enable ingestion of data from arbitrary sources in a ScleraSQL query. You only need to format the data as rows of a table, and Sclera will take care of evaluating streaming SQL queries on the same -- these queries can include transforming, filtering and aggregating this data, as well as joining this data with data ingested from other connectors, or with data in tables stored in other data stores.
 
-[Sclera - Stock Ticker Connector](../setup/components.md#sclera-stockticker), [Sclera - CSV Connector](../setup/components.md#sclera-csv), and [Sclera - Text Files Connector](../setup/components.md#sclera-textfiles) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation](../sclerasql/sqlextdataaccess.md).
+[Sclera - CSV Connector](../setup/components.md#sclera-csv) and [Sclera - Text Files Connector](../setup/components.md#sclera-textfiles) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation](../sclerasql/sqlextdataaccess.md).
 
 To learn more about building data access connectors, please see the [Sclera Datasource Extensions SDK](../sdk/sdkextdataaccess.md) documentation.
 
@@ -25,7 +25,7 @@ To learn more about building data access connectors, please see the [Sclera Data
 
 These connectors interface Sclera with an arbitrary database system, relational or non-relational, providing access to the underlying data, and also enable Sclera to push down computations in relevant parts user queries and commands on the interfaced database system.
 
-[Sclera - Oracle Connector](../setup/components.md#sclera-oracle), [Sclera - MySQL Connector](../setup/components.md#sclera-mysql), [Sclera - PostgreSQL Connector](../setup/components.md#sclera-postgresql), and [Sclera - Apache HBase Connector](../setup/components.md#sclera-hbase) are built using this SDK.  For examples of how these connectors are used in Sclera, please refer to the [data platform connection reference documentation](../setup/dbms.md).
+[Sclera - Oracle Connector](../setup/components.md#sclera-oracle), [Sclera - MySQL Connector](../setup/components.md#sclera-mysql), and [Sclera - PostgreSQL Connector](../setup/components.md#sclera-postgresql) are built using this SDK.  For examples of how these connectors are used in Sclera, please refer to the [data platform connection reference documentation](../setup/dbms.md).
 
 To learn more about building database system connectors, please see the [Sclera Database System Extensions SDK](../sdk/sdkextdbms.md) documentation.
 
@@ -33,7 +33,7 @@ To learn more about building database system connectors, please see the [Sclera 
 
 These connectors interface Sclera with an arbitrary machine learning libraries, which provide implementations of classification, clustering and/or association rules mining. These connectors handle the invocation of the underlying library for training the models, and using them to label data in the query processing pipeline.
 
-[Sclera - Weka Connector](../setup/components.md#sclera-weka) and [Sclera - Apache Mahout Connector](../setup/components.md#sclera-mahout) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation](../sclerasql/sqlextml.md).
+[Sclera - Weka Connector](../setup/components.md#sclera-weka) is built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation](../sclerasql/sqlextml.md).
 
 To learn more about building machine learning library connectors, please see the [Sclera Machine Learning Library Extensions SDK](../sdk/sdkextml.md) documentation.
 

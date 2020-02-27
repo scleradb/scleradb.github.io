@@ -1,6 +1,8 @@
 In this document, we show how to build custom connectors to any data source. These connectors enable ingestion of data from arbitrary sources in a ScleraSQL query. You only need to format the data as rows of a table, and Sclera will take care of evaluating your SQL queries on the same -- these queries can include transforming, filtering and aggregating this data, as well as joining this data with data ingested from other connectors, or with data in tables stored in other data stores.
 
-[Sclera - Stock Ticker Connector](../setup/components.md#sclera-stockticker), [Sclera - CSV Connector](../setup/components.md#sclera-csv), and [Sclera - Text Files Connector](../setup/components.md#sclera-textfiles) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation for external data access](../sclerasql/sqlextdataaccess.md).
+[Sclera - CSV Connector](../setup/components.md#sclera-csv) and [Sclera - Text Files Connector](../setup/components.md#sclera-textfiles) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation for external data access](../sclerasql/sqlextdataaccess.md).
+
+*To be updated, links to the code might not work.*
 
 ## Building Data Access Connectors
 

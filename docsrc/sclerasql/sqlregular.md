@@ -84,8 +84,6 @@ When a join contains inputs from more than one database system, it is a cross-sy
 
 While planning the evaluation of cross-system joins, Sclera considers the left input of a join larger than the right input, and prefers moving the right input to the left input's location. The ordering of the `from_item`s in a `FROM` clause thus matters when evaluating cross-system joins (see the [technical documentation](../intro/technical.md#relational-operators) for details). While this enables you to control how data is moved while evaluating a query, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.
 
-Specifically, when specifying a join between a relational database and HBase, if large amount of data in HBase is expected to be involved in the join, then you should place the HBase source leftmost in the `FROM` list; this will ensure that data from the relational database is moved to HBase for the join, not vice-versa.
-
 In any case, when evaluating a query with a cross-system join, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](../interface/shell.md#compile-time-explain)) before submitting the query.
 
 ### `WHERE` Clause
@@ -165,8 +163,6 @@ To evaluate a cross-system set operation, Sclera needs both the query results to
 - If the list is not empty, Sclera assigns the location on the left in the list as the target location. This has the effect that the query in the other location is evaluated, and its result is moved to the target location. The set operation is then computed along with the evaluation of the query in the target location.
 
 The ordering of the queries thus matters when evaluating cross-system set operations. While this enables you to control how data is moved while evaluating the queries containing set operations, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.
-
-Specifically, when specifying a set operation between queries evaluated in a relational database and HBase respectively, if the HBase query's result is expected to be large, then you should place the HBase query before (that is, to the left of) the other query; this will ensure that HBase is picked as the target location in the set operation.
 
 In any case, when evaluating a query with a cross-system set operation, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](../interface/shell.md#compile-time-explain)) before submitting the query.
 
@@ -265,7 +261,7 @@ Creating tables in Sclera is different from [adding tables to Sclera using the `
 
 The net effect of these commands is (a) creating the table on the underlying database system, and (b) adding the table metadata to Sclera's metadata store.
 
-If the database system understands SQL (e.g. [MySQL](http://www.mysql.com)), Sclera creates the table by generating the appropriate `CREATE TABLE` command, taking care of dialect and datatype differences; if the database system does not understand SQL (e.g. HBase), Sclera uses the system's API (or any other available mechanism) to create an underlying structure (e.g. HBase tables) that is compatible with the metadata specified in the command.
+If the database system understands SQL (e.g. [MySQL](http://www.mysql.com)), Sclera creates the table by generating the appropriate `CREATE TABLE` command, taking care of dialect and datatype differences; if the database system does not understand SQL (e.g. NoSQL datastores), Sclera uses the system's API (or any other available mechanism) to create an underlying structure that is compatible with the metadata specified in the command.
 
 The `CREATE TABLE` command has two variants. The [first variant](#creating-empty-tables) creates an empty table. The [second variant](#creating-tables-with-empty-results) creates a table, and also populates it with the result of a query.
 
@@ -313,7 +309,7 @@ The optional `table_constraint` list appears as a continuation of the [column li
     - If the reference table's `column_name` list is specified, (a) it must have the same number of columns as the foreign key list, (b) the table `table_name` must contain each column in the reference list and these columns must collectively have a `PRIMARY KEY` constraint, and (c) each column of the reference list must have the same type as the corresponding column (i.e. at the same position) in the foreign key list. Also, for each row in this table, either some column in the foreign-key list is `NULL`, or there exists a row in table `table_name` with a matching set of values of the respective columns in the reference list.
     - If the reference table's `column_name` list is not specified, the table `table_name` must have a primary key, which (a) must have the same number of columns as the foreign key list, and (b) each column of this primary key must have the same type as the corresponding column (i.e. at the same position) in the foreign key list. Also, for each row in this table, either some column in the foreign-key list is `NULL`, or there exists a row in table `table_name` with a matching set of values of the respective columns in the primary key.
 
-Note that Sclera does not enforce the column or table constraints described above. Sclera passes on these constraints to the underlying database system, if possible, and it is the responsibility of the underlying database system to check for these constraints. Nevertheless, Sclera assumes that these constraints hold while querying the data in the tables. While creating tables on database systems (such as HBase) which do not enforce such constraints, it is the responsibility of the *user* to make sure that these constraints hold while inserting rows into the table.
+Note that Sclera does not enforce the column or table constraints described above. Sclera passes on these constraints to the underlying database system, if possible, and it is the responsibility of the underlying database system to check for these constraints. Nevertheless, Sclera assumes that these constraints hold while querying the data in the tables. While creating tables on database systems which do not enforce such constraints, it is the responsibility of the *user* to make sure that these constraints hold while inserting rows into the table.
 
 This statement is restricted in comparison, but compliant with the SQL standard and [PostgreSQL](http://www.postgresql.org/docs/current/static/sql-createtable.html).
 

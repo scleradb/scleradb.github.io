@@ -33,7 +33,7 @@ These ETL processes are a processing bottleneck, and hinder the development of r
 **Sclera's solution**
 Sclera overlays over the data silos and presents them as an unified environment.
 
-Currently, Sclera provides support for Oracle, PostgreSQL, MySQL and HBase as well as read-only data sources such as web-services, flat files (plain text, CSV) through optional extensions. Support for additional sources is coming soon.
+Currently, Sclera provides support for Oracle, PostgreSQL, and MySQL as well as read-only data sources such as web-services, flat files (plain text, CSV) through optional extensions. Support for additional sources is coming soon.
 
 At runtime, Sclera breaks up your queries based on the location of queried data, pushes down the computation to the respective platform and pipes the result to the appropriate analytics libraries; the resulting cross-platform workflow is executed under the hood without the need of ETL and data duplication -- the user just fires the query and gets the result. 
 
@@ -59,7 +59,7 @@ Analytics solutions available today have a tight coupling of their database syst
 **Sclera's solution**
 Sclera bridges across multiple database systems and multiple analytics libraries; each of these is an independent extension. This enables you to pick the best database system and the best analytics library independently.
 
-Currently, Sclera supports Oracle, MySQL, PostgreSQL and HBase (database systems) and Weka and Mahout (analytics libraries).
+Currently, Sclera supports Oracle, MySQL, PostgreSQL (database systems), and Weka (analytics libraries).
 
 Sclera provides a standard JDBC interface, which means that you can use Sclera with the JDBC-compatible reporting/visualization engine of your choice.
 

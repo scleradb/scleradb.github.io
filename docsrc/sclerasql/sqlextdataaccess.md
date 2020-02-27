@@ -1,4 +1,4 @@
-In this section, we describe the extensions that enable access to data in [CSV (Comma-Separated Value) files](#sclera-csv), [free-form text files](#sclera-csv) and [web services](#sclera-stockticker) within a SQL query. This data can be used just like a relational base table within the SQL query.
+In this section, we describe the extensions that enable access to data in [CSV (Comma-Separated Value) files](#sclera-csv), [free-form text files](#sclera-csv) and web services within a SQL query. This data can be used just like a relational base table within the SQL query.
 
 Sclera includes an SDK that can be used to develop extensions for arbitrary external datasources. The [Sclera Connector Development SDK](/doc/ref/sdk) document describes the SDK, and includes the source for the extensions described in this section.
 
@@ -95,7 +95,7 @@ The resulting table can also be aggregated over, joined with other base or virtu
 ## Accessing Web Services
 Sclera can provide access to data provided by web services from within SQL, using components built using the [Sclera Extensions SDK](/doc/ref/sdk).
 
-As an illustrative example, which is included in your Sclera installation, Sclera provides access to the [Google Finance](http://www.google.com/finance) ticker streams. This is done using the [Sclera - Stock Ticker Connector](/doc/ref/components#sclera-stockticker) which builds on the [Google Finance API](https://developers.google.com/finance/?csw=1).
+As an illustrative example, Sclera provides access to (dummy) stock ticker streams.
 
 This feature introduces a table expression with the following syntax:
 
@@ -125,5 +125,3 @@ For instance, the following query gives the symbol, exchange, timestamp and the 
 
     > SELECT symbol, exchange, ts, (close - open) as difference
       FROM EXTERNAL STOCKTICKER("ORCL", 120, 1);
-
-*Please note that this is just an illustration of Sclera's capability to interface with a web service. Sclera does NOT vouch for the accuracy of the data provided by the web service. Moreover, the [Google Finance API has been officially deprecated](https://developers.google.com/finance/?csw=1) since this connector was written, but [continues to work](http://stackoverflow.com/questions/527703/how-can-i-get-stock-quotes-using-google-finance-api) nevertheless.*

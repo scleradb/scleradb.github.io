@@ -40,7 +40,7 @@ See the [detailed documentation](../sclerasql/sqlextpred.md) for further informa
 -->
 
 **[SQL extensions for machine learning](../sclerasql/sqlextml.md)**
-These extensions enable you to incorporate [classification](http://en.wikipedia.org/wiki/Statistical_classification), [clustering](http://en.wikipedia.org/wiki/Cluster_analysis) and [association rule learning](http://en.wikipedia.org/wiki/Association_rule_learning) in your SQL queries. Sclera interfaces with well-established external libraries (currently [Weka](http://www.cs.waikato.ac.nz/ml/weka/) and [Mahout](http://mahout.apache.org)) for the task; the query can optionally specify the specific library to use, the specific algorithm within the library and the associated parameter values.
+These extensions enable you to incorporate [classification](http://en.wikipedia.org/wiki/Statistical_classification), [clustering](http://en.wikipedia.org/wiki/Cluster_analysis) and [association rule learning](http://en.wikipedia.org/wiki/Association_rule_learning) in your SQL queries. Sclera interfaces with well-established external libraries (currently [Weka](http://www.cs.waikato.ac.nz/ml/weka/)) for the task; the query can optionally specify the specific library to use, the specific algorithm within the library and the associated parameter values.
 
 See the [detailed documentation](../sclerasql/sqlextml.md) for further information.
 

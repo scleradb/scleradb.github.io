@@ -11,7 +11,7 @@ The query processor is responsible for compiling and evaluating the input query,
 #### Parsing
 The query is parsed into an operator plan. This plan contains the details of the base data and the relational operations to be performed on that data to get the final result.
 
-The data source can be a [table in a linked datastore](../setup/dbms.md#importing-database-tables), or a [text](../sclerasql/sqlextdataaccess.md#sclera-textfile) or [CSV](../sclerasql/sqlextdataaccess.md#sclera-csv) file on the disk, or a [web service](../sclerasql/sqlextdataaccess.md#sclera-stockticker). The operations can be standard *relational operators* (e.g. filters, project, join, group-by aggregation), or *extension operators* (e.g. classification, clustering, entity extraction).
+The data source can be a [table in a linked datastore](../setup/dbms.md#importing-database-tables), or a [text](../sclerasql/sqlextdataaccess.md#sclera-textfile) or [CSV](../sclerasql/sqlextdataaccess.md#sclera-csv) file on the disk, or a web service. The operations can be standard *relational operators* (e.g. filters, project, join, group-by aggregation), or *extension operators* (e.g. classification, clustering, entity extraction).
 
 #### Optimization
 A query optimizer rewrites the plan by reordering the operations to make it more efficient.
@@ -71,8 +71,6 @@ This is a cross-system join. To evaluate a cross-system join, Sclera needs all t
 
 The ordering of the `from_item`s in a `FROM` clause thus matters when evaluating cross-system joins. While this enables you to control how data is moved while evaluating a query, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.
 
-Specifically, when specifying a join between a relational database and HBase, if large amount of data in HBase is expected to be involved in the join, then you should place the HBase source leftmost in the `FROM` list; this will ensure that HBase is picked as the target location in the join.
-
 In any case, when evaluating a query with a cross-system join, please take a close look at the query's evaluation plan (obtained using the [`EXPLAIN` shell command](../interface/shell.md#compile-time-explain)) before submitting the query.
 
 In the current version, Sclera moves data from a "source" to a "target" database system by reading in the data from the source and inserting it into a temporary table in the target. This transfer is done in a streaming (pipelined) manner wherever possible, to avoid reading the entire result in memory. This could be a bottleneck when large amounts of data (millions of rows) are transferred. More efficient data transfer mechanisms will be in place in later versions of Sclera.
@@ -91,7 +89,7 @@ The command processor is responsible for executing the non-query commands, such 
 
 A command may or may not have an embedded query. If it does, Sclera makes use of the [query processor](#query-processor) discussed above to plan and execute the query, and translates the statement to work with the final result (details left out for brevity).
 
-In either case, Sclera interfaces with the underlying systems' APIs to get the task done. For instance, to create a table when the underlying system is [Apache HBase](http://hbase.apache.org), Sclera makes use the appropriate API functions to create the structure. Similar translation happens when inserting, updating or deleting rows, and so on.
+In either case, Sclera interfaces with the underlying systems' APIs to get the task done. For instance, to create a table when the underlying system is a NoSQL datastore, Sclera makes use of the appropriate API functions to create the structure. Similar translation happens when inserting, updating or deleting rows, and so on.
 
 <a class="anchor" name="metadata-store"></a>
 ## Schema Store

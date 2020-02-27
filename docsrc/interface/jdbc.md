@@ -17,7 +17,7 @@ The JDBC driver is accessed through the URL `jdbc:scleradb`.
 ## Supported Statements
 The JDBC driver accepts all [SQL statements supported by Sclera](../sclerasql/sqlintro.md).
 
-The queries return [`ResultSet` objects](http://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html), as required by the standard. However, the non-query statements (`CREATE`, `INSERT`, `UPDATE` and `DELETE`), which may be [required by the standard](http://jdbc.postgresql.org/documentation/92/update.html) to return the number of rows inserted or updated, may not return the correct number; this is because the underlying sources with non-SQL/JDBC interfaces (such as [Apache HBase](../setup/components.md#sclera-hbase)) may not return the required information.
+The queries return [`ResultSet` objects](http://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html), as required by the standard. However, the non-query statements (`CREATE`, `INSERT`, `UPDATE` and `DELETE`), which may be [required by the standard](http://jdbc.postgresql.org/documentation/92/update.html) to return the number of rows inserted or updated, may not return the correct number; this is because the underlying sources with non-SQL/JDBC interfaces (such as NoSQL datastores) may not return the required information.
 
 ## Limitations
 The JDBC support is partial (for instance, functions related to transaction processing and cursors are not supported, and only forward scans of resultsets are permitted). However, the supported API should suffice for most analytics applications, and for interfacing with most JDBC-compliant BI tools.

@@ -2,7 +2,7 @@ In this document, we show how to build custom connectors to any machine learning
 
 This is achieved by mapping the training and execution to the interfaced library's API, transforming the input and the output, and converting the result to a relational stream for consumption of other SQL operators.
 
-[Sclera - Weka Connector](../setup/components.md#sclera-weka) and [Sclera - Apache Mahout Connector](../setup/components.md#sclera-mahout) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [documentation on using machine learning in SQL](../sclerasql/sqlextml.md).
+[Sclera - Weka Connector](../setup/components.md#sclera-weka) is built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [documentation on using machine learning in SQL](../sclerasql/sqlextml.md).
 
 ## Building Machine Learning Library Connectors
 

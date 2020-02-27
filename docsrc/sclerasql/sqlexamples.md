@@ -2,14 +2,14 @@ These examples are meant to give a taste of ScleraSQL features. Please click on 
 
 ## Data Access / Virtualization
 
-Working across systems is easy. The following links Sclera to the customer data in PostgreSQL and the order data in HBase:
+Working across systems is easy. The following links Sclera to the customer data in PostgreSQL and the order data in Oracle:
 
     > add location pgdb as postgresql('localhost/custdb');
     > add table pgdb.customers;
-    > add location hbasedb as hbase('mapreduce');
-    > add table hbasedb.orders;
+    > add location oracledb as oracle('localhost/orderdb');
+    > add table oracledb.orders;
 
-Regular SQL over these tables executes across PostgreSQL and HBase:
+Regular SQL over these tables executes across PostgreSQL and Oracle:
 
     > select location, sum(orders.total)
       from orders join customers on (orders.custid = customers.id)
@@ -73,7 +73,7 @@ Machine learning computations are baked into ScleraSQL. The following statement 
 
 Using the classifier is equally straightforward. The following query identifies prospects among target customers:
 
-    > add table hbasedb.targets;
+    > add table pgdb.targets;
     > select email, name, isprospect
       from (targets classified with myclassifier(isprospect));
 

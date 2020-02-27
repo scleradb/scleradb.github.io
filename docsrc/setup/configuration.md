@@ -5,7 +5,6 @@ The syntax of the file should be self-evident. A detailed description of the und
 | Parameter | Description
 | --------- | -----------
 | <a class="anchor" name="sclera-exec-maxbulksize"></a>`sclera.exec.maxbulksize` | Number of rows to batch together for bulk input/output (default 100).
-| <a class="anchor" name="sclera-hbase-dependencies"></a>`sclera.hbase.dependencies` | Path to the Apache HBase and Apache Zookeeper jar files, required to [interface with Apache Pig](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_16_3.html) (needed by the [Sclera - Apache HBase Connector](../setup/dbms.md#connecting-to-apache-hbase)).
 | <a class="anchor" name="sclera-location-datacache"></a>`sclera.location.datacache` | Location for cache data/intermediate results
 | <a class="anchor" name="sclera-location-default"></a>`sclera.location.default` | Location to be used when explicit location is not specified
 | <a class="anchor" name="sclera-location-schema-database"></a>`sclera.location.schema.database` | Database in the [schema DBMS](#sclera-location-schema-dbms) for storing the [data schema](../intro/technical.md#metadata-store)

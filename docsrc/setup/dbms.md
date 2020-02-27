@@ -3,11 +3,7 @@ Sclera enables a consolidated relational view of multiple underlying relational/
 In the following, the keywords appear in upper case to distinguish them from the other terms; however, Sclera is case-insensitive and keywords in actual commands and queries can be in upper or lower case.
 
 ## Connecting to Database Systems
-Sclera can connect to the following database systems:
-
-- Relational databases: [Oracle Database 11g Release 2+](http://www.oracle.com),
-[PostgreSQL 9.1.2+](http://www.postgresql.org), and [MySQL 5.5.28+](http://www.mysql.com) (and also MySQL-compatible systems such as [Google Cloud SQL](https://cloud.google.com/sql))
-- Non-relational databases: [Apache HBase 0.94.6](http://hbase.apache.org) (via [Apache Pig 0.11.0](http://pig.apache.org))
+Sclera can connect to [Oracle Database 11g Release 2+](http://www.oracle.com), [PostgreSQL 9.1.2+](http://www.postgresql.org), and [MySQL 5.5.28+](http://www.mysql.com) (and also MySQL-compatible systems such as [Google Cloud SQL](https://cloud.google.com/sql))
 
 <a class="anchor" id="location"></a>In Sclera, a connected database system is called a **location**.
 
@@ -17,7 +13,7 @@ A new location is added to Sclera using the `ADD LOCATION` command, which has th
 
 - The optional `READONLY` modifier flags the location as a read-only location; this is [explained later](#read-write-versus-read-only-mode).
 - The mandatory `location_name` is a unique name given to the database system being added, for reference within Sclera.
-- The mandatory `location_dbms` is the name of the database system: `MYSQL`, `POSTGRESQL` or `HBASE`; each of these are discussed in turn in the subsections that follow.
+- The mandatory `location_dbms` is the name of the database system: `MYSQL`, or `POSTGRESQL`; each of these are discussed in turn in the subsections that follow.
 - The mandatory `location_database` is the name of the database within the `location_dbms` that contains the data we need to access; as discussed in the subsections below.
 - The optional `connection_properties` list contains optional connection configuration properties for the `location_dbms`; these are discussed in context of of specific database systems in the subsections below.
 
@@ -119,41 +115,6 @@ Any of the properties listed in the [PostgreSQL JDBC Driver documentation](http:
 
 Values of all properties (for instance, passwords) may not be mentioned in the command -- you can specify to enter a property value interactively. See the section on [interactive input](#interactive-input-of-property-values) for details.
 
-### Connecting to Apache HBase
-
-Sclera provides a relational view of your data stored in [Apache HBase](http://hbase.apache.org). HBase tables support the notion of rows; but instead of traditional columns, they have column families which contain an arbitrary set of key-value pairs. Sclera interprets this structure as a relational table, as discussed in the [technical details](../intro/technical.md#sclera-hbase).
-
-Sclera connects to [Apache HBase](http://hbase.apache.org) using [Apache Pig](http://pig.apache.org), which works with [Apache Hadoop](http://hadoop.apache.org). Apache Pig is downloaded during the installation of the [Sclera-HBase Connector](components.md#sclera-hbase).
-
-Sclera can connect to HBase on Hadoop running in single-machine `local` mode, or multi-machine `mapreduce` node. See [Pig's documentation on execution modes](http://pig.apache.org/docs/r0.11.0/start.html#execution-modes) for a description of these modes.
-
-To connect to HBase in `local` mode:
-
-    > ADD LOCATION hbaseloc AS HBASE("local");
-
-To connect to HBase in `mapreduce` mode:
-
-    > ADD LOCATION hbaseloc AS HBASE("mapreduce");
-
-HBase can now be accessed using the name `hbaseloc` in Sclera.
-
-**Setup**
-
-The current version of this component works with the [Cloudera CDH4.5.0](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh.html) distribution, which includes Hadoop and HBase. [Cloudera CDH4.5.0](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh.html) should already be [installed](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/CDH4-Installation-Guide.html) before using this component. Further:
-
-- The `CLASSPATH` should include the full path to the [CDH4.5.0 Apache HBase](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_20.html) jar file `hbase-0.94.6-cdh4.5.0-security.jar`, and the path to the Hadoop configuration.
-- The [Sclera configuration parameter `sclera.hbase.dependencies`](configuration.md#sclera-hbase-dependencies) should include (a) the full path to the HBase jar mentioned above, and (b) full path to the [CDH4.5.0 Apache Zookeeper](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_21.html) jar file `zookeeper-3.4.5-cdh4.5.0.jar` (see the [CDH4.5.0 documentation](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/cdh4ig_topic_16_3.html) for details).
-
-Further, to avoid Hadoop and HBase dumping logs on the Sclera console, you may want to [change the log level and/or the appender specification in the `log4j.properties` file](http://logging.apache.org/log4j/1.2/manual.html), located in the Hadoop and HBase configuration directories.
-
-**Connection Properties**
-
-You can specify properties for customizing the connection. For instance, to explicitly specify the default file system and jobtracker location:
-
-    > ADD LOCATION hbaseloc AS HBASE("mapreduce", "fs.defaultFS=hdfs://myhost:8022", "mapreduce.jobtracker.address=myhost:8021");
-
-Any of the configuration properties listed in the [Pig documentation](http://pig.apache.org/docs/r0.11.0/start.html#properties) or Hadoop documentation ([core-default.xml](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml), [hdfs-default.xml](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/hdfs-default.xml), [mapred-default.xml](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/mapred-default.xml), or [hbase-default.xml](http://hbase.apache.org/book.html#hbase_default_configurations)) can be specified as above.
-
 ### Connecting to Heroku Postgres
 
 The following sets up the data location `heroku`, configured as a [JDBC connection](http://en.wikipedia.org/wiki/Java_Database_Connectivity) to a [Heroku Postgres](https://www.heroku.com/postgres) database:
@@ -228,8 +189,6 @@ However, the following mentions the schema as well, obviating the need for Scler
 The above statement specifies the table as having two integer columns, `a` and `b`, with `a` being the primary key. The columns `a` and `b` must be present in the underlying table `mytable` at the source database system, with compatible data types. The underlying table can have other columns and constraints, but they are not visible to Sclera now.
 
 When the table metadata is specified explicitly, the actual table metadata is not queried, and Sclera does not verify that the columns are actually present, or the specified constraints (e.g. the primary key constraint in the example above) actually hold. However, this is useful when getting the table metadata from the underlying database system is expensive (this is just a one-time computation, though).
-
-For instance, [Apache HBase](#connecting-to-apache-hbase) does not explicitly store the list of all columns (aka keys) in a table. If the metadata is not specified explicitly, then Sclera needs to scan each row of the table and collect the set of keys across the rows, which become the set of columns in the vitualized table. If the metadata is specified explicitly, the scan is not necessary.
 
 The [Sclera Command-Line Shell](../interface/shell.md#exploring-metadata) provides commands to list the set of imported tables under a location, tables in the location available for import, and so on.
 

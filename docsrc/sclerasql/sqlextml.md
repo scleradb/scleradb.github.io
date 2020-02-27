@@ -1,6 +1,6 @@
 Sclera provides machine learning via first-class constructs in SQL. You can create objects such as classifiers and clusterers as easily as you create tables -- using a single `CREATE ... AS` statement. Further, Sclera provides SQL operators that enable classification/clustering of rows as a part of a SQL query.
 
-Off the shelf libraries such as [Weka](http://www.cs.waikato.ac.nz/ml/weka/) and [Apache Mahout](http://mahout.apache.org/) enable you to write applications with embedded machine learning. But to use these libraries without Sclera, you need to learn the proprietary APIs, and write code that complies with the same. This takes a lot of preparation and background, and is highly disruptive.
+Off the shelf libraries such as [Weka](http://www.cs.waikato.ac.nz/ml/weka/) enable you to write applications with embedded machine learning. But to use these libraries without Sclera, you need to learn the proprietary APIs, and write code that complies with the same. This takes a lot of preparation and background, and is highly disruptive.
 
 Sclera provides a set of machine learning operators; these are a part of the SQL language, just like `JOIN`, `WHERE`, `ORDER BY`, `GROUP BY`, `HAVING` and `LIMIT` in regular SQL. These new operators are evaluated by calling the analytics library of choice -- reformatting the data, calling the right API functions, collating and reformatting the results and all the other boilerplate happens automatically, behind the scenes.
 
@@ -136,11 +136,11 @@ This expression can be used in a query just like a table or a view. For instance
       FROM (customers CLUSTERED WITH myclusterer(clusterid))
       GROUP BY clusterid;
 
-<a class="anchor" name="sclera-weka"></a><a class="anchor" name="sclera-mahout"></a>
+<a class="anchor" name="sclera-weka"></a>
 ## Extended Syntax for Using Specific Libraries and Algorithms
-The classifier/clusterer syntax above is agnostic of the underlying library. Sclera uses [Weka](http://www.cs.waikato.ac.nz/ml/weka/) as the default library, and specific classification/clustering algorithms as default. The default library is specified in the [configuration file](../setup/configuration.md#sclera-service-default-mlservice), and can be changed if required to an alternative supported library, such as [Apache Mahout](http://mahout.apache.org/)), and the algorithms therein.
+The classifier/clusterer syntax above is agnostic of the underlying library. Sclera uses [Weka](http://www.cs.waikato.ac.nz/ml/weka/) as the default library, and specific classification/clustering algorithms as default. The default library is specified in the [configuration file](../setup/configuration.md#sclera-service-default-mlservice), and can be changed if required to an alternative supported library and the algorithms therein.
 
-The [default library](../setup/configuration.md#sclera-service-default-mlservice) can be overriden by explicitly mentioning the library (currently, [`WEKA`](http://www.cs.waikato.ac.nz/ml/weka/) or [`MAHOUT`](http://mahout.apache.org)) in the `CREATE` statements.
+The [default library](../setup/configuration.md#sclera-service-default-mlservice) can be overriden by explicitly mentioning the library (currently, [`WEKA`](http://www.cs.waikato.ac.nz/ml/weka/)) in the `CREATE` statements.
 
 Moreover, you can select the specific algorithms to use for classification/clustering, and even provide the parameters. The algorithm names and parameters depend on the specific library. Sclera does not interpret the specified algorithm parameters, and merely passes them on to the appropriate APIs of the chosen library.
 
@@ -166,7 +166,6 @@ The extended formal syntax for creating a classifier is as follows:
     CREATE [ { TEMPORARY | TEMP } ] [ library_name ] CLASSIFIER [ ( algorithm_name [ , algorithm_options ] ) ] classifier_name ( target_column_name ) USING table_expression
 
 - The optional `library_name` specifies the machine learning library to use for the task.
-    - Valid options are `WEKA` and `MAHOUT`.
     - If not specified, the `WEKA` is used (this default can be modified using the [`sclera.service.default.mlservice` configuration parameter](../setup/configuration.md#sclera-service-default-mlservice)).
 - The optional `algorithm_name` identifies the algorithm to be used in training the classifier.
     - The following are supported: for `WEKA`:
@@ -182,10 +181,7 @@ The extended formal syntax for creating a classifier is as follows:
         - `ONER` ([documentation](http://weka.sourceforge.net/doc.dev/weka/classifiers/rules/OneR.html))
         - `LOGISTIC` ([documentation](http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/Logistic.html))
         - `NAIVEBAYES` ([documentation](http://weka.sourceforge.net/doc.dev/weka/classifiers/bayes/NaiveBayes.html))
-    - The following are supported: for `MAHOUT`:
-        - `GRADIENTMACHINE` ([documentation](https://builds.apache.org/job/mahout-quality/javadoc/org/apache/mahout/classifier/sgd/GradientMachine.html))
-        - `ADAPTIVELOGISTICREGRESSION` ([documentation](https://builds.apache.org/job/mahout-quality/javadoc/org/apache/mahout/classifier/sgd/AdaptiveLogisticRegression.html))
-    - If not specified, `J48` (for `WEKA`) and `ADAPTIVELOGISTICREGRESSION` (for `MAHOUT`) are used as the default.
+    - If not specified, `J48` (for `WEKA`) is used as the default.
 - The optional `algorithm_options` provides the configuration options (parameters) for the algorithm identified by `algorithm_name`.
     - These options are passed as a *single* string, just as in a command line.
     - Please refer to the Weka documentation the respective algorithms, linked above, for details of the accepted options and defaults.
@@ -198,7 +194,7 @@ The extended formal syntax for creating an clusterer is as follows:
     CREATE [ { TEMPORARY | TEMP } ] [ library_name ] CLUSTERER [ ( algorithm_name [ , algorithm_options ] ) ] clusterer_name USING table_expression
 
 - The optional `library_name` specifies the machine learning library to use for the task.
-    - Valid options are `WEKA` and `MAHOUT`. However, in the current version, only `WEKA` is accepted as Sclera currently only interfaces with [Weka](http://www.cs.waikato.ac.nz/ml/weka) for clustering.
+    - In the current version, only `WEKA` is accepted as Sclera currently only interfaces with [Weka](http://www.cs.waikato.ac.nz/ml/weka) for clustering.
     - If not specified, `WEKA` is used (this default can be modified using the [`sclera.service.default.mlservice` configuration parameter](../setup/configuration.md#sclera-service-default-mlservice)).
 - The optional `algorithm_name` identifies the algorithm to be used in training the clusterer.
     - The following are supported for `WEKA`:

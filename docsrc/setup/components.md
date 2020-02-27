@@ -67,16 +67,6 @@ The link uses the [PostgreSQL JDBC Driver](http://jdbc.postgresql.org), which is
 
 Details on how to link your PostgreSQL source to with Sclera can be found in the [Sclera Database System Connection Reference](../setup/dbms.md#connecting-to-postgresql) document.
 
-<a class="anchor" name="sclera-hbase"></a>
-### Sclera - Apache HBase Connector
-This component enables Sclera to work with your data stored in [Apache HBase](http://hbase.apache.org).
-
-This is achieved by providing a relational view of your data stored in HBase, and providing the ability to execute SQL operations on the same. This is not trivial, since HBase has a very different data model with support for arbitrary key-value pairs, and HBase does not understand SQL.
-
-The link uses a combination of the [Apache HBase API](http://hbase.apache.org/book/data_model_operations.html) and [Apache Pig API](http://pig.apache.org). Apache Pig libraries are automatically downloaded during the installation of this component. The current version of this connector works with the [Cloudera CDH4.5.0](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh.html) distribution, which should already be [installed](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Installation-Guide/CDH4-Installation-Guide.html) before using this component.
-
-For instructions on how to setup and use this connector, and detailed explanation of how your SQL queries and updates are executed on HBase, please refer to the [Sclera Database System Connection Reference](../setup/dbms.md#connecting-to-apache-hbase) document.
-
 <a class="anchor" name="sclera-heroku"></a>
 ### Sclera - Heroku PostgreSQL Connector
 This component enables Sclera to work with your data stored in [PostgreSQL](http://www.postgresql.org) database [hosted at Heroku](https://www.heroku.com/postgres).
@@ -108,18 +98,6 @@ A common use case is to use this in conjunction with the [Sclera - OpenNLP Conne
 For details on how to use the connector, please see the [ScleraSQL Reference](../sclerasql/sqlextdataaccess.md#sclera-textfiles) document.
 
 This is a sample component showcasing Sclera's ability to interface with external data. For the implementation details, please see the [Sclera Data Access Connector Development](../sdk/sdkextdataaccess.md) document.
-
-<a class="anchor" name="sclera-stockticker"></a>
-### Sclera - Stock Ticker Connector
-This component enables Sclera to work with stock ticker data available via [Google Finance](http://www.google.com/finance).
-
-The reference to the web service, with the required parameters, can be used in a SQL query as a base table. During evaluation, the table is "scanned" by invoking the web-service API and retrieving the data. The query can then aggregate the retrieved data, join with other tables, etc. as needed.
-
-For details on using the connector in a SQL query, please refer to the [ScleraSQL Reference](../sclerasql/sqlextdataaccess.md#sclera-stockticker) document.
-
-Note that the [Google Finance API has been officially deprecated](https://developers.google.com/finance/?csw=1) since this connector was written, but [continues to work nevertheless](http://stackoverflow.com/questions/527703/how-can-i-get-stock-quotes-using-google-finance-api).
-
-This is a sample component showcasing Sclera's ability to interface with external data. For the implementation details, please see the [Sclera Data Access Connector Development](../sdk/sdkextdataaccess.md#example-building-a-stock-ticker-connector) document.
 
 <a class="anchor" name="sclera-opennlp"></a>
 ### Sclera - Apache OpenNLP Connector
@@ -153,18 +131,6 @@ The [Weka](http://www.cs.waikato.ac.nz/ml/weka) library is licensed under the [G
 In keeping with the provisions of the GNU General Public License version 2, the source code for this component is available for download at the [Sclera repository](https://s3.amazonaws.com/scleradb.releases/com.scleradb/sclera-weka_2.9.3/1.0.140115-BETA/srcs/sclera-weka_2.9.3-sources.jar).
 
 *This component is an OPTIONAL extension. As such, this component's license does NOT affect your use of any other Sclera component, or the core Sclera platform.*
-
-<a class="anchor" name="sclera-mahout"></a>
-### Sclera - Apache Mahout Connector
-This component enables Sclera to train [classifiers](http://en.wikipedia.org/wiki/Cluster_analysis) on large amounts of data, and also to score new data using the trained classifier from within SQL queries.
-
-With this component, the classifier can be trained in just one line of code. Due to the online (single-pass) nature of the [underlying training algorithm](https://cwiki.apache.org/confluence/display/MAHOUT/Logistic+Regression), the classifier can be trained on arbitrarily large datasets.
-
-Scoring new data using the trained classifier gets done using a simple SQL operator (Sclera's extension) that seamlessly embeds within your SQL query.
-
-The component uses the [Apache Mahout](http://mahout.apache.org) library, which is downloaded automatically as a part of the installation. While the current version of this component only supports online classification, later versions will support additional capabilities provided by Apache Mahout.
-
-Please refer to the [ScleraSQL Reference](../sclerasql/sqlextml.md#sclera-mahout) document for details on using the component's features in a SQL query.
 
 <a class="anchor" name="sclera-matcher"></a>
 ### Sclera - Regular Expression Matcher
