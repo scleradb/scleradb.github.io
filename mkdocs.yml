@@ -48,8 +48,8 @@ nav:
         - 'Machine Learning Library Plugins': sdk/sdkextml.md
         - 'Text Analytics Library Plugins': sdk/sdkexttext.md
     - 'Acknowledgements':
-        - 'Component Third Party Dependencies': misc/dependencies.md
-        - 'Component Licenses': misc/licenses.md
+        - 'Component Third Party Dependencies': ack/dependencies.md
+        - 'Component Licenses': ack/licenses.md
 
 theme:
     name: "material"

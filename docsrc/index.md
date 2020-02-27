@@ -36,5 +36,5 @@
 - [Text Analytics Library Connectors](sdk/sdkexttext.md)
 
 ## Acknowledgements
-- [Component Third Party Dependencies](misc/dependencies.md)
-- [Component Licenses](misc/licenses.md)
+- [Component Third Party Dependencies](ack/dependencies.md)
+- [Component Licenses](ack/licenses.md)
