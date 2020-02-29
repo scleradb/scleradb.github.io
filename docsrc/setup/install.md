@@ -1,99 +1,105 @@
-Installing Sclera involves the following simple steps:
+Sclera is a stand-alone SQL processor with native support for machine learning, data virtualization and streaming data. Sclera can be deployed as:
 
-+ [Download installer](#download-installer)
-+ [Run Installer](#run-installer)
-+ [Install licensed components](#install-licensed-components)
+- [an independent application with an interactive command-line shell](#installing-and-maintaining-sclera-command-line-application), or
+- [as a library that embeds within your applications to enable advanced real-time analytics capabilities]().
 
-**System Requirements:** Sclera only works with Linux or Mac OS X running [Java SE 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html). You need to have a working internet connection for the duration of the installation.
+**Prerequisite:** Sclera requires [Java version 8 or higher](https://java.com/en/download/help/download_options.xml).
 
 *We recommend against installing Sclera with root/admin permissions. Sclera does not need root access for installation or at runtime.*
 
-## Download Installer
-The installer is available at scleradb.com ([direct link](/download)).
+## Installing and Maintaining Sclera Command Line Application
 
-Save the installer as `sclera-install.jar`.
+The recommended way to install Sclera's interactive command line shell is through Sclera platform administration tool, `scleradmin`.
 
-## Run Installer
-Run the installer using:
+We first describe how to [install `scleradmin`](#installing-scleradmin). Next, we use `scleradmin` to [install Sclera's core packages and command line interface](#installing-sclera-core-packages-and-shell). We then show how to [add and remove optional Sclera plugins](#plugin-management). Finally, we show how to [update the installed core packages and plugins](#updating-installed-packages-and-plugins).
 
-    java -jar sclera-install.jar
+**Prerequisites:** [Python 3.8+](https://python.org/downloads) and [pip](https://pip.pypa.io/en/stable/installing/).
 
-This will bring up the installer application. Please follow the instructions on screen.
+### Installing scleradmin
 
-+ The installer asks for your email id. Please enter the email id used to login into your [scleradb.com](http://scleradb.com) account.
-+ <a class="anchor" name="sclera-home"></a>The installer also asks for the directory where you want to install Sclera. Please enter the appropriate path. For Sclera to install, you need to have write permissions to the specified path. The directory is created if it does not exist already. In the rest of this document, this path will be referred to as `$SCLERA_HOME`.
+The following installs the latest version of `scleradmin` as a Python package in your system:
 
-The installer proceeds to set up a basic, unlicensed version of Sclera in the specified directory `$SCLERA_HOME`. The structure of the directory is as follows:
+    > pip install scleradmin
 
-    bin/         # executable scripts
-    log/         # log files
-    assets/
-      history    # shell command history 
-      data/      # embedded H2 data files
-      config/    # configuration files
-      licenses/  # license files
-      install/   # installation files
-      lib/       # downloaded libraries
-    Uninstaller/ # uninstaller
+In the following sections, we show how to use `scleradmin` for installing Sclera and managing the installation. For full details on `scleradmin` usage, you may want to read the help information:
 
-The installation involves downloading core sclera components and associated libraries. This can take a few minutes. You can monitor the progress by viewing the generated logs in `$SCLERA_HOME/log/install.log`.
+    > scleradmin --help
 
-To check the progress so far, run `$SCLERA_HOME/bin/sclera.sh`. This should start the shell with the message:
+### Installing Sclera Core Packages and Shell
 
-    Welcome to Sclera
-    Version 2.1.141018 [unlicensed]
+The following command installs Sclera:
 
-    > _
+    > scleradmin --install --root <sclera-root>
 
-This basic version is initialized with a single location -- an embedded H2 main-memory database. You cannot link your data sources or use the advanced analytics features in this basic version. To enable these features, you need to install your licensed components.
+Please substitute your location of choice for `<sclera-root>`. This directory must not exist before installation, it is created by the command. (This is enforced to avoid accidental overwrites.)
 
-## Install Licensed Components
+The installation involves downloading core sclera components and associated libraries. This might take a few minutes; you can monitor the progress by viewing the generated logs in `<sclera-root>/install/log/install.log`. The contents of the directory after installation are described later in this document.
 
-The next step is installing your licensed components. This can either be done automatically (recommended), or manually. [Automated installation](#automated-installation) installs all the components together, while [manual installation](#manual-installation) enables you to install the components one at a time.
+#### Using the Shell
 
-### Automated Installation
+The shell can be started using the following command:
 
-The automated installation installs all your licensed components in a single step. Just run the following command:
+    > <sclera-root>/bin/sclera
 
-    $SCLERA_HOME/bin/install-licensed.sh
+This starts the shell, wherein you can interactively run queries. When done, you can terminate the session by typing `Control-D`.
 
-The script starts by asking for your password -- please enter the password of your scleradb.com account. The script then securely downloads your license file to `$SCLERA_HOME/assets/licenses/SCLERA-LICENSE.txt`.
+    Welcome to Sclera 4.0
 
-The downloaded license file includes the details of your active subscriptions. These details are then used to determine your downloads. The script uses this information to install all your licensed components and their dependencies. You can monitor the progress by viewing the generated logs in `$SCLERA_HOME/log/install.log`.
+    > select "Hello, world!" as greeting;
+    ---------------
+     GREETING
+    ---------------
+     Hello, world!
+    ---------------
+    (1 row)
 
-To check the installation, run `$SCLERA_HOME/bin/sclera.sh`. This should start the shell with the message:
+    > ^D
+    Goodbye!
 
-    Welcome to Sclera
-    Version 2.1.141018 [Licensed to user@example.com]
+For details on using the shell, please refer to the [Command Line Shell Reference](../interface/shell.md).
 
-    > _
+#### Root Directory Structure
 
-This completes the installation. Sclera is now ready for use.
+After installation, the root directory has the following structure:
 
-### Manual Installation
+    [<sclera-root>]
+      bin/
+        sclera.cmd         # executable command file (generated for Windows systems)
+        sclera             # executable bash (generated for Linux, macOS, and other Unix-based systems)
+      config/
+        sclera.conf        # configuration file
+      extlib/              # directory for additional libraries, plugins (initially empty)
+      home/
+        assets/
+          data/            # data stored by the embedded temporary database (H2), etc.
+        history            # shell command history
+        log/
+          sclera.log       # execution log, contains details of runtime progress
+      install/
+        boot/              # specification files for sclera components (core or plugin)
+        launcher*.jar      # SBT launcher, used for installing sclera components
+        log/
+          install.log      # installation log, contains details of installation progress
+      lib/                 # installation artifacts (jars, etc.) of installed components and their dependencies
 
-Manual installation enables you to install the components one at a time. This makes sense if you do not need all the licensed components immediately.
+### Plugin Management
 
-The first step in the manual installation is to download the license. This is done as follows:
+Sclera provides [a variety of plugins](../setup/components.md) that can be added using `scleradmin`. The command syntax is:
 
-    $SCLERA_HOME/bin/license.sh download
+    > scleradmin --add <plugins> --root <sclera-root>
 
-You will be prompted for your scleradb.com password, and the license will be downloaded to `$SCLERA_HOME/assets/licenses/SCLERA-LICENSE.txt`. (You can alternatively download the license file through your browser from [www.scleradb.com/license](http://www.scleradb.com/license)).
+In the above, `<plugins>` is a space-separated list of plugins to be added, and `<sclera-root>`, as earlier, is the root directory. For instalce, to install the Sclera - CSV Connector and Sclera - Text Files Connector plugins, to the Sclera instance installed at `/path/to/sclera` the command is: 
 
-You can now install the component `sclera-xxx` as follows:
+    > scleradmin --add sclera-csv-plugin sclera-textfiles-plugin --root /path/to/sclera
 
-    $SCLERA_HOME/bin/install.sh sclera-xxx
+To remove installed plugins, the syntax is similar. The following command removes the plugins installed above:
 
-In the command above, `sclera-xxx` is the name of the component being installed. You will need run this command for each [licensed component](/subscriptions) you want to install. While the command is running, you can monitor the progress by viewing the generated logs in `$SCLERA_HOME/log/install.log`.
+    > scleradmin --remove sclera-csv-plugin sclera-textfiles-plugin --root /path/to/sclera
 
-The following command lists your licensed components, along with their versions:
+You can specify a list of plugins to add and another list of plugins to remove in the same command.
 
-    $SCLERA_HOME/bin/license.sh products
+### Updating Installed Packages and Plugins
 
-## Update Installation
+The following command updates Sclera's core packages as well as the plugins to the latest version:
 
-To reactivate after subscription renewal, just download the license again:
-
-    $SCLERA_HOME/bin/license.sh download
-
-To upgrade the licensed components, or to install additional components from an updated subscription, follow the steps outlined for [installing licensed components](#install-licensed-components) above (you can choose between [automated installation](#automated-installation) or [manual installation](#manual-installation)).
+    > scleradmin --update
