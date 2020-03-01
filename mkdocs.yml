@@ -58,6 +58,9 @@ theme:
     palette:
         primary: 'indigo'
         accent: 'indigo'
+    font:
+        text: 'Open Sans'
+        code: 'Courier Prime'
 
 extra_css:
     - ../css/docs.css
