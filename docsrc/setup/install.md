@@ -177,7 +177,7 @@ When a connection is initialized, Sclera first checks the sanity of its Schema a
     - Get the JDBC `ResultSetMetadata` for the `ResultSet` -- this provides the number of columns in the result and their names.
     - Output the column names, followed by the result values one row at a time.
 
-### Executable Script
+#### Executable Script
 
 The build file contains a task `mkscript` that generates an executable script for the application, called `scleraexample` in the `bin` subdirectory. You can generate the script using the command:
 
