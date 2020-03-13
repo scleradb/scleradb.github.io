@@ -38,7 +38,17 @@ To run ScleraViz queries, you need to:
 
 - Start a web browser and open the URL http://localhost:7070
 
-Running a ScleraViz query (described in the rest of this document) on the Sclera Command Line will display the visualization in the browser. When done, you can close the display web server by saying:
+Running a ScleraViz query (described in the rest of this document) on the Sclera Command Line will display the visualization in the browser. In addition, to display the contents of a query as a table in the browser, you can say:
+
+        > display <query>;
+
+For example, the following displays the result as a two column, single row table in the browser:
+
+        > display select 'Hello' as greeting1, 'World' as greeting2;
+
+Leaving the keyword `display` out displays the result in the command line shell, as usual.
+
+When done, you can close the display web server by saying:
 
         > display stop;
 
