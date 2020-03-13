@@ -7,6 +7,41 @@ An online preview, with a number of examples with code, is available at [http://
 ![ScleraViz Examples](images/visualization/scleraviz-examples.jpg "Visualization Examples")
 ![ScleraViz Bar Example](images/visualization/scleraviz-bar.jpg "Bar Example")
 
+## Command Line Setup
+
+*In the following, `<sclera-root>` is the directory where Sclera is (or, is to be) installed.*
+
+To run ScleraViz queries, you need to:
+
+- Install Sclera Command Line using `scleradmin` ([detailed instructions here](../setup/install.md#installing-and-maintaining-sclera-command-line-application))
+
+        $ scleradmin --install --root <sclera-root>
+
+- Install the [Sclera Webdisplay](../seup/components.md#sclera-webdisplay) plugin
+
+        $ scleradmin --add sclera-plugin-webdisplay --root <sclera-root>
+
+- Start the Sclera Command Line Shell
+
+        $ <sclera-root>/bin/sclera
+        Welcome to Sclera 4.0
+
+        > _
+
+- In the Sclera Command Line Shell, start the display web server:
+
+        Welcome to Sclera 4.0
+
+        > display start;
+        HTTP server started at port 7070
+        Please point your browser to http://localhost:7070
+
+- Start a web browser and open the URL http://localhost:7070
+
+Running a ScleraViz query (described in the rest of this document) on the Sclera Command Line will display the visualization in the browser. When done, you can close the display web server by saying:
+
+        > display stop;
+
 **Example Dataset**
 
 In the following, we will be using the ["tipping" dataset](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html) as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found [here](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html).
