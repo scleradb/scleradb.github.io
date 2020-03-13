@@ -2,7 +2,7 @@ Sclera's visualization component, ScleraViz, enables quick and easy visualizatio
 
 ScleraViz is inspired by [Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html), specifically [R's ggplot2](http://ggplot2.org/) -- but is implemented as an extension to [ScleraSQL](../sclerasql/sqlintro.md) and uses [D3](http://d3js.org) as the rendering engine. Moreover, unlike ggplot2, ScleraViz can clean, analyze and plot *streaming* data.
 
-Sclera Visualization was introduced in Sclera 3.0. An online preview, with a number of examples with code, is available at [http://www.scleradb.com/scleraviz](/scleraviz).
+An online preview, with a number of examples with code, is available at [http://www.scleradb.com/scleraviz](/scleraviz).
 
 ![ScleraViz Examples](images/visualization/scleraviz-examples.jpg "Visualization Examples")
 ![ScleraViz Bar Example](images/visualization/scleraviz-bar.jpg "Bar Example")
