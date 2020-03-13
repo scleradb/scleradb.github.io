@@ -17,7 +17,7 @@ To run ScleraViz queries, you need to:
 
         $ scleradmin --install --root <sclera-root>
 
-- Install the [Sclera Webdisplay](../seup/components.md#sclera-webdisplay) plugin
+- Install the [Sclera Web Display](../setup/components.md#sclera-webdisplay) plugin
 
         $ scleradmin --add sclera-plugin-webdisplay --root <sclera-root>
 
