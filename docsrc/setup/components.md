@@ -136,9 +136,9 @@ The component introduces a construct that enables matching regular expressions o
 
 For details and examples on using these constructs in a SQL query, please refer to the [ScleraSQL Reference](../sclerasql/sqlextordered.md) document.
 
-<a class="anchor" name="sclera-visualization"></a>
-### Sclera - Visual Shell / ScleraViz
-This component enables users to use Sclera in a web-browser. This enables a richer, more visual experience with extensive support for data visualization.
+<a class="anchor" name="sclera-webdisplay"></a>
+### Sclera - Web Display
+This component enables users to visualize Sclera query results in a web-browser. This enables a richer, more visual experience with extensive support for data visualization.
 
 Specifically, you can run queries and display the results as a table, or use a very expressive graphics language to plot the results as regular, multilayered and faceted graphs in just a few lines of code. The graph specification language is inspired by the "Grammar of Graphics" (implemented in `R` as [ggplot2](http://ggplot2.org)), and is rendered using [D3](http://d3js.org) in [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics).
 
