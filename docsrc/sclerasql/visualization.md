@@ -52,7 +52,7 @@ When done, you can close the display web server by saying:
 
         > display stop;
 
-**Example Dataset**
+## Example Dataset
 
 In the following, we will be using the ["tipping" dataset](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html) as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found [here](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html).
 
