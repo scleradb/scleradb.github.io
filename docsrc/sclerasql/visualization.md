@@ -62,7 +62,7 @@ You can run the examples appearing below on the Sclera shell -- either installed
     EXTERNAL CSV("http://scleraviz.herokuapp.com/assets/data/tips.csv")
     TYPEINFER(LIMIT 1);
 
-*Notation:* In the above and the following examples, the ScleraSQL keywords will be capitalized. This is for illustrative reasons only; ScleraSQL is case-insensitive.
+**Notation:** In the above and the following examples, the ScleraSQL keywords will be capitalized. This is for illustrative reasons only; ScleraSQL is case-insensitive.
 
 ## ScleraViz by Example
 
