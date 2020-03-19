@@ -1,0 +1,1276 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Sclera and its plugins">
+      
+      
+        <link rel="canonical" href="https://www.scleradb.com/interface/shell/">
+      
+      
+        <meta name="author" content="Sclera, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Command Line Shell Reference - Sclera Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CCourier+Prime&display=fallback">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier Prime","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../../images/icons/site.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../../css/docs.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#configuration-management" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Sclera Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Command Line Shell Reference
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
+      
+    </a>
+    Sclera Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Documentation Contents" class="md-nav__link">
+      Documentation Contents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/whysclera/" title="Why Sclera?" class="md-nav__link">
+      Why Sclera?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/technical/" title="Technical Details" class="md-nav__link">
+      Technical Details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/components/" title="Components Reference" class="md-nav__link">
+      Components Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/install/" title="Installation Reference" class="md-nav__link">
+      Installation Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/dbms/" title="Data Platform Connection Reference" class="md-nav__link">
+      Data Platform Connection Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/configuration/" title="Configuration Reference" class="md-nav__link">
+      Configuration Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      ScleraSQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ScleraSQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlexamples/" title="ScleraSQL Examples" class="md-nav__link">
+      ScleraSQL Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlintro/" title="ScleraSQL Introduction" class="md-nav__link">
+      ScleraSQL Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlregular/" title="Standard SQL" class="md-nav__link">
+      Standard SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlcrosstab/" title="Using Cross-Tabulation" class="md-nav__link">
+      Using Cross-Tabulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextordered/" title="Processing Ordered Data" class="md-nav__link">
+      Processing Ordered Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlseqalign/" title="Sequence Alignment" class="md-nav__link">
+      Sequence Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextarg/" title="Selecting the Optimal" class="md-nav__link">
+      Selecting the Optimal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextml/" title="Using Machine Learning" class="md-nav__link">
+      Using Machine Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlcleaning/" title="Data Cleaning" class="md-nav__link">
+      Data Cleaning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlexttext/" title="Using Text Analytics" class="md-nav__link">
+      Using Text Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextdataaccess/" title="External Data Access" class="md-nav__link">
+      External Data Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlmisc/" title="Miscellaneous Information" class="md-nav__link">
+      Miscellaneous Information
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Interface
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interface
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Command Line Shell Reference
+      </label>
+    
+    <a href="./" title="Command Line Shell Reference" class="md-nav__link md-nav__link--active">
+      Command Line Shell Reference
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-management" class="md-nav__link">
+    Configuration Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-default-and-cache-locations" class="md-nav__link">
+    Setting the default and cache locations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activating-and-deactivating-runtime-explain" class="md-nav__link">
+    Activating and Deactivating Runtime Explain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-the-parameter-settings" class="md-nav__link">
+    Display the Parameter Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-the-configuration-parameters" class="md-nav__link">
+    Display the Configuration Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-management" class="md-nav__link">
+    Metadata Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-dropping-metadata-tables" class="md-nav__link">
+    Creating and Dropping Metadata Tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-metadata" class="md-nav__link">
+    Exploring Metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sclerasql-commands" class="md-nav__link">
+    ScleraSQL Commands
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#looking-deeper-with-the-explain-command" class="md-nav__link">
+    Looking Deeper with the Explain Command
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-time-explain" class="md-nav__link">
+    Run-time Explain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-time-explain" class="md-nav__link">
+    Compile-time Explain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-execution" class="md-nav__link">
+    Script Execution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usability-features" class="md-nav__link">
+    Usability Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-command" class="md-nav__link">
+    Reset Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jdbc/" title="Embedded JDBC Reference" class="md-nav__link">
+      Embedded JDBC Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sclera Extensions SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sclera Extensions SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkintro/" title="Extensions SDK Introduction" class="md-nav__link">
+      Extensions SDK Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdataaccess/" title="Data Access Plugins" class="md-nav__link">
+      Data Access Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdbms/" title="Database System Plugins" class="md-nav__link">
+      Database System Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextml/" title="Machine Learning Library Plugins" class="md-nav__link">
+      Machine Learning Library Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkexttext/" title="Text Analytics Library Plugins" class="md-nav__link">
+      Text Analytics Library Plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Acknowledgements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Acknowledgements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/dependencies/" title="Component Third Party Dependencies" class="md-nav__link">
+      Component Third Party Dependencies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/licenses/" title="Component Licenses" class="md-nav__link">
+      Component Licenses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-management" class="md-nav__link">
+    Configuration Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-default-and-cache-locations" class="md-nav__link">
+    Setting the default and cache locations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activating-and-deactivating-runtime-explain" class="md-nav__link">
+    Activating and Deactivating Runtime Explain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-the-parameter-settings" class="md-nav__link">
+    Display the Parameter Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-the-configuration-parameters" class="md-nav__link">
+    Display the Configuration Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-management" class="md-nav__link">
+    Metadata Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-dropping-metadata-tables" class="md-nav__link">
+    Creating and Dropping Metadata Tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-metadata" class="md-nav__link">
+    Exploring Metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sclerasql-commands" class="md-nav__link">
+    ScleraSQL Commands
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#looking-deeper-with-the-explain-command" class="md-nav__link">
+    Looking Deeper with the Explain Command
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-time-explain" class="md-nav__link">
+    Run-time Explain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-time-explain" class="md-nav__link">
+    Compile-time Explain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-execution" class="md-nav__link">
+    Script Execution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usability-features" class="md-nav__link">
+    Usability Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-command" class="md-nav__link">
+    Reset Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Command Line Shell Reference</h1>
+                
+                <p>The Sclera command line shell provides an interactive interface to manage and analyze your data, and also explore the Sclera metadata.</p>
+<p>The shell can be started by executing the script <code>$SCLERA_HOME/bin/sclera</code>, where <code>$SCLERA_HOME</code> is the <a href="../../setup/install/#sclera-home">directory where Sclera is installed</a>.</p>
+<p>This section lists the commands that are accepted by the shell. The commands can be given on the command line, and executed interactively. Or, they can be put in a script and executed using the <code>source</code> command.</p>
+<p>The commands can span multiple lines, and are terminated by a semicolon (<code>;</code>).</p>
+<p>In the following, the keywords appear in upper case to distinguish them from the other terms; however, Sclera is case-insensitive and keywords in actual commands and queries can be in upper or lower case.</p>
+<h2 id="configuration-management">Configuration Management<a class="headerlink" href="#configuration-management" title="Permanent link">&#9668;</a></h2>
+<p>This set of commands enable you to manage the configuration parameters.</p>
+<h3 id="setting-the-default-and-cache-locations">Setting the default and cache locations<a class="headerlink" href="#setting-the-default-and-cache-locations" title="Permanent link">&#9668;</a></h3>
+<p>The following command sets <a href="../../setup/configuration/#sclera-location-default">the <code>DEFAULT</code> location</a> to a predefined location with name specified in <code>location_name</code>:</p>
+<pre><code>SET DEFAULT LOCATION = location_name;
+</code></pre>
+<p>Similarly, the following command sets <a href="../../intro/technical/#cache-store">the <code>CACHE</code> location</a> to a predefined location with name specified in <code>location_name</code>:</p>
+<pre><code>SET CACHE LOCATION = location_name;
+</code></pre>
+<p>In either case, the <code>location_name</code> must be defined earlier using the <a href="../../setup/dbms/#connecting-to-database-systems"><code>ADD LOCATION</code> command</a>.</p>
+<p>The update is for the current shell session only. It does not affect the locations used in a concurrent session, or when Sclera is <a href="../jdbc/">accessed through <code>JDBC</code></a>. To persistently change the locations, please update the <a href="../../setup/configuration/#sclera-location-datacache"><code>sclera.location.datacache</code></a> and <a href="../../setup/configuration/#sclera-location-default"><code>sclera.location.default</code></a> configuration parameters.</p>
+<h3 id="activating-and-deactivating-runtime-explain">Activating and Deactivating Runtime Explain<a class="headerlink" href="#activating-and-deactivating-runtime-explain" title="Permanent link">&#9668;</a></h3>
+<p>The queries and commands on the command line are translated by Sclera into a sequence of subqueries and subcommands that execute on the underlying database systems. The <code>EXPLAIN SCRIPT</code> command enables you to activate or decativate the display of these commands on the console as they are executed.</p>
+<p>The following command activates this runtime explain feature:</p>
+<pre><code>EXPLAIN SCRIPT [ ON ];
+</code></pre>
+<p>The <code>ON</code> at the end is a syntactic sugar, and can be omitted.</p>
+<p>The following command deactivates this runtime explain feature:</p>
+<pre><code>EXPLAIN SCRIPT OFF;
+</code></pre>
+<h3 id="display-the-parameter-settings">Display the Parameter Settings<a class="headerlink" href="#display-the-parameter-settings" title="Permanent link">&#9668;</a></h3>
+<p>The following command shows the current default location, cache location and runtime explain settings:</p>
+<pre><code>SHOW OPTIONS;
+</code></pre>
+<h3 id="display-the-configuration-parameters">Display the Configuration Parameters<a class="headerlink" href="#display-the-configuration-parameters" title="Permanent link">&#9668;</a></h3>
+<p>The following command shows the current <a href="../../setup/configuration/">configuration settings</a>:</p>
+<pre><code>SHOW CONFIG;
+</code></pre>
+<p>The following command shows the current logging configuration:</p>
+<pre><code>LOGGERCONFIG;
+</code></pre>
+<h2 id="metadata-management">Metadata Management<a class="headerlink" href="#metadata-management" title="Permanent link">&#9668;</a></h2>
+<p>Commands to manage (add and remove) data sources and underlying tables are covered in the <a href="../../setup/dbms/">Sclera Database System Connection Reference</a> document.These commands can be submitted on the command line prompt.</p>
+<h3 id="creating-and-dropping-metadata-tables">Creating and Dropping Metadata Tables<a class="headerlink" href="#creating-and-dropping-metadata-tables" title="Permanent link">&#9668;</a></h3>
+<p>In addition, the following command creates the metadata (aka schema) tables on the <a href="../../setup/configuration/#sclera-location-schema-database">designated metadata store</a>:</p>
+<pre><code>CREATE SCHEMA;
+</code></pre>
+<p>This is needed, for instance, if you want to change the <a href="../../setup/configuration/#sclera-location-schema-database">location of the metadata store</a>.</p>
+<p>Also, the following command deletes the tables in the designated metadata store:</p>
+<pre><code>DROP SCHEMA;
+</code></pre>
+<h3 id="exploring-metadata">Exploring Metadata<a class="headerlink" href="#exploring-metadata" title="Permanent link">&#9668;</a></h3>
+<p>You can explore Sclera's metadata (the locations, tables, views, and other objects) using the <code>LIST</code> and <code>DESCRIBE</code> commands.</p>
+<pre><code>LIST [ list_spec ];
+DESCRIBE [ list_spec ];
+</code></pre>
+<p>The two commands are identical, except that <code>LIST</code> outputs a list of objects obtained using <code>list_spec</code> (see below) in a short format, whereas <code>DESCRIBE</code> outputs the same list of objects in a more detailed, descriptive, format.</p>
+<p>The following table presents the possible values of the optional parameter <code>list_spec</code> and the associated list of objects to be output.</p>
+<table>
+<thead>
+<tr>
+<th><code>list_spec</code></th>
+<th>Object List</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(not specified)</td>
+<td>All objects (<a href="../../sclerasql/sqlregular/#creating-base-tables">tables</a> across all <a href="../../setup/dbms/#location">locations</a>, <a href="../../sclerasql/sqlregular/#creating-views">views</a>, <a href="../../sclerasql/sqlextml/#classification">classifiers</a>, <a href="../../sclerasql/sqlextml/#clustering">clusterers</a> and <a href="../../sclerasql/sqlextml/#association-rule-mining">associators</a>)</td>
+</tr>
+<tr>
+<td><code>REMAINING location_name</code></td>
+<td>All <a href="../../sclerasql/sqlregular/#creating-base-tables">tables</a> in <a href="../../setup/dbms/#location">location</a> <code>location_name</code> that have not been added</td>
+</tr>
+<tr>
+<td><code>[ TABLE ] location_name.*</code></td>
+<td>All <a href="../../sclerasql/sqlregular/#creating-base-tables">tables</a> in <a href="../../setup/dbms/#location">location</a> <code>location_name</code> that have already been added</td>
+</tr>
+<tr>
+<td><code>[ TABLE ] location_name.table_name</code></td>
+<td><a href="../../sclerasql/sqlregular/#creating-base-tables">Table</a> with name <code>table_name</code> added to location <code>location_name</code>, if it exists; otherwise empty</td>
+</tr>
+<tr>
+<td><code>TABLE</code></td>
+<td>All <a href="../../sclerasql/sqlregular/#creating-base-tables">tables</a> across all locations</td>
+</tr>
+<tr>
+<td><code>TABLE table_name</code></td>
+<td>All <a href="../../sclerasql/sqlregular/#creating-base-tables">tables</a> with name <code>table_name</code> across all locations</td>
+</tr>
+<tr>
+<td><code>VIEW</code></td>
+<td>All <a href="../../sclerasql/sqlregular/#creating-views">views</a></td>
+</tr>
+<tr>
+<td><code>VIEW view_name</code></td>
+<td><a href="../../sclerasql/sqlregular/#creating-views">View</a> with name <code>view_name</code>, if it exists; otherwise empty</td>
+</tr>
+<tr>
+<td><code>CLASSIFIER</code></td>
+<td>All <a href="../../sclerasql/sqlextml/#classification">classifiers</a></td>
+</tr>
+<tr>
+<td><code>CLASSIFIER classifier_name</code></td>
+<td><a href="../../sclerasql/sqlextml/#classification">Classifier</a> with name <code>classifier_name</code>, if it exists; otherwise empty</td>
+</tr>
+<tr>
+<td><code>CLUSTERER</code></td>
+<td>All <a href="../../sclerasql/sqlextml/#clustering">clusterers</a></td>
+</tr>
+<tr>
+<td><code>CLUSTERER clusterer_name</code></td>
+<td><a href="../../sclerasql/sqlextml/#clustering">Clusterer</a> with name <code>clusterer_name</code>, if it exists; otherwise empty</td>
+</tr>
+<tr>
+<td><code>LOCATION</code></td>
+<td>All <a href="../../setup/dbms/#location">locations</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sclerasql-commands">ScleraSQL Commands<a class="headerlink" href="#sclerasql-commands" title="Permanent link">&#9668;</a></h2>
+<p>ScleraSQL queries and commands accepted by Sclera are discussed in the <a href="../../sclerasql/sqlintro/">ScleraSQL Reference</a> document. These can be submitted on the command line prompt. Commands are executed silently, while returned query results are displayed in a table format.</p>
+<h3 id="looking-deeper-with-the-explain-command">Looking Deeper with the Explain Command<a class="headerlink" href="#looking-deeper-with-the-explain-command" title="Permanent link">&#9668;</a></h3>
+<p>In addition, the shell has an <code>EXPLAIN</code> command that explains a query is executed by Sclera. The <code>EXPLAIN</code> command comes in two variants.</p>
+<h4 id="run-time-explain">Run-time Explain<a class="headerlink" href="#run-time-explain" title="Permanent link">&#9668;</a></h4>
+<p>The first variant, called runtime explain has been discussed <a href="#activating-and-deactivating-runtime-explain">above</a>. This command, called <code>EXPLAIN SCRIPT</code>, causes each ScleraSQL command or query to display the commands it executes on the underlying database systems.</p>
+<p>This variant of <code>EXPLAIN</code> is useful when you want to trace what is happening under the hood while a query or command is executing. We refer to the <a href="#activating-and-deactivating-runtime-explain">earlier discussion</a> for the details.</p>
+<h4 id="compile-time-explain">Compile-time Explain<a class="headerlink" href="#compile-time-explain" title="Permanent link">&#9668;</a></h4>
+<p>The second variant, called the compile-time explain, has the following syntax:</p>
+<pre><code>EXPLAIN table_expression;
+</code></pre>
+<p>This variant takes a <a href="../../sclerasql/sqlregular/#table-expression">table expression <code>table_expression</code></a> (i.e. <a href="../../sclerasql/sqlregular/#querying-data-using-generalized-table-expressions">a SQL query</a>) as a parameter.</p>
+<p>The <code>table_expression</code> is <a href="../../intro/technical/#query-processor">parsed and optimized by the query processor</a>, and the resulting plan is then displayed on the console. Note that unlike the <code>EXPLAIN SCRIPT</code>, the query is not executed; the output shows how Sclera <em>plans</em> to execute the query if given without the <code>EXPLAIN</code>.</p>
+<p>This variant is useful when you want to explore how a query will be evaluated by Sclera, without actually evaluating the same.</p>
+<h2 id="script-execution">Script Execution<a class="headerlink" href="#script-execution" title="Permanent link">&#9668;</a></h2>
+<p>This command enables you to execute a script of commands from a file. The syntax is:</p>
+<pre><code>SOURCE script_file_path;
+</code></pre>
+<p>where <code>script_file_path</code> is the full path of the command script to be executed.</p>
+<p>The file is read, and each command therein is executed in sequence; the output of the command, if any, is displayed on the console as the command is executed.</p>
+<h2 id="usability-features">Usability Features<a class="headerlink" href="#usability-features" title="Permanent link">&#9668;</a></h2>
+<p>The shell maintains a command history, at a location given by the <a href="../../setup/configuration/#sclera-shell-history"><code>sclera.shell.history</code> configuration parameter</a>. You can navigate the history using the up/down keys.</p>
+<p>You can complete words by pressing tab. The word completion alternatives presented are not context sensitive, but that may change in future versions.</p>
+<h2 id="reset-command">Reset Command<a class="headerlink" href="#reset-command" title="Permanent link">&#9668;</a></h2>
+<p>To reset all connections and recover to a clean state, issue the following command:</p>
+<pre><code>RESET;
+</code></pre>
+<p>This is equivalent to exiting and restarting the shell.</p>
+<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&#9668;</a></h2>
+<p>A line with two consecutive hyphens (<code>"--"</code>) as the first non-whitespace characters is considered a comment, and is ignored. Unlike standard SQL and PostgreSQL, comments cannot start midway in a line, after a valid input.</p>
+<p>Comments are only permitted in the shell, and in scripts input to the shell.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../sclerasql/sqlmisc/" title="Miscellaneous Information" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Miscellaneous Information
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../jdbc/" title="Embedded JDBC Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Embedded JDBC Reference
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2012 - 2020 Sclera, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/scleradb" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/scleradb" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/sclera-inc-" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

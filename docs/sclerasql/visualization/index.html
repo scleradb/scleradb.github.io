@@ -1,0 +1,2440 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Sclera and its plugins">
+      
+      
+        <link rel="canonical" href="https://www.scleradb.com/sclerasql/visualization/">
+      
+      
+        <meta name="author" content="Sclera, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Visualization - Sclera Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CCourier+Prime&display=fallback">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier Prime","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../../images/icons/site.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../../css/docs.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#command-line-setup" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Sclera Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Visualization
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
+      
+    </a>
+    Sclera Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Documentation Contents" class="md-nav__link">
+      Documentation Contents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/whysclera/" title="Why Sclera?" class="md-nav__link">
+      Why Sclera?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/technical/" title="Technical Details" class="md-nav__link">
+      Technical Details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/components/" title="Components Reference" class="md-nav__link">
+      Components Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/install/" title="Installation Reference" class="md-nav__link">
+      Installation Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/dbms/" title="Data Platform Connection Reference" class="md-nav__link">
+      Data Platform Connection Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/configuration/" title="Configuration Reference" class="md-nav__link">
+      Configuration Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      ScleraSQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ScleraSQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexamples/" title="ScleraSQL Examples" class="md-nav__link">
+      ScleraSQL Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlintro/" title="ScleraSQL Introduction" class="md-nav__link">
+      ScleraSQL Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlregular/" title="Standard SQL" class="md-nav__link">
+      Standard SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcrosstab/" title="Using Cross-Tabulation" class="md-nav__link">
+      Using Cross-Tabulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextordered/" title="Processing Ordered Data" class="md-nav__link">
+      Processing Ordered Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlseqalign/" title="Sequence Alignment" class="md-nav__link">
+      Sequence Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextarg/" title="Selecting the Optimal" class="md-nav__link">
+      Selecting the Optimal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextml/" title="Using Machine Learning" class="md-nav__link">
+      Using Machine Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcleaning/" title="Data Cleaning" class="md-nav__link">
+      Data Cleaning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexttext/" title="Using Text Analytics" class="md-nav__link">
+      Using Text Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextdataaccess/" title="External Data Access" class="md-nav__link">
+      External Data Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Visualization
+      </label>
+    
+    <a href="./" title="Visualization" class="md-nav__link md-nav__link--active">
+      Visualization
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-setup" class="md-nav__link">
+    Command Line Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-dataset" class="md-nav__link">
+    Example Dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scleraviz-by-example" class="md-nav__link">
+    ScleraViz by Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-plot" class="md-nav__link">
+    A Simple Plot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifying-the-geometry" class="md-nav__link">
+    Specifying the Geometry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aesthetics-and-legends" class="md-nav__link">
+    Aesthetics and Legends
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-adjustments" class="md-nav__link">
+    Position Adjustments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stat" class="md-nav__link">
+    Stat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark" class="md-nav__link">
+    Mark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-layered-plots" class="md-nav__link">
+    Multi-Layered Plots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-plots" class="md-nav__link">
+    Multi-Plots
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-layouts" class="md-nav__link">
+    Automatic Layouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-axes" class="md-nav__link">
+    Weighted Axes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-plots" class="md-nav__link">
+    Cross Plots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faceted-plots" class="md-nav__link">
+    Faceted Plots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-syntax" class="md-nav__link">
+    Detailed Syntax
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-layer-specification" class="md-nav__link">
+    Plot / Layer Specification
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    Geometry
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-plots_1" class="md-nav__link">
+    Cross-Plots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aesthetics-scales-and-legends" class="md-nav__link">
+    Aesthetics, Scales, and Legends
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+    Scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-nulls" class="md-nav__link">
+    Handling NULLs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legend" class="md-nav__link">
+    Legend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group_1" class="md-nav__link">
+    Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key_1" class="md-nav__link">
+    Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    Position
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stat_1" class="md-nav__link">
+    Stat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark_1" class="md-nav__link">
+    Mark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltip" class="md-nav__link">
+    Tooltip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hiding-the-layer" class="md-nav__link">
+    Hiding the Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-display-order" class="md-nav__link">
+    Layer Display Order
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facet" class="md-nav__link">
+    Facet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axis" class="md-nav__link">
+    Axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid-specification" class="md-nav__link">
+    Grid Specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-specification" class="md-nav__link">
+    Display Specification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlmisc/" title="Miscellaneous Information" class="md-nav__link">
+      Miscellaneous Information
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interface
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interface
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/shell/" title="Command Line Shell Reference" class="md-nav__link">
+      Command Line Shell Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/jdbc/" title="Embedded JDBC Reference" class="md-nav__link">
+      Embedded JDBC Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sclera Extensions SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sclera Extensions SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkintro/" title="Extensions SDK Introduction" class="md-nav__link">
+      Extensions SDK Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdataaccess/" title="Data Access Plugins" class="md-nav__link">
+      Data Access Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdbms/" title="Database System Plugins" class="md-nav__link">
+      Database System Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextml/" title="Machine Learning Library Plugins" class="md-nav__link">
+      Machine Learning Library Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkexttext/" title="Text Analytics Library Plugins" class="md-nav__link">
+      Text Analytics Library Plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Acknowledgements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Acknowledgements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/dependencies/" title="Component Third Party Dependencies" class="md-nav__link">
+      Component Third Party Dependencies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/licenses/" title="Component Licenses" class="md-nav__link">
+      Component Licenses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-setup" class="md-nav__link">
+    Command Line Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-dataset" class="md-nav__link">
+    Example Dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scleraviz-by-example" class="md-nav__link">
+    ScleraViz by Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-plot" class="md-nav__link">
+    A Simple Plot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifying-the-geometry" class="md-nav__link">
+    Specifying the Geometry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aesthetics-and-legends" class="md-nav__link">
+    Aesthetics and Legends
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-adjustments" class="md-nav__link">
+    Position Adjustments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stat" class="md-nav__link">
+    Stat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark" class="md-nav__link">
+    Mark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-layered-plots" class="md-nav__link">
+    Multi-Layered Plots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-plots" class="md-nav__link">
+    Multi-Plots
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-layouts" class="md-nav__link">
+    Automatic Layouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-axes" class="md-nav__link">
+    Weighted Axes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-plots" class="md-nav__link">
+    Cross Plots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faceted-plots" class="md-nav__link">
+    Faceted Plots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-syntax" class="md-nav__link">
+    Detailed Syntax
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-layer-specification" class="md-nav__link">
+    Plot / Layer Specification
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    Geometry
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-plots_1" class="md-nav__link">
+    Cross-Plots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aesthetics-scales-and-legends" class="md-nav__link">
+    Aesthetics, Scales, and Legends
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+    Scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-nulls" class="md-nav__link">
+    Handling NULLs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legend" class="md-nav__link">
+    Legend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group_1" class="md-nav__link">
+    Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key_1" class="md-nav__link">
+    Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    Position
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stat_1" class="md-nav__link">
+    Stat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark_1" class="md-nav__link">
+    Mark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltip" class="md-nav__link">
+    Tooltip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hiding-the-layer" class="md-nav__link">
+    Hiding the Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-display-order" class="md-nav__link">
+    Layer Display Order
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facet" class="md-nav__link">
+    Facet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axis" class="md-nav__link">
+    Axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid-specification" class="md-nav__link">
+    Grid Specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-specification" class="md-nav__link">
+    Display Specification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Visualization</h1>
+                
+                <p>Sclera's visualization component, ScleraViz, enables quick and easy visualization of your query results. ScleraViz is integrated with <a href="../sqlintro/">ScleraSQL</a>; this means a few lines of ScleraSQL can fetch, clean, analyze and visualize your data in a single sweep.</p>
+<p>ScleraViz is inspired by <a href="http://vita.had.co.nz/papers/layered-grammar.html">Grammar of Graphics</a>, specifically <a href="http://ggplot2.org/">R's ggplot2</a> -- but is implemented as an extension to <a href="../sqlintro/">ScleraSQL</a> and uses <a href="http://d3js.org">D3</a> as the rendering engine. Moreover, unlike ggplot2, ScleraViz can clean, analyze and plot <em>streaming</em> data.</p>
+<p>An online preview, with a number of examples with code, is available at <a href="/scleraviz">http://www.scleradb.com/scleraviz</a>.</p>
+<p><img alt="ScleraViz Examples" src="../images/visualization/scleraviz-examples.jpg" title="Visualization Examples" />
+<img alt="ScleraViz Bar Example" src="../images/visualization/scleraviz-bar.jpg" title="Bar Example" /></p>
+<h2 id="command-line-setup">Command Line Setup<a class="headerlink" href="#command-line-setup" title="Permanent link">&#9668;</a></h2>
+<p><em>In the following, <code>&lt;sclera-root&gt;</code> is the directory where Sclera is (or, is to be) installed.</em></p>
+<p>To run ScleraViz queries, you need to:</p>
+<ul>
+<li>
+<p>Install Sclera Command Line using <code>scleradmin</code> (<a href="../../setup/install/#installing-and-maintaining-sclera-command-line-application">detailed instructions here</a>)</p>
+<pre><code>$ scleradmin --install --root &lt;sclera-root&gt;
+</code></pre>
+</li>
+<li>
+<p>Install the <a href="../../setup/components/#sclera-webdisplay">Sclera Web Display</a> plugin</p>
+<pre><code>$ scleradmin --add sclera-plugin-webdisplay --root &lt;sclera-root&gt;
+</code></pre>
+</li>
+<li>
+<p>Start the Sclera Command Line Shell</p>
+<pre><code>$ &lt;sclera-root&gt;/bin/sclera
+Welcome to Sclera 4.0
+
+&gt; _
+</code></pre>
+</li>
+<li>
+<p>In the Sclera Command Line Shell, start the display web server:</p>
+<pre><code>Welcome to Sclera 4.0
+
+&gt; display start;
+HTTP server started at port 7070
+Please point your browser to http://localhost:7070
+</code></pre>
+</li>
+<li>
+<p>Start a web browser and open the URL http://localhost:7070</p>
+</li>
+</ul>
+<p>Running a ScleraViz query (described in the rest of this document) on the Sclera Command Line will display the visualization in the browser. In addition, to display the contents of a query as a table in the browser, you can say:</p>
+<pre><code>    &gt; display &lt;query&gt;;
+</code></pre>
+<p>For example, the following displays the result as a two column, single row table in the browser:</p>
+<pre><code>    &gt; display select 'Hello' as greeting1, 'World' as greeting2;
+</code></pre>
+<p>Leaving the keyword <code>display</code> out displays the result in the command line shell, as usual.</p>
+<p>When done, you can close the display web server by saying:</p>
+<pre><code>    &gt; display stop;
+</code></pre>
+<h2 id="example-dataset">Example Dataset<a class="headerlink" href="#example-dataset" title="Permanent link">&#9668;</a></h2>
+<p>In the following, we will be using the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">"tipping" dataset</a> as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">here</a>.</p>
+<p>You can run the examples appearing below on the Sclera shell -- either installed in your machine, or <a href="/shell">online at http://www.scleradb.com/shell</a>. To start, set up the <code>tips</code> table as follows:</p>
+<pre><code>CREATE TEMP TABLE tips as
+EXTERNAL CSV("http://scleraviz.herokuapp.com/assets/data/tips.csv")
+TYPEINFER(LIMIT 1);
+</code></pre>
+<p><strong>Notation:</strong> In the above and the following examples, the ScleraSQL keywords will be capitalized. This is for illustrative reasons only; ScleraSQL is case-insensitive.</p>
+<h2 id="scleraviz-by-example">ScleraViz by Example<a class="headerlink" href="#scleraviz-by-example" title="Permanent link">&#9668;</a></h2>
+<p>This section very briefly introduces the rudiments of the plot specification. This is to quickly get you started on plotting your own graphs. A complete and formal description of the syntax appear in the <a href="#detailed-syntax">next section</a>.</p>
+<p><a class="anchor" name="simple-plot"></a></p>
+<h3 id="a-simple-plot">A Simple Plot<a class="headerlink" href="#a-simple-plot" title="Permanent link">&#9668;</a></h3>
+<p>Putting a <code>PLOT</code> afer the query plots the column <code>y</code> in the query result against the column <code>x</code> in the query result as a scatter plot. So, to plot the <code>tip</code> against the <code>total_bill</code> in the tipping dataset, we say:</p>
+<pre><code>SELECT total_bill as x, tip AS y FROM tips
+PLOT;
+</code></pre>
+<p><img alt="Simple Plot" src="../images/visualization/sclera-scatter-simple.jpg" title="Simple Plot" /></p>
+<p>The above statement works on a bunch of defaults  -- it creates a scatter-plot, which takes column <code>x</code> in the input as the default for the X coordinate, and column <code>y</code> in the input as the default for the <code>y</code> coordinate, and also takes default values for aesthetics such as point fill and stroke color, size, opacity (alpha), etc.</p>
+<p>In the discussion that follows, we show how to explicitly override these defaults, and even vary them as a function of the data.</p>
+<h3 id="specifying-the-geometry">Specifying the Geometry<a class="headerlink" href="#specifying-the-geometry" title="Permanent link">&#9668;</a></h3>
+<p>A "geometry" refers to the manner in which a data point maps to the chart. In the scatterplot example above, the geometry is a <code>POINT</code>.</p>
+<p>We can explicitly specify the geometry as follows:</p>
+<pre><code>SELECT total_bill as x, tip AS y FROM tips
+PLOT(GEOM=POINT)
+</code></pre>
+<p>The location of a geometry is determined by a set of parameters. By default, these parameters are mapped to appropriately named columns in the input. For instance, each point above is placed according to the values in the <code>x</code> and <code>y</code> columns.</p>
+<p>We can override this default by explicitly specifing custom columns for these parameters. So, another way to write the example above is:</p>
+<pre><code>tips PLOT(GEOM=POINT(x=total_bill, y=tip))
+</code></pre>
+<p>Here, the parameters <code>x</code> and <code>y</code> are mapped to input columns <code>psavert</code> and <code>unemploy</code>; in general, they can be mapped to arbitrary expressions.</p>
+<p>Sclera supports a number of alternative geometries.</p>
+<p>For instance, to plot the average bill for a given party size against the party size as a histogram, we can say:</p>
+<pre><code>SELECT `size`, AVG(total_bill) as avg_bill
+FROM tips
+GROUP BY `size`
+PLOT(GEOM=BAR(x=`size`, y=avg_bill))
+</code></pre>
+<p><em><tiny>(Note: <code>size</code> needs to be in backquotes as it is a keyword. This is a parser requirement; we understand that it is cumbersome and are working on workarounds. Meanwhile, it is always a good idea to put the column names in backquotes.)</tiny></em></p>
+<p><img alt="Simple Bar Chart" src="../images/visualization/sclera-simple-bar.jpg" title="Simple Bar Chart" /></p>
+<p>Similarly, to plot the same data as a line, we use <code>GEOM=LINE</code>:</p>
+<pre><code>SELECT `size`, AVG(total_bill) as avg_bill
+FROM tips
+GROUP BY `size`
+PLOT(GEOM=LINE(x=`size`, y=avg_bill))
+</code></pre>
+<p><img alt="Simple Line Chart" src="../images/visualization/sclera-simple-line.jpg" title="Simple Line Chart" /></p>
+<p>A full list of the supported geometries appears as a part of the <a href="#geometry">detailed documentation</a>.</p>
+<h3 id="aesthetics-and-legends">Aesthetics and Legends<a class="headerlink" href="#aesthetics-and-legends" title="Permanent link">&#9668;</a></h3>
+<p>The aesthetics parameters specify the "look and feel" of a chart. For a scatterplot, for instance, the parameters specify the shape of the point (circle, square, triangle, and so on), the color to be used to fill the point, the color used for the boundary, and so on.</p>
+<p>The set of aesthetics parameters varies with the geometry. For example, a <code>SHAPE</code> makes sense for a point, but does not make sense for a line. The list of aesthetics parameters associated with respective geometries appears as a part of the detailed documentation.</p>
+<p>An aesthetics parameter can either be a constant, or an expression. If the parameter is a constant, e.g. <code>FILL="black"</code>, then the value of the aesthetics is literally taken as the constant. If the parameter is an expression, then distinct values of the columns are mapped to distinct values of the aesthetic.</p>
+<p>For instance, if we specify <code>FILL=foo</code> where <code>foo</code> is an input column, then by default, each distinct value of <code>foo</code> is mapped to a distinct value of the color that is actually used for the fill. The mapping from each distict value of the column <code>foo</code> to the corresponding color is automatically maintained, and can be output as a legend, by saying <code>FILL=foo LEGEND</code>.</p>
+<p>The following example shows a scatterplot with expressions for <code>FILL</code> and <code>SHAPE</code> aesthetics.</p>
+<pre><code>tips PLOT(
+  GEOM=POINT(x=total_bill, y=tip),
+  FILL=day LEGEND(TITLE="Day"),
+  SHAPE=`time` LEGEND(TITLE="Time")
+)
+</code></pre>
+<p><img alt="Scatter Plot with Non-default Aesthetics" src="../images/visualization/sclera-scatter-legends.jpg" title="Scatter Plot with Non-default Aesthetics" /></p>
+<p>A full description of the aesthetics parameters appears in the detailed documentation.</p>
+<h3 id="group">Group<a class="headerlink" href="#group" title="Permanent link">&#9668;</a></h3>
+<p>The optional <code>GROUP</code> directive specifies an expression on the input data. The input data points are first partitioned based on the values of this expression (similar to the SQL <code>GROUP BY</code>), and each partition is plotted separately in the same layer.</p>
+<p>For instance, adding a <code>GROUP</code> directive to a <code>LINE</code> will plot a line for each distinct value of the <code>GROUP</code> expression.</p>
+<pre><code>SELECT `size`, gender, AVG(total_bill) as avg_bill
+FROM tips
+GROUP BY `size`, gender
+ORDER BY `size`
+PLOT(GEOM=LINE(x=`size`, y=avg_bill), GROUP=gender, STROKE=gender LEGEND)
+</code></pre>
+<p><img alt="Line Chart with Groups" src="../images/visualization/sclera-group-line.jpg" title="Line Chart with Groups" /></p>
+<h3 id="key">Key<a class="headerlink" href="#key" title="Permanent link">&#9668;</a></h3>
+<p>By default, each row in the input corresponds to a unique data point. The optional <code>KEY</code> directive enables associating multiple rows with the same data point -- successive rows with the same key value render as the same data point, overriding the previous rendering.</p>
+<p>This is helpful to display, say, a dynamic bar chart showing a running average for tips collected on each day of week. We specify <code>KEY=day</code> and, for every input row, generate a row containing the updated running average of <code>tip</code> for the associated value of <code>day</code>.</p>
+<p>With <code>KEY=day</code>, the first rows for a value create a bar, and the subsequent roes for the same value update the existing bar.</p>
+<pre><code>SELECT day, T.avg(tip) as running_avg
+FROM tips T PARTITION BY day
+PLOT(GEOM=BAR(x=day, y=running_avg), KEY=day)
+</code></pre>
+<p><img alt="With KEY=day" src="../images/visualization/sclera-key.jpg" title="With KEY=day, each row updates the existing bar" /></p>
+<p>Without <code>KEY=day</code>, a new bar will be generated for each update.</p>
+<pre><code>SELECT day, T.avg(tip) as running_avg
+FROM tips T PARTITION BY day
+PLOT(GEOM=BAR(x=day, y=running_avg), ALPHA=0.1)
+</code></pre>
+<p><img alt="Without KEY=day" src="../images/visualization/sclera-nokey.jpg" title="Without KEY=day, each row creates a new bar" /></p>
+<h3 id="position-adjustments">Position Adjustments<a class="headerlink" href="#position-adjustments" title="Permanent link">&#9668;</a></h3>
+<p>Following the grammar of graphics philosophy, the input data is assumed to have one row per data point. When two data points are rendered one over the other, they are said to "collide".</p>
+<p>Colliding data points can be repositioned by specifying a <code>POSITION</code> directive, whcih can take values <code>dodge</code>, <code>stack</code>, or <code>jitter</code>.</p>
+<p>Specifying <code>POSITION=DODGE</code> positions the data points in a row, one after other, around the common <code>x</code> position on the X axis. When the geometry is <code>BAR</code>, this gives the familiar "grouped" bar chart:</p>
+<pre><code>SELECT day, gender, count(*) AS count
+FROM tips
+GROUP BY day, gender
+ORDER BY day, gender
+PLOT(GEOM=BAR(x=day, y=count), POSITION=DODGE, FILL=gender LEGEND)
+</code></pre>
+<p><img alt="Grouped Bar Chart" src="../images/visualization/sclera-bar-dodge.jpg" title="Grouped Bar Chart" /></p>
+<p>Specifying <code>POSITION=STACK</code> positions the data points in a column, one over other, at the common <code>x</code> position on the X axis. When the geometry is <code>BAR</code>, this gives the familiar "stacked" bar chart:</p>
+<pre><code>SELECT day, gender, count(*) AS count
+FROM tips
+GROUP BY day, gender
+ORDER BY day, gender
+PLOT(GEOM=BAR(x=day, y=count), POSITION=STACK, FILL=gender LEGEND)
+</code></pre>
+<p><img alt="Stacked Bar Chart" src="../images/visualization/sclera-bar-stack.jpg" title="Stacked Bar Chart" /></p>
+<p>Specifying <code>POSITION=jitter</code> adds a random offset to both the <code>x</code> and <code>y</code> positions of the data point. This is useful when we have overlapping points, so that the top points obscure the ones below -- the jitter randomly scatters the obscured points within a small ball around their position, making them visible.</p>
+<h3 id="stat">Stat<a class="headerlink" href="#stat" title="Permanent link">&#9668;</a></h3>
+<p>The <code>STAT</code> directive specifies a statistical operation over the input data points. Supported operations include computing local regression smoothing, computing density histograms, and computing heat-maps.</p>
+<p>By default, the results are computation are overlayed over the base plot.</p>
+<p>For instance, consider the scatter-plot of average tips against the total bill. Including <code>STAT=loess</code> plots a line representing local regression smoothing over these data points. This curve brings out the trend in the data -- how the tips vary with increasing <code>total_bill</code> -- that may not be apparent from just the scatter plot.</p>
+<pre><code>SELECT total_bill, avg(tip) as avg_tip
+FROM tips
+GROUP BY total_bill
+PLOT(
+  GEOM=POINT(x=total_bill, y=avg_tip),
+  STAT=LOESS(STROKE="orange", STROKE_WIDTH="5px")
+)
+</code></pre>
+<p><img alt="LOESS Smoothing" src="../images/visualization/sclera-stat-loess.jpg" title="Loess Smoothing" /></p>
+<p>The computed result is plotted in its own layer (see the next section), using a geometry that is determined by the operation, and using aesthetic parameters that can be provided along with the operation, as in the example above.</p>
+<h3 id="mark">Mark<a class="headerlink" href="#mark" title="Permanent link">&#9668;</a></h3>
+<p>The <code>MARK</code> directive marks out regions where a specified predicate is true. This is done in real time, as the data arrives, and so can be very useful in monitoring for events.</p>
+<p>For example, the following query marks regions in a stock ticker where the current high is greater than the running average high with green, and regions where the current low is less than the running average low with red.</p>
+<pre><code>EXTERNAL CSV("http://scleraviz.herokuapp.com/assets/data/infy.csv") TYPEINFER(LIMIT 1) AS infy
+PLOT(
+  GEOM=LINE(x=ts, y=close),
+  MARK XAXIS(
+    high &gt; infy.AVG(high),
+    FILL="green"
+  ),
+  MARK XAXIS(
+    low &lt; infy.AVG(low),
+    FILL="red"
+  )
+)
+</code></pre>
+<p><img alt="Marked Regions" src="../images/visualization/sclera-mark.jpg" title="Marked Regions" /></p>
+<h3 id="multi-layered-plots">Multi-Layered Plots<a class="headerlink" href="#multi-layered-plots" title="Permanent link">&#9668;</a></h3>
+<p>A layer represents a unit of rendering in the plot. The examples so far, except the stats, included a single layer -- which is the default.</p>
+<p>A layer can only support one kind of geometry, and the associated set of aesthetic parameters and position specifications. If you want to include, say, a scatter plot and a line in the same plot, you need to have separate layers for the points and the line.</p>
+<p>You can explicitly specify layers using the <code>LAYER</code> keyword. The <a href="#simple-plot">initial scatterplot</a> can be equivalently be specified as:</p>
+<pre><code>tips PLOT(LAYER(GEOM=point(x=total_bill, y=tip)))
+</code></pre>
+<p>We can specify multiple layers in the same plot. The following plots the average bill for a party size, along with a one-standard deviation interval in a separate layer:</p>
+<pre><code>SELECT `size`, avg(total_bill) as avg_bill, stddev(total_bill) as sdev
+FROM tips
+GROUP BY `size`
+ORDER BY `size`
+PLOT(
+  LAYER(GEOM=LINE(x=`size`, y=avg_bill)),
+  LAYER(GEOM=RIBBON(x=`size`, ymin=avg_bill - sdev, ymax=avg_bill + sdev))
+)
+</code></pre>
+<p><img alt="Multi-Layer Plot" src="../images/visualization/sclera-multilayer.jpg" title="Multi-Layer Plot" /></p>
+<p>Another example on the same query, this time with bars and error lines:</p>
+<pre><code>SELECT `size`, avg(total_bill) as avg_bill, stddev(total_bill) as sdev
+FROM tips
+GROUP BY `size`
+ORDER BY `size`
+PLOT(
+  LAYER(GEOM=BAR(x=`size`, y=avg_bill)),
+  LAYER(
+    GEOM=POINTRANGEY(
+      x=`size`, y=avg_bill,
+      ymin=avg_bill - sdev, ymax=avg_bill + sdev
+    )
+  )
+)
+</code></pre>
+<p><img alt="Another Multi-Layer Plot" src="../images/visualization/sclera-multilayer-alt.jpg" title="Another Multi-Layer Plot" /></p>
+<p>The <code>STAT</code> directive mentioned in the previous section implicitly adds a new layer to the plot, with the result of the associated operation.</p>
+<h3 id="multi-plots">Multi-Plots<a class="headerlink" href="#multi-plots" title="Permanent link">&#9668;</a></h3>
+<p>We can have multiple plots on the same input data; these plots are plotted simultaneously in a single scan of the input.</p>
+<p>For instance, the following specification renders two separate plots on the same input:</p>
+<pre><code>tips
+PLOT(GEOM=POINT(x=total_bill, y=tip), ALPHA=0.3)
+PLOT(GEOM=POINT(x=`size`, y=tip), ALPHA=0.3)
+PLOT(GEOM=POINT(x=`size`, y=total_bill), ALPHA=0.3)
+PLOT(GEOM=POINT(x=total_bill, y=total_bill), ALPHA=0.3)
+</code></pre>
+<p><img alt="Multiple Plots" src="../images/visualization/sclera-multiplot.jpg" title="Multiple Plots" /></p>
+<p>The plots are plotted one after the other, in separate rows. As the plots are rendered, the Y-axes of the first two plots, which plot the same column <code>tip</code>, and the X-axes of the last two plots, which plot the same column <code>size</code> are kept synchronized.</p>
+<h4 id="automatic-layouts">Automatic Layouts<a class="headerlink" href="#automatic-layouts" title="Permanent link">&#9668;</a></h4>
+<p>ScalerViz provides an aligned layout mode that places the plots so that plots sharing the same X-axis columns are aligned vertically, and the plots sharing the same Y-axis columns are aligned horizontally. We try this mode, activated using the <code>LAYOUT ALIGNED</code> directive on the example above, to get:</p>
+<pre><code>tips
+PLOT(GEOM=POINT(x=total_bill, y=tip), ALPHA=0.3)
+PLOT(GEOM=POINT(x=`size`, y=tip), ALPHA=0.3)
+PLOT(GEOM=POINT(x=`size`, y=total_bill), ALPHA=0.3)
+PLOT(GEOM=POINT(x=total_bill, y=total_bill), ALPHA=0.3)
+LAYOUT ALIGNED
+</code></pre>
+<p><img alt="Multiple Plots with Aligned Layout" src="../images/visualization/sclera-multiplot-aligned.jpg" title="Multiple Plots with Aligned Layout" /></p>
+<h4 id="weighted-axes">Weighted Axes<a class="headerlink" href="#weighted-axes" title="Permanent link">&#9668;</a></h4>
+<p>In the multi-plot examples above, all axes have the same size. However, we may sometimes want to emphasize some columns over the others.</p>
+<p>In ScleraViz, we can assign weights to axes. By default, all axes are assigned a weight of 1. Assigning a weight of, say 0.5, makes the size of an axis half of an axis with weight 1. Similarly, assigning a weight of 2.0 makes the size of an axis twice that of an axis with weight 1. The actual axis lengths are assigned respecting these relative size constrainst and the constraint that all the plots need to fit in the given width and height.</p>
+<pre><code>tips
+PLOT(GEOM=POINT(x=total_bill, y=tip), ALPHA=0.3)
+PLOT(GEOM=POINT(x=`size`, y=tip), ALPHA=0.3)
+PLOT(GEOM=POINT(x=`size`, y=total_bill), ALPHA=0.3)
+PLOT(GEOM=POINT(x=total_bill, y=total_bill), ALPHA=0.3)
+AXIS `size`(WEIGHT=0.25, TICKS=3)
+AXIS tip(WEIGHT=2)
+LAYOUT ALIGNED
+</code></pre>
+<p><img alt="Multiple Plots with Aligned Layout and Weighted Axes" src="../images/visualization/sclera-multiplot-aligned-weighted.jpg" title="Multiple Plots with Aligned Layout and Weighted Axes" /></p>
+<h3 id="cross-plots">Cross Plots<a class="headerlink" href="#cross-plots" title="Permanent link">&#9668;</a></h3>
+<p>It is common to plot each of a set of columns against each of another set of columns. In ScleraViz, we can plot such "cross-plots" by using the single-layer <code>PLOT</code> syntax, and specifying a list of columns for the parameters of the geometry.</p>
+<pre><code>tips
+PLOT(
+  GEOM=POINT(x=(smoker, gender, day, `time`), y=(total_bill, tip)),
+  ALPHA=0.3
+)
+LAYOUT ALIGNED
+</code></pre>
+<p><img alt="Cross Plot with Aligned Layout" src="../images/visualization/sclera-cross-plot-aligned.jpg" title="Cross Plot with Aligned Layout" /></p>
+<h3 id="faceted-plots">Faceted Plots<a class="headerlink" href="#faceted-plots" title="Permanent link">&#9668;</a></h3>
+<p>Faceting a plot on an expression involves displaying separate plots for datapoints partitioned by distinct values of the expression.</p>
+<p>ScleraViz can facet along columns (meaning that the plots corresponding to distinct values are layed out horizontally, in separate columns in a grid), or have faceting along rows (meaning that the plots corresponding to distinct values are layed out vertically, in separate rows in a grid), or both.</p>
+<p>For instance, the following plot separates out the tip and total bill data based on whether smokers were present (yes/no, along rows), and the gender of the bill-payer (male/female, along columns):</p>
+<pre><code>tips
+PLOT(GEOM=POINT(x=total_bill, y=tip), ALPHA=0.3)
+FACET(ROWS=smoker, COLUMNS=gender)
+</code></pre>
+<p><img alt="Faceted Plot" src="../images/visualization/sclera-faceted.jpg" title="Faceted Plot" /></p>
+<h2 id="detailed-syntax">Detailed Syntax<a class="headerlink" href="#detailed-syntax" title="Permanent link">&#9668;</a></h2>
+<p>This section gives the detailed formal syntax of the ScleraViz specification language.</p>
+<p>Formally, the ScleraViz specification is as follows (recall that <code>|</code> means alternatives, <code>[]</code> means optional, and <code>...</code> means repetitions):</p>
+<pre><code>query plot_spec [ , ... ] [ facet_spec ] [ axis_spec ] [ ... ] [ layout_spec ] [ grid_spec ] [ display_spec ]
+</code></pre>
+<p>where the <code>query</code> is a <a href="../sqlintro/">ScleraSQL query</a>. The plot specification <code>plot_spec</code> can appear one or more times, each <code>plot_spec</code> defining a new plot, followed by an optional facet specification <code>facet_spec</code>, zero or more <code>axis_spec</code> if we need to change the axis defaults. A <code>layout_spec</code> then gives the layout preferences. This is followed by a <code>grid_spec</code> if we need to change the grid defaults, and a <code>display_spec</code> to change the display area defaults.</p>
+<h3 id="plot-layer-specification">Plot / Layer Specification<a class="headerlink" href="#plot-layer-specification" title="Permanent link">&#9668;</a></h3>
+<p>The <code>plot_spec</code> specifies a plot, and has two variants:</p>
+<pre><code>PLOT ( layer_params ) | PLOT ( LAYER ( layer_params ) [, ...] )
+</code></pre>
+<p>The first variant is an shortened form of the second, and can be used when the plot has only one layer. The second variant is needed when the plot has multiple layers.</p>
+<p>Each <code>layer_param</code> specifies a layer in the plot. It contains several parts, each of them except geometry being optional, which can be specified in any order. We describe the sybtax of each part in the next few sections.</p>
+<h4 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">&#9668;</a></h4>
+<p>The geometry specifies the manner in which the datapoint will be represented in the chart. The syntax is as follows:</p>
+<pre><code>GEOM = geom_type [ ( geom_params ) ]
+</code></pre>
+<p>The <code>geom_type</code> is the type of the geometry, and <code>geom_params</code> is a comma-separated list of <code>key = value</code> entries. The keys for each geometry are given the following table; the values for the keys can be a numeric scalar expression on the underlying table (or a constant).</p>
+<table>
+<thead>
+<tr>
+<th><code>geom_type</code></th>
+<th><code>geom_params</code> keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POINT or SCATTER</td>
+<td>X, Y</td>
+</tr>
+<tr>
+<td>LINE</td>
+<td>X, Y</td>
+</tr>
+<tr>
+<td>POINTRANGEY</td>
+<td>X, Y, YMIN, YMAX</td>
+</tr>
+<tr>
+<td>ERRORBAR or RANGEY</td>
+<td>X, YMIN, YMAX, [WIDTH]</td>
+</tr>
+<tr>
+<td>ERRORBARH or RANGEX</td>
+<td>XMIN, XMAX, Y, [HEIGHT]</td>
+</tr>
+<tr>
+<td>RIBBON</td>
+<td>X, YMIN, YMAX</td>
+</tr>
+<tr>
+<td>ABLINE</td>
+<td>YINTERCEPT, SLOPE</td>
+</tr>
+<tr>
+<td>HLINE</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>VLINE</td>
+<td>X</td>
+</tr>
+<tr>
+<td>SEGMENT</td>
+<td>X, XEND, Y, YEND</td>
+</tr>
+<tr>
+<td>ARROW</td>
+<td>X, XEND, Y, YEND</td>
+</tr>
+<tr>
+<td>AREA</td>
+<td>X, Y</td>
+</tr>
+<tr>
+<td>RECT</td>
+<td>XMIN, XMAX, YMIN, YMAX</td>
+</tr>
+<tr>
+<td>HISTOGRAM or HIST</td>
+<td>XMIN, XMAX, FREQ</td>
+</tr>
+<tr>
+<td>BAR</td>
+<td>X, Y</td>
+</tr>
+<tr>
+<td>REGIONX</td>
+<td>XMIN, XMAX, YMIN, YMAX</td>
+</tr>
+<tr>
+<td>REGIONY</td>
+<td>XMIN, XMAX, YMIN, YMAX</td>
+</tr>
+<tr>
+<td>OHLC</td>
+<td>TS, OPEN, HIGH, LOW, CLOSE, [WIDTH]</td>
+</tr>
+<tr>
+<td>CANDLESTICK</td>
+<td>TS, OPEN, HIGH, LOW, CLOSE, [WIDTH]</td>
+</tr>
+</tbody>
+</table>
+<p>In the above table, keys enclosed in <code>[]</code> are optional, others are required.</p>
+<p>The <code>geom_params</code> are optional, and may only specify the values for a subset of the required keys for the geometry. When a required key needed by a geometry does not appear in the <code>geom_params</code>, it is mapped to a column of the same name in the input.</p>
+<p>The <code>GEOM</code> specification itself is optional -- if omitted, it defauts to <code>POINT</code>, with the keys <code>X</code> and <code>Y</code> mapped to input columns of the same name.</p>
+<h5 id="cross-plots_1">Cross-Plots<a class="headerlink" href="#cross-plots_1" title="Permanent link">&#9668;</a></h5>
+<p>In the single-layer variant, the <code>geom_param</code> keys can have a list of expressions instead of the single expression allowed above. This is considered a shortcut, and expands to a separate plot for each value in the list. If multiple <code>geom_param</code> keys have a list of expressions, then the specification expands to a separate plot for each combination of the <code>geom_param</code> values across these lists.</p>
+<p>Apart from the <code>geom_param</code> values, each of the plots so generated have the directives and properies as specified in the rest of the <code>PLOT</code> specification.</p>
+<h4 id="aesthetics-scales-and-legends">Aesthetics, Scales, and Legends<a class="headerlink" href="#aesthetics-scales-and-legends" title="Permanent link">&#9668;</a></h4>
+<p>The aesthetics directives change the default look (colors, shape, size, etc.) of the data points, and also assign legends. The syntax is as follows:
+<a class="anchor" name="aes-syntax"></a></p>
+<pre><code>aes_key = aes_value [ SCALE = scale [ ( scale_params ) ] ] [ ON NULL null_aes_const ] [ LEGEND [ ( legend_params ) ] ]
+</code></pre>
+<p>The <code>aes_key</code> is an attribute such as <code>FILL</code>, <code>STROKE</code>, etc. (see the table below), and <code>aes_value</code> has the syntax:</p>
+<pre><code>aes_const | aes_expr | IDENTITY ( aes_identity_expr )
+</code></pre>
+<ul>
+<li><code>aes_const</code> is a constant of the appropriate type as specified in the table below. For example, <code>FILL = "red"</code>.</li>
+<li><code>aes_expr</code> is a scalar expression of the appropriate type as specified in the table below. A scale maps distinct values of this expression to the appropriate value for the <code>aes_key</code>. For instance, specifying <code>FILL = foo</code> maps distinct values in the column <code>foo</code> to distinct colors from a default palette. The palette can be explicitly specied using a <code>scale</code> (<a href="#scale">see below</a>).</li>
+<li><code>aes_identity_expr</code> is an expression that evaluates to the literal value of an ordinal type. For instance, if a columns <code>foo</code> contains valid color names such as "red", "blue", "black", etc., then we can specify <code>IDENTITY(foo)</code> as the <code>aes_value</code>.</li>
+</ul>
+<p>Each geometry has an associated list of <code>aes_key</code> alternatives that it can interpret; <code>aes_key</code> specifications that are not associated with the specified geometry are ignored.</p>
+<p>The keys <code>aes_key</code>, types of <code>aes_value</code> and associated geometries are listed in the table below.</p>
+<table>
+<thead>
+<tr>
+<th><code>aes_key</code></th>
+<th>Type</th>
+<th>Geometry</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SIZE</code></td>
+<td>Numeric</td>
+<td>POINT, POINTRANGEY</td>
+<td>Specifies the size of the point</td>
+</tr>
+<tr>
+<td><code>SHAPE</code></td>
+<td>Ordinal (<a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#symbol_type">valid shape values</a>)</td>
+<td>POINT, POINTRANGEY</td>
+<td>Specifies the <a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#symbol_type">shape of the point</a></td>
+</tr>
+<tr>
+<td><code>FILL</code></td>
+<td>Ordinal (<a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">valid color values</a>)</td>
+<td>POINT, POINTRANGEY, AREA, BAR, RIBBON, OHLC</td>
+<td>Color used to fill the shape</td>
+</tr>
+<tr>
+<td><code>ALPHA</code></td>
+<td>Numeric (between 0 and 1)</td>
+<td><em>all geometries</em></td>
+<td>Opacity of the rendering</td>
+</tr>
+<tr>
+<td><code>STROKE</code></td>
+<td>Ordinal (<a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">valid color values</a>)</td>
+<td><em>all geometries</em></td>
+<td>Color used for the line</td>
+</tr>
+<tr>
+<td><code>STROKE-WIDTH</code></td>
+<td>Numeric</td>
+<td><em>all geometries</em></td>
+<td>Specifies the width of the line</td>
+</tr>
+<tr>
+<td><code>INTERPOLATE</code></td>
+<td>Ordinal (<a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#line_interpolate">valid interpolate values</a>)</td>
+<td>LINE, AREA, RIBBON</td>
+<td>Sets the <a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#line_interpolate">path interpolation mode</a></td>
+</tr>
+<tr>
+<td><code>TENSION</code></td>
+<td>Numeric (between 0 and 1)</td>
+<td>LINE, AREA, RIBBON</td>
+<td>Sets the path <a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#line_tension">tension</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="scale">Scale<a class="headerlink" href="#scale" title="Permanent link">&#9668;</a></h5>
+<p>Using a non-constant expression <code>aes_expr</code> for the <code>aes_value</code> makes the aesthetics a function of the data. The mapping from the distinct values of the expression (e.g. day of the week) to the aesthetics specification (e.g. colors "red", "blue", "green") is called a "scale".</p>
+<p>The <code>scale</code> is numeric if it outputs numeric values; examples of numeric scales are: <code>LINEAR</code>, <code>LOG</code>, and <code>SQRT</code>. Further information on numeric scales, their defaults and capabilities appears in the <a href="https://github.com/mbostock/d3/wiki/Quantitative-Scales">D3 documentation</a>.</p>
+<p>The <code>scale</code> is ordinal if it outputs ordinal values; examples of ordinal scales are <code>ORDINAL</code>, <code>COLOR</code>, and <code>SYMBOL</code>.Further information on the ordinal scales, their defaults and capabilities appears in the <a href="https://github.com/mbostock/d3/wiki/Ordinal-Scales">D3 documentation</a>.</p>
+<p>To explicitly specify the scale, we specify the <code>scale</code> (<code>LINEAR</code>, <code>LOG</code>, <code>SQRT</code>, <code>ORDINAL</code>, <code>COLOR</code> or <code>SYMBOL</code>), and optionally, the associated parameters <code>scale_params</code> to override the defaults.</p>
+<p>The following table lists the default scales for each aesthetics parameter:</p>
+<table>
+<thead>
+<tr>
+<th><code>aes_key</code></th>
+<th>Default Scale</th>
+<th>Default Domain</th>
+<th>Default Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SIZE</code></td>
+<td>LINEAR</td>
+<td>[0, 1]</td>
+<td>[0, 1]</td>
+</tr>
+<tr>
+<td><code>SHAPE</code></td>
+<td>SYMBOL</td>
+<td>Dynamic</td>
+<td><a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#symbolTypes">Symbol types supported in D3</a></td>
+</tr>
+<tr>
+<td><code>FILL</code></td>
+<td>COLOR</td>
+<td>Dynamic</td>
+<td>Palette <a href="https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20c">"category20c"</a></td>
+</tr>
+<tr>
+<td><code>ALPHA</code></td>
+<td>LINEAR</td>
+<td>[0, 1]</td>
+<td>[0, 1]</td>
+</tr>
+<tr>
+<td><code>STROKE</code></td>
+<td>COLOR</td>
+<td>Dynamic</td>
+<td>Palette <a href="https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20c">"category20c"</a></td>
+</tr>
+<tr>
+<td><code>STROKE-WIDTH</code></td>
+<td>LINEAR</td>
+<td>[0, 1]</td>
+<td>[0.5, 2.5]</td>
+</tr>
+</tbody>
+</table>
+<p>A "dynamic" domain means that the domain is updated on the fly and consists of all the unique value for the associated expression seen so far.</p>
+<p>The following lists the syntax of the parameters <code>scale_params</code> associated with the respective <code>scale</code>s:</p>
+<ul>
+<li><code>LINEAR ( DOMAIN = ( dom_min , dom_max ) , RANGE = ( range_min, range_max ) )</code><ul>
+<li>Explicit specification of domain and range</li>
+<li><code>( dom_min, dom_max )</code> and  <code>( range_min, range_max )</code> are numeric intervals.</li>
+</ul>
+</li>
+<li><code>LINEAR ( dom_min, dom_max )</code><ul>
+<li>Explicit specification of only the domain, range at default [0, 1].</li>
+</ul>
+</li>
+<li><code>LOG ( DOMAIN = ( dom_min , dom_max ) , RANGE = ( range_min, range_max ) )</code><ul>
+<li>Explicit specification of domain and range.</li>
+<li><code>( dom_min, dom_max )</code> and  <code>( range_min, range_max )</code> are numeric intervals.</li>
+</ul>
+</li>
+<li><code>LOG ( dom_min, dom_max )</code><ul>
+<li>Explicit specification of only the domain, range at default [0, 1].</li>
+</ul>
+</li>
+<li><code>SQRT ( DOMAIN = ( dom_min , dom_max ) , RANGE = ( range_min, range_max ) )</code><ul>
+<li>Explicit specification of domain and range.</li>
+<li><code>( dom_min, dom_max )</code> and  <code>( range_min, range_max )</code> are numeric intervals.</li>
+</ul>
+</li>
+<li><code>SQRT ( dom_min, dom_max )</code><ul>
+<li>Explicit specification of only the domain, range at default [0, 1].</li>
+</ul>
+</li>
+<li><code>ORDINAL ( DOMAIN = ( dom_value [ , ... ] ) , RANGE = ( range_value [ , ... ] ) )</code><ul>
+<li>Explicit specification of domain and range.</li>
+<li><code>dom_value</code> and <code>range_value</code> are ordinal.</li>
+</ul>
+</li>
+<li><code>ORDINAL ( range_value [ , ... ] )</code><ul>
+<li>Explicit specification of range.</li>
+<li>Domain is dynamic -- that is, updated on the fly and consists of all the unique value for the associated expression seen so far.</li>
+</ul>
+</li>
+<li><code>COLOR ( DOMAIN = ( dom_value [ , ... ] ) , RANGE = ( range_color [ , ... ] ) )</code><ul>
+<li>Explicit specification of domain and range.</li>
+<li><code>dom_value</code> is ordinal.</li>
+<li><code>range_color</code> is a valid <a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">color name or specification</a>.</li>
+</ul>
+</li>
+<li><code>COLOR ( range_color_palette )</code><ul>
+<li>Explicit specification of range as a palette.</li>
+<li><code>range_color_palette</code> is color palette name supported by D3. It can be one of <a href="https://github.com/mbostock/d3/wiki/Ordinal-Scales#category10">"category10"</a>, <a href="https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20">"category20"</a>, <a href="https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20b">"category20b"</a>, or <a href="https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20c">"category20c"</a></li>
+<li>Domain is dynamic -- that is, updated on the fly and consists of all the unique value for the associated expression seen so far.</li>
+</ul>
+</li>
+<li><code>COLOR ( range_color , range_color [ , ... ] )</code><ul>
+<li>Explicit specification of range as a list of colors. At least two colors must be present.</li>
+<li><code>range_color</code> is a valid <a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">color name or specification</a>.</li>
+<li>Domain is dynamic -- that is, updated on the fly and consists of all the unique value for the associated expression seen so far.</li>
+</ul>
+</li>
+<li>
+<p><code>COLOR ( dom_value AS range_color [ , ... ] )</code></p>
+<ul>
+<li>Explicit specification of domain and range as a mapping from values to colors.</li>
+<li><code>dom_value</code> is ordinal.</li>
+<li><code>range_color</code> is a valid <a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">color name or specification</a>.</li>
+</ul>
+</li>
+<li>
+<p><code>SYMBOL ( DOMAIN = ( dom_value [ , ... ] ) , RANGE = ( range_symbol [ , ... ] ) )</code></p>
+<ul>
+<li>Explicit specification of domain and range.</li>
+<li><code>dom_value</code> is ordinal.</li>
+<li><code>range_symbol</code> is a valid <a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#symbol_type">symbol name in D3</a>.</li>
+</ul>
+</li>
+<li><code>SYMBOL ( range_symbol , [ , ... ] )</code><ul>
+<li>Explicit specification of range as a list of symbols.</li>
+<li><code>range_symbol</code> is a valid <a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#symbol_type">symbol name in D3</a>.</li>
+<li>Domain is dynamic -- that is, updated on the fly and consists of all the unique value for the associated expression seen so far.</li>
+</ul>
+</li>
+<li><code>SYMBOL ( dom_value AS range_symbol [ , ... ] )</code><ul>
+<li>Explicit specification of domain and range as a mapping from values to symbols.</li>
+<li><code>dom_value</code> is ordinal.</li>
+<li><code>range_symbol</code> is a valid <a href="https://github.com/mbostock/d3/wiki/SVG-Shapes#symbol_type">symbol name in D3</a>.</li>
+</ul>
+</li>
+</ul>
+<p>In the above, <code>ORDINAL</code> scale is a generalization of <code>COLOR</code> and <code>SYMBOL</code>, where <code>range_value</code> is constrained to colors and symbols respectively.</p>
+<h5 id="handling-nulls">Handling NULLs<a class="headerlink" href="#handling-nulls" title="Permanent link">&#9668;</a></h5>
+<p>The scale maps the values to aesthetic specifications. By default, the NULLs are mapped to a default aesthetic specification, and are ignored in legends.</p>
+<p>One way to map NULLs as aesthetic specifications is to replace them with an actial value using <code>COALESCE(...)</code> in the ScleraSQL query. This is not recommended as this changes the data for the sake of visualization.</p>
+<p>A better alternative is to use the <code>ON NULL</code> modifier to specify the aesthetic specification (constant) to be used for NULLs (recall the <a href="#aes-syntax">syntax</a> above). For instance, <code>FILL = foo ON NULL "red"</code> will colour all datapoints where column <code>foo</code> is NULL as red.</p>
+<h5 id="legend">Legend<a class="headerlink" href="#legend" title="Permanent link">&#9668;</a></h5>
+<p>The mapping from the aesthetics specification (e.g. colors "red", "blue", "green") to
+distinct values of the expression (e.g. day of the week) -- that is, the inverse of the <a href="#scale">scale</a> -- is documented as a legend.</p>
+<p>To add a legend for an <code>aes_key</code>, add the keyword <code>LEGEND</code> after the specification (recall the <a href="#aes-syntax">syntax</a>).</p>
+<p>The <code>LEGEND</code> modifier takes an optional set of parameters, labeled <code>legend_params</code> in the <a href="#aes-syntax">syntax</a>, and can include one or more of the following in a comma-separated list:</p>
+<ul>
+<li><code>ORIENTATION = orientation_param</code><ul>
+<li>The <code>orientation_param</code> can be <code>VERTICAL</code> or <code>HORIZONTAL</code> and defined the manner in which the legend will be rendered; the default is <code>VERTICAL</code>.</li>
+<li>Since the allocated space for legends is at the right of the chart, <code>VERTICAL</code> orientation is a better fit, and is recommended.</li>
+</ul>
+</li>
+<li><code>TITLE = title_string</code><ul>
+<li>Specifies the title of the legend. If omitted, the title is not rendered.</li>
+</ul>
+</li>
+<li><code>LABELS = ( label_string [ , ... ] )</code><ul>
+<li>Use the specified labels instead of the values provided by the associated scale mapping.</li>
+</ul>
+</li>
+<li><code>LABELS = ( value AS label_string [ , ... ] )</code><ul>
+<li>Specifies an explicit mapping of the labels to use instead of the values provided by the associated scale mapping.</li>
+</ul>
+</li>
+</ul>
+<h4 id="group_1">Group<a class="headerlink" href="#group_1" title="Permanent link">&#9668;</a></h4>
+<p>The optional <code>GROUP</code> expression groups data points; each group is then rendered separately. The syntax is:</p>
+<pre><code>GROUP = scalar_expr
+</code></pre>
+<p>where <code>scalar_expr</code> is a <a href="../sqlregular/#scalar-expressions">ScleraSQL scalar expression</a> on the input.</p>
+<h4 id="key_1">Key<a class="headerlink" href="#key_1" title="Permanent link">&#9668;</a></h4>
+<p>The optional <code>KEY</code> expression identifies a rendered data point (a point in a scatter-plot, a bar in a bar-chart, etc.). All input rows with the same value of the <code>KEY</code> expression map to the same rendered data point; the first such row creates the data point, and the subsequent rows modify the same.</p>
+<p>The syntax is:</p>
+<pre><code>KEY = scalar_expr
+</code></pre>
+<p>where <code>scalar_expr</code> is a <a href="../sqlregular/#scalar-expressions">ScleraSQL scalar expression</a> on the input.</p>
+<p>If <code>KEY</code> is not specified, a new datapoint is created for each input row.</p>
+<h4 id="position">Position<a class="headerlink" href="#position" title="Permanent link">&#9668;</a></h4>
+<p>The optional <code>POSITION</code> directive specifies how to reposition "colliding" data points -- that is, data points that are rendered one over the other as they have the same value of the relevant <code>geom_param</code> parameters (e.g. <code>x</code> expression, <code>y</code> expression, or both). The syntax is:</p>
+<pre><code>POSITION = { DODGE | STACK | JITTER } [ ( pos_params ) ]
+</code></pre>
+<p><code>POSITION = DODGE</code> repositions the colliding data points one after the other, around the common <code>x</code> value; applied to a bar chart, this is a "grouped" bar chart.</p>
+<p><code>POSITION = STACK</code> repositions the colliding data points one over the other, at the common <code>x</code> value; applied to a bar chart, this is a "stacked" bar chart.</p>
+<p><code>POSITION = JITTER</code> repositions the colliding data points randomly around the common <code>x</code> and <code>y</code> value, spreading a set of colliding scatterplot points, for instance, randomly into a circular region.</p>
+<p>The <code>POSITION</code> specification can also include <code>pos_params</code> that are passed as arguments to the renderer. The arguments are dependent on the associated geometry of the underlying data points, and have the form <code>pos_key = pos_value</code> as listed in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>POSITION</th>
+<th>GEOM</th>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DODGE</td>
+<td>BAR</td>
+<td>PADDING</td>
+<td>Padding between bars</td>
+</tr>
+<tr>
+<td>DODGE</td>
+<td>BAR</td>
+<td>OUTERPADDING</td>
+<td>Padding at the start and end</td>
+</tr>
+<tr>
+<td>STACK</td>
+<td>BAR</td>
+<td>PADDING</td>
+<td>Paddding between bars</td>
+</tr>
+<tr>
+<td>JITTER</td>
+<td>POINT</td>
+<td><code>x</code></td>
+<td>Maximum jitter along 'X' axis</td>
+</tr>
+<tr>
+<td>JITTER</td>
+<td>POINT</td>
+<td><code>y</code></td>
+<td>Maximum jitter along 'Y' axis</td>
+</tr>
+</tbody>
+</table>
+<h4 id="stat_1">Stat<a class="headerlink" href="#stat_1" title="Permanent link">&#9668;</a></h4>
+<p>The <code>STAT</code> directive specifies a statistical operation over the input data points. The syntax is:</p>
+<pre><code>STAT = { LOESS | BIN | BIN2D } [ ( stat_params [ , aes_params ] ) ]
+</code></pre>
+<p>Applies on a scatter plot, i.e. <code>GEOM = POINT(x = ..., y = ...)</code>, <code>STAT = LOESS</code> computes local regression smoothing, <code>STAT = BIN</code> computes density histograms over the <code>x</code> expression values, and <code>STAT = BIN2D</code> computes two-dimensional histograms (heat-maps) over the <code>x</code> and <code>y</code> expression values.</p>
+<p>The result is a rendering in another layer. <code>STAT = LOESS</code> renders a line, <code>STAT = BIN</code> renders a histogram, and <code>STAT = BIN2D</code> renders a two-dimensional tiling representing the bins with an opacity proportional to the number of points covered under the bin.</p>
+<p>The <code>STAT</code> specification also includes <code>stat_params</code> that are passed as arguments to the operation, and <a href="#aes-syntax"><code>aes_params</code></a> that override the default aesthetics parameters for the layer containing the rendered result.</p>
+<p>The <code>stat_params</code> for each <code>STAT</code> type is listed in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>STAT</th>
+<th>Parameter</th>
+<th>Required / Optional</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOESS</td>
+<td>BANDWIDTH</td>
+<td>Optional</td>
+<td>When computing the loess fit at a particular point, this fraction of source points closest to the current point is taken into account for computing a least-squares regression. A sensible value is usually 0.25 to 0.5, the default value is 0.3. See <a href="http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.html#LoessInterpolator(double,%20int,%20double)" target="_blank">Apache Commons Math Documentation</a></td>
+</tr>
+<tr>
+<td>LOESS</td>
+<td>ITERS</td>
+<td>Optional</td>
+<td>This many robustness iterations are done. A sensible value is usually 0 (just the initial fit without any robustness iterations) to 4, the default value is 2. See <a href="http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.html#LoessInterpolator(double,%20int,%20double)" target="_blank">Apache Commons Math Documentation</a></td>
+</tr>
+<tr>
+<td>LOESS</td>
+<td>ACCURACY</td>
+<td>Optional</td>
+<td>If the median residual at a certain robustness iteration is less than this amount, no more iterations are done.  If the median residual at a certain robustness iteration is less than this amount, no more iterations are done. See <a href="http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.html#LoessInterpolator(double,%20int,%20double)" target="_blank">Apache Commons Math Documentation</a></td>
+</tr>
+<tr>
+<td>LOESS</td>
+<td>WEIGHT</td>
+<td>Optional</td>
+<td>Expression giving the coefficients by which the robustness weight of a point is multiplied.  Default: 1. See <a href= "http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.html#smooth(double[],%20double[],%20double[])" target="_blank">Apache Commons Math Documentation</a></td>
+</tr>
+<tr>
+<td>BIN</td>
+<td>BINWIDTH</td>
+<td>Required</td>
+<td>Width of a histogram bin.</td>
+</tr>
+<tr>
+<td>BIN</td>
+<td>MIN</td>
+<td>Optional</td>
+<td>Minimum X-value. If omitted, is determined by pre-scanning the data</td>
+</tr>
+<tr>
+<td>BIN2D</td>
+<td>XBINWIDTH</td>
+<td>Either this or BINWIDTH required</td>
+<td>Width of a histogram bin</td>
+</tr>
+<tr>
+<td>BIN2D</td>
+<td>YBINWIDTH</td>
+<td>Either this or BINWIDTH required</td>
+<td>Height of a histogram bin</td>
+</tr>
+<tr>
+<td>BIN2D</td>
+<td>BINWIDTH</td>
+<td>Required when either XBINWIDTH or YBINWIDTH omitted</td>
+<td>Width / height of a histogram bin, used when XBINWIDTH and YBINWIDTH are equal</td>
+</tr>
+<tr>
+<td>BIN2D</td>
+<td>XMIN</td>
+<td>Optional</td>
+<td>Minimum X-value. If omitted, is determined by pre-scanning the data</td>
+</tr>
+<tr>
+<td>BIN2D</td>
+<td>YMIN</td>
+<td>Optional</td>
+<td>Minimum Y-value. If omitted, is determined by pre-scanning the data</td>
+</tr>
+</tbody>
+</table>
+<h4 id="mark_1">Mark<a class="headerlink" href="#mark_1" title="Permanent link">&#9668;</a></h4>
+<p>The <code>MARK</code> directive marks out regions where a specified predicate is true. The syntax is:</p>
+<pre><code>MARK { XAXIS | YAXIS } ( mark_predicate [ , aes_params [ , ... ] ] )
+</code></pre>
+<p><code>XAXIS</code> refers to the marking along the <code>X</code> axis, and leads to vertical marked regions. Similarly, <code>YAXIS</code> refers to marking along the <code>Y</code> axis, and leads to horizontal marked regions.</p>
+<p>The <code>mark_predicate</code> refers to the predicate (that is, boolean-values expression) on the input; the marked region includes exactly the points where this predicate evaluates to true.</p>
+<p>The <code>MARK</code> specification also <a href="#aes-syntax"><code>aes_params</code></a> that override the default aesthetics parameters for the layer containing the marked regions.</p>
+<h4 id="tooltip">Tooltip<a class="headerlink" href="#tooltip" title="Permanent link">&#9668;</a></h4>
+<p>We can attach a tooltip to each data point rendered, so that when a viewer hovers a mouse cursor over the data point, this tooltip is displayed.</p>
+<p>The syntax is, simply:</p>
+<pre><code>TOOLTIP = tooltip_expr
+</code></pre>
+<p>Where <code>tooltip</code> is a string-valued expression. The tooltip message is generated by evaluating this expression over the row associated with the data point being hovered over.</p>
+<h4 id="hiding-the-layer">Hiding the Layer<a class="headerlink" href="#hiding-the-layer" title="Permanent link">&#9668;</a></h4>
+<p><a href="#stat">Stat</a> and <a href="#mark">mark</a> directives discussed earlier generate derivative layers by doing computation over the rows associated with data points in a given layer. After these derivative layers are generated, the default is to retain the original (base) layer.</p>
+<p>This is not always desirable, especially if the derivative layer and the derived layer have different ranges of values. An example is a scatter-plot and its density (computed using <code>STAT=BIN(...)</code> -- both share the 'X-axis', but the <code>Y-axis</code> for the scatter-plot could be very different from the <code>Y-axis</code> for the histogram which displays the relevant counts of the points. Displaying both these together in the same plot is not feasible.</p>
+<p>ScleraViz therefore enables hiding of the original (base) layer, by including the directive <code>HIDDEN</code> in the layer.</p>
+<p>In the scatter-plot example, specifying <code>HIDDEN</code> in the scatterplot layer alongside <code>STAT=BIN(...)</code> hides the scatter-plot, and displays only the histogram.</p>
+<h4 id="layer-display-order">Layer Display Order<a class="headerlink" href="#layer-display-order" title="Permanent link">&#9668;</a></h4>
+<p>Layers of a plot are overlayed one over the other. This makes it important to be able to explicitly specify the order in which the layers are rendered; this is done using the syntax:</p>
+<pre><code>DISPLAYORDER = display_order
+</code></pre>
+<p>where <code>display_order</code> is an arbitrary numeric value. This can be specified for the base layers as well as for the derived layers (those added as results of <code>STAT</code> and <code>MARK</code> operations).</p>
+<p>At runtime, the renderer sorts the available layers on increasing <code>display_order</code>, and rennders the layers in the resulting order.</p>
+<h3 id="facet">Facet<a class="headerlink" href="#facet" title="Permanent link">&#9668;</a></h3>
+<p>Faceting a plot on an expression involves displaying separate plots for datapoints partitioned by distinct values of the expression. ScleraViz allows faceting on a single expression, or a pair of expression; the resulting plots can be layed out in a row or columns or a row/column grid.</p>
+<p>The syntax has the following alternatives (<code>scalar_expr</code> is a <a href="../sqlregular/#scalar-expressions">ScleraSQL scalar expression</a> on the input):</p>
+<ul>
+<li><code>FACET ( ROWS = scalar_expr )</code><ul>
+<li>Generates a plot for each distinct value of the given expression. The resulting plots are layed out in a row, their widths adjusted to fit the available total width.</li>
+</ul>
+</li>
+<li><code>FACET ( COLUMNS = scalar_expr )</code><ul>
+<li>Generates a plot for each distinct value of the given expression. The resulting plots are layed out in a column, their heights adjusted to fit the available total height.</li>
+</ul>
+</li>
+<li><code>FACET ( ROWS = scalar_expr, COLUMNS = scalar_expr )</code><ul>
+<li>Generates a plot for each distinct pair of values of the respective expressions. The resulting plots are layed out in a grid, in the row and column order according as specified, their widths and heights adjusted to fit the available total width and total height.</li>
+</ul>
+</li>
+</ul>
+<h3 id="axis">Axis<a class="headerlink" href="#axis" title="Permanent link">&#9668;</a></h3>
+<p>SclerViz identifies axes with expressions. Axes associated with the same expression across plots are actually renderings of the same internal representation; this keeps the axes renderings in sync as new data is received and the plots are updated.</p>
+<p>The axis specification changes the default behaviour and appearance of an axis. The syntax is:</p>
+<pre><code>AXIS axis_expr ( axis_param [, ...] )
+</code></pre>
+<p>where <code>axis_expr</code> is the expression mapped by the axis in the plots, and <code>axis_param</code> can be:</p>
+<ul>
+<li><code>LABEL ( label_string )</code><ul>
+<li>Assigns the label <code>label_string</code> to all renderings of the axis. If the axis with <code>axis_expr</code> appears in two different plots, the label appears in both the axis renderings.</li>
+</ul>
+</li>
+<li><code>SCALE = { TIME | LINEAR | LOG | SQRT } [ ( min_value, max_value ) ]</code><ul>
+<li>Assigns a continuous scale to the axis. The scale maps the values of the <code>axis_expr</code> to coordinates along the axis.</li>
+<li>The optional interval <code>(min_value, max_value)</code> explicitly specifies the min and max values for the axis. If not specified, the interval is computed dynamically, on the fly as data comes in. Either of <code>min_value</code> and <code>max_value</code> can be <code>NULL</code>, in which case it is considered unspecified, and is computed dynamically.</li>
+</ul>
+</li>
+<li><code>SCALE = ORDINAL</code><ul>
+<li>Assigns a scale to the axis. The scale maps the values of the <code>axis_expr</code>, assumed discrete, to evenly placed coordinates along the axis.</li>
+</ul>
+</li>
+<li><code>INCREASING = { TRUE | FALSE }</code><ul>
+<li>Declares whether the data is increasing along the axis. This extra knowledge of the input order helps speed up the computations while adjusting the scale when new data arrives.</li>
+</ul>
+</li>
+<li><code>WINDOW = window_size</code><ul>
+<li>The data points are displayed in a sliding window of size <code>window_size</code>. The points are accumulated till <code>window_size</code> points are displayed, and then the plot slides as additional data arrives to display only the latest <code>window_size</code> points.</li>
+</ul>
+</li>
+<li><code>TICKFORMAT = format</code><ul>
+<li>Formats the tick labels. For <code>LINEAR</code>, <code>LOG</code> and <code>SQRT</code> axis types, the <code>format</code> is specified in <a href="https://github.com/mbostock/d3/wiki/Formatting#d3_format">D3's format specification language</a>. For <code>TIME</code> axis, the alternative <a href="https://github.com/mbostock/d3/wiki/Time-Formatting#format">time format specification language</a> is used instead.</li>
+</ul>
+</li>
+<li><code>TICKS = num_ticks</code><ul>
+<li>Sets a limit on the number of ticks displayed on this axis.</li>
+</ul>
+</li>
+<li><code>WEIGHT = axis_weight</code><ul>
+<li>Sets the size of this axis relative to other axes.</li>
+<li>By default, all axes are assigned a weight of 1. Assigning a weight of, say 0.5, makes the size of an axis half of an axis with weight 1. Similarly, assigning a weight of 2.0 makes the size of an axis twice that of an axis with weight 1.</li>
+<li>The actual axis lengths are assigned respecting these relative size constrainst and the constraint that all the plots need to fit in the given width and height.</li>
+</ul>
+</li>
+</ul>
+<h3 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&#9668;</a></h3>
+<p>When multiple plots are specified, the default layout is to display them in a column, with the heights adjusted to fit the total height.</p>
+<p>The optional <code>LAYOUT ALIGNED</code> places the multiple plots so that the X-axes on the same expression and the Y-axes on the same expression are aligned in a column or row, respectively.</p>
+<h3 id="grid-specification">Grid Specification<a class="headerlink" href="#grid-specification" title="Permanent link">&#9668;</a></h3>
+<p>Sets the aesthetics of the displayed grid and the axes. The syntax is:</p>
+<pre><code>GRID ( grid_param [ , ... ] )
+</code></pre>
+<p>where <code>grid_param</code> can be:</p>
+<ul>
+<li><code>COLOR = color</code><ul>
+<li>Sets the background color.</li>
+<li><code>color</code> is a valid <a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">color name or specification</a>.</li>
+<li>Default is "#F5F5F5"</li>
+</ul>
+</li>
+<li><code>axis_id( axis_aes [ , ... ] )</code> <ul>
+<li><code>axis_id</code> is <code>XAXIS</code> or <code>YAXIS</code><ul>
+<li><code>XAXIS</code> sets the aesthetics for all the <code>X</code> axes across all the plots.</li>
+<li><code>YAXIS</code> sets the aesthetics for all the <code>Y</code> axes across all the plots.</li>
+</ul>
+</li>
+<li><code>axis_aes</code> can be:<ul>
+<li><code>COLOR = color</code><ul>
+<li>Sets the color of the axis.</li>
+<li><code>color</code> is a valid <a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">color name or specification</a>.</li>
+<li>Default is "#000"</li>
+</ul>
+</li>
+<li><code>TICKS = color</code><ul>
+<li>Sets the color of the ticks.</li>
+<li>Ticks are the vertical grid lines for <code>XAXIS</code>, and the horizontal grid lines for <code>YAXIS</code>.</li>
+<li><code>color</code> is a valid <a href="https://developer.mozilla.org/en/docs/Web/CSS/color_value">color name or specification</a>.</li>
+<li>Default is "#FFF".</li>
+<li><code>TICKS = none</code> removes the ticks.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="display-specification">Display Specification<a class="headerlink" href="#display-specification" title="Permanent link">&#9668;</a></h3>
+<p>The display specification sets the dimensions of the plot and legend display areas. The syntax is:</p>
+<pre><code>DISPLAY ( display_param [ , ... ] )
+</code></pre>
+<p>where <code>display_param</code> can be:</p>
+<ul>
+<li><code>WIDTH = width</code><ul>
+<li>Sets the width of the plot diplay area, in pixels.</li>
+<li>Default is 800 pixels.</li>
+</ul>
+</li>
+<li><code>HEIGHT = height</code><ul>
+<li>Sets the height of the plot diplay area, in pixels.</li>
+<li>Default is 450 pixels.</li>
+</ul>
+</li>
+<li><code>MARGIN ( margin_spec )</code><ul>
+<li>Sets the size of the four margins.</li>
+<li><code>margin_spec</code> can be:<ul>
+<li><code>TOP = top_margin</code><ul>
+<li>Sets the top margin, in pixels.</li>
+<li>Default is 20 pixels.</li>
+</ul>
+</li>
+<li><code>RIGHT = right_margin</code><ul>
+<li>Sets the right margin, in pixels.</li>
+<li>Default is 20 pixels.</li>
+</ul>
+</li>
+<li><code>BOTTOM = bottom_margin</code><ul>
+<li>Sets the bottom margin, in pixels.</li>
+<li>Default is 30 pixels.</li>
+</ul>
+</li>
+<li><code>LEFT = left_margin</code><ul>
+<li>Sets the bottom margin, in pixels.</li>
+<li>Default is 40 pixels.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>LEGEND ( legend_spec )</code><ul>
+<li>Sets the dimensions of the legend display area.</li>
+<li><code>legend_spec</code> can be:<ul>
+<li><code>PADDING = legend_padding</code><ul>
+<li>Sets the padding between the plot and the legend, in pixels.</li>
+<li>Default is 20 pixels.</li>
+</ul>
+</li>
+<li><code>WIDTH = legend_width</code><ul>
+<li>Sets the width of the legend display area, in pixels.</li>
+<li>Default is 100 pixels.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">&#9668;</a></h2>
+<p>ScleraViz is inspired by <a href="http://vita.had.co.nz/papers/layered-grammar.html">Grammar of Graphics</a>, specifically <a href="http://ggplot2.org/">R's ggplot2</a>. The plots are rendered using <a href="http://d3js.org">D3</a>, and the legends are rendered using <a href="http://d3-legend.susielu.com">D3-Legend</a>.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sqlextdataaccess/" title="External Data Access" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                External Data Access
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sqlmisc/" title="Miscellaneous Information" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Miscellaneous Information
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2012 - 2020 Sclera, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/scleradb" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/scleradb" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/sclera-inc-" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

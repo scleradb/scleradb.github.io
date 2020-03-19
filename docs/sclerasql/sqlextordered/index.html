@@ -1,0 +1,1689 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Sclera and its plugins">
+      
+      
+        <link rel="canonical" href="https://www.scleradb.com/sclerasql/sqlextordered/">
+      
+      
+        <meta name="author" content="Sclera, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Processing Ordered Data - Sclera Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CCourier+Prime&display=fallback">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier Prime","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../../images/icons/site.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../../css/docs.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#accessing-history-without-self-joins" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Sclera Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Processing Ordered Data
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
+      
+    </a>
+    Sclera Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Documentation Contents" class="md-nav__link">
+      Documentation Contents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/whysclera/" title="Why Sclera?" class="md-nav__link">
+      Why Sclera?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/technical/" title="Technical Details" class="md-nav__link">
+      Technical Details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/components/" title="Components Reference" class="md-nav__link">
+      Components Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/install/" title="Installation Reference" class="md-nav__link">
+      Installation Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/dbms/" title="Data Platform Connection Reference" class="md-nav__link">
+      Data Platform Connection Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/configuration/" title="Configuration Reference" class="md-nav__link">
+      Configuration Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      ScleraSQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ScleraSQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexamples/" title="ScleraSQL Examples" class="md-nav__link">
+      ScleraSQL Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlintro/" title="ScleraSQL Introduction" class="md-nav__link">
+      ScleraSQL Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlregular/" title="Standard SQL" class="md-nav__link">
+      Standard SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcrosstab/" title="Using Cross-Tabulation" class="md-nav__link">
+      Using Cross-Tabulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Processing Ordered Data
+      </label>
+    
+    <a href="./" title="Processing Ordered Data" class="md-nav__link md-nav__link--active">
+      Processing Ordered Data
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-history-without-self-joins" class="md-nav__link">
+    Accessing History Without Self-Joins
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-alias-as-an-array-of-rows" class="md-nav__link">
+    Table Alias as an Array of Rows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-aggregates" class="md-nav__link">
+    Running Aggregates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexed-table-alias-and-running-aggregates-on-partitioned-input" class="md-nav__link">
+    Indexed Table Alias and Running Aggregates on Partitioned Input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-matching-with-match" class="md-nav__link">
+    Pattern Matching with MATCH
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching-examples" class="md-nav__link">
+    Pattern Matching Examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-on-partitioned-input" class="md-nav__link">
+    MATCH on Partitioned Input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-syntax" class="md-nav__link">
+    MATCH Syntax
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#labeler-syntax" class="md-nav__link">
+    Labeler Syntax
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-matched-subsequences-as-an-array-of-rows" class="md-nav__link">
+    Accessing Matched Subsequences as an Array of Rows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-of-ordered-data-processing-in-sclera" class="md-nav__link">
+    Scalability of Ordered Data Processing in Sclera
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlseqalign/" title="Sequence Alignment" class="md-nav__link">
+      Sequence Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextarg/" title="Selecting the Optimal" class="md-nav__link">
+      Selecting the Optimal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextml/" title="Using Machine Learning" class="md-nav__link">
+      Using Machine Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcleaning/" title="Data Cleaning" class="md-nav__link">
+      Data Cleaning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexttext/" title="Using Text Analytics" class="md-nav__link">
+      Using Text Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextdataaccess/" title="External Data Access" class="md-nav__link">
+      External Data Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlmisc/" title="Miscellaneous Information" class="md-nav__link">
+      Miscellaneous Information
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interface
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interface
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/shell/" title="Command Line Shell Reference" class="md-nav__link">
+      Command Line Shell Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/jdbc/" title="Embedded JDBC Reference" class="md-nav__link">
+      Embedded JDBC Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sclera Extensions SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sclera Extensions SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkintro/" title="Extensions SDK Introduction" class="md-nav__link">
+      Extensions SDK Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdataaccess/" title="Data Access Plugins" class="md-nav__link">
+      Data Access Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdbms/" title="Database System Plugins" class="md-nav__link">
+      Database System Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextml/" title="Machine Learning Library Plugins" class="md-nav__link">
+      Machine Learning Library Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkexttext/" title="Text Analytics Library Plugins" class="md-nav__link">
+      Text Analytics Library Plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Acknowledgements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Acknowledgements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/dependencies/" title="Component Third Party Dependencies" class="md-nav__link">
+      Component Third Party Dependencies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/licenses/" title="Component Licenses" class="md-nav__link">
+      Component Licenses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-history-without-self-joins" class="md-nav__link">
+    Accessing History Without Self-Joins
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-alias-as-an-array-of-rows" class="md-nav__link">
+    Table Alias as an Array of Rows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-aggregates" class="md-nav__link">
+    Running Aggregates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexed-table-alias-and-running-aggregates-on-partitioned-input" class="md-nav__link">
+    Indexed Table Alias and Running Aggregates on Partitioned Input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-matching-with-match" class="md-nav__link">
+    Pattern Matching with MATCH
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching-examples" class="md-nav__link">
+    Pattern Matching Examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-on-partitioned-input" class="md-nav__link">
+    MATCH on Partitioned Input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-syntax" class="md-nav__link">
+    MATCH Syntax
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#labeler-syntax" class="md-nav__link">
+    Labeler Syntax
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-matched-subsequences-as-an-array-of-rows" class="md-nav__link">
+    Accessing Matched Subsequences as an Array of Rows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-of-ordered-data-processing-in-sclera" class="md-nav__link">
+    Scalability of Ordered Data Processing in Sclera
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Processing Ordered Data</h1>
+                
+                <p>Ordered data is data that has an underlying sort order -- examples include website clickstreams, tweets, stock tickers, system logs, and so on. The sort order is typically time (in which case, we also call it a <a href="http://en.wikipedia.org/wiki/Time_series">time series</a>), but other orders are also possible. <a href="http://kx.com/news/in-the-news/sql-timeseries.php">Such data is hard to analyze in standard SQL.</a></p>
+<p>Sclera provides expressive constructs to efficiently and flexibly analyze ordered data. As we shall see, these constructs are far more powerful than <a href="http://www.postgresql.org/docs/current/static/functions-window.html">SQL window functions</a>, and are also much simpler and intuitive to use; they not only obviate the use of expensive self-joins and nested queries in a majority of queries, but also enable queries that so far were really hard to express in standard SQL.</p>
+<p>Since evaluation of the constructs discussed in this section takes a single pass over the data and <a href="#scalability">uses a bounded amount of memory</a> irrespective of the number of rows processed (which means that no intermediate results are materialized), these constructs can be readily applied over streaming data as well.</p>
+<p>We describe these constructs in the sections below, and also illustrate their utility using a number of use cases.</p>
+<ul>
+<li>We first present <a href="#accessing-history-without-self-joins">the constructs that enable queries to access the prior rows of a base table or intermediate result, and define running aggregates over them</a>. This generalizes the <a href="http://www.postgresql.org/docs/current/static/functions-window.html">window functions</a> of standard SQL.</li>
+<li>We then generalize the above, and show <a href="#pattern-matching-with-match">how to use regular expressions to form aggregation groups within a base table or an intermediate result</a>, based on column values along with positional constraints. This generalizes the <a href="http://www.postgresql.org/docs/current/static/functions-window.html">window functions</a> as well as the <a href="../sqlregular/#group-by-clause"><code>GROUP BY</code> clause</a> of SQL.</li>
+</ul>
+<h2 id="accessing-history-without-self-joins">Accessing History Without Self-Joins<a class="headerlink" href="#accessing-history-without-self-joins" title="Permanent link">&#9668;</a></h2>
+<p>Most operations on ordered data involve current as well as prior rows in a stream. SQL is good at accessing the current row, not so much in accessing the prior rows.</p>
+<p>Consider ticker data for a stock, one row per day, and say we need to find the opening prices for the days where the closing price in the previous session was  5% or more above the average closing price so far.</p>
+<p>In Sclera, this query can be specified as:</p>
+<pre><code>SELECT T.ts, T.openprice
+FROM (ticker ORDER BY ts) T
+WHERE T[-1].closeprice &gt;= T.avg(closeprice) * 1.05
+</code></pre>
+<p>The same query can be specified in standard SQL (not supported in Sclera) as:</p>
+<pre><code>SELECT T.ts, T.openprice
+FROM ticker T WINDOW w AS (ORDER BY ts)
+WHERE LAG(closeprice) OVER w &gt;= AVG(closeprice) OVER w * 1.05
+</code></pre>
+<p>In standard SQL, we only get "first class" access to <code>T</code>'s current row -- the earlier rows, and running aggregates across them, are available only through specialized functions. Also, the sort order of the rows in <code>T</code> is specified in a WINDOW clause that is separate from <code>T</code>.</p>
+<p>In Sclera, we get first class access to <code>T</code>'s current row, as well as all prior rows, through an optional index notation that is baked into the SQL syntax. Also, the running aggregates are associated with <code>T</code> which represents both the sequence of rows and their sort order. This leads to simpler and more readable queries, as is apparent from the example above. These constructs are described in further detail below.</p>
+<p><a class="anchor" name="indexed-alias"></a></p>
+<h3 id="table-alias-as-an-array-of-rows">Table Alias as an Array of Rows<a class="headerlink" href="#table-alias-as-an-array-of-rows" title="Permanent link">&#9668;</a></h3>
+<p>Recall that a table alias in a standard SQL query identifies a <a href="../sqlregular/#table-expression">table expression</a> in the <a href="../sqlregular/#from-clause"><code>FROM</code> clause</a>.</p>
+<p>In standard SQL, each column reference is explicitly or <a href="../sqlregular/#column-reference">implicitly</a> associated with a table alias. Operationally, the table alias stands for the <em>current</em> row of the result of the <a href="../sqlregular/#table-expression">table expression</a> identified by the alias (hereafter called the intermediate result associated with the table alias).</p>
+<p>Sclera generalizes the use of table alias by introducing an optional index to retrieve prior rows for the associated intermediate result. In other words, the history is considered a list, starting at the first emitted row, and ending at the previous emitted row.</p>
+<p>For instance, the following query returns, for each input row, the difference of the a day's openprice and the previous closeprice.</p>
+<pre><code>SELECT T.closeprice - T[-1].openprice
+FROM (ticker ORDER BY ts) T
+</code></pre>
+<p>The use of negative indexes as offsets from the end of the list is borrowed from <a href="http://www.openbookproject.net/thinkcs/python/english2e/ch09.html#accessing-elements">Python</a>.</p>
+<p>For the "previous row" of <code>T</code> to be well defined in the above query, the intermediate result associated with <code>T</code> needs to be ordered -- since the data here is coming from a base table on disk, an <code>ORDER BY ts</code> is needed; this is not needed if the <a href="../sqlextdataaccess/">input is already sorted</a>.</p>
+<p><a class="anchor" name="indexed-alias-syntax"></a> The index is optional, and can be an arbitrary integer. Specifically, given the table alias <code>T</code>:</p>
+<ul>
+<li><code>T</code> represents the current row (this is consistent with <a href="../sqlregular/#column-reference">standard SQL</a>)</li>
+<li><code>T[0]</code> is the first row, <code>T[1]</code> is the second row, and so on.</li>
+<li><code>T[-1]</code> is the previous row, <code>T[-2]</code> is one previous to that, and so on.</li>
+</ul>
+<p>If the index is out of range, the corresponding values are taken as <code>NULL</code>.</p>
+<p><a class="anchor" name="indexed-alias-example"></a> As an example, consider the table <code>FOO</code>:</p>
+<pre><code>&gt; FOO;
+---+--- 
+ A | B  
+---+--- 
+ 1 | X  
+ 2 | Y  
+ 3 | Z  
+---+--- 
+(3 rows)
+</code></pre>
+<p>Then, the query</p>
+<pre><code>&gt; SELECT T.A AS A,
+         T[-2].B AS PPREVB, T[-1].B AS PREVB, T.B AS B,
+         T[0].B AS FIRSTB, T[1].B AS SECONDB, T[2].B AS THIRDB
+  FROM (FOO ORDER BY A) T;
+</code></pre>
+<p>gives the following result:</p>
+<pre><code>---+--------+-------+---+--------+---------+--------
+ A | PPREVB | PREVB | B | FIRSTB | SECONDB | THIRDB
+---+--------+-------+---+--------+---------+--------
+ 1 | NULL   | NULL  | X | X      | NULL    | NULL  
+ 2 | NULL   | X     | Y | X      | Y       | NULL  
+ 3 | X      | Y     | Z | X      | Y       | Z     
+---+--------+-------+---+--------+---------+--------
+(3 rows)
+</code></pre>
+<p>In the above:</p>
+<ul>
+<li>The column <code>B</code> is the input column <code>B</code>.</li>
+<li>The column <code>PREVB</code> is the input column <code>B</code> with a lag of one row.</li>
+<li>The column <code>PPREVB</code> is the input column <code>B</code> with a lag of two rows.</li>
+<li>The column <code>FIRSTB</code> contains the value of <code>B</code> in the first input row.</li>
+<li>The column <code>SECONDB</code> contains the value of <code>B</code> in the second input row. It is <code>NULL</code> when the input so far has less than two rows.</li>
+<li>The column <code>THIRDB</code> contains the value of <code>B</code> in the third input row. It is <code>NULL</code> when the input so far has less than three rows.</li>
+</ul>
+<p>The indexed table aliases can be used in any expression in the scope of the alias -- in <code>SELECT</code>, <code>WHERE</code>, <code>GROUP BY</code>, <code>HAVING</code> or <code>ORDER BY</code> clauses -- they are accepted wherever the regular table alias is in standard SQL.</p>
+<h3 id="running-aggregates">Running Aggregates<a class="headerlink" href="#running-aggregates" title="Permanent link">&#9668;</a></h3>
+<p>The table alias can also be used to retrieve the running aggregates over the result of the table or subquery associated with the alias.</p>
+<p>As an example, again consider the table <code>FOO</code>:</p>
+<pre><code>&gt; FOO;
+---+--- 
+ A | B  
+---+--- 
+ 1 | X  
+ 2 | Y  
+ 3 | Z  
+---+--- 
+(3 rows)
+</code></pre>
+<p>The query</p>
+<pre><code>&gt; SELECT T.A AS A, T.SUM(A) AS SUMA
+  FROM (FOO ORDER BY A) T;
+</code></pre>
+<p>gives the following result:</p>
+<pre><code>---+------
+ A | SUMA
+---+------
+ 1 | 1   
+ 2 | 3 
+ 3 | 6
+---+------
+(3 rows)
+</code></pre>
+<p>Formally, the syntax of the running aggregate is:</p>
+<pre><code>table_alias.aggregate_function ( aggr_params )
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>table_alias</code> identifies a <a href="../sqlregular/#table-expression">table expression</a> in the <a href="../sqlregular/#from-clause"><code>FROM</code> clause</a></li>
+<li><code>aggregate_function</code> is an <a href="../sqlmisc/#aggregate-functions">aggregate function</a></li>
+<li><code>aggr_params</code> is a comma-separated list of <a href="../sqlregular/#scalar-expressions">scalar expressions</a>, all of whose column references are contained in the result of <code>table_alias</code>.</li>
+</ul>
+<h3 id="indexed-table-alias-and-running-aggregates-on-partitioned-input">Indexed Table Alias and Running Aggregates on Partitioned Input<a class="headerlink" href="#indexed-table-alias-and-running-aggregates-on-partitioned-input" title="Permanent link">&#9668;</a></h3>
+<p>The input rows can be partitioned by specifying a set of columns in a <code>PARTITION BY</code> clause. The history is then maintained independently for each partition.</p>
+<p>Given the table alias <code>T</code>:</p>
+<ul>
+<li><code>T</code> represents the current row, as <a href="#indexed-alias-syntax">earlier</a> and consistent with <a href="../sqlregular/#column-reference">standard SQL</a>.</li>
+<li><code>T[0]</code> is the first row with the same values of the partition columns as the current row, <code>T[1]</code> is the second such row, and so on.</li>
+<li><code>T[-1]</code> is the previous row with the same values of the partition columns as the current row, <code>T[-2]</code> is such a row previous to that, and so on.</li>
+</ul>
+<p>As an example, consider the table <code>BAR</code>:</p>
+<pre><code>&gt; BAR;
+---+---+---
+ A | B | C 
+---+---+---
+ 1 | X | 0
+ 2 | Z | 1
+ 3 | Y | 0
+ 5 | Z | 0
+ 4 | Y | 1
+ 6 | X | 1
+---+---+---
+(6 rows)
+</code></pre>
+<p>Then, the query</p>
+<pre><code>&gt; SELECT T.A AS A, T.C AS C,
+         T[-2].B AS PPREVB, T[-1].B AS PREVB, T.B AS B,
+         T[0].B AS FIRSTB, T[1].B AS SECONDB, T[2].B AS THIRDB
+  FROM (BAR ORDER BY A) T PARTITION BY C;
+</code></pre>
+<p>gives the following result:</p>
+<pre><code>---+---+--------+-------+---+--------+---------+--------
+ A | C | PPREVB | PREVB | B | FIRSTB | SECONDB | THIRDB
+---+---+--------+-------+---+--------+---------+--------
+ 1 | 0 | NULL   | NULL  | X | X      | NULL    | NULL  
+ 2 | 1 | NULL   | NULL  | Z | Z      | NULL    | NULL  
+ 3 | 0 | NULL   | X     | Y | X      | Y       | NULL  
+ 4 | 0 | X      | Y     | Z | X      | Y       | Z     
+ 5 | 1 | NULL   | Z     | Y | Z      | Y       | NULL  
+ 6 | 1 | Z      | Y     | X | Z      | Y       | X     
+---+---+--------+-------+---+--------+---------+--------
+(6 rows)
+</code></pre>
+<p>This result is computed using the same logic as <a href="#indexed-alias-example">earlier</a>, but separately for the two partitions identified by <code>C = 0</code> and <code>C = 1</code> respectively.</p>
+<p>Similarly, running aggregates on a partitioned input are computed independently for each partition.</p>
+<p>The query</p>
+<pre><code>&gt; SELECT T.A AS A, T.C AS C, T.SUM(A) AS SUMA
+  FROM (BAR ORDER BY A) T PARTITION BY C;
+</code></pre>
+<p>gives the following result:</p>
+<pre><code>---+---+------
+ A | C | SUMA
+---+---+------
+ 1 | 0 | 1
+ 2 | 1 | 2
+ 3 | 0 | 4
+ 4 | 0 | 8
+ 5 | 1 | 7
+ 6 | 1 | 13
+---+---+------
+(6 rows)
+</code></pre>
+<p>Partitioning is useful, for instance, when we need to analyze rows for a particular visitor in a multi-visitor clickstream.</p>
+<h2 id="pattern-matching-with-match">Pattern Matching with <code>MATCH</code><a class="headerlink" href="#pattern-matching-with-match" title="Permanent link">&#9668;</a></h2>
+<p>Regular expressions are commonplace mechanism for text search, supported almost all text editors. Standard SQL uses regular expressions in the <a href="http://www.postgresql.org/docs/9.0/static/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP">SIMILAR TO</a> operator, used to match patterns over string values.</p>
+<p>In Sclera, regular expressions can also be used to match, query and aggregate a sequence of rows. The idea is to see a column of the input as a sequence of symbols -- just like text -- and match regular expression over this sequence. This allows us to "parse" the input sequence of rows and work with them at a granularity that is extremely tough to emulate in standard SQL.</p>
+<p>The regular expression is matched progressively with the incoming sequence of tuples. Specifically, a match occurs at a row when a segment of rows upto that row match the regular expression. Multiple segments upto the row may match the regular expression -- in this case, the longest matching segment is taken as the match and the others are ignored.</p>
+<p>As soon as a match occurs, a row is emitted to the output. The output rows are constructed by evaluating <a href="../sqlmisc/#aggregate-functions">aggregates</a> on the subsequence of rows matching the respective labels in the regular expression.</p>
+<p>We illustrate with a number of examples.</p>
+<h3 id="pattern-matching-examples">Pattern Matching Examples<a class="headerlink" href="#pattern-matching-examples" title="Permanent link">&#9668;</a></h3>
+<p><a class="anchor" name="clicks"></a> Consider the clickstream data for an e-commerce site. For simplicity, we assume that the data is for a single visitor (we will remove this constraint <a href="#match-on-partitioned-input">soon</a>). The data, simplified to focus on the ideas below, is as follows:</p>
+<pre><code>&gt; clicks;
+-----------+----------
+ VISITTIME | PAGETYPE 
+-----------+----------
+ 10:21:03  | login    
+ 10:22:09  | search   
+ 10:24:39  | prodview 
+ 10:27:14  | logout   
+ 11:01:22  | login    
+ 11:02:33  | prodview 
+ 11:04:09  | search   
+ 11:05:47  | prodview 
+ 11:07:19  | checkout 
+ 11:09:51  | prodview 
+ 11:13:21  | logout   
+-----------+----------
+(11 rows)
+</code></pre>
+<p>For this data, let us define a "session" as the segment starting at a "login" upto the following "logout". This is an extremely simplified clickstream -- but this simplification helps us to focus on the features being discussed in the example queries below.</p>
+<p><a class="anchor" name="example-1"></a> <strong>Example 1</strong>
+Suppose we want to add a new column <code>sessionstart</code> to each row, containing the start time of the session to which that row belongs.</p>
+<p>This is a straightforward task -- but in standard SQL, will need a complex query with nested subqueries. With Sclera, the query is as simple as:</p>
+<pre><code>&gt; SELECT visittime, pagetype, login.visittime AS sessionstart
+  FROM (clicks ORDER BY visittime) MATCH "login.(prodview | search | checkout | logout)*" ON pagetype
+</code></pre>
+<p>The query progressively matches the regular expression <code>login.(prodview | search | checkout | logout)*</code> against the sequence of values in the column <code>pagetype</code>, and emits a row for each match. Note that this regular expression matches every prefix of a session starting at its "login" row. Every row in a session thus gets associated with the first row (i.e. the "login" row) of the session. The unqualified column <code>visittime</code> and <code>pageType</code> get values from the last row of the match, while <code>login.visittime</code> gets the value from the row that matches <code>login</code> in the match.</p>
+<p>Notice how the symbols in the regular expression also assume the role of a <code>table_alias</code> representing the subsequence of rows that match that symbol.</p>
+<p>The result of the query is, as expected:</p>
+<pre><code>-----------+----------+--------------
+ VISITTIME | PAGETYPE | SESSIONSTART 
+-----------+----------+--------------
+ 10:21:03  | login    | 10:21:03  
+ 10:22:09  | search   | 10:21:03  
+ 10:24:39  | prodview | 10:21:03  
+ 10:27:14  | logout   | 10:21:03  
+ 11:01:22  | login    | 11:01:22  
+ 11:02:33  | prodview | 11:01:22  
+ 11:04:09  | search   | 11:01:22  
+ 11:05:47  | prodview | 11:01:22  
+ 11:07:19  | checkout | 11:01:22  
+ 11:09:51  | prodview | 11:01:22  
+ 11:13:21  | logout   | 11:01:22  
+-----------+----------+--------------
+(11 rows)
+</code></pre>
+<p>The <code>ON pagetype</code> qualifier in the query above specifies that the values in the column <code>pagetype</code> are to be used used to label the input rows. This means that if we want a (sub)expression specifying "all labels expect <code>login</code>", as in the above queries, we need to know all the values the column <code>pagetype</code> can possibly take -- in a real scenario, this might be a large set of values, might not be available, or might be hard to compute.</p>
+<p>One workaround is to use a <a href="http://www.postgresql.org/docs/current/static/functions-conditional.html#FUNCTIONS-CASE"><code>CASE</code> expression</a> to generate the labels and apply <code>MATCH</code> on the generated labels. The query can be rewritten as:</p>
+<pre><code>&gt; SELECT visittime, pagetype, login.visittime AS sessionstart
+  FROM (
+    SELECT visittime, pagetype,
+           CASE pagetype WHEN "login" THEN "login" ELSE "other" END AS pagelabel
+    FROM clicks
+    ORDER BY visittime
+  ) MATCH "login.other*" ON pagelabel;
+</code></pre>
+<p>Alternatively, we can use the extended <code>ON</code> clause, as follows:</p>
+<pre><code>&gt; SELECT visittime, pagetype, login.visittime AS sessionstart
+  FROM (clicks ORDER BY visittime)
+       MATCH "login.other*"
+       ON pagetype WHEN "login" THEN "login" ELSE "other";
+</code></pre>
+<p>The extended <code>ON</code> clause performs the same function as the <code>CASE</code> statement above for this query; <a href="#example-4">later</a>, we will see that it is a bit more general.</p>
+<p>The same idea can be applied to match over numeric fields -- generate discrete-valued labels based on a condition and match over the generated labels.</p>
+<p><a class="anchor" name="example-2"></a> <strong>Example 2</strong>
+In this example, we want to associate the sequence number of the session with each row, with the first session as <code>1</code>, the second session as <code>2</code>, and so on. In Sclera, we can easily compute this by matching all the sessions in a single regular expression, and assigning the session identifier as the number of logins seen so far.</p>
+<p>The query is as follows:</p>
+<pre><code>&gt; SELECT visittime, pagetype, login.count() AS sessionseq
+  FROM (clicks ORDER BY visittime)
+       MATCH "(login.other*)+"
+       ON pagetype WHEN "login" THEN "login" ELSE "other";
+</code></pre>
+<p>and the result is:</p>
+<pre><code>-----------+----------+------------
+ VISITTIME | PAGETYPE | SESSIONSEQ 
+-----------+----------+------------
+ 10:21:03  | login    | 1          
+ 10:22:09  | search   | 1          
+ 10:24:39  | prodview | 1          
+ 10:27:14  | logout   | 1          
+ 11:01:22  | login    | 2          
+ 11:02:33  | prodview | 2          
+ 11:04:09  | search   | 2          
+ 11:05:47  | prodview | 2          
+ 11:07:19  | checkout | 2          
+ 11:09:51  | prodview | 2          
+ 11:13:21  | logout   | 2          
+-----------+----------+------------
+(11 rows)
+</code></pre>
+<p><a class="anchor" name="example-3"></a> <strong>Example 3</strong>
+In this example, we want to find, for each session in which the visitor does a "checkout", the number of product views by a visitor between the "login" and the "checkout". Again, the standard SQL will be extremely complex. In Sclera, the query works out to far simpler:</p>
+<pre><code>&gt; SELECT login.visittime as sessionstart, prodview.count() AS prodviews
+  FROM (clicks ORDER BY visittime)
+  MATCH "login.(prodview | search)*.checkout" ON pagetype;
+</code></pre>
+<p>As in the previous query, this query progressively matches the regular expression <code>login.(prodview | search)*.checkout</code> against the sequence of values in the column <code>pagetype</code>. This regular expression, however, only matches segments starting at a "login" row and ending at a "checkout" row. Each match associates each symbol in the regular expression with the subsequence of rows matching the symbol; the symbol becomes the table alias for the associated rows, and can be <a href="#running-aggregates">used to aggregate the rows as with regular table aliases</a>. The expression <code>prodview.count()</code> thus counts the "prodview" rows that lie between the "login" row and the "checkout" row.</p>
+<p>The result is:</p>
+<pre><code>--------------+-----------
+ SESSIONSTART | PRODVIEWS 
+--------------+-----------
+ 11:01:22     | 2         
+--------------+-----------
+(1 row)
+</code></pre>
+<p>Since we ignore the "search" rows, we can eliminate them in the input, getting the equivalent query:</p>
+<pre><code>&gt; SELECT login.visittime as sessionstart, prodview.count() AS prodviews
+  FROM (clicks WHERE pagetype &lt;&gt; "search" ORDER BY visittime)
+  MATCH "login.prodview*.checkout" ON pagetype;
+</code></pre>
+<p><a class="anchor" name="example-4"></a> <strong>Example 4</strong>
+Sometimes, we may need the same value in the column being matched to be represented by multiple symbols in the regular expression -- this is needed to differentiate rows with the same value of the column based on their positional context.</p>
+<p>In this example, we want to know the number of product views before and after a checkout within a session.</p>
+<p>Since the query differentiates rows with the same value of the matched column based on the positional context, we need a mechanism to associate multiple symbols with rows. This is achieved by the extended <code>ON</code> clause used earlier in <a href="#example-1">Example 1</a>, and is illustrated in the query below:</p>
+<pre><code>&gt; SELECT login.visittime as sessionstart,
+         before.count() AS viewsbefore, after.count() as viewsafter
+  FROM (clicks ORDER BY visittime)
+       MATCH "login.(before | search)*.checkout.(after | search)*.logout"
+       ON pagetype WHEN "prodview" THEN ("before", "after");
+</code></pre>
+<p>The <code>WHEN</code> clause specifies "before" and "after" as labels for "prodview" rows (the label "prodview" is not recognized anymore). The other rows retain their default label.</p>
+<p>In a match, the "prodview" rows appearing before a checkout row get assigned the label "before", and "prodview" rows appearing after a checkout row get assigned the label "after". As earlier, these labels can be used to aggregate upon the associated rows -- thus, <code>before.count()</code> is the number of product views between "login" and "checkout", while <code>after.count()</code> is the number of product views between "checkout" and "logout".</p>
+<p>The result of the query is:</p>
+<pre><code>--------------+-------------+------------
+ SESSIONSTART | VIEWSBEFORE | VIEWSAFTER 
+--------------+-------------+------------
+ 11:01:22     | 2           | 1          
+--------------+-------------+------------
+(1 row)
+</code></pre>
+<p>Again, since "search" rows are ignored in the above query, we can safely eliminate them in the input, getting the equivalent query:</p>
+<pre><code>&gt; SELECT login.visittime as sessionstart,
+         before.count() AS viewsbefore, after.count() as viewsafter
+  FROM (clicks WHERE pagetype &lt;&gt; "search" ORDER BY visittime)
+       MATCH "login.before*.checkout.after*.logout"
+       ON pagetype WHEN "prodview" THEN ("before", "after");
+</code></pre>
+<p><a class="anchor" name="example-5"></a> <strong>Example 5</strong>
+Sclera also supports start and end anchors in the regular expression. The start-anchor restricts the match to a prefix of the input row sequence, while the end-anchor restricts the match to a suffix of the input row sequence.</p>
+<p>The following query returns the number of searches, across all sessions, before the first checkout by a visitor:</p>
+<pre><code>&gt; SELECT search.count() AS searches
+  FROM (clicks WHERE pagetype in ("search", "checkout") ORDER BY visittime)
+       MATCH "^search*.checkout" ON pagetype;
+----------
+ SEARCHES 
+----------
+ 2        
+----------
+(1 row)
+</code></pre>
+<p>Similarly, the following query returns the number of searches, across all sessions, after the last checkout by a visitor:</p>
+<pre><code>&gt; SELECT search.count() AS searches
+  FROM (clicks WHERE pagetype in ("search", "checkout") ORDER BY visittime)
+       MATCH "checkout.search*$" ON pagetype;
+----------
+ SEARCHES 
+----------
+ 0        
+----------
+(1 row)
+</code></pre>
+<p>Note that a query with an end-anchor can only emit the output after consuming all the input.</p>
+<p>The two anchors can be used together. The following query counts the non-search rows before and after the last search.</p>
+<pre><code>&gt; SELECT before.count() AS viewsbefore, after.count() as viewsafter
+  FROM (clicks ORDER BY visittime)
+       MATCH "^(before | search)*.search.after*$"
+       ON pagetype WHEN "search" THEN "search" ELSE ("before", "after");
+-------------+------------
+ VIEWSBEFORE | VIEWSAFTER 
+-------------+------------
+ 5           | 4          
+-------------+------------
+(1 row)
+</code></pre>
+<p>If we want to include the counts for "search" rows as well in <code>before</code>, we can use a generalized qualifier:</p>
+<pre><code>&gt; SELECT LABEL(before, search).count() AS viewsbefore, after.count() as viewsafter
+  FROM (clicks ORDER BY visittime)
+       MATCH "^(before | search)*.search.after*$"
+       ON pagetype WHEN "search" THEN "search" ELSE ("before", "after");
+-------------+------------
+ VIEWSBEFORE | VIEWSAFTER 
+-------------+------------
+ 7           | 4          
+-------------+------------
+(1 row)
+</code></pre>
+<p>Of course, since the labels "search" and "before" are mutually exclusive, we could also have added <code>before.count()</code> and <code>search.count()</code> to get the same result.</p>
+<pre><code>&gt; SELECT before.count() + search.count() AS viewsbefore, after.count() as viewsafter
+  FROM (clicks ORDER BY visittime)
+       MATCH "^(before | search)*.search.after*$"
+       ON pagetype WHEN "search" THEN "search" ELSE ("before", "after");
+-------------+------------
+ VIEWSBEFORE | VIEWSAFTER 
+-------------+------------
+ 7           | 4          
+-------------+------------
+(1 row)
+</code></pre>
+<p>If we want the symbol before to include the searches before the last, we can say:</p>
+<pre><code>&gt; SELECT before.count() AS viewsbefore, after.count() as viewsafter
+  FROM (clicks ORDER BY visittime)
+       MATCH "^before*.search.after*$"
+       ON pagetype WHEN "search" THEN ("before", "search") ELSE ("before", "after");
+-------------+------------
+ VIEWSBEFORE | VIEWSAFTER 
+-------------+------------
+ 6           | 4          
+-------------+------------
+(1 row)
+</code></pre>
+<p>The difference with the previous query is that the last search is not included in the <code>VIEWSBEFORE</code> above.</p>
+<p><a class="anchor" name="example-6"></a> <strong>Example 6</strong>
+Sclera also supports wild cards using the <code>ALL</code> clause in the extended <code>ON</code> syntax.</p>
+<p>The following query outputs, for each "search" row, the pagetype of previous and next rows, if any.</p>
+<pre><code>&gt; SELECT search.visittime, prevpg.pagetype AS prevtype, nextpg.pagetype AS nexttype
+  FROM (clicks ORDER BY visittime)
+       MATCH "prevpg.search.nextpg" ON pagetype ALL(prevpg, nextpg)
+-----------+----------+----------
+ VISITTIME | PREVTYPE | NEXTTYPE 
+-----------+----------+----------
+ 10:22:09  | login    | prodview 
+ 11:04:09  | prodview | prodview 
+-----------+----------+----------
+(2 rows)
+</code></pre>
+<p>The <code>ALL</code> labels apply to all rows, in addition to the labels assigned by the <code>ON</code>/<code>WHEN</code>/<code>THEN</code>/<code>ELSE</code> clauses.</p>
+<p>For instance, in the last query in the <a href="#example-5">previous example</a>, notice that the symbol "before" was assigned to all rows. Rather than include "before" in all <code>THEN</code> and <code>ELSE</code> lists, we can say:</p>
+<pre><code>&gt; SELECT before.count() AS viewsbefore, after.count() as viewsafter
+  FROM (clicks ORDER BY visittime)
+       MATCH "^before*.search.after*$"
+       ON pagetype WHEN "search" THEN "search" ELSE "after" ALL "before";
+-------------+------------
+ VIEWSBEFORE | VIEWSAFTER 
+-------------+------------
+ 6           | 4          
+-------------+------------
+(1 row)
+</code></pre>
+<h3 id="match-on-partitioned-input"><code>MATCH</code> on Partitioned Input<a class="headerlink" href="#match-on-partitioned-input" title="Permanent link">&#9668;</a></h3>
+<p>The input can be partitioned on one or more columns before applying <code>MATCH</code>, using a <code>PARTITION BY</code> clause. The regular expression is then matched independently on the rows within each partition.</p>
+<p><a class="anchor" name="vclicks"></a> The examples in the <a href="#pattern-matching-with-match">previous section</a> were based on clickstream data of a single visitor. Let us now assume that the data has multiple visitors. In the following table a new column <code>visitorid</code> contains the identifier of the visitor for each row.</p>
+<pre><code>&gt; vclicks;
+-----------+-----------+----------
+ VISITORID | VISITTIME | PAGETYPE 
+-----------+-----------+----------
+ 1         | 10:21:03  | login    
+ 1         | 10:24:39  | prodview 
+ 1         | 10:27:14  | logout   
+ 2         | 10:21:04  | login    
+ 2         | 10:22:10  | search   
+ 2         | 10:27:15  | logout   
+ 2         | 11:01:22  | login    
+ 1         | 11:01:23  | login    
+ 2         | 11:02:33  | prodview 
+ 2         | 11:04:10  | search   
+ 2         | 11:05:47  | prodview 
+ 1         | 11:05:48  | prodview 
+ 2         | 11:07:19  | checkout 
+ 2         | 11:09:52  | prodview 
+ 2         | 11:13:21  | logout   
+ 1         | 11:13:22  | logout   
+-----------+-----------+----------
+(16 rows)
+</code></pre>
+<p>For instance, the query in <a href="#example-1">Example 1</a> can be rewritten as:</p>
+<pre><code>&gt; SELECT visitorid, visittime, pagetype, login.visittime AS sessionstart
+  FROM (vclicks ORDER BY visittime) PARTITION BY visitorid
+       MATCH "login.other*"
+       ON pagetype WHEN "login" THEN "login" ELSE "other";
+-----------+-----------+----------+--------------
+ VISITORID | VISITTIME | PAGETYPE | SESSIONSTART 
+-----------+-----------+----------+--------------
+ 2         | 10:21:04  | login    | 10:21:04     
+ 1         | 10:21:03  | login    | 10:21:03     
+ 1         | 10:24:39  | prodview | 10:21:03     
+ 2         | 10:22:10  | search   | 10:21:04     
+ 2         | 10:27:15  | logout   | 10:21:04     
+ 1         | 10:27:14  | logout   | 10:21:03     
+ 2         | 11:01:22  | login    | 11:01:22     
+ 2         | 11:02:33  | prodview | 11:01:22     
+ 2         | 11:04:10  | search   | 11:01:22     
+ 1         | 11:01:23  | login    | 11:01:23     
+ 2         | 11:05:47  | prodview | 11:01:22     
+ 2         | 11:07:19  | checkout | 11:01:22     
+ 2         | 11:09:52  | prodview | 11:01:22     
+ 1         | 11:05:48  | prodview | 11:01:23     
+ 2         | 11:13:21  | logout   | 11:01:22     
+ 1         | 11:13:22  | logout   | 11:01:23     
+-----------+-----------+----------+--------------
+(16 rows)
+</code></pre>
+<p>The evaluation now builds a <code>MATCH</code> processor for each unique <code>visitorid</code> -- each processor only sees the rows that belong to the same <code>visitorid</code>. The memory overhead thus depends upon the number of unique visitors.</p>
+<p>If the data contains a large number of visitors, it may be more efficient to sort the input on (<code>visitorid</code>, <code>visittime</code>) -- this will ensure that only one visitor's data is processed at a time, making the memory overhead of <code>MATCH</code> independent of the number of input rows.</p>
+<pre><code>&gt; SELECT visitorid, visittime, pagetype, login.visittime AS sessionstart
+  FROM (vclicks ORDER BY visitorid, visittime) PARTITION BY visitorid
+       MATCH "login.other*"
+       ON pagetype WHEN "login" THEN "login" ELSE "other";
+-----------+-----------+----------+--------------
+ VISITORID | VISITTIME | PAGETYPE | SESSIONSTART 
+-----------+-----------+----------+--------------
+ 1         | 10:21:03  | login    | 10:21:03     
+ 1         | 10:24:39  | prodview | 10:21:03     
+ 1         | 10:27:14  | logout   | 10:21:03     
+ 1         | 11:01:23  | login    | 11:01:23     
+ 1         | 11:05:48  | prodview | 11:01:23     
+ 1         | 11:13:22  | logout   | 11:01:23     
+ 2         | 10:21:04  | login    | 10:21:04     
+ 2         | 10:22:10  | search   | 10:21:04     
+ 2         | 10:27:15  | logout   | 10:21:04     
+ 2         | 11:01:22  | login    | 11:01:22     
+ 2         | 11:02:33  | prodview | 11:01:22     
+ 2         | 11:04:10  | search   | 11:01:22     
+ 2         | 11:05:47  | prodview | 11:01:22     
+ 2         | 11:07:19  | checkout | 11:01:22     
+ 2         | 11:09:52  | prodview | 11:01:22     
+ 2         | 11:13:21  | logout   | 11:01:22     
+-----------+-----------+----------+--------------
+(16 rows)
+</code></pre>
+<h3 id="match-syntax"><code>MATCH</code> Syntax<a class="headerlink" href="#match-syntax" title="Permanent link">&#9668;</a></h3>
+<p>This section introduced a new <a href="../sqlregular/#table-expression">table expression</a> with the following syntax:</p>
+<pre><code>table_expression [ PARTITION BY ( partn_columns ) ] MATCH regular_expression [ON labeler]
+</code></pre>
+<p>where:</p>
+<ul>
+<li><a class="anchor" name="table-expression"></a> <code>table_expression</code> is an arbitrary <a href="../sqlregular/#table-expression">table expression</a></li>
+<li><code>partn_columns</code> is an optional comma-separated list of columns in the result of <code>table_expression</code>.<ul>
+<li>When specified, the result of <code>table_expression</code> is partitioned on this set of columns; the matching happens independently on the rows within each partition.</li>
+</ul>
+</li>
+<li><a class="anchor" name="regular-expression"></a> <code>regular_expression</code>, with:<ul>
+<li><strong>alphabet:</strong> the labels used by the <a href="#labeler-syntax">labeler</a> to tag the input rows</li>
+<li><strong>operators:</strong> "<code>.</code>" (concatenation), "<code>|</code>" (disjunction), "<code>*</code>" (kleene star), "<code>+</code>" (kleene plus), and "<code>?</code>" (option).<ul>
+<li>Used to compose more complex regular expressions from the alphabet.</li>
+</ul>
+</li>
+<li><strong>anchors:</strong> a start anchor "<code>^</code>" or an end anchor "<code>$</code>".<ul>
+<li>Required when we need only a prefix or a suffix match, respectively, and not all the matches as is the default.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Note that: </p>
+<ul>
+<li>In the syntax above, the parenthesis on <code>partn_colums</code> can be omitted when the list is a singleton.</li>
+<li><a class="anchor" name="default-labeler"></a> When the <a href="#regular-expression"><code>regular_expression</code></a> contains only one symbol, the labeler specification is optional; when the labeler is not specified, each input row will be labeled with the symbol in the regular expresion.</li>
+</ul>
+<h4 id="labeler-syntax">Labeler Syntax<a class="headerlink" href="#labeler-syntax" title="Permanent link">&#9668;</a></h4>
+<p>The labeler tags each input row with a set of labels. The labeler is specified with a <code>label_col</code>, optional multiple <code>WHEN</code>/<code>THEN</code> clauses with an optional <code>ELSE</code> clause, and an optional <code>ALL</code> clause.</p>
+<pre><code>label_col [ WHEN ( when_values ) THEN ( then_labels ) [ WHEN ... ] [ ELSE ( else_labels ) ] ] [ ALL ( all_labels ) ]
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>label_col</code> is a column in the result of <a href="#table-expression"><code>table_expression</code></a> mentioned in the <code>MATCH</code> syntax above.</li>
+<li><code>when_values</code> is a comma-separated list of values of the same SQL type as <code>label_col</code> (to be extra sure in case of numeric types, we can use explicit casts)</li>
+<li><code>then_labels</code>, <code>else_labels</code> and <code>all_labels</code> are comma-separated lists of labels</li>
+</ul>
+<p>In the syntax above, the parenthesis on lists can be omitted when the list is a singleton.</p>
+<p>Consider a row, and let the value of the column <code>label_col</code> in the row be <code>X</code>. The set of labels that tag the row are determined as follows:</p>
+<p><a class="anchor" name="case1"></a> <strong>Case 1: <code>ALL</code> clause is not present</strong></p>
+<ul>
+<li>When <code>WHEN</code>/<code>THEN</code>/<code>ELSE</code> clauses are not present, the row is labeled with <code>X</code>.</li>
+<li>If the <code>WHEN</code>/<code>THEN</code> clauses are present, and <code>X</code> is present in at least one <code>when_values</code> list, then the row is labeled by the union of the <code>then_labels</code> associated with the <code>when_values</code> that contain <code>X</code>.</li>
+<li>If the <code>WHEN</code>/<code>THEN</code> clauses are present, but <code>X</code> is not present in any <code>when_values</code>, then:<ul>
+<li>If <code>ELSE</code> clause is present, the row is labeled with the <code>else_labels</code>.</li>
+<li>If <code>ELSE</code> clause is not present, the row is labeled with an empty set.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Case 2: <code>ALL</code> clause is present</strong></p>
+<ul>
+<li>The row is labeled with the union of <code>all_labels</code> and the label set computed as in <a href="#case1">Case 1</a> above.</li>
+</ul>
+<h2 id="accessing-matched-subsequences-as-an-array-of-rows">Accessing Matched Subsequences as an Array of Rows<a class="headerlink" href="#accessing-matched-subsequences-as-an-array-of-rows" title="Permanent link">&#9668;</a></h2>
+<p>Recall our <a href="#indexed-alias">earlier discussion on how Sclera enables a table alias can be interpreted as an array of rows</a>. The <code>MATCH</code> construct contains a generalization of the same -- we can interpret any symbol appearing in a regular expression (which represents a subsequence) as an array as well.</p>
+<p>As a simple example, the query on the <a href="#clicks">table <code>clicks</code></a>:</p>
+<pre><code>&gt; SELECT T.*, (T.visittime - T[0].visittime)::INT AS timediff
+  FROM (clicks ORDER BY visittime) T;
+</code></pre>
+<p>can also be written as:</p>
+<pre><code>&gt; SELECT T.*, (T.visittime - T[0].visittime)::INT AS timediff
+  FROM (clicks ORDER BY visittime) MATCH "T+";
+</code></pre>
+<p>In the first query, the table alias <code>T</code> is interpreted as an array over the entire prior sequence of input rows. In the second query, since the regular expression "<code>T+</code>" contains only one symbol <code>T</code>, the <a href="#default-labeler">default labeler</a> labels each input row with <code>T</code>. The regular expression "<code>T+</code>" matches each non-empty prefix of the input sequence -- in other words, "<code>T+</code>" matches the entire history at any point. The two queries above are therefore equivalent, and have the output:</p>
+<pre><code>-----------+----------+----------
+ VISITTIME | PAGETYPE | TIMEDIFF 
+-----------+----------+----------
+ 10:21:03  | login    | 0        
+ 10:22:09  | search   | 66000    
+ 10:24:39  | prodview | 216000   
+ 10:27:14  | logout   | 371000   
+ 11:01:22  | login    | 2419000  
+ 11:02:33  | prodview | 2490000  
+ 11:04:09  | search   | 2586000  
+ 11:05:47  | prodview | 2684000  
+ 11:07:19  | checkout | 2776000  
+ 11:09:51  | prodview | 2928000  
+ 11:13:21  | logout   | 3138000  
+-----------+----------+----------
+(11 rows)
+</code></pre>
+<p>The array construct with <code>MATCH</code> becomes more useful when used along with more complex regular expressions. For instance, the following query retrieves the second visit (i.e. the row at index <code>1</code>) in each visitor in the <a href="#vclicks">table <code>vclicks</code></a>.</p>
+<pre><code>&gt; SELECT T[1].*
+  FROM (vclicks ORDER BY visittime) PARTITION BY visitorid MATCH "T+$";
+-----------+-----------+----------
+ VISITORID | VISITTIME | PAGETYPE 
+-----------+-----------+----------
+ 2         | 10:22:10  | search   
+ 1         | 10:24:39  | prodview 
+-----------+-----------+----------
+(2 rows)
+</code></pre>
+<p>Similarly, the following query retrieves the second-last visit (i.e. the row at index <code>-1</code>) in each visitor in the <a href="#vclicks">table <code>vclicks</code></a>.</p>
+<pre><code>&gt; SELECT T[-1].*
+  FROM (vclicks ORDER BY visittime) PARTITION BY visitorid MATCH "T+$";
+-----------+-----------+----------
+ VISITORID | VISITTIME | PAGETYPE 
+-----------+-----------+----------
+ 2         | 11:09:52  | prodview 
+ 1         | 11:05:48  | prodview 
+-----------+-----------+----------
+(2 rows)
+</code></pre>
+<p>We can also have rows at multiple indexes juxtaposed in the same row.</p>
+<pre><code>&gt; SELECT T[1].*, T[-1].*
+  FROM (vclicks ORDER BY visittime) PARTITION BY visitorid MATCH "T+$";
+-----------+-----------+----------+-------------+-------------+------------
+ VISITORID | VISITTIME | PAGETYPE | VISITORID_1 | VISITTIME_1 | PAGETYPE_1 
+-----------+-----------+----------+-------------+-------------+------------
+ 2         | 10:22:10  | search   | 2           | 11:09:52    | prodview   
+ 1         | 10:24:39  | prodview | 1           | 11:05:48    | prodview   
+-----------+-----------+----------+-------------+-------------+------------
+(2 rows)
+</code></pre>
+<p>We can use arbitrary regular expressions on multiple symbols. Each symbol determines a subsequence that can be accessed as an array of rows.</p>
+<pre><code>&gt; SELECT visitorid, prodview[0].visittime AS firstprod,
+         prodview.visittime AS lastprod,
+         others[0].visittime AS firstothers,
+         others.visittime AS lastothers
+  FROM (vclicks ORDER BY visittime) PARTITION BY visitorid
+  MATCH "(prodview | others)*$"
+  ON pagetype WHEN "prodview" THEN "prodview" ELSE "others";
+-----------+-----------+----------+-------------+------------
+ VISITORID | FIRSTPROD | LASTPROD | FIRSTOTHERS | LASTOTHERS 
+-----------+-----------+----------+-------------+------------
+ 2         | 11:02:33  | 11:09:52 | 10:21:04    | 11:13:21   
+ 1         | 10:24:39  | 11:05:48 | 10:21:03    | 11:13:22   
+-----------+-----------+----------+-------------+------------
+(2 rows)
+</code></pre>
+<p><a class="anchor" name="scalability"></a></p>
+<h2 id="scalability-of-ordered-data-processing-in-sclera">Scalability of Ordered Data Processing in Sclera<a class="headerlink" href="#scalability-of-ordered-data-processing-in-sclera" title="Permanent link">&#9668;</a></h2>
+<p>At a first look, the computations in the constructs described in this section seem expensive, raising issues of scalability. In this section, we briefly mention the overheads, and assert that the evaluation is highly scalable -- in fact, the evaluation happens in a single pass on the input, and in bounded memory that is independent of the number of rows in the input without any external I/O.</p>
+<p>Use of a positive index for a column requires storing the value in the row at the specific offset for the duration of the query; the overhead of a positive index is thus the amount of memory needed to store the single value.</p>
+<p>Use of a negative index for a column, on the other hand, requires storing the previous values of the column upto the index. The overhead of a negative index thus depends upon the absolute value of the index. Since the query only allows constants as index, this overhead is bounded for a given query.</p>
+<p>The memory overhead of a running aggregate depends on the state being maintained incrementally by the aggregate -- this is a constant (i.e. independent of the number of rows in the input), with the singular exception of <a href="../sqlmisc/#order-sensitive-aggregate-functions"><code>string_agg</code></a>, in which case the overhead is linear in the number of input rows.</p>
+<p>When there is no <code>PARTITION BY</code>, or when the input is coming sorted on the partition columns, all rows of the same partition are processed together, before the rows of the next partition -- the overheads therefore are independent of the number of partitions as well.</p>
+<p>When the input is not sorted on the partition columns specified in the <code>PARTITION BY</code> clause, Sclera needs to process all the partitions simultaneously -- this implies a memory overhead poportional to the number of partitions. When the input is sorted on a subset of the partition columns, the number of partitions that need to be maintained concurrently reduce, and the memory overhead reduces proportionately.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sqlcrosstab/" title="Using Cross-Tabulation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Using Cross-Tabulation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sqlseqalign/" title="Sequence Alignment" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Sequence Alignment
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2012 - 2020 Sclera, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/scleradb" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/scleradb" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/sclera-inc-" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

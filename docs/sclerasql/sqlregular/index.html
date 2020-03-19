@@ -1,0 +1,1765 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Sclera and its plugins">
+      
+      
+        <link rel="canonical" href="https://www.scleradb.com/sclerasql/sqlregular/">
+      
+      
+        <meta name="author" content="Sclera, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Standard SQL - Sclera Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CCourier+Prime&display=fallback">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier Prime","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../../images/icons/site.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../../css/docs.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#scalar-expressions" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Sclera Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Standard SQL
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
+      
+    </a>
+    Sclera Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Documentation Contents" class="md-nav__link">
+      Documentation Contents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/whysclera/" title="Why Sclera?" class="md-nav__link">
+      Why Sclera?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/technical/" title="Technical Details" class="md-nav__link">
+      Technical Details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/components/" title="Components Reference" class="md-nav__link">
+      Components Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/install/" title="Installation Reference" class="md-nav__link">
+      Installation Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/dbms/" title="Data Platform Connection Reference" class="md-nav__link">
+      Data Platform Connection Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/configuration/" title="Configuration Reference" class="md-nav__link">
+      Configuration Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      ScleraSQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ScleraSQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexamples/" title="ScleraSQL Examples" class="md-nav__link">
+      ScleraSQL Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlintro/" title="ScleraSQL Introduction" class="md-nav__link">
+      ScleraSQL Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Standard SQL
+      </label>
+    
+    <a href="./" title="Standard SQL" class="md-nav__link md-nav__link--active">
+      Standard SQL
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scalar-expressions" class="md-nav__link">
+    Scalar Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-data-using-select-expressions" class="md-nav__link">
+    Querying Data using Select Expressions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-clause" class="md-nav__link">
+    FROM Clause
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-system-joins" class="md-nav__link">
+    Cross-System Joins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-clause" class="md-nav__link">
+    WHERE Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-by-clause" class="md-nav__link">
+    GROUP BY Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-clause" class="md-nav__link">
+    SELECT Clause
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abbreviations" class="md-nav__link">
+    Abbreviations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distinct" class="md-nav__link">
+    Distinct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregation" class="md-nav__link">
+    Aggregation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having-clause" class="md-nav__link">
+    HAVING Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unionintersectexcept-clause" class="md-nav__link">
+    UNION/INTERSECT/EXCEPT Clause
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-system-set-operations" class="md-nav__link">
+    Cross-System Set Operations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-by-clause" class="md-nav__link">
+    ORDER BY Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-fetch-and-offset-clauses" class="md-nav__link">
+    LIMIT, FETCH and OFFSET Clauses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-data-using-generalized-table-expressions" class="md-nav__link">
+    Querying Data Using Generalized Table Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-tables" class="md-nav__link">
+    Base Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-base-tables" class="md-nav__link">
+    Creating Base Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-empty-tables" class="md-nav__link">
+    Creating Empty Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporary-modifier" class="md-nav__link">
+    Temporary Modifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-name" class="md-nav__link">
+    Table Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#columns-and-their-types" class="md-nav__link">
+    Columns and Their Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-constraints" class="md-nav__link">
+    Column Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-constraints" class="md-nav__link">
+    Table Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-tables-with-query-results" class="md-nav__link">
+    Creating Tables with Query Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inserting-rows-into-a-base-table" class="md-nav__link">
+    Inserting Rows into a Base Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-rows-in-a-base-table" class="md-nav__link">
+    Updating Rows in a Base Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleting-rows-in-a-base-table" class="md-nav__link">
+    Deleting Rows in a Base Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropping-base-tables" class="md-nav__link">
+    Dropping Base Tables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-views" class="md-nav__link">
+    Creating Views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropping-views" class="md-nav__link">
+    Dropping Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcrosstab/" title="Using Cross-Tabulation" class="md-nav__link">
+      Using Cross-Tabulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextordered/" title="Processing Ordered Data" class="md-nav__link">
+      Processing Ordered Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlseqalign/" title="Sequence Alignment" class="md-nav__link">
+      Sequence Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextarg/" title="Selecting the Optimal" class="md-nav__link">
+      Selecting the Optimal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextml/" title="Using Machine Learning" class="md-nav__link">
+      Using Machine Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcleaning/" title="Data Cleaning" class="md-nav__link">
+      Data Cleaning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexttext/" title="Using Text Analytics" class="md-nav__link">
+      Using Text Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextdataaccess/" title="External Data Access" class="md-nav__link">
+      External Data Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlmisc/" title="Miscellaneous Information" class="md-nav__link">
+      Miscellaneous Information
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interface
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interface
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/shell/" title="Command Line Shell Reference" class="md-nav__link">
+      Command Line Shell Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/jdbc/" title="Embedded JDBC Reference" class="md-nav__link">
+      Embedded JDBC Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sclera Extensions SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sclera Extensions SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkintro/" title="Extensions SDK Introduction" class="md-nav__link">
+      Extensions SDK Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdataaccess/" title="Data Access Plugins" class="md-nav__link">
+      Data Access Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdbms/" title="Database System Plugins" class="md-nav__link">
+      Database System Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextml/" title="Machine Learning Library Plugins" class="md-nav__link">
+      Machine Learning Library Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkexttext/" title="Text Analytics Library Plugins" class="md-nav__link">
+      Text Analytics Library Plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Acknowledgements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Acknowledgements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/dependencies/" title="Component Third Party Dependencies" class="md-nav__link">
+      Component Third Party Dependencies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/licenses/" title="Component Licenses" class="md-nav__link">
+      Component Licenses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scalar-expressions" class="md-nav__link">
+    Scalar Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-data-using-select-expressions" class="md-nav__link">
+    Querying Data using Select Expressions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-clause" class="md-nav__link">
+    FROM Clause
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-system-joins" class="md-nav__link">
+    Cross-System Joins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-clause" class="md-nav__link">
+    WHERE Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-by-clause" class="md-nav__link">
+    GROUP BY Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-clause" class="md-nav__link">
+    SELECT Clause
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abbreviations" class="md-nav__link">
+    Abbreviations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distinct" class="md-nav__link">
+    Distinct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregation" class="md-nav__link">
+    Aggregation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having-clause" class="md-nav__link">
+    HAVING Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unionintersectexcept-clause" class="md-nav__link">
+    UNION/INTERSECT/EXCEPT Clause
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-system-set-operations" class="md-nav__link">
+    Cross-System Set Operations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-by-clause" class="md-nav__link">
+    ORDER BY Clause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-fetch-and-offset-clauses" class="md-nav__link">
+    LIMIT, FETCH and OFFSET Clauses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-data-using-generalized-table-expressions" class="md-nav__link">
+    Querying Data Using Generalized Table Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-tables" class="md-nav__link">
+    Base Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-base-tables" class="md-nav__link">
+    Creating Base Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-empty-tables" class="md-nav__link">
+    Creating Empty Tables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporary-modifier" class="md-nav__link">
+    Temporary Modifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-name" class="md-nav__link">
+    Table Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#columns-and-their-types" class="md-nav__link">
+    Columns and Their Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-constraints" class="md-nav__link">
+    Column Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-constraints" class="md-nav__link">
+    Table Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-tables-with-query-results" class="md-nav__link">
+    Creating Tables with Query Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inserting-rows-into-a-base-table" class="md-nav__link">
+    Inserting Rows into a Base Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-rows-in-a-base-table" class="md-nav__link">
+    Updating Rows in a Base Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleting-rows-in-a-base-table" class="md-nav__link">
+    Deleting Rows in a Base Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropping-base-tables" class="md-nav__link">
+    Dropping Base Tables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-views" class="md-nav__link">
+    Creating Views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropping-views" class="md-nav__link">
+    Dropping Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Standard SQL</h1>
+                
+                <p>In this section, we describe the standard SQL constructs and query clauses supported by Sclera. The extensions are covered in <a href="../sqlintro/">later sections</a>.</p>
+<p>The SQL constructs discussed below enable you to create, populate, query, update and delete base tables; these lie at the core of Sclera, and are supported across all editions.</p>
+<p>Sclera supports a significant subset of standard SQL. The specific SQL dialect is largely compatible with <a href="http://www.postgresql.org/docs/current/static/sql.html">PostgreSQL</a>. In addition, Sclera supports a few <a href="#querying-data-using-generalized-table-expressions">proprietary short-cuts</a> that, in our opinion, make the scripts more compact and readable.</p>
+<p>This section is neither a tutorial, nor a formal specification of the supported SQL, and only serves as a guide illustrating the differences between Sclera's SQL and the <a href="http://www.postgresql.org/docs/current/static/sql.html">PostgreSQL's SQL commands</a>. If you need help with the basics, or want a more formal description, we suggest that you read this section alongside <a href="http://www.postgresql.org/docs/current/static/sql.html">PostgreSQL's excellent documentation</a>.</p>
+<p><strong>Syntax Notation:</strong> <code>[ .. ]</code> means optional, <code>|</code> separates the alternatives, <code>[ .. | .. ]</code> lists alternatives at most one of which should be included, <code>{ .. | .. }</code> lists alternatives exactly one of which should be included, and <code>[, ...]</code> stands for comma-separated repeats of the immediately preceding expression. In the following, the keywords appear in upper case to distinguish them from the other terms; however, Sclera is case-insensitive and keywords in actual commands and queries can be in upper or lower case.</p>
+<p>We start with describing the syntax of a <a href="#scalar-expressions">scalar expression</a>, followed with that of a <a href="#querying-data-using-select-expressions">select expression (or, query)</a>. Next, we describe the syntax of SQL commands for <a href="#creating-base-tables">creating base tables</a>, <a href="#inserting-rows-into-a-base-table">inserting</a>, <a href="#updating-rows-in-a-base-table">updating</a>, <a href="#deleting-rows-in-a-base-table">deleting</a> data in base tables, and finally <a href="#dropping-base-tables">dropping</a> base tables. This is followed with commands for <a href="#creating-views">creating</a> and <a href="#dropping-views">dropping</a> views. Finally, we describe the <a href="#data-types">data types</a> supported by ScleraSQL, and the <a href="#reserved-words">reserved words</a> that cannot be used except as a part of the SQL syntax.</p>
+<h2 id="scalar-expressions">Scalar Expressions<a class="headerlink" href="#scalar-expressions" title="Permanent link">&#9668;</a></h2>
+<p>A scalar expression (equivalently, a <code>scalar_expression</code>) can be any of the following:</p>
+<ul>
+<li>A <code>NULL</code> or <a href="http://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-CONSTANTS">a constant</a></li>
+<li><a class="anchor" name="column-reference"></a>A <a href="http://www.postgresql.org/docs/current/static/sql-expressions.html#SQL-EXPRESSIONS-COLUMN-REFS">column reference</a> to a column in any of the <code>from_item</code> elements in the <a href="#from-clause"><code>FROM</code> clause</a>. The column reference can be qualified by the associated table name or alias.</li>
+<li>An expression with a <a href="http://www.postgresql.org/docs/current/static/sql-expressions.html#SQL-SYNTAX-TYPE-CASTS">type cast</a>. The type cast can be used to convert the type of an expression to a supported <a href="#data-types">data type</a>.</li>
+<li>A <a href="http://www.postgresql.org/docs/current/static/sql-expressions.html#SQL-SYNTAX-SCALAR-SUBQUERIES">scalar subquery</a>, which is a <a href="#querying-data-using-select-expressions">SQL query</a>, enclosed in parenthesis, whose result can have exactly one column and at most one row. If the result is empty, the value of the subquery is <code>NULL</code>, otherwise it gets the value of the column in the returned row.<ul>
+<li><a class="anchor" name="correlated-subquery"></a>Sclera does not support correlated subqueries; in other words, you should be able to execute the scalar subquery as a stand-alone SQL query. The SQL standard is more general as it allows subqueries with expressions containing parameters coupling it to the enclosing query (see <a href="http://www.postgresql.org/docs/current/static/sql-expressions.html#SQL-SYNTAX-SCALAR-SUBQUERIES">PostgreSQL's documentation</a>).</li>
+</ul>
+</li>
+<li><a class="anchor" name="aggregate-expression"></a>An <a href="http://www.postgresql.org/docs/current/static/sql-expressions.html#SYNTAX-AGGREGATES">aggregate expression</a>. Aggregate expressions can only appear in the <a href="#select-clause"><code>SELECT</code> clause</a>, <a href="#order-by-clause"><code>ORDER BY</code> clause</a>, or <a href="#having-clause"><code>HAVING</code> clause</a>.</li>
+<li>A complex scalar expression constructed by applying supported <a href="http://www.postgresql.org/docs/current/static/functions.html">functions and operators</a> on other <a href="#scalar-expressions">scalar expressions</a>.</li>
+</ul>
+<p>The expressions in Sclera are mostly compliant with the supported subset of the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-expressions.html">PostgreSQL</a>. The difference is in lack of support for <a href="#correlated-subquery">correlated subqueries</a>, extended <a href="#data-types">data types</a> and associated <a href="http://www.postgresql.org/docs/current/static/functions.html">functions and operators</a>.</p>
+<h2 id="querying-data-using-select-expressions">Querying Data using Select Expressions<a class="headerlink" href="#querying-data-using-select-expressions" title="Permanent link">&#9668;</a></h2>
+<p><a class="anchor" name="select-expression"></a>A <code>SELECT</code> statement (equivalently, a <code>select_expression</code>) has the following syntax:</p>
+<pre><code>SELECT [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
+       { expression [ [ AS ] output_name ] | abbreviation } [, ...]
+[ FROM from_item [, ...] ]
+[ WHERE condition ]
+[ GROUP BY expression [, ...] ]
+[ HAVING condition [, ...] ]
+[ { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] select_expression ]
+[ ORDER BY expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [, ...] ]
+[ LIMIT count [ ROW | ROWS ] ]
+[ OFFSET start [ ROW | ROWS ] ]
+[ FETCH [ FIRST | NEXT ] [ count ] [ ROW | ROWS ] ONLY ]
+</code></pre>
+<p>This is a restriction of <a href="http://www.postgresql.org/docs/current/static/sql-select.html">PostgreSQL's select statement syntax</a>.</p>
+<p>The semantics of a <code>select_expression</code> (that is, SQL engine's interpretation of what is to be evaluated), and description of the various clauses appears below. The clauses are explained roughly in the order in which they are executed by Sclera's execution engine.</p>
+<h3 id="from-clause"><code>FROM</code> Clause<a class="headerlink" href="#from-clause" title="Permanent link">&#9668;</a></h3>
+<p>The <code>FROM</code> clause specifies the input to the query as a list of <code>from_item</code> elements.</p>
+<p><a class="anchor" name="from-item"></a>Each <code>from_item</code> in the <code>FROM</code> clause can be one of:</p>
+<ul>
+<li><a class="anchor" name="from-table-name"></a><code>[location_name.]table_name [ [ AS ] alias [ ( column_alias [, ...] ) ] ]</code><ul>
+<li><code>table_name</code> is a base table at the data <a href="../../setup/dbms/#location">location</a> <code>location_name</code>.<ul>
+<li>If the <code>table_name</code> is unique across the locations, you can omit the <code>location_name</code>.</li>
+</ul>
+</li>
+<li><code>alias</code>, when specified, becomes the substitute name for <code>table_name</code> within the scope of the query. If <code>alias</code> is specified, <code>table_name</code> can no longer be used in any <a href="#scalar-expressions">expression</a>.</li>
+<li><a class="anchor" name="column-alias"></a><code>column_alias</code>, when specified, becomes the substitute name for the corresponding column in the table <code>table_name</code>. If <code>column_alias</code> is specified for a column, the original column name can no longer be used in any <a href="#scalar-expressions">expression</a>.<ul>
+<li>If the number of column aliases is less than the number of columns in <code>table_name</code>, the remaining columns of <code>table_name</code> retain their original names.</li>
+<li>If the number of column aliases is more than the number of columns in <code>table_name</code>, the remaining columns aliases are ignored.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="anchor" name="from-select-expression"></a><code>( select_expression ) [ AS ] alias [ ( column_alias [, ...] ) ]</code><ul>
+<li>Defines a virtual table computed using the nested <code>select_expression</code> and referenced using the name <code>alias</code>.</li>
+<li>By default, the output columns of the nested <code>select_expression</code> become the columns of the virtual table. However, if a <code>column_alias</code> list is specified, it overrides these default names, <a href="#column-alias">as earlier</a>.</li>
+</ul>
+</li>
+<li><a class="anchor" name="from-values"></a><code>VALUES ( constant [, ...] ) [, ...] [ AS ] alias [ ( column_alias [, ...] ) ]</code><ul>
+<li>Defines a virtual table containing the rows enumerated explicitly as a comma-separated list of tuples, and referenced using the name <code>alias</code>. Note that all the rows must confirm to the same schema -- that is, each row must have the same number of elements, and the element at a given position in each row must have the same data type.</li>
+<li>By default, the Sclera assigns unique names to the columns in the rows. However, if a <code>column_alias</code> list is specified, it overrides these default names, <a href="#column-alias">as earlier</a>.</li>
+</ul>
+</li>
+<li><a class="anchor" name="from-table-join"></a><code>from_item [ NATURAL ] join_type from_item [ ON join_condition | USING ( join_column [, ...] ) ]</code><ul>
+<li>Defines a composite <code>from_item</code> formed by joining two <code>from_item</code> elements, hereafter referred to as <em>inputs</em>.</li>
+<li><code>join_type</code> can be one of <code>[ INNER ] JOIN</code>, <code>LEFT [ OUTER ] JOIN</code>, <code>RIGHT [ OUTER ] JOIN</code>, <code>FULL [ OUTER ] JOIN</code> or <code>CROSS JOIN</code> (recall that words in <code>[ .. ]</code> are optional -- here, the words <code>INNER</code> and <code>OUTER</code> are just syntactic sugar).</li>
+<li>If the <code>join_type</code> is not a <code>CROSS JOIN</code>, you can specify at most one of the <code>ON join_condition</code>, <code>USING ( join_column [, ...] ) ]</code> or <code>NATURAL</code>.<ul>
+<li>The <code>join_condition</code> in <code>ON</code> is a boolean-valued <a href="#scalar-expressions">expression</a> on the consolidated output columns of the two inputs.</li>
+<li>The <code>join_column</code> list in <code>USING</code> is shorthand for a join condition which is a conjunct of equalities among columns with the same name. Also, the output contains only one copy of the common columns in the <code>join_column</code> list.<ul>
+<li>Example: <code>X JOIN Y USING (A, B)</code> is shorthand for <code>X JOIN Y ON (X.A = Y.A AND X.B = Y.B)</code>. The output contains only one copy of columns <code>A</code> and <code>B</code>.</li>
+</ul>
+</li>
+<li>The <code>NATURAL</code> is a shorthand for a <code>USING</code> with the <code>join_column</code> list containing <em>all</em> columns with the same name across the two inputs; these column names need not be specified explicitly when <code>NATURAL</code> is used.<ul>
+<li>Example: Given table <code>X</code> with columns <code>A</code>, <code>B</code>, <code>C</code> and table <code>Y</code> with columns <code>B</code>, <code>C</code>, <code>D</code>, the <code>from_item</code> <code>X NATURAL JOIN Y</code> is shorthand for <code>X JOIN Y USING (B, C)</code>.</li>
+</ul>
+</li>
+<li>If none of the <code>ON</code>, <code>USING</code> or <code>NATURAL</code> are specified, the join is considered a <code>CROSS JOIN</code>.</li>
+</ul>
+</li>
+<li>If the <code>join_type</code> is a <code>CROSS JOIN</code>, none of the <code>ON</code>, <code>USING</code> or <code>NATURAL</code> should be specified.</li>
+</ul>
+</li>
+</ul>
+<p>A comma-separated list of more than one <code>from_item</code> elements translates to a cross-product of these elements, right to left; this cross-product is rewritten to an <code>INNER JOIN</code> by the optimizer if the <code>WHERE</code> clause includes cross-input predicates.</p>
+<p>The <code>FROM</code> clause is optional. If the clause is absent, the input is implicit as a single row with a single <code>NULL</code>-valued column.</p>
+<p>This clause is compliant with the supported subset of the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-FROM">PostgreSQL</a>.</p>
+<h4 id="cross-system-joins">Cross-System Joins<a class="headerlink" href="#cross-system-joins" title="Permanent link">&#9668;</a></h4>
+<p>When a join contains inputs from more than one database system, it is a cross-system join.</p>
+<p>While planning the evaluation of cross-system joins, Sclera considers the left input of a join larger than the right input, and prefers moving the right input to the left input's location. The ordering of the <code>from_item</code>s in a <code>FROM</code> clause thus matters when evaluating cross-system joins (see the <a href="../../intro/technical/#relational-operators">technical documentation</a> for details). While this enables you to control how data is moved while evaluating a query, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.</p>
+<p>In any case, when evaluating a query with a cross-system join, please take a close look at the query's evaluation plan (obtained using the <a href="../../interface/shell/#compile-time-explain"><code>EXPLAIN</code> shell command</a>) before submitting the query.</p>
+<h3 id="where-clause"><code>WHERE</code> Clause<a class="headerlink" href="#where-clause" title="Permanent link">&#9668;</a></h3>
+<p>The <code>WHERE</code> clause specifies a boolean <a href="#scalar-expressions">expression</a> on the column names in the output of the <a href="#from-clause"><code>FROM</code> clause</a>. This boolean expression is used to filter the rows in the input.</p>
+<p>The boolean expression can only contain column names in the output of the <a href="#from-clause"><code>FROM</code> clause</a>, and cannot contain an <a href="#aggregate-expression">aggregate expression</a>.</p>
+<p>The <code>WHERE</code> clause is optional. If the clause is absent, the input is not filtered.</p>
+<p>This clause is compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-WHERE">PostgreSQL</a>.</p>
+<h3 id="group-by-clause"><code>GROUP BY</code> Clause<a class="headerlink" href="#group-by-clause" title="Permanent link">&#9668;</a></h3>
+<p>The <code>GROUP BY</code> clause groups the input rows, creating a group for each distinct combination of the <code>GROUP BY</code> <a href="#scalar-expressions">expressions</a>.</p>
+<p>The clause works with aggregate functions in the <a href="#select-clause"><code>SELECT</code> clause</a>, <a href="#order-by-clause"><code>ORDER BY</code> clause</a>, and/or <a href="#having-clause"><code>HAVING</code> clause</a>. These clauses generate a row for each group, which can then be <a href="#select-clause">output</a>, or used for <a href="#order-by-clause">ordering</a> or <a href="#having-clause">filtering</a> the result.</p>
+<p>Each expression in <a href="#select-clause"><code>SELECT</code></a>, <a href="#order-by-clause"><code>ORDER BY</code></a> or <a href="#having-clause"><code>HAVING</code></a> clauses not appearing within an aggregate function must build on the <code>GROUP BY</code> expressions or constants. The output is a row for each group.</p>
+<p>The <code>GROUP BY</code> clause in Sclera is mostly compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-GROUPBY">PostgreSQL</a>. In SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-GROUPBY">PostgreSQL</a>, you can include an expression in the <code>SELECT</code> clause in the <code>GROUP BY</code> list by specifying its position number. This is not allowed in Sclera; instead, you can associate the <code>SELECT</code> expression with an alias (<code>output_name</code> in the <a href="#select-expression">syntax</a> stated above) and use that in the <code>GROUP BY</code> list.</p>
+<h3 id="select-clause"><code>SELECT</code> Clause<a class="headerlink" href="#select-clause" title="Permanent link">&#9668;</a></h3>
+<p>The mandatory <code>SELECT</code> clause specifies the output of the query. The specification consists of a list of <a href="#scalar-expressions">scalar expressions</a>, optionally associated with alias names.</p>
+<p>Each scalar expression in the clause corresponds to a column in the output; the name of the column is the expression's alias name, or an automatically generated name.</p>
+<p>The <code>SELECT</code> expressions can only contain column names in the output of the <a href="#from-clause"><code>FROM</code> clause</a>, and may include <a href="#aggregate-expression">aggregate expressions</a>.</p>
+<h4 id="abbreviations">Abbreviations<a class="headerlink" href="#abbreviations" title="Permanent link">&#9668;</a></h4>
+<p>SQL provides certain abbreviations when specifying the <code>SELECT</code> expression list. An abbreviation is a special expression that expands to an expression list on compilation. In Sclera, an abbreviation can be one of the following:</p>
+<ul>
+<li><code>* [EXCEPT column_list]</code>: The <code>*</code> expands to an expression list consists of all the columns in the output of the <a href="#from-clause"><code>FROM</code> clause</a>. If <code>EXCEPT column_list</code> is specified, then the columns in the <code>column_list</code> are not included in the expansion.</li>
+<li><code>alias.* [EXCEPT column_list]</code>: The <code>alias.*</code> expands to an expression list consists of all the columns in the <code>from_item</code> with alias <code>alias</code> in the <a href="#from-clause"><code>FROM</code> clause</a>. If <code>EXCEPT column_list</code> is specified, then the columns in the <code>column_list</code> are not included in the expansion.</li>
+</ul>
+<p>In the above, <code>column_list</code> is either a <code>column_alias</code>, or a comma-separated <code>column_alias</code> list in parenthesis.</p>
+<p>The <code>EXCEPT</code> modifier is a Sclera addition to the syntax, it is not supported in the SQL standard or in <a href="http://www.postgresql.org/docs/current/static/sql-select.html">PostgreSQL</a>.</p>
+<p>Abbreviations cannot be used in the <code>SELECT</code> clause if a <code>GROUP BY</code> clause is present in the query.</p>
+<h4 id="distinct">Distinct<a class="headerlink" href="#distinct" title="Permanent link">&#9668;</a></h4>
+<p>The select clause also has an optional <code>DISTINCT</code> clause, included between <code>SELECT</code> and the expression list, which comes in two variants.</p>
+<ul>
+<li>The first variant, specified by the modifier <code>DISTINCT</code>, eliminates duplicate rows in the output. This clause is part of the SQL standard.</li>
+<li>The second variant, specified by <code>DISTINCT ON (expression [, ...])</code>, is a generalization of the first variant. The rows are grouped based on the distinct values of the <code>DISTINCT ON</code> expressions, and one row from each row is output. If more than one rows exist in a group, this choice is arbitrary. However, if an <a href="#order-by-clause"><code>ORDER BY</code> clause</a> is present in the query, the rows in each group are first ordered, and the first row (in the resulting sorted order of rows) is chosen for output. This variant is also supported by <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-DISTINCT">PostgreSQL</a>, but is not a part of the SQL standard.</li>
+</ul>
+<h4 id="aggregation">Aggregation<a class="headerlink" href="#aggregation" title="Permanent link">&#9668;</a></h4>
+<p>If the <code>SELECT</code> expressions include <a href="#aggregate-expression">aggregate expressions</a>, then the input rows are aggregated.</p>
+<p>If a <a href="#group-by-clause"><code>GROUP BY</code> clause</a> is present, there is a group for each distinct combination of the <code>GROUP BY</code> expression values; otherwise all the input rows form a single group. The rows in each group are aggregated based on the aggregate expressions, resulting in one output row for each group.</p>
+<p>For the above computation to be valid, all column names that do not appear as expressions in the <code>GROUP BY</code> clause (and are hence not constant within a group), must appear within an <a href="../sqlmisc/#aggregate-functions">aggregation function</a>.</p>
+<p>The <code>SELECT</code> clause in Sclera is compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-SELECT-LIST">PostgreSQL</a>.</p>
+<h3 id="having-clause"><code>HAVING</code> Clause<a class="headerlink" href="#having-clause" title="Permanent link">&#9668;</a></h3>
+<p>The <code>HAVING</code> clause specifies a boolean-valued aggregate expression that is evaluated in the same way as the aggregate expressions in <a href="#aggregation"><code>SELECT</code> clause</a>.</p>
+<p>However, unlike the <a href="#select-clause"><code>SELECT</code> clause</a>, the resulting value is not output. Instead, it is used to filter the aggregation result.</p>
+<p>This clause is compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-HAVING">PostgreSQL</a>.</p>
+<h3 id="unionintersectexcept-clause"><code>UNION</code>/<code>INTERSECT</code>/<code>EXCEPT</code> Clause<a class="headerlink" href="#unionintersectexcept-clause" title="Permanent link">&#9668;</a></h3>
+<p>The <code>UNION</code>, <code>INTERSECT</code> and <code>EXCEPT</code> clauses are used to compute the set union, intersection or difference, respectively, on the result of two queries.</p>
+<p>The modifier <code>DISTINCT</code> removes duplicate rows in the computed result; this is also the default when no modifier is specified. To disable the removal of duplicate rows, you can specify <code>ALL</code> instead.</p>
+<p>These clauses in Sclera are compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-UNION">PostgreSQL</a>.</p>
+<h4 id="cross-system-set-operations">Cross-System Set Operations<a class="headerlink" href="#cross-system-set-operations" title="Permanent link">&#9668;</a></h4>
+<p>When the clause contains queries evaluated at more than one system, it specifies a cross-system set operation.</p>
+<p>To evaluate a cross-system set operation, Sclera needs both the query results to be present at a single location; let us call this the "target location" for the set operation. This target location is decided as follows:</p>
+<ul>
+<li>For each query, Sclera finds the location of the query result after evaluation. These locations are the candidates for the target location, and are listed in the order of appearance of the corresponding queries.</li>
+<li>From this list, Sclera then removes the <a href="../../intro/technical/#cache-store">Cache Store</a>, if present, as well as the <a href="../../setup/dbms/#read-write-versus-read-only-mode">"read-only" locations</a>.</li>
+<li>If the list is empty, Sclera assigns the <a href="../../intro/technical/#cache-store">Cache Store</a> as the target location. This has the effect that cross-system set operations across read-only locations are evaluated by evaluating both the queries, and moving the query results to the cache store; the set operation is then computed at the cache store.</li>
+<li>If the list is not empty, Sclera assigns the location on the left in the list as the target location. This has the effect that the query in the other location is evaluated, and its result is moved to the target location. The set operation is then computed along with the evaluation of the query in the target location.</li>
+</ul>
+<p>The ordering of the queries thus matters when evaluating cross-system set operations. While this enables you to control how data is moved while evaluating the queries containing set operations, you need to pay special attention to this ordering -- especially when significant amounts of data needs to be transfered.</p>
+<p>In any case, when evaluating a query with a cross-system set operation, please take a close look at the query's evaluation plan (obtained using the <a href="../../interface/shell/#compile-time-explain"><code>EXPLAIN</code> shell command</a>) before submitting the query.</p>
+<p>In the current version, Sclera moves data from a "source" to a "target" database system by reading in the data from the source and inserting it into a temporary table in the target. This transfer is done in a streaming (pipelined) manner wherever possible, to avoid reading the entire result in memory. This could be a bottleneck when large amounts of data (millions of rows) are transferred. More efficient data transfer mechanisms will be in place in later versions of Sclera.</p>
+<h3 id="order-by-clause"><code>ORDER BY</code> Clause<a class="headerlink" href="#order-by-clause" title="Permanent link">&#9668;</a></h3>
+<p>The <code>ORDER BY</code> clause specifies a list of <a href="#scalar-expressions">scalar expressions</a> that determines the sort order of the computed result.</p>
+<p>The optional modifiers <code>ASC</code> (for <em>ascending</em>) or <code>DESC</code> (for <em>descending</em>) associated with each expression in the <code>ORDER BY</code> list determine how that particular expression should be considered while determining the overall sort order.
+When <code>ASC</code> is specified, the larger values are ordered after the smaller values, and the <code>NULLS</code> are ordered after all values. When <code>DESC</code> is specified, the smaller values are ordered after the larger values, and the <code>NULLS</code> are ordered before all values. The default is <code>ASC</code>.</p>
+<p>The optional <code>NULLS FIRST</code> and <code>NULLS LAST</code> modifiers force the NULLS to be ordered before or after all values.</p>
+<p>The <code>ORDER BY</code> clause in Sclera is mostly compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-ORDERBY">PostgreSQL</a>. In SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-ORDERBY">PostgreSQL</a>, you can include an expression in the <code>SELECT</code> clause in the <code>ORDER BY</code> list by specifying its position number. This is not allowed in Sclera; instead, you can associate the <code>SELECT</code> expression with an alias (<code>output_name</code> in the <a href="#select-expression">syntax</a> stated above) and use that in the <code>ORDER BY</code> list.</p>
+<h3 id="limit-fetch-and-offset-clauses"><code>LIMIT</code>, <code>FETCH</code> and <code>OFFSET</code> Clauses<a class="headerlink" href="#limit-fetch-and-offset-clauses" title="Permanent link">&#9668;</a></h3>
+<p>The <code>LIMIT</code> clause retains the specified number of initial rows in the result. If the result has less than the specified number of rows, this clause has no effect.</p>
+<p>The <code>FETCH</code> clause is an alternative to <code>LIMIT</code>, with a relatively verbose syntax. Here, again, you can specify the number of initial rows to retain in the result; but you can also say <code>FETCH FIRST ROW ONLY</code> to retain only the first row, if present. In general, the words <code>FIRST</code>, <code>NEXT</code>, <code>ROW</code> and <code>ROWS</code> are optional syntactic sugar; the number of initial rows, if not specified, defaults to <code>1</code>.</p>
+<p>A query can have either the <code>LIMIT</code> clause or the <code>FETCH</code> clause.</p>
+<p>The <code>OFFSET</code> clause discards the specified number of initial rows in the result. If the result has less than the specified number of rows, all rows are discarded.</p>
+<p>When both the <code>OFFSET</code> and the <code>LIMIT</code> (or <code>FETCH</code>) clauses are present in a query, the <code>OFFSET</code> clause applies before the <code>LIMIT</code> (or <code>FETCH</code>) clause.</p>
+<p>In absence of an <a href="#order-by-clause"><code>ORDER BY</code> clause</a>, the query result is in arbitrary order and consequently, the retained/discarded row set is not deterministic (i.e. a different set of rows may be retained/discarded on each invocation). As such, the recommended use of these clauses is in conjunction with the <a href="#order-by-clause"><code>ORDER BY</code> clause</a>.</p>
+<p>The <code>FETCH</code> and <code>OFFSET</code> clauses in Sclera are compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-LIMIT">PostgreSQL</a>. The <code>LIMIT</code> clause is supported in <a href="http://www.postgresql.org/docs/current/static/sql-select.html#SQL-LIMIT">PostgreSQL</a>, but not in the SQL standard.</p>
+<h2 id="querying-data-using-generalized-table-expressions">Querying Data Using Generalized Table Expressions<a class="headerlink" href="#querying-data-using-generalized-table-expressions" title="Permanent link">&#9668;</a></h2>
+<p>In standard SQL, as well as in <a href="http://www.postgresql.org/docs/current/static/sql.html">PostgreSQL</a> and other relational databases, a query is restricted to the <a href="#select-expression"><code>SELECT</code> statement</a> described <a href="#querying-data-using-select-expressions">above</a>.</p>
+<p><a class="anchor" name="table-expression"></a>Sclera generalizes the query syntax such that <a href="#from-item">anything</a> that can appear in the <a href="#from-clause"><code>FROM</code> clause</a>, possibly without the alias, is accepted as a query. We call this a <code>table_expression</code>. To recap, this includes:</p>
+<ul>
+<li>A standard <a href="#select-expression"><code>SELECT</code> statement</a>.<ul>
+<li>As a result, any query in the <a href="#select-expression">earlier query syntax</a> remains admissible; this is indeed a generalization of the <a href="#querying-data-using-select-expressions">"standard" select expression / query discussed above</a>.</li>
+</ul>
+</li>
+<li>A base table name, possibly qualified with a location. You can rename the table and the columns the same way you could in the <a href="#from-table-name"><code>FROM</code> clause</a>.<ul>
+<li><strong>Syntax:</strong> <code>[location_name.]table_name [ [ AS ] alias [ ( column_alias [, ...] ) ] ]</code> (see <a href="#from-table-name">above</a> for explanation)</li>
+</ul>
+</li>
+<li>A values expression, which explicitly lists out the rows.<ul>
+<li><strong>Syntax:</strong> <code>VALUES ( constant [, ...] ) [, ...] [ AS ] alias [ ( column_alias [, ...] ) ]</code> (see <a href="#from-values">above</a> for explanation)</li>
+</ul>
+</li>
+<li>A join expression involving nested <code>table_expression</code> elements.<ul>
+<li><strong>Syntax:</strong> <code>table_expression [ NATURAL ] join_type table_expression [ ON join_condition | USING ( join_column [, ...] ) ]</code> (see <a href="#from-table-join">above</a> for explanation)</li>
+</ul>
+</li>
+<li>A table expression in parenthesis, with optional alias.<ul>
+<li><strong>Syntax:</strong> <code>( table_expression ) [ [ AS ] alias [ ( column_alias [, ...] ) ] ]</code></li>
+</ul>
+</li>
+</ul>
+<p>In addition, a <code>table_expression</code> can have additional <code>WHERE</code>, <code>ORDER BY</code> and <code>LIMIT</code>/<code>OFFSET</code>/<code>FETCH</code> clauses. This is not supported in the standard SQL <code>FROM</code> clause.</p>
+<ul>
+<li>A table expression with a <a href="#where-clause"><code>WHERE</code> clause</a>.<ul>
+<li><strong>Syntax:</strong> <code>( table_expression ) WHERE condition</code></li>
+</ul>
+</li>
+<li>A table expression with an <a href="#order-by-clause"><code>ORDER BY</code> clause</a>.<ul>
+<li><strong>Syntax:</strong> <code>( table_expression ) ORDER BY expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [, ...] ]</code></li>
+</ul>
+</li>
+<li>A table expression with <a href="#limit-fetch-and-offset-clauses"><code>LIMIT</code>, <code>FETCH</code> and/or <code>OFFSET</code> clauses</a><ul>
+<li><strong>Syntax:</strong> <code>( table_expression ) [ LIMIT count [ ROW | ROWS ] ] [ OFFSET start [ ROW | ROWS ] ] [ FETCH [ FIRST | NEXT ] [ count ] [ ROW | ROWS ] ONLY ]</code></li>
+</ul>
+</li>
+</ul>
+<p>Using this generalized syntax, to get the contents of the table <code>ORDERS</code>, you just need to say </p>
+<pre><code>&gt; ORDERS;
+</code></pre>
+<p>instead of the unnecessarily verbose</p>
+<pre><code>&gt; SELECT * FROM ORDERS;
+</code></pre>
+<p>To filter and limit, you can say</p>
+<pre><code>&gt; ORDERS WHERE CUSTID = 10 LIMIT 3
+</code></pre>
+<p>instead of</p>
+<pre><code>&gt; SELECT * FROM ORDERS WHERE CUSTID = 10 LIMIT 3
+</code></pre>
+<p>Similarly, to get the join of the tables <code>ORDERS</code> and <code>CUSTOMERS</code>, you just need to say</p>
+<pre><code>&gt; ORDERS JOIN CUSTOMERS USING (CUSTID);
+</code></pre>
+<p>instead of the verbose</p>
+<pre><code>&gt; SELECT * FROM ORDERS JOIN CUSTOMERS USING (CUSTID);
+</code></pre>
+<p>Further, we can union the above with another table <code>PREV</code> by saying</p>
+<pre><code>&gt; ORDERS JOIN CUSTOMERS USING (CUSTID) UNION PREV;
+</code></pre>
+<p>instead of the standard</p>
+<pre><code>&gt; SELECT * FROM ORDERS JOIN CUSTOMERS USING (CUSTID) UNION SELECT * FROM PREV;
+</code></pre>
+<p>The queries in the verbose <a href="#select-expression">standard <code>SELECT</code> syntax</a> are still valid, but the equivalent queries in the extended syntax are more compact. As we can see, the difference is more pronouced in more complex queries.</p>
+<h2 id="base-tables">Base Tables<a class="headerlink" href="#base-tables" title="Permanent link">&#9668;</a></h2>
+<p>In this section we describe Sclera's SQL commands for creating, updating and deleting base tables.</p>
+<h3 id="creating-base-tables">Creating Base Tables<a class="headerlink" href="#creating-base-tables" title="Permanent link">&#9668;</a></h3>
+<p>Creating tables in Sclera is different from <a href="../../setup/dbms/#importing-database-tables">adding tables to Sclera using the <code>ADD TABLE</code> command</a>. The latter merely imports the metadata of an <em>existing</em> table into Sclera. The <code>create table</code> commands, described below, create a new table.</p>
+<p>The net effect of these commands is (a) creating the table on the underlying database system, and (b) adding the table metadata to Sclera's metadata store.</p>
+<p>If the database system understands SQL (e.g. <a href="http://www.mysql.com">MySQL</a>), Sclera creates the table by generating the appropriate <code>CREATE TABLE</code> command, taking care of dialect and datatype differences; if the database system does not understand SQL (e.g. NoSQL datastores), Sclera uses the system's API (or any other available mechanism) to create an underlying structure that is compatible with the metadata specified in the command.</p>
+<p>The <code>CREATE TABLE</code> command has two variants. The <a href="#creating-empty-tables">first variant</a> creates an empty table. The <a href="#creating-tables-with-empty-results">second variant</a> creates a table, and also populates it with the result of a query.</p>
+<h4 id="creating-empty-tables">Creating Empty Tables<a class="headerlink" href="#creating-empty-tables" title="Permanent link">&#9668;</a></h4>
+<p>The syntax of the <code>CREATE TABLE</code> command is as follows:</p>
+<pre><code>CREATE [ { TEMPORARY | TEMP } ] TABLE [location_name.]table_name (
+  column_name data_type [ column_constraint [ ... ] ] [, ...]
+  [ , table_constraint [, ...] ]
+)
+</code></pre>
+<p>This creates a new, empty table (persistent or <a href="#temporary-modifier">temporary</a>) with the name <code>table_name</code> at location <code>location_name</code> (or the <a href="../../setup/configuration/#sclera-location-default">default location</a>, if <code>location_name</code> is omitted), consisting of columns with names and types given by the associated <code>column_name</code> and <code>column_type</code>, and with column and table constraints specified by <code>column_constraint</code> and <code>table_constraint</code>. These terms are described in turn below.</p>
+<h5 id="temporary-modifier">Temporary Modifier<a class="headerlink" href="#temporary-modifier" title="Permanent link">&#9668;</a></h5>
+<p>The optional <code>TEMPORARY</code> (shortened form: <code>TEMP</code>) modifier in <code>CREATE TEMPORARY TABLE</code> creates a table that exists for the duration of the Sclera session only. When the session ends, the table is deleted from the underlying database system and its metadata is removed from Sclera's metadata store.</p>
+<h5 id="table-name">Table Name<a class="headerlink" href="#table-name" title="Permanent link">&#9668;</a></h5>
+<p>The mandatory <code>table_name</code> is the name of the table to be created.</p>
+<p>You can optionally qualify the name with <code>location_name</code>, the name of the <a href="../../setup/dbms/#location">location</a> where the table is to be created. If the <code>location_name</code> is omitted, the table is created at the <a href="../../setup/configuration/#sclera-location-default">default location</a>.</p>
+<h5 id="columns-and-their-types">Columns and Their Types<a class="headerlink" href="#columns-and-their-types" title="Permanent link">&#9668;</a></h5>
+<p>A table needs to have at least one column. You can specify the list of columns and their types as a comma-separated list of <code>column_name</code> and <code>data_type</code> pairs.</p>
+<p>The <code>data_type</code> must be one of the <a href="#data-types">data types supported by Sclera</a>.</p>
+<h5 id="column-constraints">Column Constraints<a class="headerlink" href="#column-constraints" title="Permanent link">&#9668;</a></h5>
+<p>With each column in the column list, you can optionally specify a set of column constraints. Each <code>column_constraint</code> can be one of:</p>
+<ul>
+<li><code>NOT NULL</code>: This column can never be <code>NULL</code>. The constraint is checked while inserting rows into the underlying table.</li>
+<li><code>PRIMARY KEY</code>: This column is the primary key of the table -- as such, it must never be <code>NULL</code>, and a value of the column must be unique across all the rows in the table. This constraint can be specified for at most one column, and cannot be specified along with a <a href="#table-constraints"><code>PRIMARY KEY</code> table constraint</a>.</li>
+<li>
+<p><code>REFERENCES [location_name.]table_name [ (column_name) ]</code>: This column references the table <code>table_name</code>. The table with the name specified by <code>table_name</code> must be present in an underlying database system (if <code>table_name</code> is not unique across locations, the <code>location_name</code> must be specified). Further:</p>
+<ul>
+<li>If the <code>column_name</code> is specified, the table <code>table_name</code> must contain a column with the name specified by <code>column_name</code> of the same type as this column and with a <code>PRIMARY KEY</code> constraint. Also, for each row in this table, either this column is <code>NULL</code>, or there exists a row in table <code>table_name</code> with a matching value in the column <code>column_name</code>.</li>
+<li>If the <code>column_name</code> is not specified, the table <code>table_name</code> must have a primary key, which must be of the same type as this column. Also, for each row in this table, either this column is <code>NULL</code>, or there exists a row in table <code>table_name</code> with a matching primary key value.</li>
+</ul>
+<p>When the <code>column_name</code> is not specified, or equivalently, when it is the primary key of the table <code>table_name</code>, this column is called a <em>foreign key</em> (to table <code>table_name</code>).</p>
+</li>
+</ul>
+<h5 id="table-constraints">Table Constraints<a class="headerlink" href="#table-constraints" title="Permanent link">&#9668;</a></h5>
+<p>A table constraint is a constraint on an entire row of the table, rather than a single column. Table constraints are more general than column constraints; each <code>column_constraint</code> mentioned above can be equivalently stated as a <code>table_constraint</code>. However, table constraint also allows you to specify multi-column primary keys and references/foreign keys.</p>
+<p>The optional <code>table_constraint</code> list appears as a continuation of the <a href="#columns-and-their-types">column list</a>. Each <code>table_constraint</code> can be one of:</p>
+<ul>
+<li><code>PRIMARY KEY ( column_name [, ...] )</code>: The set of columns within the parenthesis the primary key of the table. As such, each of these columns can never be <code>NULL</code>, and the combined set of values of these columns must be unique across all the rows in the table. This constraint cannot be specified along with a <a href="#column-constraints"><code>PRIMARY KEY</code> column constraint</a>.</li>
+<li><code>FOREIGN KEY ( column_name [, ...] ) REFERENCES [location_name.]table_name [ ( column_name [, ...] ) ]</code>: The list of columns references the table <code>table_name</code>. The table with the name specified by <code>table_name</code> must be present in an underlying database system (if <code>table_name</code> is not unique across locations, the <code>location_name</code> must be specified). Further:<ul>
+<li>If the reference table's <code>column_name</code> list is specified, (a) it must have the same number of columns as the foreign key list, (b) the table <code>table_name</code> must contain each column in the reference list and these columns must collectively have a <code>PRIMARY KEY</code> constraint, and (c) each column of the reference list must have the same type as the corresponding column (i.e. at the same position) in the foreign key list. Also, for each row in this table, either some column in the foreign-key list is <code>NULL</code>, or there exists a row in table <code>table_name</code> with a matching set of values of the respective columns in the reference list.</li>
+<li>If the reference table's <code>column_name</code> list is not specified, the table <code>table_name</code> must have a primary key, which (a) must have the same number of columns as the foreign key list, and (b) each column of this primary key must have the same type as the corresponding column (i.e. at the same position) in the foreign key list. Also, for each row in this table, either some column in the foreign-key list is <code>NULL</code>, or there exists a row in table <code>table_name</code> with a matching set of values of the respective columns in the primary key.</li>
+</ul>
+</li>
+</ul>
+<p>Note that Sclera does not enforce the column or table constraints described above. Sclera passes on these constraints to the underlying database system, if possible, and it is the responsibility of the underlying database system to check for these constraints. Nevertheless, Sclera assumes that these constraints hold while querying the data in the tables. While creating tables on database systems which do not enforce such constraints, it is the responsibility of the <em>user</em> to make sure that these constraints hold while inserting rows into the table.</p>
+<p>This statement is restricted in comparison, but compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-createtable.html">PostgreSQL</a>.</p>
+<h4 id="creating-tables-with-query-results">Creating Tables with Query Results<a class="headerlink" href="#creating-tables-with-query-results" title="Permanent link">&#9668;</a></h4>
+<p>This variant of the <a href="#creating-empty-tables"><code>CREATE TABLE</code> statement</a> enables you to create a table, and populates it with the result of the given query. This is more efficient than performing the two tasks one after another, especially in transactional systems such as <a href="http://www.mysql.com">MySQL</a> and <a href="http://www.postgresql.org">PostgreSQL</a>. Also, this is sometimes more convenient because you need not specify the schema explicitly; if not specified, the schema is derived from the output schema of the given query.</p>
+<p>The standard syntax of the <code>CREATE TABLE AS</code> command is as follows:</p>
+<pre><code>CREATE [ { TEMPORARY | TEMP } ] TABLE [location_name.]table_name [ (
+  column_name data_type [ column_constraint [ ... ] ] [, ...]
+  [ , table_constraint [, ...] ]
+) ] AS select_expression
+</code></pre>
+<p>where <code>select_expression</code> is as <a href="#select-expression">described earlier</a>. This is almost identical to the <a href="#creating-empty-tables"><code>CREATE TABLE</code> syntax</a>, except the new <code>select_expression</code>, and that the schema description (column definitions, column and table constraint specifications) is now optional.</p>
+<p>Sclera generalizes this expression to accept a <a href="#table-expression"><code>table_expression</code></a> instead of a <code>select_expression</code>. The generalized syntax is:</p>
+<pre><code>CREATE [ { TEMPORARY | TEMP } ] TABLE [location_name.]table_name [ (
+  column_name data_type [ column_constraint [ ... ] ] [, ...]
+  [ , table_constraint [, ...] ]
+) ] AS table_expression
+</code></pre>
+<p>Note that since <code>select_expression</code> is a <code>table_expression</code>, statements in the standard syntax continues to be valid in this updated syntax.</p>
+<p>As in the case of <a href="#querying-data-using-generalized-table-expressions">queries</a>, this generalization simplifies the <code>CREATE TABLE AS</code> statements. </p>
+<p>For instance, you can say:</p>
+<pre><code>&gt; CREATE TABLE CUSTORDERS AS ORDERS JOIN CUSTOMERS USING (CUSTID);
+</code></pre>
+<p>instead of the standard:</p>
+<pre><code>&gt; CREATE TABLE CUSTORDERS AS SELECT * FROM ORDERS JOIN CUSTOMERS USING (CUSTID);
+</code></pre>
+<p>This statement is restricted in comparison, but compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-createtableas.html">PostgreSQL</a>.</p>
+<h3 id="inserting-rows-into-a-base-table">Inserting Rows into a Base Table<a class="headerlink" href="#inserting-rows-into-a-base-table" title="Permanent link">&#9668;</a></h3>
+<p>The <code>INSERT</code> statement inserts rows into an existing base table.</p>
+<p>The standard syntax of the <code>INSERT</code> statement is as follows:</p>
+<pre><code>INSERT INTO [location_name.]table_name [ ( column_name [, ...] ) ] (select_expression | values_expression)
+</code></pre>
+<p>Here, <code>table_name</code> is a base table at location <code>location_name</code>, into which the rows in the result of <code>select_expression</code> or <code>value_expression</code> will be inserted. The <code>select_expression</code> stands for the <a href="#select-expression"><code>SELECT</code> statement described earlier</a>, and the <code>value_expression</code> stands for the <a href="#from-values"><code>VALUES</code> clause discussed earlier</a>, possibly without the alias.</p>
+<p>In the above, the <code>location_name</code> can be omitted if <code>table_name</code> is unique across locations.</p>
+<p>Sclera generalizes the syntax to:</p>
+<pre><code>INSERT INTO [location_name.]table_name [ ( column_name [, ...] ) ] table_expression
+</code></pre>
+<p>wherein the <code>select_expression</code> or <code>value_expression</code> have been replaced with <a href="#table-expression"><code>table_expression</code></a>. <a href="#table-expression">Recall</a> that a <code>select_expression</code> or a <code>value_expression</code> is a <code>table_expression</code> as well; so the standard syntax continues to be valid. </p>
+<p>The optional <code>column_name</code> explicitly lists the table columns; each column in the list must be present in the table schema. If this list is not specified, it is taken to be the list of columns in the schema of the table <code>table_name</code>, in the order in which they were listed while creating the table. Given this explicit/implicit list, the following should hold:</p>
+<ul>
+<li>It must have the same number of columns as the result of the <code>table_expression</code>.</li>
+<li>For each column in the list, the type of a column in the table <code>table_name</code> must be compatible with the type of the corresponding (i.e. at the same position) column in the result.</li>
+</ul>
+<p>If the <code>column_name</code> list is explicitly specified, any column in the table <code>table_name</code> which does not appear in the list gets a <code>NULL</code> for every row inserted.</p>
+<p>This statement is restricted in comparison, but compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-insert.html">PostgreSQL</a>.</p>
+<h3 id="updating-rows-in-a-base-table">Updating Rows in a Base Table<a class="headerlink" href="#updating-rows-in-a-base-table" title="Permanent link">&#9668;</a></h3>
+<p>The <code>UPDATE</code> statement updates the value of one or more columns in rows in a base table.</p>
+<p>The syntax supported in Sclera is as follows:</p>
+<pre><code>UPDATE [location_name.]table_name
+SET { column_name = scalar_expression } [, ...]
+[ WHERE condition ]
+</code></pre>
+<p>Here, <code>table_name</code> is the name of the table to be updated. The table must exist at the location <code>location_name</code>.  The <code>location_name</code> can be omitted if <code>table_name</code> is unique across locations.</p>
+<p>The optional <code>WHERE</code> clause specifies the <code>condition</code> (a boolean-valued <a href="#scalar-expressions"><code>scalar_expression</code></a>) that a row in the table must satisfy to be eligible for the update; rows that do not satisfy this condition are left unchanged. If the <code>WHERE</code> clause is not present, the update applies to all rows in the table.</p>
+<p>The update to a row is specified by the <code>SET</code> clause, which contains a comma-separated list of "assignments". Each assignment specifies that given an eligible row, the column with the name specified by <code>column_name</code> should get the value obtained by evaluation of the <code>scalar_expression</code> on that row. The update proceeds by executing the specified list of assignments on each eligible row.</p>
+<p>This syntax is compatible with the SQL standard, but is a restricted version of the syntax supported in <a href="http://www.postgresql.org/docs/current/static/sql-update.html">PostgreSQL</a>.</p>
+<h3 id="deleting-rows-in-a-base-table">Deleting Rows in a Base Table<a class="headerlink" href="#deleting-rows-in-a-base-table" title="Permanent link">&#9668;</a></h3>
+<p>The <code>DELETE</code> statement deletes rows in a base table.</p>
+<p>The syntax supported in Sclera is as follows:</p>
+<pre><code>DELETE FROM [location_name.]table_name
+[ WHERE condition ]
+</code></pre>
+<p>Here, <code>table_name</code> is the name of the table from which rows are to be deleted. The table must exist at the location <code>location_name</code>.  The <code>location_name</code> can be omitted if <code>table_name</code> is unique across locations.</p>
+<p>The optional <code>WHERE</code> clause specifies the <code>condition</code> (a boolean-valued <a href="#scalar-expressions"><code>scalar_expression</code></a>) that a row in the table must satisfy to be eligible for deletion; rows that do not satisfy this condition are left unchanged. If the <code>WHERE</code> clause is not present, all rows in the table are deleted.</p>
+<p>This syntax is a restricted version of that supported in the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-delete.html">PostgreSQL</a>.</p>
+<h3 id="dropping-base-tables">Dropping Base Tables<a class="headerlink" href="#dropping-base-tables" title="Permanent link">&#9668;</a></h3>
+<p>The <code>DROP TABLE</code> statement drops a base table from Sclera as well as the underlying database system.</p>
+<p>This statement is similar to the <a href="../../setup/dbms/#removing-database-tables"><code>REMOVE TABLE</code> statement</a>. However, <code>REMOVE TABLE</code> only removes the metadata of the named table from Sclera; it does not drop the table from the underlying data store. <code>DROP TABLE</code> remove the table's metadata from Sclera and also drops the table from the underlying datastore.</p>
+<p>The syntax supported in Sclera is as follows:</p>
+<pre><code>    DROP TABLE [location_name.]table_name
+</code></pre>
+<p>Here, <code>table_name</code> is the name of the table to be dropped. The table must exist at the location <code>location_name</code>.  The <code>location_name</code> can be omitted if <code>table_name</code> is unique across locations.</p>
+<p>This syntax is a restricted version of that supported in the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-droptable.html">PostgreSQL</a>.</p>
+<h2 id="views">Views<a class="headerlink" href="#views" title="Permanent link">&#9668;</a></h2>
+<p>A view is a SQL query with the appearance of a <em>read-only</em> table. A view can be used as a base table in any <a href="#table-expression">query</a>. But, unlike a base table, a view does not contain any real data; it is just a placeholder for the associated query.</p>
+<h3 id="creating-views">Creating Views<a class="headerlink" href="#creating-views" title="Permanent link">&#9668;</a></h3>
+<p>The standard <code>CREATE VIEW</code> statement has the following syntax:</p>
+<pre><code>CREATE [ TEMP | TEMPORARY ] VIEW view_name AS select_expression
+</code></pre>
+<p>Sclera generalizes the <a href="#select-expression"><code>select_expression</code></a> to a <a href="#table-expression"><code>table_expression</code></a>, resulting in:</p>
+<pre><code>CREATE [ TEMP | TEMPORARY ] VIEW view_name AS table_expression
+</code></pre>
+<p>This statement creates a view with the specified <code>view_name</code> and associates it with the query given by <code>table_expression</code>. Notice the similarity with the <a href="#creating-tables-with-query-results"><code>CREATE TABLE AS</code> statement</a>.</p>
+<p>The optional <code>TEMPORARY</code> or <code>TEMP</code> modifier creates a view that exists for the duration of the Sclera session only. When the session ends, the view is deleted and its metadata is removed from Sclera's metadata store.</p>
+<p>Unlike a base table, a view is not attached to a <a href="../../setup/dbms/#location">location</a>; this is because the underlying query (specified by the <code>table_expression</code> above) can span multiple locations.</p>
+<p>This statement is restricted in comparison, but compliant with the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-createview.html">PostgreSQL</a>.</p>
+<h3 id="dropping-views">Dropping Views<a class="headerlink" href="#dropping-views" title="Permanent link">&#9668;</a></h3>
+<p>The <code>DROP VIEW</code> statement drops a view from Sclera.</p>
+<p>The syntax supported in Sclera is as follows:</p>
+<pre><code>DROP VIEW view_name
+</code></pre>
+<p>Here, <code>view_name</code> is the name of the view to be dropped.</p>
+<p>This syntax is compatible with the SQL standard and is a restricted version of that supported in <a href="http://www.postgresql.org/docs/current/static/sql-dropview.html">PostgreSQL</a>.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sqlintro/" title="ScleraSQL Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                ScleraSQL Introduction
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sqlcrosstab/" title="Using Cross-Tabulation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Using Cross-Tabulation
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2012 - 2020 Sclera, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/scleradb" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/scleradb" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/sclera-inc-" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

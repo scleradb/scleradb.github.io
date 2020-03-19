@@ -1,6 +1,5 @@
 target/
 bak/
-/docs
 *.log
 *.swp
 *.bak

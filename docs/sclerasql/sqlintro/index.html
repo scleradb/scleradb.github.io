@@ -1,0 +1,846 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Sclera and its plugins">
+      
+      
+        <link rel="canonical" href="https://www.scleradb.com/sclerasql/sqlintro/">
+      
+      
+        <meta name="author" content="Sclera, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>ScleraSQL Introduction - Sclera Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CCourier+Prime&display=fallback">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier Prime","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../../images/icons/site.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../../css/docs.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Sclera Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                ScleraSQL Introduction
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
+      
+    </a>
+    Sclera Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Documentation Contents" class="md-nav__link">
+      Documentation Contents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/whysclera/" title="Why Sclera?" class="md-nav__link">
+      Why Sclera?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/technical/" title="Technical Details" class="md-nav__link">
+      Technical Details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/components/" title="Components Reference" class="md-nav__link">
+      Components Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/install/" title="Installation Reference" class="md-nav__link">
+      Installation Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/dbms/" title="Data Platform Connection Reference" class="md-nav__link">
+      Data Platform Connection Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/configuration/" title="Configuration Reference" class="md-nav__link">
+      Configuration Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      ScleraSQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ScleraSQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexamples/" title="ScleraSQL Examples" class="md-nav__link">
+      ScleraSQL Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="ScleraSQL Introduction" class="md-nav__link md-nav__link--active">
+      ScleraSQL Introduction
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlregular/" title="Standard SQL" class="md-nav__link">
+      Standard SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcrosstab/" title="Using Cross-Tabulation" class="md-nav__link">
+      Using Cross-Tabulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextordered/" title="Processing Ordered Data" class="md-nav__link">
+      Processing Ordered Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlseqalign/" title="Sequence Alignment" class="md-nav__link">
+      Sequence Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextarg/" title="Selecting the Optimal" class="md-nav__link">
+      Selecting the Optimal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextml/" title="Using Machine Learning" class="md-nav__link">
+      Using Machine Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcleaning/" title="Data Cleaning" class="md-nav__link">
+      Data Cleaning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexttext/" title="Using Text Analytics" class="md-nav__link">
+      Using Text Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextdataaccess/" title="External Data Access" class="md-nav__link">
+      External Data Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlmisc/" title="Miscellaneous Information" class="md-nav__link">
+      Miscellaneous Information
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interface
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interface
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/shell/" title="Command Line Shell Reference" class="md-nav__link">
+      Command Line Shell Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/jdbc/" title="Embedded JDBC Reference" class="md-nav__link">
+      Embedded JDBC Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sclera Extensions SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sclera Extensions SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkintro/" title="Extensions SDK Introduction" class="md-nav__link">
+      Extensions SDK Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdataaccess/" title="Data Access Plugins" class="md-nav__link">
+      Data Access Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdbms/" title="Database System Plugins" class="md-nav__link">
+      Database System Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextml/" title="Machine Learning Library Plugins" class="md-nav__link">
+      Machine Learning Library Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkexttext/" title="Text Analytics Library Plugins" class="md-nav__link">
+      Text Analytics Library Plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Acknowledgements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Acknowledgements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/dependencies/" title="Component Third Party Dependencies" class="md-nav__link">
+      Component Third Party Dependencies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/licenses/" title="Component Licenses" class="md-nav__link">
+      Component Licenses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>ScleraSQL Introduction</h1>
+                
+                <p>This section introduces the SQL constructs -- standard and proprietary -- supported by Sclera. Detailed documentation on these constructs, including the syntax and example usage, appear in the later sections; please follow the links in the descriptions below.</p>
+<p>The SQL constructs supported by Sclera come in the following flavors:</p>
+<p><strong><a href="../sqlregular/">Regular SQL constructs</a></strong>
+These standard constructs enable you to create, populate, query, update and delete base tables. Sclera supports a large subset of standard SQL. In addition, Sclera makes the language modern and succint by adding shortcuts to several commonly used constructs.</p>
+<p>See the <a href="../sqlregular/">detailed documentation</a> for further information.</p>
+<p><strong><a href="../sqlcrosstab/">SQL extensions for Cross-tabulation</a></strong>
+These constructs are used to convert data in multiple rows to columns in a single row (<code>PIVOT</code>), and vice-versa (<code>UNPIVOT</code>).</p>
+<p>The semantics of these functions is the same as in <a href="http://www.oracle.com/technetwork/articles/sql/11g-pivot-097235.html">Oracle 11g</a> and <a href="http://goo.gl/gzzBgK">MS SQL Server 2008</a>, but with a slightly modified (in our opinion, simplified) syntax.</p>
+<p>See the <a href="../sqlcrosstab/">detailed documentation</a> for further information.</p>
+<p><strong><a href="../sqlextdataaccess/">SQL extensions for ad-hoc external data access</a></strong>
+These extensions enable you to access external data -- on-disk or streaming, local or over the internet -- from within SQL.</p>
+<p>See the <a href="../sqlextdataaccess/">detailed documentation</a> for further information.</p>
+<p>Note that Sclera's connectivity to external data sources is not limited to the above -- Sclera includes an SDK that can be used to develop extensions for arbitrary external datasources.  The <a href="../../sdk/sdkintro/">Sclera Connector Development SDK</a> document describes the SDK and includes working examples.</p>
+<p><strong><a href="../sqlextordered/">SQL extensions for processing ordered data</a></strong>
+These extensions enable powerful constructs that simplify processing of ordered data.</p>
+<p>The features include immediate access to prior tuples and running aggregates, input splitting based on positional criteria, regular expression matches across rows, and much more -- available without any materialization and with bounded memory overheads. These features eliminate the need of self-joins in most queries, leading to orders of magnitude gains in query performance.</p>
+<p>Furthermore, given the single-pass processing with minimal memory overheads, these constructs can be used to process streaming data as well.</p>
+<p>See the <a href="../sqlextordered/">detailed documentation</a> for further information.</p>
+<!--
+**[SQL extension for pattern learning and predictive analytics on ordered data](../sclerasql/sqlextpred.md)**
+This extension learns a state machine from ordered datasets. This state machine can be seen as a statistical summary of the underlying events, and can be used to mine insights or predict future events.
+
+A simple example is mining of visitor flow from a website clickstream, and predicting the next page a visitor may visit based on the past behavior.
+
+See the [detailed documentation](../sclerasql/sqlextpred.md) for further information.
+-->
+
+<p><strong><a href="../sqlextml/">SQL extensions for machine learning</a></strong>
+These extensions enable you to incorporate <a href="http://en.wikipedia.org/wiki/Statistical_classification">classification</a>, <a href="http://en.wikipedia.org/wiki/Cluster_analysis">clustering</a> and <a href="http://en.wikipedia.org/wiki/Association_rule_learning">association rule learning</a> in your SQL queries. Sclera interfaces with well-established external libraries (currently <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a>) for the task; the query can optionally specify the specific library to use, the specific algorithm within the library and the associated parameter values.</p>
+<p>See the <a href="../sqlextml/">detailed documentation</a> for further information.</p>
+<p><strong><a href="../sqlexttext/">SQL extensions for text analytics</a></strong>
+This extension enables Sclera to <a href="http://en.wikipedia.org/wiki/Named-entity_recognition">identify and extract named entities</a> from free-form text present in a table column.</p>
+<p>A simple example is extracting person names, product names and locations from customer tweets; the extracted information can be used by companies to join with the "structured" customer and product data; this enriched data can be analyzed using the extensions mentioned earlier for helpful insights.</p>
+<p>See the <a href="../sqlexttext/">detailed documentation</a> for further information.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sqlexamples/" title="ScleraSQL Examples" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                ScleraSQL Examples
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sqlregular/" title="Standard SQL" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Standard SQL
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2012 - 2020 Sclera, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/scleradb" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/scleradb" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/sclera-inc-" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

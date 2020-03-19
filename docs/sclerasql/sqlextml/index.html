@@ -1,0 +1,1197 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Sclera and its plugins">
+      
+      
+        <link rel="canonical" href="https://www.scleradb.com/sclerasql/sqlextml/">
+      
+      
+        <meta name="author" content="Sclera, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Using Machine Learning - Sclera Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CCourier+Prime&display=fallback">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier Prime","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../../images/icons/site.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../../css/docs.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#classification" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Sclera Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Using Machine Learning
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
+      
+    </a>
+    Sclera Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Documentation Contents" class="md-nav__link">
+      Documentation Contents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/whysclera/" title="Why Sclera?" class="md-nav__link">
+      Why Sclera?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/technical/" title="Technical Details" class="md-nav__link">
+      Technical Details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/components/" title="Components Reference" class="md-nav__link">
+      Components Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/install/" title="Installation Reference" class="md-nav__link">
+      Installation Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/dbms/" title="Data Platform Connection Reference" class="md-nav__link">
+      Data Platform Connection Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../setup/configuration/" title="Configuration Reference" class="md-nav__link">
+      Configuration Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      ScleraSQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ScleraSQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexamples/" title="ScleraSQL Examples" class="md-nav__link">
+      ScleraSQL Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlintro/" title="ScleraSQL Introduction" class="md-nav__link">
+      ScleraSQL Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlregular/" title="Standard SQL" class="md-nav__link">
+      Standard SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcrosstab/" title="Using Cross-Tabulation" class="md-nav__link">
+      Using Cross-Tabulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextordered/" title="Processing Ordered Data" class="md-nav__link">
+      Processing Ordered Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlseqalign/" title="Sequence Alignment" class="md-nav__link">
+      Sequence Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextarg/" title="Selecting the Optimal" class="md-nav__link">
+      Selecting the Optimal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Using Machine Learning
+      </label>
+    
+    <a href="./" title="Using Machine Learning" class="md-nav__link md-nav__link--active">
+      Using Machine Learning
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classification" class="md-nav__link">
+    Classification
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classifier-training" class="md-nav__link">
+    Classifier Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-application" class="md-nav__link">
+    Classifier Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    Clustering
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clusterer-training" class="md-nav__link">
+    Clusterer Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusterer-application" class="md-nav__link">
+    Clusterer Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-syntax-for-using-specific-libraries-and-algorithms" class="md-nav__link">
+    Extended Syntax for Using Specific Libraries and Algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-syntax-for-classification" class="md-nav__link">
+    Extended Syntax for Classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-syntax-for-clustering" class="md-nav__link">
+    Extended Syntax for Clustering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlcleaning/" title="Data Cleaning" class="md-nav__link">
+      Data Cleaning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlexttext/" title="Using Text Analytics" class="md-nav__link">
+      Using Text Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlextdataaccess/" title="External Data Access" class="md-nav__link">
+      External Data Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlmisc/" title="Miscellaneous Information" class="md-nav__link">
+      Miscellaneous Information
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interface
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interface
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/shell/" title="Command Line Shell Reference" class="md-nav__link">
+      Command Line Shell Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/jdbc/" title="Embedded JDBC Reference" class="md-nav__link">
+      Embedded JDBC Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sclera Extensions SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sclera Extensions SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkintro/" title="Extensions SDK Introduction" class="md-nav__link">
+      Extensions SDK Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdataaccess/" title="Data Access Plugins" class="md-nav__link">
+      Data Access Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdbms/" title="Database System Plugins" class="md-nav__link">
+      Database System Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextml/" title="Machine Learning Library Plugins" class="md-nav__link">
+      Machine Learning Library Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkexttext/" title="Text Analytics Library Plugins" class="md-nav__link">
+      Text Analytics Library Plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Acknowledgements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Acknowledgements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/dependencies/" title="Component Third Party Dependencies" class="md-nav__link">
+      Component Third Party Dependencies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/licenses/" title="Component Licenses" class="md-nav__link">
+      Component Licenses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classification" class="md-nav__link">
+    Classification
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classifier-training" class="md-nav__link">
+    Classifier Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-application" class="md-nav__link">
+    Classifier Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    Clustering
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clusterer-training" class="md-nav__link">
+    Clusterer Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusterer-application" class="md-nav__link">
+    Clusterer Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-syntax-for-using-specific-libraries-and-algorithms" class="md-nav__link">
+    Extended Syntax for Using Specific Libraries and Algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-syntax-for-classification" class="md-nav__link">
+    Extended Syntax for Classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-syntax-for-clustering" class="md-nav__link">
+    Extended Syntax for Clustering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Using Machine Learning</h1>
+                
+                <p>Sclera provides machine learning via first-class constructs in SQL. You can create objects such as classifiers and clusterers as easily as you create tables -- using a single <code>CREATE ... AS</code> statement. Further, Sclera provides SQL operators that enable classification/clustering of rows as a part of a SQL query.</p>
+<p>Off the shelf libraries such as <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a> enable you to write applications with embedded machine learning. But to use these libraries without Sclera, you need to learn the proprietary APIs, and write code that complies with the same. This takes a lot of preparation and background, and is highly disruptive.</p>
+<p>Sclera provides a set of machine learning operators; these are a part of the SQL language, just like <code>JOIN</code>, <code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code>, <code>HAVING</code> and <code>LIMIT</code> in regular SQL. These new operators are evaluated by calling the analytics library of choice -- reformatting the data, calling the right API functions, collating and reformatting the results and all the other boilerplate happens automatically, behind the scenes.</p>
+<p>The result is a highly compact "declarative" way of doing analytics, something that you can get started on almost immediately if you know basic SQL.</p>
+<h2 id="classification">Classification<a class="headerlink" href="#classification" title="Permanent link">&#9668;</a></h2>
+<p>Consider a table <code>survey</code> with columns:</p>
+<pre><code>age int
+gender char(1)
+region char(4)
+income real
+married boolean
+children int
+car boolean
+save_act boolean
+current_act boolean
+mortgage boolean
+isinterested boolean
+</code></pre>
+<p>This table contains data from a customer survey, with one row per response. Apart from the customer attributes, it includes a column <code>isinterested</code> on whether or not the customer is interested in your product.</p>
+<p>Now, suppose you want to consider a new group of people and identify which of them might be interested in your product versus not.</p>
+<p>A <a href="http://en.wikipedia.org/wiki/Statistical_classification">classifier</a> is the right tool to help you do this. A classifier estimates the value of a discrete-valued "target" variable given the values of certain "feature" variables. The classifier can be trained given the sample target and feature values for a set of sample instances, called the "training data".</p>
+<p>In the example above, the table <code>survey</code> is the training data; each row in the table (representing a unique customer) is a data instance, with the column <code>isinterested</code> as the target variable and the other columns as the feature variables.</p>
+<p>The trained classifier can be used to "classify" new data instances -- that is, estimate target values given the feature values in these data instances. In terms of the example, this means identifying the value of <code>isinterested</code> for a new customer, which is what we started out to do.</p>
+<p>In this section, we show <a href="#classifier-training">how to train classifiers</a> in Sclera, and <a href="#classifier-application">use them to classify new data instances</a> within a SQL query.</p>
+<h3 id="classifier-training">Classifier Training<a class="headerlink" href="#classifier-training" title="Permanent link">&#9668;</a></h3>
+<p>The formal syntax for creating a classifier is as follows:</p>
+<pre><code>CREATE [ { TEMPORARY | TEMP } ] CLASSIFIER classifier_name ( target_column_name ) USING table_expression
+</code></pre>
+<p>This creates a classifier with the name specified by <code>classifier_name</code>. The classifier is trained using the result of the <a href="../sqlregular/#table-expression">table expression</a> <code>table_expression</code>, with the column with the name specified by <code>target_column_name</code> as the target, and all the remaining columns in the result as features. The optional <code>TEMPORARY</code> (shortened form: <code>TEMP</code>) modifier creates a classifier that exists for the duration of the Sclera session only; when the session ends, the classifier is deleted.</p>
+<p>Notice the similarity with the <a href="#creating-tables-with-query-results"><code>CREATE TABLE AS</code> statement</a>.</p>
+<p>In our running example, the following creates the classifier <code>myclassifier</code> and trains it on the table <code>survey</code>, with the column <code>isinterested</code> as target and the other columns as features:</p>
+<pre><code>&gt; CREATE CLASSIFIER myclassifier(isinterested) USING survey;
+</code></pre>
+<p>After the classifier is created, you can see the classifier description using the <a href="../../interface/shell/#describe"><code>DESCRIBE</code> command</a>:</p>
+<pre><code>&gt; DESCRIBE myclassifier;
+</code></pre>
+<h3 id="classifier-application">Classifier Application<a class="headerlink" href="#classifier-application" title="Permanent link">&#9668;</a></h3>
+<p>The <a href="#classifier-training">classifier training</a> learns a function that estimates the value of the target column given the values of the feature columns. Applying the classifier on a table involves computing this function on each row of the table.</p>
+<p>This feature introduces a new <a href="../sqlregular/#table-expression">table expression</a> with the following syntax:</p>
+<pre><code>table_expression CLASSIFIED WITH classifier_name ( class_column_name )
+</code></pre>
+<p>In this expression, the classifier with the name specified by <code>classifier_name</code> is used to classify the rows in the result of the <a href="../sqlregular/#table-expression">table expression</a> <code>table_expression</code>, which must include all the feature columns present in the data on which the <a href="#classifier-training">classifier was trained</a> (it can include additional columns).</p>
+<p>The result contains one row per input row. Each row contains all the columns in the input <code>table_expressions</code> and a new column, with the name as specified in <code>class_column_name</code>, containing the classifier output -- which is the classifier's estimate of the target variable given the feature values in the row.</p>
+<p>Continuing our example, consider a new table <code>profiles</code> containing profile of a new group of people. The table <code>profiles</code> includes all the feature columns in of the classifier <code>myclassifier</code>.</p>
+<p>We apply the classifier as follows:</p>
+<pre><code>&gt; profiles CLASSIFIED WITH myclassifier(isprospect);
+</code></pre>
+<p>The output is a table with all columns in <code>profiles</code>, and a new column <code>isprospect</code> which, for each row, contains the result of applying the classifier function given the feature column values in that row.</p>
+<p>This expression can be used in a query just like a table or a view. For instance, the following query gives the count of the prospects and non-prospects in the <code>profiles</code> table.</p>
+<pre><code>&gt; SELECT isprospect, COUNT(*)
+  FROM (profiles CLASSIFIED WITH myclassifier(isprospect))
+  GROUP BY isprospect;
+</code></pre>
+<h2 id="clustering">Clustering<a class="headerlink" href="#clustering" title="Permanent link">&#9668;</a></h2>
+<p>Consider a table <code>customers</code>, with one row per customer, and columns:</p>
+<pre><code>age int
+income real
+married boolean
+children int
+car boolean
+</code></pre>
+<p>To understand your customers better, you may want to group these customers based on similarity across these attributes. Note that, unlike the classifier, we do not have a apriori input on these groups; there is no "target", and all the columns in the input are "feature" columns.</p>
+<p>A <a href="http://en.wikipedia.org/wiki/Cluster_analysis">clusterer</a> is the right tool for this task. A clusterer maps data instances to one among a finite set of "clusters", such that data instances with similar features belong to the same cluster, and data instances with dissimilar features belong to different clusters. The clusterer can be trained given the feature values of a set of representative data instances, called the "training data".</p>
+<p>In the example above, the table <code>customers</code> is the training data; each row in the table (representing a unique customer) is a data instance, with the columns as the feature variables. In business terminology, the clusters are <a href="http://en.wikipedia.org/wiki/Market_segment">market segments</a>, and this task is an instance of <a href="http://en.wikipedia.org/wiki/Market_segmentation">market segmentation</a>.</p>
+<p>The trained clusterer can be used to assign the data instances to clusters. Since these data instances are assumed to be representative, we can use the same clusterer to map additional customers to clusters. In terms of the example, this means identifying the right market segment for a new customer.</p>
+<p>In this section, we show <a href="#clusterer-training">how to train clusterers</a> in Sclera, and <a href="#clusterer-application">use them to assign clusters to new data instances</a> within a SQL query.</p>
+<h3 id="clusterer-training">Clusterer Training<a class="headerlink" href="#clusterer-training" title="Permanent link">&#9668;</a></h3>
+<p>The formal syntax for creating a classifier is as follows:</p>
+<pre><code>CREATE [ { TEMPORARY | TEMP } ] CLUSTERER clusterer_name USING table_expression
+</code></pre>
+<p>This creates a classifier with the name specified by <code>clusterer_name</code>. The clusterer is trained using the result of the <a href="../sqlregular/#table-expression">table expression</a> <code>table_expression</code>, with all the columns in the result as features. The optional <code>TEMPORARY</code> (shortened form: <code>TEMP</code>) modifier creates a clusterer that exists for the duration of the Sclera session only; when the session ends, the clusterer is deleted.</p>
+<p>Notice the similarity with the <a href="#creating-tables-with-query-results"><code>CREATE TABLE AS</code> statement</a> and <a href="#classifier-training"><code>CREATE CLASSIFIER</code> statement</a>.</p>
+<p>In our running example, the following creates the clusterer <code>myclusterer</code> and trains it on the table <code>customers</code>:</p>
+<pre><code>&gt; CREATE CLUSTERER myclusterer USING customers;
+</code></pre>
+<p>After the clusterer is created, you can see the clusterer description using the <a href="../../interface/shell/#describe"><code>DESCRIBE</code> command</a>:</p>
+<pre><code>&gt; DESCRIBE myclusterer;
+</code></pre>
+<h3 id="clusterer-application">Clusterer Application<a class="headerlink" href="#clusterer-application" title="Permanent link">&#9668;</a></h3>
+<p>The <a href="#clusterer-training">clusterer training</a> learns a function that computes the cluster for a data instance given the values of all the feature columns. Applying the clusterer on a table involves computing this function on each row of the table.</p>
+<p>This feature introduces a new <a href="../sqlregular/#table-expression">table expression</a> with the following syntax:</p>
+<pre><code>table_expression CLUSTERED WITH clusterer_name ( cluster_column_name )
+</code></pre>
+<p>In this expression, the clusterer with the name specified by <code>clusterer_name</code> is used to assign clusters to the rows in the result of the <a href="../sqlregular/#table-expression">table expression</a> <code>table_expression</code>, which must include all the feature columns present in the data on which the <a href="#clusterer-training">clusterer was trained</a> (it can include additional columns).</p>
+<p>The result contains one row per input row. Each row contains all the columns in the input <code>table_expressions</code> and a new column, with the name as specified in <code>cluster_column_name</code>, containing the clusterer output.</p>
+<p>Continuing our example, the clusterer can be applied to the table used to train the clusterer (<code>customers</code> in the above example), or to any other table or output of a query, as long as it includes all the feature columns of the training data.</p>
+<p>We apply the clusterer to the table <code>customers</code> as follows:</p>
+<pre><code>&gt; customers CLUSTERED WITH myclusterer(clusterid);
+</code></pre>
+<p>The output is a table with all columns in <code>customers</code>, and a new column <code>clusterid</code> which, for each row, contains the id of the cluster (an integer) assigned to that row.</p>
+<p>This expression can be used in a query just like a table or a view. For instance, the following query gives the count of the customers in each cluster.</p>
+<pre><code>&gt; SELECT clusterid, COUNT(*)
+  FROM (customers CLUSTERED WITH myclusterer(clusterid))
+  GROUP BY clusterid;
+</code></pre>
+<p><a class="anchor" name="sclera-weka"></a></p>
+<h2 id="extended-syntax-for-using-specific-libraries-and-algorithms">Extended Syntax for Using Specific Libraries and Algorithms<a class="headerlink" href="#extended-syntax-for-using-specific-libraries-and-algorithms" title="Permanent link">&#9668;</a></h2>
+<p>The classifier/clusterer syntax above is agnostic of the underlying library. Sclera uses <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a> as the default library, and specific classification/clustering algorithms as default. The default library is specified in the <a href="../../setup/configuration/#sclera-service-default-mlservice">configuration file</a>, and can be changed if required to an alternative supported library and the algorithms therein.</p>
+<p>The <a href="../../setup/configuration/#sclera-service-default-mlservice">default library</a> can be overriden by explicitly mentioning the library (currently, <a href="http://www.cs.waikato.ac.nz/ml/weka/"><code>WEKA</code></a>) in the <code>CREATE</code> statements.</p>
+<p>Moreover, you can select the specific algorithms to use for classification/clustering, and even provide the parameters. The algorithm names and parameters depend on the specific library. Sclera does not interpret the specified algorithm parameters, and merely passes them on to the appropriate APIs of the chosen library.</p>
+<p>For instance, the following uses <code>FOOBARML</code> as the underlying library for creating the classifier (instead of the default, <a href="#classifier-training">as earlier</a>):</p>
+<pre><code>&gt; CREATE FOOBARML CLASSIFIER myclassifier(isinterested) USING survey;
+</code></pre>
+<p>(The above assumes that a <a href="../../sdk/sdkextml/">plugin for <code>FOOBAR</code></a> has been installed.)</p>
+<p>The following specifies the use of <a href="http://weka.sourceforge.net/doc.dev/weka/clusterers/SimpleKMeans.html"><code>SIMPLEKMEANS</code> algorithm</a> for clustering in Weka:</p>
+<pre><code>&gt; CREATE WEKA CLUSTERER("SIMPLEKMEANS") myclusterer USING customers;
+</code></pre>
+<p>To further specify cluster counts as 3 (overriding the default 2):</p>
+<pre><code>&gt; CREATE WEKA CLUSTERER("SIMPLEKMEANS", "-N 3") myclusterer USING customers;
+</code></pre>
+<p>The extended formal syntax for classification/clustering, incorporating these overrides, is discussed below.</p>
+<h3 id="extended-syntax-for-classification">Extended Syntax for Classification<a class="headerlink" href="#extended-syntax-for-classification" title="Permanent link">&#9668;</a></h3>
+<p>The extended formal syntax for creating a classifier is as follows:</p>
+<pre><code>CREATE [ { TEMPORARY | TEMP } ] [ library_name ] CLASSIFIER [ ( algorithm_name [ , algorithm_options ] ) ] classifier_name ( target_column_name ) USING table_expression
+</code></pre>
+<ul>
+<li>The optional <code>library_name</code> specifies the machine learning library to use for the task.<ul>
+<li>If not specified, the <code>WEKA</code> is used (this default can be modified using the <a href="../../setup/configuration/#sclera-service-default-mlservice"><code>sclera.service.default.mlservice</code> configuration parameter</a>).</li>
+</ul>
+</li>
+<li>The optional <code>algorithm_name</code> identifies the algorithm to be used in training the classifier.<ul>
+<li>The following are supported: for <code>WEKA</code>:<ul>
+<li><code>J48</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/J48.html">documentation</a>)</li>
+<li><code>HOEFFDINGTREE</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/HoeffdingTree.html">documentation</a>)</li>
+<li><code>LMT</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/LMT.html">documentation</a>)</li>
+<li><code>M5P</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/M5P.html">documentation</a>)</li>
+<li><code>RANDOMFOREST</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/RandomForest.html">documentation</a>)</li>
+<li><code>REPTREE</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/REPTree.html">documentation</a>)</li>
+<li><code>CLASSIFICATIONVIAREGRESSION</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/meta/ClassificationViaRegression.html">documentation</a>)</li>
+<li><code>DECISIONTABLE</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/rules/DecisionTable.html">documentation</a>)</li>
+<li><code>M5RULES</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/rules/M5Rules.html">documentation</a>)</li>
+<li><code>ONER</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/rules/OneR.html">documentation</a>)</li>
+<li><code>LOGISTIC</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/functions/Logistic.html">documentation</a>)</li>
+<li><code>NAIVEBAYES</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/classifiers/bayes/NaiveBayes.html">documentation</a>)</li>
+</ul>
+</li>
+<li>If not specified, <code>J48</code> (for <code>WEKA</code>) is used as the default.</li>
+</ul>
+</li>
+<li>The optional <code>algorithm_options</code> provides the configuration options (parameters) for the algorithm identified by <code>algorithm_name</code>.<ul>
+<li>These options are passed as a <em>single</em> string, just as in a command line.</li>
+<li>Please refer to the Weka documentation the respective algorithms, linked above, for details of the accepted options and defaults.</li>
+<li>If not specified, the default parameters for the specified algorithm are used.</li>
+</ul>
+</li>
+<li>Remaining parameters are as in the <a href="#classifier-training">abridged syntax</a> discussed earlier.</li>
+</ul>
+<h3 id="extended-syntax-for-clustering">Extended Syntax for Clustering<a class="headerlink" href="#extended-syntax-for-clustering" title="Permanent link">&#9668;</a></h3>
+<p>The extended formal syntax for creating an clusterer is as follows:</p>
+<pre><code>CREATE [ { TEMPORARY | TEMP } ] [ library_name ] CLUSTERER [ ( algorithm_name [ , algorithm_options ] ) ] clusterer_name USING table_expression
+</code></pre>
+<ul>
+<li>The optional <code>library_name</code> specifies the machine learning library to use for the task.<ul>
+<li>In the current version, only <code>WEKA</code> is accepted as Sclera currently only interfaces with <a href="http://www.cs.waikato.ac.nz/ml/weka">Weka</a> for clustering.</li>
+<li>If not specified, <code>WEKA</code> is used (this default can be modified using the <a href="../../setup/configuration/#sclera-service-default-mlservice"><code>sclera.service.default.mlservice</code> configuration parameter</a>).</li>
+</ul>
+</li>
+<li>The optional <code>algorithm_name</code> identifies the algorithm to be used in training the clusterer.<ul>
+<li>The following are supported for <code>WEKA</code>:<ul>
+<li><code>SIMPLEKMEANS</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/clusterers/SimpleKMeans.html">documentation</a>)</li>
+<li><code>COBWEB</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/clusterers/Cobweb.html">documentation</a>)</li>
+<li><code>EM</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/clusterers/EM.html">documentation</a>)</li>
+<li><code>FARTHESTFIRST</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/clusterers/FarthestFirst.html">documentation</a>)</li>
+<li><code>HIERARCHICAL</code> (<a href="http://weka.sourceforge.net/doc.dev/weka/clusterers/HierarchicalClusterer.html">documentation</a>)</li>
+</ul>
+</li>
+<li>If not specified, <code>SIMPLEKMEANS</code> is used as the default.</li>
+</ul>
+</li>
+<li>The optional <code>algorithm_options</code> provides the configuration options (parameters) for the algorithm identified by <code>algorithm_name</code>.<ul>
+<li>These options are passed as a <em>single</em> string, just as in a command line.</li>
+<li>Please refer to the Weka documentation the respective algorithms, linked above, for details of the accepted options and defaults.</li>
+<li>If not specified, the default parameters for the specified algorithm are used.</li>
+</ul>
+</li>
+<li>Remaining parameters are as in the <a href="#clusterer-training">abridged syntax</a> discussed earlier.</li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sqlextarg/" title="Selecting the Optimal" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Selecting the Optimal
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sqlcleaning/" title="Data Cleaning" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Data Cleaning
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2012 - 2020 Sclera, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/scleradb" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/scleradb" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/sclera-inc-" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1142 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Sclera and its plugins">
+      
+      
+        <link rel="canonical" href="https://www.scleradb.com/setup/dbms/">
+      
+      
+        <meta name="author" content="Sclera, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/icons/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Data Platform Connection Reference - Sclera Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CCourier+Prime&display=fallback">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier Prime","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../../images/icons/site.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../../css/docs.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#connecting-to-database-systems" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Sclera Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Data Platform Connection Reference
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
+      
+    </a>
+    Sclera Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Documentation Contents" class="md-nav__link">
+      Documentation Contents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/whysclera/" title="Why Sclera?" class="md-nav__link">
+      Why Sclera?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/technical/" title="Technical Details" class="md-nav__link">
+      Technical Details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../components/" title="Components Reference" class="md-nav__link">
+      Components Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Installation Reference" class="md-nav__link">
+      Installation Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Data Platform Connection Reference
+      </label>
+    
+    <a href="./" title="Data Platform Connection Reference" class="md-nav__link md-nav__link--active">
+      Data Platform Connection Reference
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-database-systems" class="md-nav__link">
+    Connecting to Database Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-oracle" class="md-nav__link">
+    Connecting to Oracle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-mysql" class="md-nav__link">
+    Connecting to MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-postgresql" class="md-nav__link">
+    Connecting to PostgreSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-heroku-postgres" class="md-nav__link">
+    Connecting to Heroku Postgres
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-input-of-property-values" class="md-nav__link">
+    Interactive Input of Property Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-write-versus-read-only-mode" class="md-nav__link">
+    Read-Write versus Read-Only Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-connected-platforms" class="md-nav__link">
+    Removing Connected Platforms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-database-tables" class="md-nav__link">
+    Importing Database Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-database-tables" class="md-nav__link">
+    Removing Database Tables
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configuration/" title="Configuration Reference" class="md-nav__link">
+      Configuration Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      ScleraSQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ScleraSQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlexamples/" title="ScleraSQL Examples" class="md-nav__link">
+      ScleraSQL Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlintro/" title="ScleraSQL Introduction" class="md-nav__link">
+      ScleraSQL Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlregular/" title="Standard SQL" class="md-nav__link">
+      Standard SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlcrosstab/" title="Using Cross-Tabulation" class="md-nav__link">
+      Using Cross-Tabulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextordered/" title="Processing Ordered Data" class="md-nav__link">
+      Processing Ordered Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlseqalign/" title="Sequence Alignment" class="md-nav__link">
+      Sequence Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextarg/" title="Selecting the Optimal" class="md-nav__link">
+      Selecting the Optimal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextml/" title="Using Machine Learning" class="md-nav__link">
+      Using Machine Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlcleaning/" title="Data Cleaning" class="md-nav__link">
+      Data Cleaning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlexttext/" title="Using Text Analytics" class="md-nav__link">
+      Using Text Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlextdataaccess/" title="External Data Access" class="md-nav__link">
+      External Data Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sclerasql/sqlmisc/" title="Miscellaneous Information" class="md-nav__link">
+      Miscellaneous Information
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interface
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interface
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/shell/" title="Command Line Shell Reference" class="md-nav__link">
+      Command Line Shell Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interface/jdbc/" title="Embedded JDBC Reference" class="md-nav__link">
+      Embedded JDBC Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sclera Extensions SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sclera Extensions SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkintro/" title="Extensions SDK Introduction" class="md-nav__link">
+      Extensions SDK Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdataaccess/" title="Data Access Plugins" class="md-nav__link">
+      Data Access Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextdbms/" title="Database System Plugins" class="md-nav__link">
+      Database System Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkextml/" title="Machine Learning Library Plugins" class="md-nav__link">
+      Machine Learning Library Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdkexttext/" title="Text Analytics Library Plugins" class="md-nav__link">
+      Text Analytics Library Plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Acknowledgements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Acknowledgements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/dependencies/" title="Component Third Party Dependencies" class="md-nav__link">
+      Component Third Party Dependencies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ack/licenses/" title="Component Licenses" class="md-nav__link">
+      Component Licenses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-database-systems" class="md-nav__link">
+    Connecting to Database Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-oracle" class="md-nav__link">
+    Connecting to Oracle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-mysql" class="md-nav__link">
+    Connecting to MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-postgresql" class="md-nav__link">
+    Connecting to PostgreSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-heroku-postgres" class="md-nav__link">
+    Connecting to Heroku Postgres
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-input-of-property-values" class="md-nav__link">
+    Interactive Input of Property Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-write-versus-read-only-mode" class="md-nav__link">
+    Read-Write versus Read-Only Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-connected-platforms" class="md-nav__link">
+    Removing Connected Platforms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-database-tables" class="md-nav__link">
+    Importing Database Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-database-tables" class="md-nav__link">
+    Removing Database Tables
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Data Platform Connection Reference</h1>
+                
+                <p>Sclera enables a consolidated relational view of multiple underlying relational/non-relational data stores. We now describe how to connect your existing database systems to Sclera. This will enable you to seamlessly execute cross-platform computations via SQL, as discussed in the <a href="../../sclerasql/sqlregular/">ScleraSQL Reference</a> document.</p>
+<p>In the following, the keywords appear in upper case to distinguish them from the other terms; however, Sclera is case-insensitive and keywords in actual commands and queries can be in upper or lower case.</p>
+<h2 id="connecting-to-database-systems">Connecting to Database Systems<a class="headerlink" href="#connecting-to-database-systems" title="Permanent link">&#9668;</a></h2>
+<p>Sclera can connect to <a href="http://www.oracle.com">Oracle Database 11g Release 2+</a>, <a href="http://www.postgresql.org">PostgreSQL 9.1.2+</a>, and <a href="http://www.mysql.com">MySQL 5.5.28+</a> (and also MySQL-compatible systems such as <a href="https://cloud.google.com/sql">Google Cloud SQL</a>)</p>
+<p><a class="anchor" id="location"></a>In Sclera, a connected database system is called a <strong>location</strong>.</p>
+<p>A new location is added to Sclera using the <code>ADD LOCATION</code> command, which has the following syntax:</p>
+<pre><code>ADD [ READONLY ] LOCATION location_name AS location_dbms( location_database [ , connection_properties [, ...] ] )
+</code></pre>
+<ul>
+<li>The optional <code>READONLY</code> modifier flags the location as a read-only location; this is <a href="#read-write-versus-read-only-mode">explained later</a>.</li>
+<li>The mandatory <code>location_name</code> is a unique name given to the database system being added, for reference within Sclera.</li>
+<li>The mandatory <code>location_dbms</code> is the name of the database system: <code>MYSQL</code>, or <code>POSTGRESQL</code>; each of these are discussed in turn in the subsections that follow.</li>
+<li>The mandatory <code>location_database</code> is the name of the database within the <code>location_dbms</code> that contains the data we need to access; as discussed in the subsections below.</li>
+<li>The optional <code>connection_properties</code> list contains optional connection configuration properties for the <code>location_dbms</code>; these are discussed in context of of specific database systems in the subsections below.</li>
+</ul>
+<h3 id="connecting-to-oracle">Connecting to Oracle<a class="headerlink" href="#connecting-to-oracle" title="Permanent link">&#9668;</a></h3>
+<p>The following sets up the data location <code>oraloc</code>, configured as a <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC connection</a> to the <a href="http://www.oracle.com">Oracle</a> database <code>oradb</code> on host <code>orahost</code>, port <code>1521</code>:</p>
+<pre><code>&gt; ADD LOCATION oraloc AS ORACLE("orahost:1521/oradb");
+</code></pre>
+<p>Sclera requires that the database server is accessible over the network and accepts connection via JDBC.</p>
+<p>If the the server is running on <code>localhost</code> (port <code>1521</code>), you can omit the host name:</p>
+<pre><code>&gt; ADD LOCATION oraloc AS ORACLE("oradb");
+</code></pre>
+<p>The JDBC connection is set up using the <a href="http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html">Oracle Thin JDBC Driver for JDK 1.7</a>, which is <em>not</em> downloaded during the <a href="../components/#sclera-oracle">Sclera-Oracle Connector</a> installation. You will need to download this driver before using this component, as explained <a href="#sclera-oracle-setup">later</a></p>
+<p>Sclera stores the JDBC configuration in its <a href="../../intro/technical/#metadata-store">metadata store</a>, and reconnects to the database at the start of every subsequent Sclera session.</p>
+<p><strong>Connection Properties</strong></p>
+<p>Username and password, if needed, can be specified as follows:</p>
+<pre><code>&gt; ADD LOCATION oraloc AS ORACLE("orahost:1521/oradb", "user=orascott", "password=oratiger");
+</code></pre>
+<p>You can also specify additional properties for customizing the JDBC connection. For instance, to specify the <a href="http://docs.oracle.com/cd/B28359_01/java.111/b31224/urls.htm#CHDDFIJJ"><code>internal_logon</code> property</a>:</p>
+<pre><code>&gt; ADD LOCATION oraloc AS ORACLE("orahost:1521/oradb", "user=orascott", "password=oratiger", "internal_logon=SYSDBA");
+</code></pre>
+<p>Any of the properties listed in the <a href="http://docs.oracle.com/cd/B28359_01/java.111/b31224/urls.htm#i1006362">Oracle JDBC documentation</a> can be specified.</p>
+<p>Values of all properties (for instance, passwords) may not be mentioned in the command -- you can specify to enter a property value interactively. See the section on <a href="#interactive-input-of-property-values">interactive input</a> for details.</p>
+<p><a class="anchor" name="sclera-oracle-setup"></a> <strong>Setup</strong></p>
+<p>Before using this component, you need to download the <a href="http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html">Oracle Database 12c Release 1 Thin JDBC Driver for JDK 1.7 (<code>ojdbc7.jar</code>)</a>, and include the path to the downloaded driver in the <code>CLASSPATH</code>.</p>
+<h3 id="connecting-to-mysql">Connecting to MySQL<a class="headerlink" href="#connecting-to-mysql" title="Permanent link">&#9668;</a></h3>
+<p><em>To work with Sclera, MySQL should be configured in the <a href="http://dev.mysql.com/doc/refman/5.6/en/identifier-case-sensitivity.html">case-insensitive mode</a>.</em></p>
+<p>The following sets up the data location <code>myloc</code>, configured as a <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC connection</a> to the <a href="http://www.mysql.com">MySQL</a> database <code>mydb</code> on host <code>myhost</code>:</p>
+<pre><code>&gt; ADD LOCATION myloc AS MYSQL("myhost/mydb");
+</code></pre>
+<p>Sclera requires that the database server is accessible over the network and accepts connection via JDBC.</p>
+<p>If the the server is running on <code>localhost</code>, you can omit the host name:</p>
+<pre><code>&gt; ADD LOCATION myloc AS MYSQL("mydb");
+</code></pre>
+<p>The JDBC connection is set up using <a href="http://dev.mysql.com/doc/refman/5.6/en/connector-j.html">MySQL Connector/J</a>, which is downloaded during the <a href="../components/#sclera-mysql">Sclera-MySQL Connector</a> installation.</p>
+<p>(Note: Sclera assumes that MySQL runs in a <a href="http://dev.mysql.com/doc/refman/5.6/en/identifier-case-sensitivity.html">case-insensitive mode</a>.)</p>
+<p>Sclera stores the JDBC configuration in its <a href="../../intro/technical/#metadata-store">metadata store</a>, and reconnects to the database at the start of every subsequent Sclera session.</p>
+<p><strong>Connection Properties</strong></p>
+<p>Username and password, if needed, can be specified as follows:</p>
+<pre><code>&gt; ADD LOCATION myloc AS MYSQL("myhost/mydb", "user=myscott", "password=mytiger");
+</code></pre>
+<p>You can also specify additional properties for customizing the JDBC connection. For instance, to use SSL connections:</p>
+<pre><code>&gt; ADD LOCATION myloc AS MYSQL("myhost/mydb", "user=myscott", "password=mytiger", "useSSL=true");
+</code></pre>
+<p>Any of the properties listed in the <a href="http://dev.mysql.com/doc/refman/5.6/en/connector-j-reference-configuration-properties.html#idm47663271142368">MySQL Connector/J documentation</a> can be specified, except <code>useOldAliasMetadataBehavior</code>, which is internally set to <code>true</code> by Sclera.</p>
+<p>Values of all properties (for instance, passwords) may not be mentioned in the command -- you can specify to enter a property value interactively. See the section on <a href="#interactive-input-of-property-values">interactive input</a> for details.</p>
+<h3 id="connecting-to-postgresql">Connecting to PostgreSQL<a class="headerlink" href="#connecting-to-postgresql" title="Permanent link">&#9668;</a></h3>
+<p>The following sets up the data location <code>pgloc</code>, configured as a <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC connection</a> to the <a href="http://www.postgresql.org">PostgreSQL</a> database <code>pgdb</code> on host <code>pghost</code>:</p>
+<pre><code>&gt; ADD LOCATION pgloc AS POSTGRESQL("pghost/pgdb");
+</code></pre>
+<p>Sclera requires that the database server is accessible over the network and accepts connection via JDBC.</p>
+<p>If the the server is running on <code>localhost</code>, you can omit the host name:</p>
+<pre><code>&gt; ADD LOCATION pgloc AS POSTGRESQL("pgdb");
+</code></pre>
+<p>The JDBC connection is set up using the <a href="http://jdbc.postgresql.org">PostgreSQL JDBC Driver</a>, which is downloaded during the <a href="../components/#sclera-postgresql">Sclera-PostgreSQL Connector</a> installation.</p>
+<p>Sclera stores the JDBC configuration in its <a href="../../intro/technical/#metadata-store">metadata store</a>, and reconnects to the database at the start of every subsequent Sclera session.</p>
+<p><strong>Connection Properties</strong></p>
+<p>Username and password, if needed, can be specified as follows:</p>
+<pre><code>&gt; ADD LOCATION pgloc AS POSTGRESQL("pghost/pgdb", "user=pgscott", "password=pgtiger");
+</code></pre>
+<p>You can also specify additional properties for customizing the JDBC connection. For instance, to use SSL connections:</p>
+<pre><code>&gt; ADD LOCATION pgloc AS POSTGRESQL("pghost/pgdb", "user=pgscott", "password=pgtiger", "ssl=true");
+</code></pre>
+<p>Any of the properties listed in the <a href="http://jdbc.postgresql.org/documentation/head/connect.html#connection-parameters">PostgreSQL JDBC Driver documentation</a> can be specified as above.</p>
+<p>Values of all properties (for instance, passwords) may not be mentioned in the command -- you can specify to enter a property value interactively. See the section on <a href="#interactive-input-of-property-values">interactive input</a> for details.</p>
+<h3 id="connecting-to-heroku-postgres">Connecting to Heroku Postgres<a class="headerlink" href="#connecting-to-heroku-postgres" title="Permanent link">&#9668;</a></h3>
+<p>The following sets up the data location <code>heroku</code>, configured as a <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC connection</a> to a <a href="https://www.heroku.com/postgres">Heroku Postgres</a> database:</p>
+<pre><code>&gt; ADD LOCATION heroku AS HEROKU_POSTGRESQL("postgres://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;dbname&gt;");
+</code></pre>
+<p>The parameter is the <code>DATABASE_URL</code> in the format provided by Heroku -- see <a href="https://devcenter.heroku.com/articles/connecting-to-heroku-postgres-databases-from-outside-of-heroku">Heroku's documentation</a> for the details.</p>
+<p>The JDBC connection is set up using the <a href="http://jdbc.postgresql.org">PostgreSQL JDBC Driver</a>.</p>
+<p>Sclera stores the JDBC configuration in its <a href="../../intro/technical/#metadata-store">metadata store</a>, and reconnects to the database at the start of every subsequent Sclera session.</p>
+<p><em>Note: Heroku Postgres connectivity was introduced in Sclera 3.0 and is currently in beta.</em></p>
+<h2 id="interactive-input-of-property-values">Interactive Input of Property Values<a class="headerlink" href="#interactive-input-of-property-values" title="Permanent link">&#9668;</a></h2>
+<p>Sometimes, you may not want to specify a property value as a part of the statement. For instance, it might be desirable to not disclose the password in the statements for MySQL and PostgreSQL above.</p>
+<p>In such cases, you can specify the character '<code>?</code>' as the property value instead. While processing the statement, Sclera will prompt for the actual property value and accept the input in a secure manner.</p>
+<p>For example:</p>
+<pre><code>&gt; ADD LOCATION pgloc AS POSTGRESQL("pghost/pgdb", "user=pgscott", "password=?");
+  password: *******
+</code></pre>
+<p>Here, the <code>password=?</code> generates a prompt that enables you to enter the password interactively.</p>
+<h2 id="read-write-versus-read-only-mode">Read-Write versus Read-Only Mode<a class="headerlink" href="#read-write-versus-read-only-mode" title="Permanent link">&#9668;</a></h2>
+<p>By default, Sclera uses the underlying database system in a read-write mode. This means that:</p>
+<ul>
+<li>The database system acts as a data source. However, if the data needs to be filtered, projected, aggregated, and/or joined with other tables within this database system, then the computation is pushed to this database system and only the result is read by Sclera.</li>
+<li>If the result as above needs to join with data coming from elsewhere, Sclera may decide to materialize the external data as a table within this database system, and perform the join on this database system. This involves creating a table, inserting this external data into the table and then performing the computation.</li>
+</ul>
+<p>If you do not want (or are not permitted to) create/update tables on a database system, connect to it as a <code>readonly</code> location:</p>
+<pre><code>&gt; ADD READONLY LOCATION myloc AS MYSQL("myhost/mydb");
+</code></pre>
+<p>If you want specify a default for all connections, please set the <code>sclera.connections.accessmode</code> configuration parameter to <code>readwrite</code> or <code>readonly</code>. In the initial configuration, the value is <code>readwrite</code>.</p>
+<h2 id="removing-connected-platforms">Removing Connected Platforms<a class="headerlink" href="#removing-connected-platforms" title="Permanent link">&#9668;</a></h2>
+<p>The following command removes a location referenced by <code>location_name</code>:</p>
+<pre><code>REMOVE LOCATION location_name
+</code></pre>
+<p>Sclera requires that all tables under a location be removed or deleted before removing a location (see <a href="#importing-database-tables">the next section</a>). </p>
+<h2 id="importing-database-tables">Importing Database Tables<a class="headerlink" href="#importing-database-tables" title="Permanent link">&#9668;</a></h2>
+<p>After a database system has been connected, you can pick tables from the database system and add to Sclera.</p>
+<p>By default, adding a table involves reading (or computing) the metadata -- the set of columns, their data types, the key constraints, etc. -- of the table and storing in the metadata store, so that you can <a href="../../sclerasql/sqlregular/">manage the data and frame queries on the same</a>.</p>
+<p>The command to add tables has the following syntax:</p>
+<pre><code>ADD TABLE location_name.table_name [ (
+  column_name data_type [ column_constraint [ ... ] ] [, ...]
+  [ , table_constraint [, ...] ]
+) ]
+</code></pre>
+<p>This command adds to Sclera a new table named <code>table_name</code> from the database system connected as location <code>location_name</code>. You can optionally specify the table schema and constraints explicitly. The details of the parameters used in the schema specifications are similar to that in the <a href="../../sclerasql/sqlregular/#creating-empty-tables"><code>CREATE TABLE</code> statement</a>; please see the associated discussion on <a href="../../sclerasql/sqlregular/#columns-and-their-types">column names and types</a> and <a href="../../sclerasql/sqlregular/#column-constraints">column constraints</a>.</p>
+<p>For instance, the following add a new table <code>mytable</code> from location <code>loc</code> and lets Sclera determine the table's schema:</p>
+<pre><code>&gt; ADD TABLE loc.mytable;
+</code></pre>
+<p>However, the following mentions the schema as well, obviating the need for Sclera to determine the metadata:</p>
+<pre><code>&gt; ADD TABLE loc.mytable(a int primary key, b int);
+</code></pre>
+<p>The above statement specifies the table as having two integer columns, <code>a</code> and <code>b</code>, with <code>a</code> being the primary key. The columns <code>a</code> and <code>b</code> must be present in the underlying table <code>mytable</code> at the source database system, with compatible data types. The underlying table can have other columns and constraints, but they are not visible to Sclera now.</p>
+<p>When the table metadata is specified explicitly, the actual table metadata is not queried, and Sclera does not verify that the columns are actually present, or the specified constraints (e.g. the primary key constraint in the example above) actually hold. However, this is useful when getting the table metadata from the underlying database system is expensive (this is just a one-time computation, though).</p>
+<p>The <a href="../../interface/shell/#exploring-metadata">Sclera Command-Line Shell</a> provides commands to list the set of imported tables under a location, tables in the location available for import, and so on.</p>
+<h2 id="removing-database-tables">Removing Database Tables<a class="headerlink" href="#removing-database-tables" title="Permanent link">&#9668;</a></h2>
+<p>When you no longer need a table <code>table_name</code> in location <code>location_name</code>, you can remove it as follows:</p>
+<pre><code>REMOVE TABLE [location_name.]table_name
+</code></pre>
+<p>The <code>location_name</code> can be omitted if the <code>table_name</code> is unique across locations.</p>
+<p>This command only removes the metadata for the table from Sclera's <a href="../../intro/technical/#metadata-store">metadata store</a>. The actual table in the underlying data store is not deleted.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../install/" title="Installation Reference" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Installation Reference
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../configuration/" title="Configuration Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Configuration Reference
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2012 - 2020 Sclera, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/scleradb" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/scleradb" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/sclera-inc-" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
