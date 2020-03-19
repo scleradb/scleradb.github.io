@@ -102,7 +102,9 @@ You can specify a list of plugins to add and another list of plugins to remove i
 
 The following command updates Sclera's core packages as well as the plugins to the latest version:
 
-    > scleradmin --update
+    > scleradmin --update --root <sclera-root>
+
+where `<sclera-root>`, [as mentioned earlier](#installing-sclera-core-packages-and-shell), is the root directory.
 
 ## Embedding Sclera in Applications
 
