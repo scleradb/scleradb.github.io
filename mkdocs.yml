@@ -56,7 +56,7 @@ theme:
     logo: "../images/sclera-logo-square.png"
     favicon: "../images/icons/favicon.ico"
     palette:
-        primary: 'indigo'
+        primary: 'black'
         accent: 'indigo'
     font:
         text: 'Open Sans'
