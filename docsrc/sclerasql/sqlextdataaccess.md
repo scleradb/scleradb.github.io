@@ -43,7 +43,7 @@ The following query joins this table with a [MySQL (connected as location `myloc
       FROM EXTERNAL CSV("/path/to/custinfo.csv") JOIN myloc.defaulters USING (email)
       GROUP BY location;
 
-Note that since the CSV format does not include the type of the columns, each column in the table returned by `CSV[_]` has type `VARCHAR`. Also, as such, no column in the CSV file should have a value of size larger than the `VARCHAR` size limit (currently 767 characters).
+Note that since the CSV format does not include the type of the columns, each column in the table returned by `CSV(_)` has type `VARCHAR`.
 
 ### Exporting Query Results as CSV Files
 The `EXTERNAL CSV` can also be used to export the result of a query into a CSV file, using the following syntax:
@@ -84,8 +84,6 @@ The following query returns the path and contents of file `"/tmp/myfile"` and al
 
     > SELECT file, contents
       FROM TEXTFILES("/tmp/myfile", "/tmp/mydir");
-
-Since the column `contents` is of type `VARCHAR`, the file size must be within the `VARCHAR` size limit (currently 767 characters).
 
 The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.
 

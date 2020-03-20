@@ -874,7 +874,7 @@
   FROM EXTERNAL CSV("/path/to/custinfo.csv") JOIN myloc.defaulters USING (email)
   GROUP BY location;
 </code></pre>
-<p>Note that since the CSV format does not include the type of the columns, each column in the table returned by <code>CSV[_]</code> has type <code>VARCHAR</code>. Also, as such, no column in the CSV file should have a value of size larger than the <code>VARCHAR</code> size limit (currently 767 characters).</p>
+<p>Note that since the CSV format does not include the type of the columns, each column in the table returned by <code>CSV(_)</code> has type <code>VARCHAR</code>.</p>
 <h3 id="exporting-query-results-as-csv-files">Exporting Query Results as CSV Files<a class="headerlink" href="#exporting-query-results-as-csv-files" title="Permanent link">&#9668;</a></h3>
 <p>The <code>EXTERNAL CSV</code> can also be used to export the result of a query into a CSV file, using the following syntax:</p>
 <pre><code>CREATE EXTERNAL CSV( file_path [ , format ] ) AS table_expression
@@ -907,7 +907,6 @@
 <pre><code>&gt; SELECT file, contents
   FROM TEXTFILES("/tmp/myfile", "/tmp/mydir");
 </code></pre>
-<p>Since the column <code>contents</code> is of type <code>VARCHAR</code>, the file size must be within the <code>VARCHAR</code> size limit (currently 767 characters).</p>
 <p>The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.</p>
 <p><a class="anchor" name="sclera-stockticker"></a></p>
 <h2 id="accessing-web-services">Accessing Web Services<a class="headerlink" href="#accessing-web-services" title="Permanent link">&#9668;</a></h2>
