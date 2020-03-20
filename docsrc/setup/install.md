@@ -17,9 +17,11 @@ We first describe how to [install `scleradmin`](#installing-scleradmin). Next, w
 
 ### Installing scleradmin
 
-The following installs the latest version of `scleradmin` as a Python package in your system:
+The following installs the [latest version of `scleradmin`](https://pypi.org/project/scleradmin/) as a Python package:
 
-    > pip install scleradmin
+    > python3.8 -m pip install scleradmin
+
+where `python3.8` stands for the executable for Python version 3.8 or above in your setup.
 
 In the following sections, we show how to use `scleradmin` for installing Sclera and managing the installation. For full details on `scleradmin` usage, you may want to read the help information:
 
