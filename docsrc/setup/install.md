@@ -155,6 +155,8 @@ The required dependencies are added as:
 
 This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the `libraryDependencies` as well.
 
+The latest versions of all Sclera components are listed at [https://github.com/scleradb/sclera-version-map/blob/master/versions.ini](https://github.com/scleradb/sclera-version-map/blob/master/versions.ini).
+
 #### Interface with Sclera using the JDBC API
 
 This application consists of a single source file, [`JdbcExample.java`](https://github.com/scleradb/sclera-example-java-jdbc/blob/master/src/main/java/com/example/sclera/jdbc/JdbcExample.java) / [`JdbcExample.scala`](https://github.com/scleradb/sclera-example-scala-jdbc/blob/master/src/main/scala/JdbcExample.scala).
