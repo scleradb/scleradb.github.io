@@ -1,122 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://www.scleradb.com/</loc>
+     <loc>https://scleradb.com/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/intro/whysclera/</loc>
+     <loc>https://scleradb.com/intro/whysclera/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/intro/faq/</loc>
+     <loc>https://scleradb.com/intro/faq/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/intro/technical/</loc>
+     <loc>https://scleradb.com/intro/technical/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/setup/components/</loc>
+     <loc>https://scleradb.com/setup/components/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/setup/install/</loc>
+     <loc>https://scleradb.com/setup/install/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/setup/dbms/</loc>
+     <loc>https://scleradb.com/setup/dbms/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/setup/configuration/</loc>
+     <loc>https://scleradb.com/setup/configuration/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlexamples/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlexamples/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlintro/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlintro/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlregular/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlregular/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlcrosstab/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlcrosstab/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlextordered/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlextordered/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlseqalign/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlseqalign/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlextarg/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlextarg/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlextml/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlextml/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlcleaning/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlcleaning/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlexttext/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlexttext/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlextdataaccess/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlextdataaccess/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/visualization/</loc>
+     <loc>https://scleradb.com/sclerasql/visualization/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sclerasql/sqlmisc/</loc>
+     <loc>https://scleradb.com/sclerasql/sqlmisc/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/interface/shell/</loc>
+     <loc>https://scleradb.com/interface/shell/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/interface/jdbc/</loc>
+     <loc>https://scleradb.com/interface/jdbc/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sdk/sdkintro/</loc>
+     <loc>https://scleradb.com/sdk/sdkintro/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sdk/sdkextdataaccess/</loc>
+     <loc>https://scleradb.com/sdk/sdkextdataaccess/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sdk/sdkextdbms/</loc>
+     <loc>https://scleradb.com/sdk/sdkextdbms/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sdk/sdkextml/</loc>
+     <loc>https://scleradb.com/sdk/sdkextml/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/sdk/sdkexttext/</loc>
+     <loc>https://scleradb.com/sdk/sdkexttext/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/ack/dependencies/</loc>
+     <loc>https://scleradb.com/ack/dependencies/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.scleradb.com/ack/licenses/</loc>
+     <loc>https://scleradb.com/ack/licenses/</loc>
      <lastmod>2020-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>

@@ -34,4 +34,4 @@ You need to [set the classpath](#setting-the-classpath) to make Sclera visible t
 
 Some applications and reporting tools can only accept (or generate) [standard SQL](../sclerasql/sqlregular.md). Such tools do not accept the [SQL extensions](../sclerasql/sqlintro.md) needed to perform advanced analytics within your queries. To use such extensions, you need to define [views](../sclerasql/sqlregular.md#creating-views) within Sclera to perform the required analytics, and then have the application or reporting tool use these views in its queries.
 
-The exact directions depend upon the specific application that you want to link. If you face a problem in linking your application to Sclera, please let us know by sending an email to support@scleradb.com, or [filing a support ticket](/support).
+The exact directions depend upon the specific application that you want to link. If you face a problem in linking your application to Sclera, please let us know by sending an email to [support@scleradb.com](mailto:support@scleradb.com).

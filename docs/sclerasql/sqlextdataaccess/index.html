@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Sclera and its plugins">
       
       
-        <link rel="canonical" href="https://www.scleradb.com/sclerasql/sqlextdataaccess/">
+        <link rel="canonical" href="https://scleradb.com/sclerasql/sqlextdataaccess/">
       
       
         <meta name="author" content="Sclera, Inc.">
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+        <a href="https://scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
           
@@ -172,7 +172,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+    <a href="https://scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
       
@@ -833,11 +833,10 @@
                   <h1>External Data Access</h1>
                 
                 <p>In this section, we describe the extensions that enable access to data in <a href="#sclera-csv">CSV (Comma-Separated Value) files</a>, <a href="#sclera-csv">free-form text files</a> and web services within a SQL query. This data can be used just like a relational base table within the SQL query.</p>
-<p>Sclera includes an SDK that can be used to develop extensions for arbitrary external datasources. The <a href="/doc/ref/sdk">Sclera Connector Development SDK</a> document describes the SDK, and includes the source for the extensions described in this section.</p>
-<p>These extensions are provided by the various <a href="/doc/ref/components">Sclera components</a> and are supported when the associated component is <a href="/extensions">licensed</a>.</p>
+<p>These extensions are developed using the <a href="../../sdk/sdkintro/">Sclera Connector Development SDK</a>, the sources for each of these extensions is available on <a href="https://github.com/scleradb">GitHub</a> for reference.</p>
 <p><a class="anchor" name="sclera-csv"></a></p>
 <h2 id="accessing-csv-data">Accessing CSV Data<a class="headerlink" href="#accessing-csv-data" title="Permanent link">&#9668;</a></h2>
-<p>Sclera can dynamically load CSV files and present the data as a table to a SQL query. Recall that a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">CSV file</a> is a text file, structured into lines such that the first line contains the column names separated by commas, and the remaining lines contain the corresponding values separated by commas.</p>
+<p>Sclera can dynamically load CSV files and present the data as a table to a SQL query. Recall that a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV file</a> is a text file, structured into lines such that the first line contains the column names separated by commas, and the remaining lines contain the corresponding values separated by commas.</p>
 <p>This feature introduces a new <a href="#table-expression">table expression</a> with the following syntax:</p>
 <pre><code>EXTERNAL CSV( path [ , format [ , header_flag [ , path_col ] ] ]  )
 [ ORDERED BY ( expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [, ...] ) ]
@@ -870,7 +869,7 @@
   FROM EXTERNAL CSV("/path/to/custinfo.csv")
   GROUP BY location;
 </code></pre>
-<p>The following query joins this table with a <a href="/doc/ref/dbms#connecting-to-mysql">MySQL (connected as location <code>myloc</code>)</a> table <code>defaulters</code>, and computes the number of defaulters in that region:</p>
+<p>The following query joins this table with a <a href="../../setup/dbms/#connecting-to-mysql">MySQL (connected as location <code>myloc</code>)</a> table <code>defaulters</code>, and computes the number of defaulters in that region:</p>
 <pre><code>&gt; SELECT location, COUNT(*)
   FROM EXTERNAL CSV("/path/to/custinfo.csv") JOIN myloc.defaulters USING (email)
   GROUP BY location;
@@ -885,7 +884,7 @@
 <li><code>format</code> is as <a href="#sclera-csv-format">described earlier</a>.</li>
 <li><code>table_expression</code> is a <a href="#table-expression">table expression</a>.</li>
 </ul>
-<p>The syntax is similar to the standard <a href="http://www.scleradb.com/doc/ref/sqlregular#creating-tables-with-empty-results"><code>CREATE TABLE ... AS</code> statement</a>, except the <code>TABLE</code> is replaced by the <code>EXTERNAL CSV(...)</code>.</p>
+<p>The syntax is similar to the standard <a href="../sqlregular/#creating-tables-with-empty-results"><code>CREATE TABLE ... AS</code> statement</a>, except the <code>TABLE</code> is replaced by the <code>EXTERNAL CSV(...)</code>.</p>
 <p>For example, the following statement creates a CSV file <code>custdefault.csv</code> containing the <code>JOIN</code> of the data in <code>custinfo.csv</code> and the table <code>defaulters</code> in the location <code>myloc</code>:</p>
 <pre><code>&gt; CREATE EXTERNAL CSV("/path/to/custdefault.csv") AS
   EXTERNAL CSV("/path/to/custinfo.csv") JOIN myloc.defaulters USING (email);
@@ -912,7 +911,7 @@
 <p>The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.</p>
 <p><a class="anchor" name="sclera-stockticker"></a></p>
 <h2 id="accessing-web-services">Accessing Web Services<a class="headerlink" href="#accessing-web-services" title="Permanent link">&#9668;</a></h2>
-<p>Sclera can provide access to data provided by web services from within SQL, using components built using the <a href="/doc/ref/sdk">Sclera Extensions SDK</a>.</p>
+<p>Sclera can provide access to data provided by web services from within SQL, using components built using the <a href="../../sdk/sdkintro/">Sclera Extensions SDK</a>.</p>
 <p>As an illustrative example, Sclera provides access to (dummy) stock ticker streams.</p>
 <p>This feature introduces a table expression with the following syntax:</p>
 <pre><code>EXTERNAL STOCKTICKER( symbol [ , gap [ , duration ] ] )

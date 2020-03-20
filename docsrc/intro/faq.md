@@ -113,7 +113,7 @@ Sclera provides a [Sclera Extensions SDK](../sdk/sdkextdataaccess.md) that enabl
 
 The [Sclera Extensions SDK for external data access](../sdk/sdkextdataaccess.md) or the [Sclera Extension SDK for database systems](../sdk/sdkextdbms.md) can be used to build custom connectors to your legacy data store. The former is used when you just want to source data from the data sore, and the latter when you want to push computation (such as filter, join) to the data store.
 
-You can build the connector yourself using the [Sclera Extensions SDK](../sdk/sdkextdbms.md), or request us by sending a mail to support@scleradb.com with the details.
+You can build the connector yourself using the [Sclera Extensions SDK](../sdk/sdkextdbms.md), or request us by sending a mail to [support@scleradb.com](mailto:support@scleradb.com) with the details.
 
 ## Can Sclera work with my reporting software?
 
@@ -145,8 +145,8 @@ Sclera provides a very simple API though the [Sclera Extensions SDK](../sdk/sdke
 
 If you know SQL, you can start firing cross-system queries rightaway. Then, incorporate analytics using the analytics extensions we have baked into SQL.
 
-Sclera enables use of advanced analytics constructs such as classification and clustering within SQL, but assumes you know what they are useful for. For the background, we recommend reading up <a href="http://www.data-science-for-biz.com" target="_blank">a good book on data science</a>.
+Sclera enables use of advanced analytics constructs such as classification and clustering within SQL, but assumes you know what they are useful for. For the background, we recommend reading up a good book on data science.
 
 ## How do I get support?
 
-We are always around for help. Send a mail to support@scleradb.com, or leave a voice message at +1-909-979-9796 - we will respond within 24 hours.
+We are always around for help. Send a mail to [support@scleradb.com](mailto:support@scleradb.com), or leave a voice message at [+1-909-979-9796](tel:+1-909-979-9796) -- we usually respond within 24 hours.

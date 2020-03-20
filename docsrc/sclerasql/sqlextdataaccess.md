@@ -1,12 +1,10 @@
 In this section, we describe the extensions that enable access to data in [CSV (Comma-Separated Value) files](#sclera-csv), [free-form text files](#sclera-csv) and web services within a SQL query. This data can be used just like a relational base table within the SQL query.
 
-Sclera includes an SDK that can be used to develop extensions for arbitrary external datasources. The [Sclera Connector Development SDK](/doc/ref/sdk) document describes the SDK, and includes the source for the extensions described in this section.
-
-These extensions are provided by the various [Sclera components](/doc/ref/components) and are supported when the associated component is [licensed](/extensions).
+These extensions are developed using the [Sclera Connector Development SDK](../sdk/sdkintro.md), the sources for each of these extensions is available on [GitHub](https://github.com/scleradb) for reference.
 
 <a class="anchor" name="sclera-csv"></a>
 ## Accessing CSV Data
-Sclera can dynamically load CSV files and present the data as a table to a SQL query. Recall that a [CSV file](http://en.wikipedia.org/wiki/Comma-separated_values) is a text file, structured into lines such that the first line contains the column names separated by commas, and the remaining lines contain the corresponding values separated by commas.
+Sclera can dynamically load CSV files and present the data as a table to a SQL query. Recall that a [CSV file](https://en.wikipedia.org/wiki/Comma-separated_values) is a text file, structured into lines such that the first line contains the column names separated by commas, and the remaining lines contain the corresponding values separated by commas.
 
 This feature introduces a new [table expression](#table-expression) with the following syntax:
 
@@ -39,7 +37,7 @@ This can be used in SQL queries just like a regular base table or view. The foll
       FROM EXTERNAL CSV("/path/to/custinfo.csv")
       GROUP BY location;
 
-The following query joins this table with a [MySQL (connected as location `myloc`)](/doc/ref/dbms#connecting-to-mysql) table `defaulters`, and computes the number of defaulters in that region:
+The following query joins this table with a [MySQL (connected as location `myloc`)](../setup/dbms.md#connecting-to-mysql) table `defaulters`, and computes the number of defaulters in that region:
 
     > SELECT location, COUNT(*)
       FROM EXTERNAL CSV("/path/to/custinfo.csv") JOIN myloc.defaulters USING (email)
@@ -56,7 +54,7 @@ The `EXTERNAL CSV` can also be used to export the result of a query into a CSV f
 - `format` is as [described earlier](#sclera-csv-format).
 - `table_expression` is a [table expression](#table-expression).
 
-The syntax is similar to the standard [`CREATE TABLE ... AS` statement](http://www.scleradb.com/doc/ref/sqlregular#creating-tables-with-empty-results), except the `TABLE` is replaced by the `EXTERNAL CSV(...)`.
+The syntax is similar to the standard [`CREATE TABLE ... AS` statement](../sclerasql/sqlregular.md#creating-tables-with-empty-results), except the `TABLE` is replaced by the `EXTERNAL CSV(...)`.
 
 For example, the following statement creates a CSV file `custdefault.csv` containing the `JOIN` of the data in `custinfo.csv` and the table `defaulters` in the location `myloc`:
 
@@ -93,7 +91,7 @@ The resulting table can also be aggregated over, joined with other base or virtu
 
 <a class="anchor" name="sclera-stockticker"></a>
 ## Accessing Web Services
-Sclera can provide access to data provided by web services from within SQL, using components built using the [Sclera Extensions SDK](/doc/ref/sdk).
+Sclera can provide access to data provided by web services from within SQL, using components built using the [Sclera Extensions SDK](../sdk/sdkintro.md).
 
 As an illustrative example, Sclera provides access to (dummy) stock ticker streams.
 

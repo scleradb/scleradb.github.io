@@ -2,7 +2,7 @@ Sclera's visualization component, ScleraViz, enables quick and easy visualizatio
 
 ScleraViz is inspired by [Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html), specifically [R's ggplot2](http://ggplot2.org/) -- but is implemented as an extension to [ScleraSQL](../sclerasql/sqlintro.md) and uses [D3](http://d3js.org) as the rendering engine. Moreover, unlike ggplot2, ScleraViz can clean, analyze and plot *streaming* data.
 
-An online preview, with a number of examples with code, is available at [http://www.scleradb.com/scleraviz](/scleraviz).
+An online preview, with a number of examples with code, is available at [https:/scleraviz.herokuapp.com](https://scleraviz.herokuapp.com).
 
 ![ScleraViz Examples](images/visualization/scleraviz-examples.jpg "Visualization Examples")
 ![ScleraViz Bar Example](images/visualization/scleraviz-bar.jpg "Bar Example")
@@ -56,7 +56,7 @@ When done, you can close the display web server by saying:
 
 In the following, we will be using the ["tipping" dataset](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html) as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found [here](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html).
 
-You can run the examples appearing below on the Sclera shell -- either installed in your machine, or [online at http://www.scleradb.com/shell](/shell). To start, set up the `tips` table as follows:
+You can run the examples appearing below on the Sclera command line shell -- either [installed in your machine](../setup/install.md#installing-and-maintaining-sclera-command-line-application), or [online](https://scleraviz.herokuapp.com/shell). To start, set up the `tips` table as follows:
 
     CREATE TEMP TABLE tips as
     EXTERNAL CSV("http://scleraviz.herokuapp.com/assets/data/tips.csv")

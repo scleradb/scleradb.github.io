@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Sclera and its plugins">
       
       
-        <link rel="canonical" href="https://www.scleradb.com/sclerasql/visualization/">
+        <link rel="canonical" href="https://scleradb.com/sclerasql/visualization/">
       
       
         <meta name="author" content="Sclera, Inc.">
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://www.scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+        <a href="https://scleradb.com" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
           
@@ -172,7 +172,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://www.scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
+    <a href="https://scleradb.com" title="Sclera Documentation" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
       
@@ -1384,7 +1384,7 @@
                 
                 <p>Sclera's visualization component, ScleraViz, enables quick and easy visualization of your query results. ScleraViz is integrated with <a href="../sqlintro/">ScleraSQL</a>; this means a few lines of ScleraSQL can fetch, clean, analyze and visualize your data in a single sweep.</p>
 <p>ScleraViz is inspired by <a href="http://vita.had.co.nz/papers/layered-grammar.html">Grammar of Graphics</a>, specifically <a href="http://ggplot2.org/">R's ggplot2</a> -- but is implemented as an extension to <a href="../sqlintro/">ScleraSQL</a> and uses <a href="http://d3js.org">D3</a> as the rendering engine. Moreover, unlike ggplot2, ScleraViz can clean, analyze and plot <em>streaming</em> data.</p>
-<p>An online preview, with a number of examples with code, is available at <a href="/scleraviz">http://www.scleradb.com/scleraviz</a>.</p>
+<p>An online preview, with a number of examples with code, is available at <a href="https://scleraviz.herokuapp.com">https:/scleraviz.herokuapp.com</a>.</p>
 <p><img alt="ScleraViz Examples" src="../images/visualization/scleraviz-examples.jpg" title="Visualization Examples" />
 <img alt="ScleraViz Bar Example" src="../images/visualization/scleraviz-bar.jpg" title="Bar Example" /></p>
 <h2 id="command-line-setup">Command Line Setup<a class="headerlink" href="#command-line-setup" title="Permanent link">&#9668;</a></h2>
@@ -1434,7 +1434,7 @@ Please point your browser to http://localhost:7070
 </code></pre>
 <h2 id="example-dataset">Example Dataset<a class="headerlink" href="#example-dataset" title="Permanent link">&#9668;</a></h2>
 <p>In the following, we will be using the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">"tipping" dataset</a> as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">here</a>.</p>
-<p>You can run the examples appearing below on the Sclera shell -- either installed in your machine, or <a href="/shell">online at http://www.scleradb.com/shell</a>. To start, set up the <code>tips</code> table as follows:</p>
+<p>You can run the examples appearing below on the Sclera command line shell -- either <a href="../../setup/install/#installing-and-maintaining-sclera-command-line-application">installed in your machine</a>, or <a href="https://scleraviz.herokuapp.com/shell">online</a>. To start, set up the <code>tips</code> table as follows:</p>
 <pre><code>CREATE TEMP TABLE tips as
 EXTERNAL CSV("http://scleraviz.herokuapp.com/assets/data/tips.csv")
 TYPEINFER(LIMIT 1);
