@@ -1434,7 +1434,7 @@ Please point your browser to http://localhost:7070
 </code></pre>
 <h2 id="example-dataset">Example Dataset<a class="headerlink" href="#example-dataset" title="Permanent link">&#9668;</a></h2>
 <p>In the following, we will be using the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">"tipping" dataset</a> as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">here</a>.</p>
-<p>You can run the examples appearing below on the Sclera command line shell -- either <a href="../../setup/install/#installing-and-maintaining-sclera-command-line-application">installed in your machine</a>, or <a href="https://scleraviz.herokuapp.com/shell">online</a>. To start, set up the <code>tips</code> table as follows:</p>
+<p>To use the dataset, set up the <code>tips</code> table as follows:</p>
 <pre><code>CREATE TEMP TABLE tips as
 EXTERNAL CSV("http://scleraviz.herokuapp.com/assets/data/tips.csv")
 TYPEINFER(LIMIT 1);
