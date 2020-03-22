@@ -1064,13 +1064,14 @@ Goodbye!
 <p>Sclera provides <a href="../components/">a variety of plugins</a> that can be added using <code>scleradmin</code>. The command syntax is:</p>
 <pre><code>&gt; scleradmin --add &lt;plugins&gt; --root &lt;sclera-root&gt;
 </code></pre>
-<p>In the above, <code>&lt;plugins&gt;</code> is a space-separated list of plugins to be added, and <code>&lt;sclera-root&gt;</code>, <a href="#installing-sclera-core-packages-and-shell">as earlier</a>, is the root directory. For instance, to install the <a href="../components/#sclera-csv-file-connector">Sclera - CSV File Connector</a> and <a href="../components/#sclera-text-file-connector">Sclera - Text File Connector</a> plugins, to the Sclera instance installed at <code>/path/to/sclera</code> the command is: </p>
+<p>In the above, <code>&lt;plugins&gt;</code> is a space-separated list of plugins to be added, and <code>&lt;sclera-root&gt;</code>, <a href="#installing-sclera-core-packages-and-shell">as earlier</a>, is the root directory. For instance, to add the <a href="../components/#sclera-csv-file-connector">Sclera - CSV File Connector</a> and <a href="../components/#sclera-text-file-connector">Sclera - Text File Connector</a> plugins to the Sclera instance installed at <code>/path/to/sclera</code>, the command is: </p>
 <pre><code>&gt; scleradmin --add sclera-csv-plugin sclera-textfiles-plugin --root /path/to/sclera
 </code></pre>
 <p>To remove installed plugins, the syntax is similar. The following command removes the plugins installed above:</p>
 <pre><code>&gt; scleradmin --remove sclera-csv-plugin sclera-textfiles-plugin --root /path/to/sclera
 </code></pre>
 <p>You can specify a list of plugins to add and another list of plugins to remove in the same command.</p>
+<p>For a list of available plugins and other components, please refer to the <a href="../components/">components documentation</a>.</p>
 <h3 id="updating-installed-packages-and-plugins">Updating Installed Packages and Plugins<a class="headerlink" href="#updating-installed-packages-and-plugins" title="Permanent link">&#9668;</a></h3>
 <p>The following command updates Sclera's core packages as well as the plugins to the latest version:</p>
 <pre><code>&gt; scleradmin --update --root &lt;sclera-root&gt;

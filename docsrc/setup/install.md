@@ -90,7 +90,7 @@ Sclera provides [a variety of plugins](../setup/components.md) that can be added
 
     > scleradmin --add <plugins> --root <sclera-root>
 
-In the above, `<plugins>` is a space-separated list of plugins to be added, and `<sclera-root>`, [as earlier](#installing-sclera-core-packages-and-shell), is the root directory. For instance, to install the [Sclera - CSV File Connector](../setup/components.md#sclera-csv-file-connector) and [Sclera - Text File Connector](../setup/components.md#sclera-text-file-connector) plugins, to the Sclera instance installed at `/path/to/sclera` the command is: 
+In the above, `<plugins>` is a space-separated list of plugins to be added, and `<sclera-root>`, [as earlier](#installing-sclera-core-packages-and-shell), is the root directory. For instance, to add the [Sclera - CSV File Connector](../setup/components.md#sclera-csv-file-connector) and [Sclera - Text File Connector](../setup/components.md#sclera-text-file-connector) plugins to the Sclera instance installed at `/path/to/sclera`, the command is: 
 
     > scleradmin --add sclera-csv-plugin sclera-textfiles-plugin --root /path/to/sclera
 
@@ -99,6 +99,8 @@ To remove installed plugins, the syntax is similar. The following command remove
     > scleradmin --remove sclera-csv-plugin sclera-textfiles-plugin --root /path/to/sclera
 
 You can specify a list of plugins to add and another list of plugins to remove in the same command.
+
+For a list of available plugins and other components, please refer to the [components documentation](../setup/components.md).
 
 ### Updating Installed Packages and Plugins
 
