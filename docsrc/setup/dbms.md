@@ -29,7 +29,7 @@ If the the server is running on `localhost` (port `1521`), you can omit the host
 
     > ADD LOCATION oraloc AS ORACLE("oradb");
 
-The JDBC connection is set up using the [Oracle Thin JDBC Driver for JDK 1.7](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html), which is *not* downloaded during the [Sclera-Oracle Connector](components.md#sclera-oracle) installation. You will need to download this driver before using this component, as explained [later](#sclera-oracle-setup)
+The JDBC connection is set up using the [Oracle Database Thin JDBC Driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html), which is *not* downloaded during the [Sclera-Oracle Connector](components.md#sclera-oracle) installation. You will need to download this driver before using this component, as explained [later](#sclera-oracle-setup)
 
 Sclera stores the JDBC configuration in its [metadata store](../intro/technical.md#metadata-store), and reconnects to the database at the start of every subsequent Sclera session.
 
@@ -49,7 +49,7 @@ Values of all properties (for instance, passwords) may not be mentioned in the c
 
 <a class="anchor" name="sclera-oracle-setup"></a> **Setup**
 
-Before using this component, you need to download the [Oracle Database 12c Release 1 Thin JDBC Driver for JDK 1.7 (`ojdbc7.jar`)](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html), and include the path to the downloaded driver in the `CLASSPATH`.
+Before using this component, you need to download the [Oracle Database Thin JDBC Driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html), and include the path to the downloaded driver in the `CLASSPATH`.
 
 ### Connecting to MySQL
 
