@@ -939,7 +939,7 @@
 <p>If the the server is running on <code>localhost</code> (port <code>1521</code>), you can omit the host name:</p>
 <pre><code>&gt; ADD LOCATION oraloc AS ORACLE("oradb");
 </code></pre>
-<p>The JDBC connection is set up using the <a href="http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html">Oracle Thin JDBC Driver for JDK 1.7</a>, which is <em>not</em> downloaded during the <a href="../components/#sclera-oracle">Sclera-Oracle Connector</a> installation. You will need to download this driver before using this component, as explained <a href="#sclera-oracle-setup">later</a></p>
+<p>The JDBC connection is set up using the <a href="https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html">Oracle Database Thin JDBC Driver</a>, which is <em>not</em> downloaded during the <a href="../components/#sclera-oracle">Sclera-Oracle Connector</a> installation. You will need to download this driver before using this component, as explained <a href="#sclera-oracle-setup">later</a></p>
 <p>Sclera stores the JDBC configuration in its <a href="../../intro/technical/#metadata-store">metadata store</a>, and reconnects to the database at the start of every subsequent Sclera session.</p>
 <p><strong>Connection Properties</strong></p>
 <p>Username and password, if needed, can be specified as follows:</p>
@@ -951,7 +951,7 @@
 <p>Any of the properties listed in the <a href="http://docs.oracle.com/cd/B28359_01/java.111/b31224/urls.htm#i1006362">Oracle JDBC documentation</a> can be specified.</p>
 <p>Values of all properties (for instance, passwords) may not be mentioned in the command -- you can specify to enter a property value interactively. See the section on <a href="#interactive-input-of-property-values">interactive input</a> for details.</p>
 <p><a class="anchor" name="sclera-oracle-setup"></a> <strong>Setup</strong></p>
-<p>Before using this component, you need to download the <a href="http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html">Oracle Database 12c Release 1 Thin JDBC Driver for JDK 1.7 (<code>ojdbc7.jar</code>)</a>, and include the path to the downloaded driver in the <code>CLASSPATH</code>.</p>
+<p>Before using this component, you need to download the <a href="https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html">Oracle Database Thin JDBC Driver</a>, and include the path to the downloaded driver in the <code>CLASSPATH</code>.</p>
 <h3 id="connecting-to-mysql">Connecting to MySQL<a class="headerlink" href="#connecting-to-mysql" title="Permanent link">&#9668;</a></h3>
 <p><em>To work with Sclera, MySQL should be configured in the <a href="http://dev.mysql.com/doc/refman/5.6/en/identifier-case-sensitivity.html">case-insensitive mode</a>.</em></p>
 <p>The following sets up the data location <code>myloc</code>, configured as a <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC connection</a> to the <a href="http://www.mysql.com">MySQL</a> database <code>mydb</code> on host <code>myhost</code>:</p>
