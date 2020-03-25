@@ -3,7 +3,7 @@ Sclera is a stand-alone SQL processor with native support for machine learning, 
 - [an independent application with an interactive command-line shell](#installing-and-maintaining-sclera-command-line-application), or
 - [as a library that embeds within your applications to enable advanced real-time analytics capabilities](#using-sclera-to-embed-analytics-in-applications).
 
-**Prerequisite:** Sclera requires [Java version 8 or higher](https://java.com/en/download/help/download_options.xml).
+**Prerequisite:** Sclera requires [Java 11 or higher](https://java.com/en/download/help/download_options.xml).
 
 *We recommend against installing Sclera with root/admin permissions. Sclera does not need root access for installation or at runtime.*
 
