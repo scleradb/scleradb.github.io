@@ -54,6 +54,10 @@ nav.sclera-top.navbar ul.navbar-nav li.nav-item.dropdown .dropdown-menu a.dropdo
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.jumbotron .btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .jumbotron p {
     font-size: 1.25rem;
 }
