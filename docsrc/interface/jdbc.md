@@ -8,7 +8,7 @@ The JDBC driver is accessed through the URL `jdbc:scleradb`.
 ## Driver Type
 The driver is compatible with [JDBC type 4](http://en.wikipedia.org/wiki/JDBC_driver#Type_4_Driver_-_Database-Protocol_Driver.28Pure_Java_Driver.29), in the sense that it is pure Java and is platform independent.
 
-# Example Application
+## Example Application
 For an example application, please [see the discussion in the installation document](../setup/install.md#embedding-sclera-in-applications). The code is available on GitHub, both in Java and Scala:
 
 - [Sclera - JDBC Example (Java version) on GitHub](https://github.com/scleradb/sclera-example-java-jdbc)

@@ -562,12 +562,72 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Embedded JDBC Reference
+      </label>
     
     <a href="./" title="Embedded JDBC Reference" class="md-nav__link md-nav__link--active">
       Embedded JDBC Reference
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jdbc-url" class="md-nav__link">
+    JDBC URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-type" class="md-nav__link">
+    Driver Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-application" class="md-nav__link">
+    Example Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-statements" class="md-nav__link">
+    Supported Statements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-sclera-with-your-existing-applications-and-reporting-tools" class="md-nav__link">
+    Connecting Sclera with your Existing Applications and Reporting Tools
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -723,8 +783,57 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jdbc-url" class="md-nav__link">
+    JDBC URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-type" class="md-nav__link">
+    Driver Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-application" class="md-nav__link">
+    Example Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-statements" class="md-nav__link">
+    Supported Statements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-sclera-with-your-existing-applications-and-reporting-tools" class="md-nav__link">
+    Connecting Sclera with your Existing Applications and Reporting Tools
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -737,13 +846,15 @@
               
                 
                 
+                  <h1>Embedded JDBC Reference</h1>
+                
                 <p>This document provides the information you need to know to start using Sclera's embedded JDBC driver. The Sclera JDBC driver provides a standard API to manage and analyze your data from within a Java (more generally, JVM) application.</p>
 <p>This document is not a tutorial on how to use JDBC. JDBC is a Java standard; to get started on the basics, please refer to the the excellent tutorials and references provided by <a href="http://docs.oracle.com/javase/tutorial/jdbc/basics/index.html">Oracle</a> and <a href="http://jdbc.postgresql.org/documentation/92/index.html">PostgreSQL</a>. Also, the <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">Wikipedia entry on JDBC</a> gives a quick overview.</p>
 <h2 id="jdbc-url">JDBC URL<a class="headerlink" href="#jdbc-url" title="Permanent link">&#9668;</a></h2>
 <p>The JDBC driver is accessed through the URL <code>jdbc:scleradb</code>.</p>
 <h2 id="driver-type">Driver Type<a class="headerlink" href="#driver-type" title="Permanent link">&#9668;</a></h2>
 <p>The driver is compatible with <a href="http://en.wikipedia.org/wiki/JDBC_driver#Type_4_Driver_-_Database-Protocol_Driver.28Pure_Java_Driver.29">JDBC type 4</a>, in the sense that it is pure Java and is platform independent.</p>
-<h1 id="example-application">Example Application<a class="headerlink" href="#example-application" title="Permanent link">&#9668;</a></h1>
+<h2 id="example-application">Example Application<a class="headerlink" href="#example-application" title="Permanent link">&#9668;</a></h2>
 <p>For an example application, please <a href="../../setup/install/#embedding-sclera-in-applications">see the discussion in the installation document</a>. The code is available on GitHub, both in Java and Scala:</p>
 <ul>
 <li><a href="https://github.com/scleradb/sclera-example-java-jdbc">Sclera - JDBC Example (Java version) on GitHub</a></li>
