@@ -54,6 +54,10 @@ For example, the following displays the result as a two column, single row table
 
 Leaving the keyword `display` out displays the result in the command line shell, as usual.
 
+You can also display arbitrary text (say, comments) as well:
+
+        > display "The plot above is amazing!";
+
 When done, you can close the display web server by saying:
 
         > display stop;

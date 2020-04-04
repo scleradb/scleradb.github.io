@@ -1422,6 +1422,7 @@ Welcome to Sclera 4.0
 HTTP server started at port 7070
 Please point your browser to http://localhost:7070
 </code></pre>
+<p>To start the server at a port other than 7070, you need to specify the port number explicitly at the end. For example, <code>display start 8080;</code> starts the server at <code>localhost:8080</code>.</p>
 </li>
 <li>
 <p>Start a web browser and open the URL <a href="http://localhost:7070">http://localhost:7070</a></p>
@@ -1434,6 +1435,9 @@ Please point your browser to http://localhost:7070
 <pre><code>    &gt; display select 'Hello' as greeting1, 'World' as greeting2;
 </code></pre>
 <p>Leaving the keyword <code>display</code> out displays the result in the command line shell, as usual.</p>
+<p>You can also display arbitrary text (say, comments) as well:</p>
+<pre><code>    &gt; display "The plot above is amazing!";
+</code></pre>
 <p>When done, you can close the display web server by saying:</p>
 <pre><code>    &gt; display stop;
 </code></pre>
