@@ -40,7 +40,7 @@ To run ScleraViz queries, you need to:
         HTTP server started at port 7070
         Please point your browser to http://localhost:7070
 
-- Start a web browser and open the URL http://localhost:7070
+- Start a web browser and open the URL [http://localhost:7070](http://localhost:7070)
 
 Running a ScleraViz query (described in the rest of this document) on the Sclera Command Line will display the visualization in the browser. In addition, to display the contents of a query as a table in the browser, you can say:
 
