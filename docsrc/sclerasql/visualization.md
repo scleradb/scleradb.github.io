@@ -21,6 +21,10 @@ To run ScleraViz queries, you need to:
 
         $ scleradmin --add sclera-plugin-webdisplay --root <sclera-root>
 
+- If you need to read CSV data, install the [CSV](../setup/components.md#sclera-csv-file-connector) plugin as well
+
+        $ scleradmin --add sclera-plugin-csv --root <sclera-root>
+
 - Start the Sclera Command Line Shell
 
         $ <sclera-root>/bin/sclera
