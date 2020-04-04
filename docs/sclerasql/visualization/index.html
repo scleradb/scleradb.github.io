@@ -1429,17 +1429,17 @@ Please point your browser to http://localhost:7070
 </li>
 </ul>
 <p>Running a ScleraViz query (described in the rest of this document) on the Sclera Command Line will display the visualization in the browser. In addition, to display the contents of a query as a table in the browser, you can say:</p>
-<pre><code>    &gt; display &lt;query&gt;;
+<pre><code>&gt; display &lt;query&gt;;
 </code></pre>
 <p>For example, the following displays the result as a two column, single row table in the browser:</p>
-<pre><code>    &gt; display select 'Hello' as greeting1, 'World' as greeting2;
+<pre><code>&gt; display select 'Hello' as greeting1, 'World' as greeting2;
 </code></pre>
 <p>Leaving the keyword <code>display</code> out displays the result in the command line shell, as usual.</p>
 <p>You can also display arbitrary text (say, comments) as well:</p>
-<pre><code>    &gt; display "The plot above is amazing!";
+<pre><code>&gt; display "The plot above is amazing!";
 </code></pre>
 <p>When done, you can close the display web server by saying:</p>
-<pre><code>    &gt; display stop;
+<pre><code>&gt; display stop;
 </code></pre>
 <h2 id="example-dataset">Example Dataset<a class="headerlink" href="#example-dataset" title="Permanent link">&#9668;</a></h2>
 <p>In the following, we will be using the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">"tipping" dataset</a> as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">here</a>.</p>

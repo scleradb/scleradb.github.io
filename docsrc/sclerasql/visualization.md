@@ -46,21 +46,21 @@ To run ScleraViz queries, you need to:
 
 Running a ScleraViz query (described in the rest of this document) on the Sclera Command Line will display the visualization in the browser. In addition, to display the contents of a query as a table in the browser, you can say:
 
-        > display <query>;
+    > display <query>;
 
 For example, the following displays the result as a two column, single row table in the browser:
 
-        > display select 'Hello' as greeting1, 'World' as greeting2;
+    > display select 'Hello' as greeting1, 'World' as greeting2;
 
 Leaving the keyword `display` out displays the result in the command line shell, as usual.
 
 You can also display arbitrary text (say, comments) as well:
 
-        > display "The plot above is amazing!";
+    > display "The plot above is amazing!";
 
 When done, you can close the display web server by saying:
 
-        > display stop;
+    > display stop;
 
 ## Example Dataset
 
