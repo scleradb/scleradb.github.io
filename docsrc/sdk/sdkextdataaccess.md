@@ -2,8 +2,6 @@ In this document, we show how to build custom connectors to any data source. The
 
 [Sclera - CSV Connector](../setup/components.md#sclera-csv) and [Sclera - Text Files Connector](../setup/components.md#sclera-textfiles) are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the [SQL documentation for external data access](../sclerasql/sqlextdataaccess.md).
 
-*To be updated, links to the code and javadocs might not work.*
-
 ## Building Data Access Connectors
 
 To build a custom data access connector, you need to provide implementations of the following abstract classes in the SDK:
