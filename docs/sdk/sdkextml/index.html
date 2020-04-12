@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Sclera and its plugins">
       
       
-        <link rel="canonical" href="https://scleradb.com/docs/sdk/sdkextml/">
+        <link rel="canonical" href="https://www.scleradb.com/docs/sdk/sdkextml/">
       
       
         <meta name="author" content="Sclera, Inc.">
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://scleradb.com/docs" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+        <a href="https://www.scleradb.com/docs" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
           
@@ -172,7 +172,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://scleradb.com/docs" title="Sclera Documentation" class="md-nav__button md-logo">
+    <a href="https://www.scleradb.com/docs" title="Sclera Documentation" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
       
@@ -678,26 +678,6 @@
     Deployment Steps
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alternative-1-recommended" class="md-nav__link">
-    Alternative 1 (Recommended)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alternative-2" class="md-nav__link">
-    Alternative 2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -826,26 +806,6 @@
     Deployment Steps
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alternative-1-recommended" class="md-nav__link">
-    Alternative 1 (Recommended)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alternative-2" class="md-nav__link">
-    Alternative 2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -899,42 +859,15 @@
 <h2 id="packaging-and-deploying-the-connector">Packaging and Deploying the Connector<a class="headerlink" href="#packaging-and-deploying-the-connector" title="Permanent link">&#9668;</a></h2>
 <p>The included <a href="../../setup/components/#sclera-mysql">Sclera - Weka Connector</a> implementation uses <a href="http://www.scala-sbt.org">sbt</a> for building the connector <a href="http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt">(installation details)</a>. This is not a requirement -- any other build tool can be used instead.</p>
 <h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&#9668;</a></h3>
-<p>For Scala:</p>
+<p>The implementation has a dependency on:</p>
 <ul>
-<li>The Scala implementation has a dependency on the <a href="../sdkintro/#scalasdk"><code>"sclera-core"</code> library</a>. This library is available from the <a href="http://scleradb.releases.s3.amazonaws.com">Sclera repository</a>; see the included <a href="https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-weka/build.sbt">sbt build file</a> for the details. Note that the dependency is annotated <code>"provided"</code> since the <code>jar</code> for <code>"sclera-core"</code> will be available in the <code>CLASSPATH</code> when this connector is run with Sclera.</li>
+<li>the library for the machine learning package used.</li>
+<li>the <a href="../../setup/components/#sclera-core"><code>"sclera-core"</code></a> and <a href="../../setup/components/#sclera-config"><code>"sclera-config"</code></a> core components. Note that these dependencies is annotated <code>"provided"</code> since these libraries will already be available in the <code>CLASSPATH</code> when this connector is run with Sclera.</li>
+<li>(optional) the test framework <a href="http://www.scalatest.org/"><code>scalatest</code></a> for running the tests.</li>
 </ul>
-<p>For Java:</p>
-<ul>
-<li>The Java implementation has a dependency on the <a href="../sdkintro/#scalasdk"><code>"sclera-core"</code> library</a>, as wells as on the <a href="#javasdk"><code>"sclera-extensions-java-sdk"</code> library</a>. These libraries are available from the <a href="http://scleradb.releases.s3.amazonaws.com">Sclera repository</a>. Note that the dependency on <code>"sclera-core"</code> is annotated <code>"provided"</code> since the <code>jar</code> for <code>"sclera-core"</code> will be available in the <code>CLASSPATH</code> when this connector is run with Sclera.</li>
-</ul>
+<p>These are specified in the build file. As an example, see the <a href="https://github.com/scleradb/sclera-plugin-weka/blob/master/build.sbt">Sclera - Weka Connector's build file</a>.</p>
 <h3 id="deployment-steps">Deployment Steps<a class="headerlink" href="#deployment-steps" title="Permanent link">&#9668;</a></h3>
-<p>The connector can be deployed using the following steps:</p>
-<h4 id="alternative-1-recommended">Alternative 1 (Recommended)<a class="headerlink" href="#alternative-1-recommended" title="Permanent link">&#9668;</a></h4>
-<ul>
-<li>First, publish the implementation as a local package. In sbt, this is done by running <code>sbt publish-local</code>.</li>
-<li>
-<p>Run the following to install the component and its dependencies:</p>
-<p><pre><code>&gt; $SCLERA_HOME/bin/install.sh package_name package_version package_org</code></pre></p>
-<ul>
-<li><code>$SCLERA_HOME</code> is the directory where Sclera is installed</li>
-<li><code>package_name</code> is the name of the package being installed</li>
-<li><code>package_version</code> is the version of the package being installed</li>
-<li><code>package_org</code> is the org of the package being installed</li>
-<li>Run the following to include the path to the installed component package jar and the dependencies in the <code>CLASSPATH</code>:</li>
-</ul>
-<p><pre><code>&gt; . $SCLERA_HOME/assets/install/classpath/package_name-classpath.sh</code></pre></p>
-<ul>
-<li>The bash script <code>package_name-classpath.sh</code> was automatically created in the previous step, while installing the package. The <code>package_name</code> part of the file name is the name of the package installed.</li>
-</ul>
-</li>
-</ul>
-<p>The connector should now be visible to Sclera, and can be used in the queries.</p>
-<h4 id="alternative-2">Alternative 2<a class="headerlink" href="#alternative-2" title="Permanent link">&#9668;</a></h4>
-<ul>
-<li>First, compile and package the implementation into a <code>jar</code> file. In sbt, this is done by running <code>sbt package</code>. If you have external dependencies, you may need to assemble everything into a single <code>jar</code> -- in <code>sbt</code>, this can be done using the <a href="https://github.com/sbt/sbt-assembly"><code>sbt-assembly</code> plugin</a>.</li>
-<li>Next, add the path to the generated <code>jar</code> file to the <code>CLASSPATH</code> environment variable.</li>
-</ul>
-<p>The connector should now be visible to Sclera, and can be used in the queries.</p>
+<p>Follow steps similar to those described <a href="../sdkextdataaccess/#dependencies">here</a>.</p>
 <p><strong>Note:</strong> Please ensure that the identifier you assign to the connector is unique, that is - does not conflict with the identifier of any other available <a href="#mlservice"><code>MLService</code></a> instance.</p>
                 
                   

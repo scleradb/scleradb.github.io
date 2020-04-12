@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Sclera and its plugins">
       
       
-        <link rel="canonical" href="https://scleradb.com/docs/sdk/sdkextdataaccess/">
+        <link rel="canonical" href="https://www.scleradb.com/docs/sdk/sdkextdataaccess/">
       
       
         <meta name="author" content="Sclera, Inc.">
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://scleradb.com/docs" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+        <a href="https://www.scleradb.com/docs" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
           
@@ -172,7 +172,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://scleradb.com/docs" title="Sclera Documentation" class="md-nav__button md-logo">
+    <a href="https://www.scleradb.com/docs" title="Sclera Documentation" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
       
@@ -635,8 +635,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-building-a-stock-ticker-connector" class="md-nav__link">
-    Example: Building a Stock Ticker Connector
+  <a href="#example-building-a-csv-file-connector" class="md-nav__link">
+    Example: Building a CSV File Connector
   </a>
   
 </li>
@@ -660,26 +660,6 @@
   <a href="#deployment-steps" class="md-nav__link">
     Deployment Steps
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alternative-1-recommended" class="md-nav__link">
-    Alternative 1 (Recommended)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alternative-2" class="md-nav__link">
-    Alternative 2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -814,8 +794,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-building-a-stock-ticker-connector" class="md-nav__link">
-    Example: Building a Stock Ticker Connector
+  <a href="#example-building-a-csv-file-connector" class="md-nav__link">
+    Example: Building a CSV File Connector
   </a>
   
 </li>
@@ -839,26 +819,6 @@
   <a href="#deployment-steps" class="md-nav__link">
     Deployment Steps
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alternative-1-recommended" class="md-nav__link">
-    Alternative 1 (Recommended)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alternative-2" class="md-nav__link">
-    Alternative 2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -888,98 +848,80 @@
                 
                 <p>In this document, we show how to build custom connectors to any data source. These connectors enable ingestion of data from arbitrary sources in a ScleraSQL query. You only need to format the data as rows of a table, and Sclera will take care of evaluating your SQL queries on the same -- these queries can include transforming, filtering and aggregating this data, as well as joining this data with data ingested from other connectors, or with data in tables stored in other data stores.</p>
 <p><a href="../../setup/components/#sclera-csv">Sclera - CSV Connector</a> and <a href="../../setup/components/#sclera-textfiles">Sclera - Text Files Connector</a> are built using this SDK. For examples of how these connectors are used in Sclera, please refer to the <a href="../../sclerasql/sqlextdataaccess/">SQL documentation for external data access</a>.</p>
-<p><em>To be updated, links to the code might not work.</em></p>
+<p><em>To be updated, links to the code and javadocs might not work.</em></p>
 <h2 id="building-data-access-connectors">Building Data Access Connectors<a class="headerlink" href="#building-data-access-connectors" title="Permanent link">&#9668;</a></h2>
-<p>To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:</p>
+<p>To build a custom data access connector, you need to provide implementations of the following abstract classes in the SDK:</p>
 <ul>
-<li><a class="anchor" name="dataservice"></a> <code>DataService</code> (<a href="http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.external.service.DataService">Scala</a>, <a href="http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.external.service.DataService">Java</a>)<ul>
-<li>Provides the datasource as a service to Sclera.</li>
+<li><a class="anchor" name="externalsourceservice"></a> <code>ExternalSourceService</code> (<a href="/sclera-core-sdk/index.html#com.scleradb.external.service.ExternalSourceService">API Link</a>)<ul>
+<li>Provides the external data source as a service to Sclera.</li>
 <li>Contains an <code>id</code> that identifies this service.</li>
-<li>Contains a method <code>createSource</code> that is used to create a new <a href="#datasource">datasource instance</a> for this service.</li>
+<li>Contains a method <code>createSource</code> that is used to create a new <a href="#externalsource"><code>ExternalSource</code> instance</a> for this service.</li>
 </ul>
 </li>
-<li><a class="anchor" name="datasource"></a> <code>DataSource</code> (<a href="http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.external.datasource.DataSource">Scala</a>, <a href="http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.external.datasource.DataSource">Java</a>)<ul>
-<li>Represents the datasource.</li>
-<li>Provides the schema and other metadata about the output of the datasource to Sclera at compile-time.</li>
-<li>Provides the output of the datasource to Sclera at runtime.</li>
+<li><a class="anchor" name="externalsource"></a> <code>ExternalSource</code> (<a href="/sclera-core-sdk/index.html#com.scleradb.external.objects.ExternalSource">API Link</a>)<ul>
+<li>Represents the external data source.</li>
+<li>Provides the schema and other metadata about the sourced data to Sclera at compile-time.</li>
+<li>Provides the <a href="#tableresult">sourced data</a> to Sclera at runtime.</li>
 </ul>
 </li>
-<li><a class="anchor" name="tableresult"></a> <code>TableResult</code> (<a href="http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.sql.datatypes.TableResult">Scala</a>, <a href="http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.sql.datatypes.TableResult">Java</a>)<ul>
-<li>Represents the output of the datasource.</li>
-<li>Provides an iterator over the rows containing the output data.</li>
+<li><a class="anchor" name="tableresult"></a> <code>TableResult</code> (<a href="/sclera-core-sdk/index.html#com.scleradb.sql.datatypes.TableResult">API Link</a>)<ul>
+<li>Represents the data sourced from the external data source.</li>
+<li>Provides an iterator over the rows containing the sourced data.</li>
 </ul>
 </li>
 </ul>
 <p><a class="anchor" name="example"></a></p>
-<h2 id="example-building-a-stock-ticker-connector">Example: Building a Stock Ticker Connector<a class="headerlink" href="#example-building-a-stock-ticker-connector" title="Permanent link">&#9668;</a></h2>
-<p>This section shows how to implement the <a href="../../setup/components/#sclera-stockticker">stock ticker connector</a> using the Sclera Extensions SDK. This connector enables using data from a stock ticker web service within a SQL query, and is included in all Sclera subscription packages; see the <a href="../../sclerasql/sqlextdataaccess/#sclera-stockticker">component documentation</a> for the details.</p>
-<p>The referenced code is available in the <code>sclera-stockticker</code> subdirectory of the example repository (<a href="https://github.com/scleradb/sclera-extensions-scala">Scala</a>, <a href="https://github.com/scleradb/sclera-extensions-java">Java</a>).</p>
-<p>Consider a simple SQL query that uses the connector (<a href="../../sclerasql/sqlextdataaccess/#sclera-stockticker">full syntax</a>):</p>
-<pre><code>SELECT * FROM EXTERNAL STOCKTICKER("NYSE:IBM", 120, 1);
+<h2 id="example-building-a-csv-file-connector">Example: Building a CSV File Connector<a class="headerlink" href="#example-building-a-csv-file-connector" title="Permanent link">&#9668;</a></h2>
+<p>This section shows how to implement a lightweight clone of the <a href="../../setup/components/#sclera-csv">CSV file connector</a> using the Sclera Extensions SDK. The referenced code is available on <a href="https://github.com/scleradb/sclera-plugin-csv-lite">GitHub</a>.</p>
+<p>This connector enables using data from a CSV file within a SQL query. The CSV file can be local or remote as long as it is accessible through an URL.</p>
+<p>A simple SQL query that uses the connector is as follows:</p>
+<pre><code>SELECT * FROM EXTERNAL CSVLITE("http://scleraviz.herokuapp.com/assets/data/tips.csv")
 </code></pre>
-<p>This query retrieves the stock ticker for <code>IBM</code> in exchange <code>NYSE</code>, reading at gaps of <code>120</code> seconds for past <code>1</code> day.</p>
-<p>While processing this query, Sclera comes across the <code>EXTERNAL</code> keyword, and accordingly identifies <code>"STOCKTICKER"</code> as an external datasource service. It finds the service provider as an object of the class <code>TickerService</code> (<a href="https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-stockticker/src/main/scala/service/TickerService.scala">Scala</a>, <a href="https://github.com/scleradb/sclera-extensions-java/blob/master/sclera-stockticker/src/main/java/com/example/scleradb/java/stockticker/service/TickerService.java">Java</a>), which implements the <a href="#dataservice">abstract class <code>DataService</code></a> mentioned above.</p>
-<p>The class <code>TickerService</code> implements the following method, as required by the <a href="#dataservice">abstract class <code>DataService</code></a>:</p>
+<p>This query retrieves the CSV data in the file at the specified URL and incorporates it as a virtual table for further processing. A more complicated query could have filters, joins and aggregates on this virtual table.</p>
+<p>While processing this query, Sclera comes across the <code>EXTERNAL</code> keyword, and accordingly identifies <code>"CSVLITE"</code> as an external datasource service. Consulting the <a href="https://github.com/scleradb/sclera-plugin-csv-lite/blob/master/src/main/resources/META-INF/services/com.scleradb.external.service.ExternalSourceService">service provider specification file</a>, it finds the service provider as an object of the class <code>CSVSourceService</code> (<a href="https://github.com/scleradb/sclera-plugin-csv-lite/blob/master/src/main/scala/CSVSourceService.scala">source</a>), which implements the <a href="#externalsourceservice">abstract class <code>ExternalSourceService</code></a>. (For details, see the <a href="https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html">Java Service Provider Interface documentation</a>.)</p>
+<p>The class <code>CSVSourceService</code> implements the method <code>createSource</code>, as required by the <a href="#externalsourceservice">abstract class <code>ExternalSourceService</code></a>. This method takes a list of datasource parameters specified in the SQL query -- in the query above, the list consists of only one parameter, the URL, of type <code>CharConst</code>. The implementation of the method parses and validates the parameter, and uses them to create an object of the class <code>TickerSource</code>, which implements the <a href="#externalsource">abstract class <code>ExternalSource</code></a> mentioned above.</p>
+<p><a class="anchor" name="serviceid"></a>The service identifier is provided by the <code>id</code> attribute. For <code>CSVSourceService</code>, the identifier is <code>"CSVLITE"</code>.</p>
+<p>For the query above, Sclera calls the method <code>createSource</code> of the <code>CSVSourceService</code> object, with the URL as the parameter, and gets back a <code>CSVSource</code> object.</p>
+<p>The class <code>CSVSource</code> implements the following methods and attributes, as required by the <a href="#externalsource">abstract class <code>ExternalSource</code></a>:</p>
 <ul>
-<li>The method <code>createSource</code>, which takes a list (array in Java) of datasource parameters specified in the SQL query -- in the query above, these parameters are the string <code>"NYSE:IBM"</code>, integer <code>120</code> and integer <code>1</code>. The implementation of the method parses and validates these parameters, and uses them to create an object of the class <code>TickerSource</code>, which implements the <a href="#datasource">abstract class <code>DataSource</code></a> mentioned above.</li>
+<li>The attribute <code>name</code> provides a user-interpretable name to this data source. In our implementation, this is taken to be the same as the service identifier.</li>
+<li>The attribute <code>columns</code> provides Sclera with the schema of the output that this data source will emit at runtime. The schema contains the name of each column, and its type. This must be consistent with that provided by <code>CSVResult</code> (see below). In our implementation, the <code>CSVResult</code> object is used to provide the <code>columns</code> in <code>CSVSource</code> -- but there may be cases where this coupling might not be possible (for instance, the <code>CSVResult</code> object might get computed later at runtime), hence the redundancy.</li>
+<li>The method <code>result</code> is called by Sclera at runtime, and returns an object of the class <code>CSVResult</code>, which implements the <a href="#tableresult">abstract class <code>TableResult</code></a> mentioned above.</li>
+<li>The method <code>toString</code> provides a printable string, which will be used for this datasource when <a href="../../interface/shell/#compile-time-explain"><code>EXPLAIN</code> is run on a query</a> using this data source.</li>
 </ul>
-<p><a class="anchor" name="serviceid"></a>The service identifier is provided by the <code>id</code> attribute (method in Java). For <code>TickerService</code>, the identifier is <code>"STOCKTICKER"</code>.</p>
-<p>For the query above, Sclera calls the method <code>createSource</code> of the <code>TickerService</code> object, with parameters as the string <code>"NYSE:IBM"</code>, integer <code>120</code> and integer <code>1</code>, and gets back a <code>TickerSource</code> object.</p>
-<p>The class <code>TickerSource</code> implements the following methods, as required by the <a href="#datasource">abstract class <code>DataSource</code></a>:</p>
+<p>Sclera <a href="../../intro/technical/#query-processor">plans</a> the query mentioned above taking into account the schema and result sort order provided by the <code>CSVSource</code> object. When the plan is <a href="../../intro/technical/#evaluation">evaluated</a>, the object's <code>result</code> method returns the object <code>CSVResult</code>, which retrieves the data from the URL, as discussed in a moment.</p>
+<p>The class <code>CSVResult</code> implements the following methods, as required by the <a href="#tableresult">abstract class <code>TableResult</code></a>:</p>
 <ul>
-<li>The method <code>toString</code> provides a printable string, which will be used for this datasource when <a href="../../interface/shell/#compile-time-explain"><code>EXPLAIN</code> is run on a query</a> using this datasource.</li>
-<li>The method <code>columns</code> (<code>columnsList</code> in Java) provides Sclera with the schema of the output that this datasource will emit at runtime. The schema contains the name of each column, and its type (in Java, the helper methods of the utility <a href="http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.util.JavaUtil$">JavaUtil object</a> are used to construct the column and type specifications).</li>
-<li>The method <code>resultOrderOpt</code> (<code>sortExprs</code> in Java) tells Sclera how the output is sorted. This information is optional, but helps in eliminating redundant sorts on the emitted result.</li>
-<li>The method <code>result</code> is called by Sclera at runtime, and returns an object of the class <code>TickerResult</code>, which implements the <a href="#tableresult">abstract class <code>TableResult</code></a> mentioned above.</li>
+<li>The attribute <code>columns</code> provides Sclera with the schema of the data that this data source will emit at runtime. The schema contains the name of each column, and its type. </li>
+<li>The method <code>rows</code> returns an iterator over <code>TableRow</code> objects containing the data. A <code>TableRow</code> object can be constructed from a mapping of column names to column values. The column names and data types must be consistent with that provided the attribute <code>columns</code> above.</li>
+<li>The attribute <code>resultOrder</code> tells Sclera how the emitted data is sorted. This information is optional, but helps in eliminating redundant sorts on the emitted result. In our implementation, the order of rows in the source CSV data is not known, hence this attribute is an empty list.</li>
 </ul>
-<p>Sclera <a href="../../intro/technical/#query-processor">plans</a> the query mentioned above taking into account the schema and result sort order provided by the <code>TickerSource</code> object. When the plan is <a href="../../intro/technical/#evaluation">evaluated</a>, the object's <code>result</code> method returns the object <code>TickerResult</code>, which retrieves the data from the stock ticker web service, as discussed in a moment.</p>
-<p>The class <code>TickerResult</code> implements the following method, as required by the <a href="#tableresult">abstract class <code>TableResult</code></a>:</p>
-<ul>
-<li>The method <code>rows</code> (<code>resultRows</code> in Java) returns an iterator over <code>TableRow</code> objects containing the data. A <code>TableRow</code> object can be constructed from a mapping of column names to column values. The column names must be the same as provided by <code>TickerSource</code>, as described earlier, and the associated values also contain the type information for the value. Both Scala and Java have helper functions that simplify building these data rows.</li>
-</ul>
-<p>In addition, <code>TickerResult</code> also specifies the metadata attributes <code>columns</code> (method <code>columnsList</code> in Java) and <code>resultOrderOpt</code> (method <code>sortExprs</code> in Java), as required by the <a href="#tableresult">abstract class <code>TableResult</code></a> -- this metadata must be consistent with that provided earlier by <code>TickerSource</code>.</p>
-<p>For the query above, the web service is invoked using HTTP, and the response is parsed to get the ticker reads, which are returned as an iterator over <code>TableRow</code> objects. In the Scala implementation, this logic is embedded in the <code>rows</code> method of the class <code>TickerResult</code>. In the Java implementation, <a href="https://github.com/scleradb/sclera-extensions-java/blob/master/sclera-stockticker/src/main/java/com/example/scleradb/java/stockticker/source/LineIterator.java">class <code>LineIterator</code></a> and <a href="https://github.com/scleradb/sclera-extensions-java/blob/master/sclera-stockticker/src/main/java/com/example/scleradb/java/stockticker/source/TickerIterator.java">class <code>TickerIterator</code></a> perform the job (note that these classes simplify the implementation of the class <code>TickerResult</code>, and are not required by the SDK).</p>
+<p>For the query above, <a href="http://commons.apache.org/proper/commons-csv/">Apache Commons CSV Library</a> is used to retrieve the CSV data from the specified URL. This data is converted into an iterator of <code>TableRow</code> instances which is returned as a part of <code>CSVResult</code>, as described above.</p>
 <h2 id="packaging-and-deploying-the-connector">Packaging and Deploying the Connector<a class="headerlink" href="#packaging-and-deploying-the-connector" title="Permanent link">&#9668;</a></h2>
 <p>The implementation uses <a href="http://www.scala-sbt.org">sbt</a> for building the connector <a href="http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html#installing-sbt">(installation details)</a>. This is not a requirement -- any other build tool can be used instead.</p>
 <h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&#9668;</a></h3>
-<p>For Scala:</p>
+<p>The implementation has a dependency on:</p>
 <ul>
-<li>The Scala implementation has a dependency on the <a href="../sdkintro/#scalasdk"><code>"sclera-core"</code> library</a>. This library is available from the <a href="http://scleradb.releases.s3.amazonaws.com">Sclera repository</a>; see the included <a href="https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-stockticker/build.sbt">sbt build file</a> for the details. Note that the dependency is annotated <code>"provided"</code> since the <code>jar</code> for <code>"sclera-core"</code> will be available in the <code>CLASSPATH</code> when this connector is run with Sclera.</li>
+<li>the <a href="http://commons.apache.org/proper/commons-csv/"> Apache <code>commons-csv</code> library</a>.</li>
+<li>the <a href="../../setup/components/#sclera-core"><code>"sclera-core"</code></a> and <a href="../../setup/components/#sclera-config"><code>"sclera-config"</code></a> core components. Note that these dependencies is annotated <code>"provided"</code> since these libraries will already be available in the <code>CLASSPATH</code> when this connector is run with Sclera.</li>
+<li>(optional) the test framework <a href="http://www.scalatest.org/"><code>scalatest</code></a> for running the tests.</li>
 </ul>
-<p>For Java:</p>
-<ul>
-<li>The Java implementation has a dependency on the <a href="../sdkintro/#scalasdk"><code>"sclera-core"</code> library</a>, as wells as on the <a href="#javasdk"><code>"sclera-extensions-java-sdk"</code> library</a>. These libraries are available from the <a href="http://scleradb.releases.s3.amazonaws.com">Sclera repository</a>; see the included <a href="https://github.com/scleradb/sclera-extensions-java/blob/master/sclera-stockticker/build.sbt">sbt build file</a> for the details. Note that the dependency on <code>"sclera-core"</code> is annotated <code>"provided"</code> since the <code>jar</code> for <code>"sclera-core"</code> will be available in the <code>CLASSPATH</code> when this connector is run with Sclera.</li>
-</ul>
+<p>see the included <a href="https://github.com/scleradb/sclera-plugin-csv-lite/blob/master/build.sbt">sbt build file</a> for details.</p>
 <h3 id="deployment-steps">Deployment Steps<a class="headerlink" href="#deployment-steps" title="Permanent link">&#9668;</a></h3>
-<p>The connector can be deployed using the following steps:</p>
-<h4 id="alternative-1-recommended">Alternative 1 (Recommended)<a class="headerlink" href="#alternative-1-recommended" title="Permanent link">&#9668;</a></h4>
+<p>The connector can be deployed simply by having its jar and all its dependencies in the <code>CLASSPATH</code>.</p>
+<p>Alternatively, for a managed deployment, follow the following steps:</p>
 <ul>
-<li>First, publish the implementation as a local package. In sbt, this is done by running <code>sbt publish-local</code>.</li>
-<li>
-<p>Run the following to install the component and its dependencies:</p>
-<p><pre><code>&gt; $SCLERA_HOME/bin/install.sh package_name package_version package_org</code></pre></p>
-<ul>
-<li><code>$SCLERA_HOME</code> is the directory where Sclera is installed</li>
-<li><code>package_name</code> is the name of the package being installed</li>
-<li><code>package_version</code> is the version of the package being installed</li>
-<li><code>package_org</code> is the org of the package being installed</li>
-<li>Run the following to include the path to the installed component package jar and the dependencies in the <code>CLASSPATH</code>:</li>
-</ul>
-<p><pre><code>&gt; . $SCLERA_HOME/assets/install/classpath/package_name-classpath.sh</code></pre></p>
-<ul>
-<li>The bash script <code>package_name-classpath.sh</code> was automatically created in the previous step, while installing the package. The <code>package_name</code> part of the file name is the name of the package installed.</li>
-</ul>
+<li>First, publish the implementation as a package, locally or in a public artifact repository. In sbt, you can publish locally by running <code>sbt publish-local</code>.</li>
+<li>Use <a href="../../setup/install/#plugin-management"><code>scleradmin</code></a> to install the component and its dependencies:<pre><code>&gt; scleradmin --add &lt;plugin&gt; --root &lt;sclera-root&gt;
+</code></pre>
 </li>
 </ul>
+<p>where <code>&lt;plugin&gt;</code> is the artifact identifier for your published package, and <a href="../../setup/install/#installing-sclera-core-packages-and-shell"><code>&lt;sclera-root&gt;</code></a> is the directory where Sclera is installed.</p>
+<p>For example, having published the <code>"CSVLITE"</code> plugin described above as <code>com.example:sclera-plugin-csv-lite:1.0-SNAPSHOT</code>, we can deploy it as:</p>
+<pre><code>&gt; scleradmin --add "com.example:sclera-plugin-csv-lite:1.0-SNAPSHOT" --root /path/to/sclera
+</code></pre>
 <p>The connector should now be visible to Sclera, and can be used in the queries.</p>
-<h4 id="alternative-2">Alternative 2<a class="headerlink" href="#alternative-2" title="Permanent link">&#9668;</a></h4>
-<ul>
-<li>First, compile and package the implementation into a <code>jar</code> file. In sbt, this is done by running <code>sbt package</code>. If you have external dependencies, you may need to assemble everything into a single <code>jar</code> -- in <code>sbt</code>, this can be done using the <a href="https://github.com/sbt/sbt-assembly"><code>sbt-assembly</code> plugin</a>.</li>
-<li>Next, add the path to the generated <code>jar</code> file to the <code>CLASSPATH</code> environment variable.</li>
-</ul>
-<p>The connector should now be visible to Sclera, and can be used in the queries.</p>
-<p><strong>Note:</strong> Please ensure that the identifier you assign to the connector is unique, that is - does not conflict with the identifier of any other available <a href="#dataservice"><code>DataService</code></a> instance.</p>
-<p>While deploying or experimenting with the <a href="#example">example discussed above</a>, please change the <a href="#serviceid">service identifier</a> to something other than <code>"STOCKTICKER"</code> before deployment, since the <a href="../../sclerasql/sqlextdataaccess/#sclera-stockticker"><code>"STOCKTICKER"</code> service is already available as a part of your Sclera package</a>.</p>
+<p><strong>Note:</strong> Please ensure that the identifier you assign to your connector is unique -- that is, it does not conflict with the identifier of any other available <a href="#externalsourceservice"><code>ExternalSourceService</code></a> instance.</p>
                 
                   
                 

@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Sclera and its plugins">
       
       
-        <link rel="canonical" href="https://scleradb.com/docs/setup/components/">
+        <link rel="canonical" href="https://www.scleradb.com/docs/setup/components/">
       
       
         <meta name="author" content="Sclera, Inc.">
@@ -102,7 +102,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://scleradb.com/docs" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
+        <a href="https://www.scleradb.com/docs" title="Sclera Documentation" aria-label="Sclera Documentation" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../../images/sclera-logo-square.png" width="24" height="24">
           
@@ -172,7 +172,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://scleradb.com/docs" title="Sclera Documentation" class="md-nav__button md-logo">
+    <a href="https://www.scleradb.com/docs" title="Sclera Documentation" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../../images/sclera-logo-square.png" width="48" height="48">
       
@@ -326,6 +326,13 @@
           <li class="md-nav__item">
   <a href="#sclera-core-engine" class="md-nav__link">
     Sclera - Core Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sclera-configuration-manager" class="md-nav__link">
+    Sclera - Configuration Manager
   </a>
   
 </li>
@@ -877,6 +884,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sclera-configuration-manager" class="md-nav__link">
+    Sclera - Configuration Manager
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1005,6 +1019,9 @@
 <h3 id="sclera-core-engine">Sclera - Core Engine<a class="headerlink" href="#sclera-core-engine" title="Permanent link">&#9668;</a></h3>
 <p>This is the core Sclera engine, which is responsible for parsing, optimizing and evaluating <a href="../../sclerasql/sqlintro/">SQL commands and queries</a> with the help of the other components. For the details, please see the <a href="../../intro/technical/">technical details</a> document.</p>
 <p>This component includes an embedded <a href="http://www.h2database.com">H2 database</a>, which serves as the default <a href="../../intro/technical/#metadata-store">metadata store</a> and <a href="../../intro/technical/#cache-store">data cache</a>.</p>
+<p><a class="anchor" name="sclera-config"></a></p>
+<h3 id="sclera-configuration-manager">Sclera - Configuration Manager<a class="headerlink" href="#sclera-configuration-manager" title="Permanent link">&#9668;</a></h3>
+<p>Manages the configuration parameters for Sclera. The default configuratuon parameters are specified in <code>reference.conf</code> and can be overriden with a user-defined configuration file <code>sclera.conf</code>.</p>
 <h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&#9668;</a></h2>
 <p>The components listed in this section are optional extensions -- they are not core to the working of the Sclera engine.</p>
 <p><a class="anchor" name="sclera-shell"></a></p>
