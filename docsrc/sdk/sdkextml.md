@@ -8,18 +8,18 @@ This is achieved by mapping the training and execution to the interfaced library
 
 To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:
 
-- <a class="anchor" name="mlservice"></a> `MLService` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.ml.service.MLService), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.ml.service.DBService))
+- <a class="anchor" name="mlservice"></a> `MLService` ([API Link](/api/sclera-core/com/scleradb/analytics/ml/service/MLService.html))
     - Provides machine learning operators as a service to Sclera, using the specified library.
     - Contains an `id` that identifies this service.
     - Contains the method `createClassifier`, `createClusterer` that is used to create (i.e. train), respectively, a new [Classifier](#classifier) or [Clusterer](#clusterer) for this service.
-- <a class="anchor" name="classifier"></a> `Classifier` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.ml.classifier.objects.Classifier), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.ml.classifier.objects.Classifier))
+- <a class="anchor" name="classifier"></a> `Classifier` ([API Link](/api/sclera-core/com/scleradb/analytics/ml/classifier/objects/Classifier.html))
     - Wrapper over classes implementing clustering algorithms. [Training](../sclerasql/sqlextml.md#classifier-training) involves learning a classifier with a designated `targetAttr` using the feature attributes `featureAttrs`, all of which must be present in the input.
     - Provides a function `classifyOpt` that returns the label for a new data point, if one can be assigned by the classifier; this is used by the [`CLASSIFIED WITH` clause](../sclerasql/sqlextml.md#classifier-application).
-- <a class="anchor" name="clusterer"></a> `Clusterer` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.ml.clusterer.objects.Clusterer), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.ml.clusterer.objects.Clusterer))
+- <a class="anchor" name="clusterer"></a> `Clusterer` ([API Link](/api/sclera-core/com/scleradb/analytics/ml/clusterer/objects/Clusterer.html))
     - Wrapper over classes implementing clustering algorithms. [Training](../sclerasql/sqlextml.md#clusterer-training) involves clustering the given data.
     - Provides a function `cluster` that assigns a cluster id to a new data point; this is used by the [`CLUSTERED WITH` clause](../sclerasql/sqlextml.md#clusterer-application).
 
-The [Sclera - Weka Connector](../setup/components.md#sclera-weka), included with the Sclera platform, is open source and implements the interface mentioned above. The code for the [Sclera - Weka Connector](../setup/components.md#sclera-weka), in Scala, also appears as an illustrative example in the [Sclera Extensions (Scala) Github repository](https://github.com/scleradb/sclera-extensions-scala).
+The [Sclera - Weka Connector](../setup/components.md#sclera-weka), included with the Sclera platform, is open source and implements the interface mentioned above.
  
 ## Packaging and Deploying the Connector
 
@@ -37,6 +37,6 @@ These are specified in the build file. As an example, see the [Sclera - Weka Con
 
 ### Deployment Steps
 
-Follow steps similar to those described [here](../sdk/sdkextdataaccess.md#dependencies).
+Follow steps similar to those described [here](../sdk/sdkextdataaccess.md#deployment-steps).
 
 **Note:** Please ensure that the identifier you assign to the connector is unique, that is - does not conflict with the identifier of any other available [`MLService`](#mlservice) instance.

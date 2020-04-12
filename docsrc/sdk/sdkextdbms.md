@@ -6,30 +6,30 @@ In this document, we show how to build custom connectors to any relational/non-r
 
 To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:
 
-- <a class="anchor" name="dbservice"></a> `DBService` ([API Link](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.dbms.service.DataService))
+- <a class="anchor" name="dbservice"></a> `DBService` ([API Link](/api/sclera-core/com/scleradb/dbms/service/DBService.html))
     - Provides the database system as a service to Sclera.
     - Contains an `id` that identifies this service.
     - Contains a method `createLocation` that is used to create a new [location instance](#location) for this service.
-- <a class="anchor" name="location"></a> `Location` ([API Link](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.dbms.location.Location))
+- <a class="anchor" name="location"></a> `Location` ([API Link](/api/sclera-core/com/scleradb/dbms/location/Location.html))
     - Represents the underlying database system.
     - Provides the configuration parameters, and properties (e.g. temporary or persistent, read-only or read-write, etc.).
     - Provides the [driver](#statementdriver) for interfacing with the underlying system.
-- <a class="anchor" name="statementdriver"></a> `StatementDriver` ([API Link](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.dbms.driver.StatementDriver))
+- <a class="anchor" name="statementdriver"></a> `StatementDriver` ([API Link](/api/sclera-core/com/scleradb/dbms/driver/StatementDriver.html))
     - Executes the statements provided by Sclera on the underlying database system, and passes back the results.
     - Provides the [metadata driver](#statementmetadatadriver) for accessing the metadata for the data stored in the underlying database system.
-- <a class="anchor" name="statementmetadatadriver"></a> `StatementMetadataDriver` ([API Link](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.dbms.driver.StatementMetadataDriver))
+- <a class="anchor" name="statementmetadatadriver"></a> `StatementMetadataDriver` ([API Link](/api/sclera-core/com/scleradb/dbms/driver/StatementMetadataDriver.html))
     - Provides the metadata for the data stored in the underlying database system.
 
 ### Special case: Relational Databases
 If the underlying system is a relational database system, which talks SQL and uses JDBC as the interface, Sclera does most of the work. For such systems, you need to provide implementations of the following:
 
-- <a class="anchor" name="dbservice"></a> `DBService` ([API Link](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.dbms.service.DataService))
+- <a class="anchor" name="dbservice"></a> `DBService` ([API Link](/api/sclera-core/com/scleradb/dbms/service/DBService.html))
     - Provides the relational database system as a service to Sclera.
-- <a class="anchor" name="rdbmslocation"></a> `Location` ([API LInk](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.dbms.rdbms.location.RdbmsLocation))
+- <a class="anchor" name="rdbmslocation"></a> `RdbmsLocation` ([API LInk](/api/sclera-core/com/scleradb/dbms/rdbms/location/RdbmsLocation.html))
     - Represents the underlying relational database system.
     - Provides a standard implementation of [`StatementDriver`](#statementdriver) and [`StatementMetadataDriver`](#statementmetadatadriver), based on JDBC. You only need to configure the JDBC configuration parameters (e.g. the JDBC URL) for the underlying system, and additional location properties (e.g. temporary or persistent, read-only or read-write, etc.).
     - Provides the [SQL mapper](#sqlmapper) for translating Sclera's internal SQL representation to the SQL for the underlying system.
-- <a class="anchor" name="sqlmapper"></a> `SqlMapper` ([API LInk](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.sql.mapper.SqlMapper))
+- <a class="anchor" name="sqlmapper"></a> `SqlMapper` ([API LInk](/api/sclera-core/com/scleradb/sql/mapper/SqlMapper.html))
     - Translates Sclera's internal SQL representation to the SQL for the underlying system. This is needed because the [SQL clauses and constructs across different systems vary significantly and sometimes do not follow the standard](http://troels.arvin.dk/db/rdbms/).
 
 The [Sclera - MySQL Connector](../setup/components.md#sclera-mysql), included with the Sclera platform, is open source and implements the relational database interface mentioned above.
@@ -50,6 +50,6 @@ These are specified in the build file. As an example, see the [Sclera - MySQL Co
 
 ### Deployment Steps
 
-Follow steps similar to those described [here](../sdk/sdkextdataaccess.md#dependencies).
+Follow steps similar to those described [here](../sdk/sdkextdataaccess.md#deployment-steps).
 
 **Note:** Please ensure that the identifier you assign to the connector is unique, that is - does not conflict with the identifier of any other available [`DBService`](#dbservice) instance.

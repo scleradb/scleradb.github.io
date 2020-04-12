@@ -6,11 +6,11 @@ The component [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-
 
 To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:
 
-- <a class="anchor" name="nlpservice"></a> `NlpService` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.nlp.service.MLService), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.nlp.service.DBService))
+- <a class="anchor" name="nlpservice"></a> `NlpService` ([API Link](/api/sclera-core/com/scleradb/analytics/nlp/service/NlpService.html))
     - Provides text analytics operators as a service to Sclera, using the specified library.
     - Contains an `id` that identifies this service.
     - Contains the method `createObject` that is used to create a new task object for the task named in the parameter `taskName` for this service.
-- <a class="anchor" name="nlptask"></a> `NlpTask` ([Scala](http://scleradb.github.io/sclera-core-sdk/index.html#com.scleradb.analytics.nlp.objects.NlpTask), [Java](http://scleradb.github.io/sclera-extensions-java-sdk/index.html#com.scleradb.java.analytics.nlp.objects.NlpTask))
+- <a class="anchor" name="nlptask"></a> `NlpTask` ([API Link](/api/sclera-core/com/scleradb/analytics/nlp/objects/NlpTask.html))
     - Wrapper over classes implementing text analytics algorithms.
     - Provides a function `eval` that takes a data stream (an iterator over rows, with associated metadata) as input and returns the same data stream, with each row augmented by columns `resultCols` containing the output of executing the task `taskName` on the text in column `inputCol`. If the evaluation on a row emits multiple evaluation results, the input row is repeated in the output for each such result.
 
@@ -32,6 +32,6 @@ These are specified in the build file. As an example, see the [Sclera - Apache O
 
 ### Deployment Steps
 
-Follow steps similar to those described [here](../sdk/sdkextdataaccess.md#dependencies).
+Follow steps similar to those described [here](../sdk/sdkextdataaccess.md#deployment-steps).
 
 **Note:** Please ensure that the identifier you assign to the connector is unique, that is - does not conflict with the identifier of any other available [`NlpService`](#nlpservice) instance.

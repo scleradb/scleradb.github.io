@@ -1,15 +1,8 @@
 Sclera is an open platform that can be extended, as needed, with extensions that connect Sclera with multiple data sources, platforms and analytics libraries. The [components documentation](../setup/components.md#extensions) describes the pre-built extensions that are packaged with the Sclera installation.
 
-These custom connectors can be built using the Sclera Extensions Software Development Kit (SDK). Sclera provides separate Scala and Java variants of the SDK -- the Scala SDK is provided natively by the [`sclera-core` component](../setup/components.md#sclera-core), while the Java SDK is a wrapper over the native Scala SDK that takes care of Java-Scala interoperability.
+These custom connectors can be built using the [Sclera Extensions Software Development Kit (SDK)](/api/sclera-core/com/scleradb/), provided natively by the [`sclera-core` component](../setup/components.md#sclera-core).
 
-The SDK documentation, with illustrative source code for sample extensions, is publicly available on GitHub:
-
-- <a class="anchor" name="scalasdk"></a> For Scala:
-    - SDK for building extensions: [scleradb.github.io/sclera-core-sdk/index.html](http://scleradb.github.io/sclera-core-sdk/index.html)
-    - Examples of extensions in Scala built using this SDK: [github.com/scleradb/sclera-extensions-scala](https://github.com/scleradb/sclera-extensions-scala)
-- <a class="anchor" name="javasdk"></a> For Java:
-    - SDK for building extensions: [scleradb.github.io/sclera-extensions-java-sdk/index.html](http://scleradb.github.io/sclera-extensions-java-sdk/index.html)
-    - Examples of extensions in Java built using this SDK: [github.com/scleradb/sclera-extensions-java](https://github.com/scleradb/sclera-extensions-java)
+The SDK documentation is [publicly available on GitHub](/api/sclera-core/com/scleradb/).
 
 The following type of components are covered:
 
