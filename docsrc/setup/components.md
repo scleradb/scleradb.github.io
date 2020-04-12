@@ -9,6 +9,10 @@ This is the core Sclera engine, which is responsible for parsing, optimizing and
 
 This component includes an embedded [H2 database](http://www.h2database.com), which serves as the default [metadata store](../intro/technical.md#metadata-store) and [data cache](../intro/technical.md#cache-store).
 
+<a class="anchor" name="sclera-config"></a>
+### Sclera - Configuration Manager
+Manages the configuration parameters for Sclera. The default configuratuon parameters are specified in `reference.conf` and can be overriden with a user-defined configuration file `sclera.conf`.
+
 ## Extensions
 The components listed in this section are optional extensions -- they are not core to the working of the Sclera engine.
 

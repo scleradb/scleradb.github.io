@@ -22,40 +22,16 @@ The included [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-m
 
 ### Dependencies
 
-For Scala:
+The implementation has a dependency on:
 
-- The Scala implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk). This library is available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com); see the included [sbt build file](https://github.com/scleradb/sclera-extensions-scala/blob/master/sclera-opennlp/build.sbt) for the details. Note that the dependency is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+- the library for the text analytics package used.
+- the [`"sclera-core"`](../setup/components.md#sclera-core) and [`"sclera-config"`](../setup/components.md#sclera-config) core components. Note that these dependencies is annotated `"provided"` since these libraries will already be available in the `CLASSPATH` when this connector is run with Sclera.
+- (optional) the test framework [`scalatest`](http://www.scalatest.org/) for running the tests.
 
-For Java:
-
-- The Java implementation has a dependency on the [`"sclera-core"` library](../sdk/sdkintro.md#scalasdk), as wells as on the [`"sclera-extensions-java-sdk"` library](#javasdk). These libraries are available from the [Sclera repository](http://scleradb.releases.s3.amazonaws.com). Note that the dependency on `"sclera-core"` is annotated `"provided"` since the `jar` for `"sclera-core"` will be available in the `CLASSPATH` when this connector is run with Sclera.
+These are specified in the build file. As an example, see the [Sclera - Apache OpenNLP Connector's build file](https://github.com/scleradb/sclera-plugin-opennlp/blob/master/build.sbt).
 
 ### Deployment Steps
 
-The connector can be deployed using the following steps:
-
-#### Alternative 1 (Recommended)
-- First, publish the implementation as a local package. In sbt, this is done by running `sbt publish-local`.
-- Run the following to install the component and its dependencies:
-
-    <pre><code>> $SCLERA_HOME/bin/install.sh package_name package_version package_org</code></pre>
-
-    - `$SCLERA_HOME` is the directory where Sclera is installed
-    - `package_name` is the name of the package being installed
-    - `package_version` is the version of the package being installed
-    - `package_org` is the org of the package being installed
-- Run the following to include the path to the installed component package jar and the dependencies in the `CLASSPATH`:
-
-    <pre><code>> . $SCLERA_HOME/assets/install/classpath/package_name-classpath.sh</code></pre>
-
-    - The bash script `package_name-classpath.sh` was automatically created in the previous step, while installing the package. The `package_name` part of the file name is the name of the package installed.
-
-The connector should now be visible to Sclera, and can be used in the queries.
-
-#### Alternative 2
-- First, compile and package the implementation into a `jar` file. In sbt, this is done by running `sbt package`. If you have external dependencies, you may need to assemble everything into a single `jar` -- in `sbt`, this can be done using the [`sbt-assembly` plugin](https://github.com/sbt/sbt-assembly).
-- Next, add the path to the generated `jar` file to the `CLASSPATH` environment variable.
-
-The connector should now be visible to Sclera, and can be used in the queries.
+Follow steps similar to those described [here](../sdk/sdkextdataaccess.md#dependencies).
 
 **Note:** Please ensure that the identifier you assign to the connector is unique, that is - does not conflict with the identifier of any other available [`NlpService`](#nlpservice) instance.
