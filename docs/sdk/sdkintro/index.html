@@ -821,20 +821,8 @@
                   <h1>Extensions SDK Introduction</h1>
                 
                 <p>Sclera is an open platform that can be extended, as needed, with extensions that connect Sclera with multiple data sources, platforms and analytics libraries. The <a href="../../setup/components/#extensions">components documentation</a> describes the pre-built extensions that are packaged with the Sclera installation.</p>
-<p>These custom connectors can be built using the Sclera Extensions Software Development Kit (SDK). Sclera provides separate Scala and Java variants of the SDK -- the Scala SDK is provided natively by the <a href="../../setup/components/#sclera-core"><code>sclera-core</code> component</a>, while the Java SDK is a wrapper over the native Scala SDK that takes care of Java-Scala interoperability.</p>
-<p>The SDK documentation, with illustrative source code for sample extensions, is publicly available on GitHub:</p>
-<ul>
-<li><a class="anchor" name="scalasdk"></a> For Scala:<ul>
-<li>SDK for building extensions: <a href="http://scleradb.github.io/sclera-core-sdk/index.html">scleradb.github.io/sclera-core-sdk/index.html</a></li>
-<li>Examples of extensions in Scala built using this SDK: <a href="https://github.com/scleradb/sclera-extensions-scala">github.com/scleradb/sclera-extensions-scala</a></li>
-</ul>
-</li>
-<li><a class="anchor" name="javasdk"></a> For Java:<ul>
-<li>SDK for building extensions: <a href="http://scleradb.github.io/sclera-extensions-java-sdk/index.html">scleradb.github.io/sclera-extensions-java-sdk/index.html</a></li>
-<li>Examples of extensions in Java built using this SDK: <a href="https://github.com/scleradb/sclera-extensions-java">github.com/scleradb/sclera-extensions-java</a></li>
-</ul>
-</li>
-</ul>
+<p>These custom connectors can be built using the <a href="/api/sclera-core/com/scleradb/">Sclera Extensions Software Development Kit (SDK)</a>, provided natively by the <a href="../../setup/components/#sclera-core"><code>sclera-core</code> component</a>.</p>
+<p>The SDK documentation is <a href="/api/sclera-core/com/scleradb/">publicly available on GitHub</a>.</p>
 <p>The following type of components are covered:</p>
 <h2 id="data-access-connectors">Data Access Connectors<a class="headerlink" href="#data-access-connectors" title="Permanent link">&#9668;</a></h2>
 <p>These connectors enable ingestion of data from arbitrary sources in a ScleraSQL query. You only need to format the data as rows of a table, and Sclera will take care of evaluating streaming SQL queries on the same -- these queries can include transforming, filtering and aggregating this data, as well as joining this data with data ingested from other connectors, or with data in tables stored in other data stores.</p>
