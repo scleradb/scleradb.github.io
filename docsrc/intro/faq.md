@@ -60,7 +60,7 @@ This means that you can start with your existing infrastructure, identify the bo
 
 To the user, Sclera is just like a relational database system -- with SQL as the interface language, and JDBC as the access mechanism from the application programs. However:
 
-- Sclera does not store data. It works on data from the connected database system and/or external data sources (on-disk file, web-service, etc.) specified in your query. Sclera queries can work on data across multiple database systems and external data sources.
+- Sclera does not store data. It works on data from the connected database systems and/or external data sources (on-disk file, web-service, etc.) specified in your query. Sclera queries can work on data across multiple database systems and external data sources.
 - Sclera natively supports analytics. Analytics operations (such as classification) are provided as SQL language extensions, and analytics objects (such as classifiers) as first class-objects, at par with SQL tables. 
 - Sclera includes an embedded SQL processor, but also pushes SQL computation to an underlying database systems wherever possible. Sclera's optimizer understands the capabilities of the underlying database systems and the data stored therein, and intelligently decides where to locate the computations.
 
