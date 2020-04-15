@@ -78,3 +78,5 @@ extra:
 markdown_extensions:
     - toc:
         permalink: "&#9668;"
+
+google_analytics: ['UA-47770601-1', 'scleradb.com']
