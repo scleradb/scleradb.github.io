@@ -86,12 +86,10 @@ Further details on how to use the connector are in the [ScleraSQL Reference](../
 This is a sample component showcasing Sclera's ability to interface with external data. For the implementation details, please see the [Sclera Data Access Connector Development](../sdk/sdkextdataaccess.md) document.
 
 <a class="anchor" name="sclera-textfiles"></a>
-### Sclera - Text File Connector
+### Sclera - Text Files Connector
 This component enables Sclera to work with free-form text files.
 
 The text files are viewed as tables, with two columns: an identifier column containing the file's path, and another column containing the file's contents. These files can now be accessed in a manner similar to tables in a SQL query.
-
-A limitation for the current version is that the contents must be less than 255 characters; this limitation will be removed in later versions of the component.
 
 A common use case is to use this in conjunction with the [Sclera - OpenNLP Connector](#sclera-opennlp) which can be used to extract entities from the file contents.
 
