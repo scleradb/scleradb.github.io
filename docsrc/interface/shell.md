@@ -47,10 +47,6 @@ The following command shows the current [configuration settings](../setup/config
 
     SHOW CONFIG;
 
-The following command shows the current logging configuration:
-
-    LOGGERCONFIG;
-
 ## Metadata Management
 Commands to manage (add and remove) data sources and underlying tables are covered in the [Sclera Database System Connection Reference](../setup/dbms.md) document.These commands can be submitted on the command line prompt.
 
