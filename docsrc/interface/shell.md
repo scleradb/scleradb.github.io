@@ -1,6 +1,6 @@
 The Sclera command line shell provides an interactive interface to manage and analyze your data, and also explore the Sclera metadata.
 
-The shell can be started by executing the script `$SCLERA_HOME/bin/sclera`, where `$SCLERA_HOME` is the [directory where Sclera is installed](../setup/install.md#sclera-home).
+The shell can be started by executing the script `$SCLERA_ROOT/bin/sclera`, where `$SCLERA_ROOT` is the [directory where Sclera is installed](../setup/install.md#installing-sclera-core-packages-and-shell).
 
 This section lists the commands that are accepted by the shell. The commands can be given on the command line, and executed interactively. Or, they can be put in a script and executed using the `source` command.
 
