@@ -1106,9 +1106,6 @@
 <p>The following command shows the current <a href="../../setup/configuration/">configuration settings</a>:</p>
 <pre><code>SHOW CONFIG;
 </code></pre>
-<p>The following command shows the current logging configuration:</p>
-<pre><code>LOGGERCONFIG;
-</code></pre>
 <h2 id="metadata-management">Metadata Management<a class="headerlink" href="#metadata-management" title="Permanent link">&#9668;</a></h2>
 <p>Commands to manage (add and remove) data sources and underlying tables are covered in the <a href="../../setup/dbms/">Sclera Database System Connection Reference</a> document.These commands can be submitted on the command line prompt.</p>
 <h3 id="creating-and-dropping-metadata-tables">Creating and Dropping Metadata Tables<a class="headerlink" href="#creating-and-dropping-metadata-tables" title="Permanent link">&#9668;</a></h3>
@@ -1206,7 +1203,7 @@ DESCRIBE [ list_spec ];
 <p>This command enables you to execute a script of commands from a file. The syntax is:</p>
 <pre><code>SOURCE script_file_path;
 </code></pre>
-<p>where <code>script_file_path</code> is the full path of the command script to be executed.</p>
+<p>where <code>script_file_path</code> is the full path, in quotes, of the command script to be executed.</p>
 <p>The file is read, and each command therein is executed in sequence; the output of the command, if any, is displayed on the console as the command is executed.</p>
 <h2 id="usability-features">Usability Features<a class="headerlink" href="#usability-features" title="Permanent link">&#9668;</a></h2>
 <p>The shell maintains a command history, at a location given by the <a href="../../setup/configuration/#sclera-shell-history"><code>sclera.shell.history</code> configuration parameter</a>. You can navigate the history using the up/down keys.</p>
