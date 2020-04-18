@@ -116,7 +116,7 @@ This command enables you to execute a script of commands from a file. The syntax
 
     SOURCE script_file_path;
 
-where `script_file_path` is the full path of the command script to be executed.
+where `script_file_path` is the full path, in quotes, of the command script to be executed.
 
 The file is read, and each command therein is executed in sequence; the output of the command, if any, is displayed on the console as the command is executed.
 
