@@ -571,13 +571,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#accessing-web-services" class="md-nav__link">
-    Accessing Web Services
-  </a>
-  
-</li>
-      
       
       
       
@@ -843,13 +836,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#accessing-web-services" class="md-nav__link">
-    Accessing Web Services
-  </a>
-  
-</li>
-      
       
       
       
@@ -911,7 +897,7 @@
   FROM EXTERNAL CSV("/path/to/custinfo.csv") JOIN myloc.defaulters USING (email)
   GROUP BY location;
 </code></pre>
-<p>Note that since the CSV format does not include the type of the columns, each column in the table returned by <code>CSV(_)</code> has type <code>VARCHAR</code>.</p>
+<p>Note that since the CSV format does not include the type of the columns, each column in the table returned by <code>CSV(_)</code> has type <code>VARCHAR</code>. To enable automatic type inferencing, you can use the <a href="../sqlcleaning/#automatic-type-inference">TYPEINFER operator</a>.</p>
 <h3 id="exporting-query-results-as-csv-files">Exporting Query Results as CSV Files<a class="headerlink" href="#exporting-query-results-as-csv-files" title="Permanent link">&#9668;</a></h3>
 <p>The <code>EXTERNAL CSV</code> can also be used to export the result of a query into a CSV file, using the following syntax:</p>
 <pre><code>CREATE EXTERNAL CSV( file_path [ , format ] ) AS table_expression
@@ -936,45 +922,15 @@
 <h2 id="accessing-text-files">Accessing Text Files<a class="headerlink" href="#accessing-text-files" title="Permanent link">&#9668;</a></h2>
 <p>Sclera can dynamically load raw text data from text files and present the same as a table to a SQL query.</p>
 <p>This feature introduces a new <a href="#table-expression">table expression</a> with the following syntax:</p>
-<pre><code>EXTERNAL TEXTFILES( filedir_path [, ...] )
+<pre><code>EXTERNAL TEXTFILES( filedir_path )
 </code></pre>
-<p>where <code>filedir_path</code> is the path to file to be loaded, or to a directory containing the files to be loaded. Multiple paths can be specified in a comma-separated list.</p>
+<p>where <code>filedir_path</code> is the path to file to be loaded, or to a directory containing the files to be loaded.</p>
 <p>The resulting virtual table contains a row for each file, with two columns of type <code>VARCHAR</code>. The first column, called <code>file</code> contains the <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html#getCanonicalPath()">canonical path</a> of the file, and the second column <code>contents</code> contains the textual contents of the file.</p>
 <p>The following query returns the path and contents of file <code>"/tmp/myfile"</code> and all files under the directory <code>"/tmp/mydir"</code>.</p>
 <pre><code>&gt; SELECT file, contents
   FROM TEXTFILES("/tmp/myfile", "/tmp/mydir");
 </code></pre>
 <p>The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.</p>
-<p><a class="anchor" name="sclera-stockticker"></a></p>
-<h2 id="accessing-web-services">Accessing Web Services<a class="headerlink" href="#accessing-web-services" title="Permanent link">&#9668;</a></h2>
-<p>Sclera can provide access to data provided by web services from within SQL, using components built using the <a href="../../sdk/sdkintro/">Sclera Extensions SDK</a>.</p>
-<p>As an illustrative example, Sclera provides access to (dummy) stock ticker streams.</p>
-<p>This feature introduces a table expression with the following syntax:</p>
-<pre><code>EXTERNAL STOCKTICKER( symbol [ , gap [ , duration ] ] )
-[ ORDERED BY ( expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [, ...] ) ]
-</code></pre>
-<ul>
-<li>The mandatory parameter <code>symbol</code> string contains the stock symbol of interest. A stock symbol can be qualified with the exchange symbol (e.g. <code>"NYSE:IBM"</code>), or it can be unqualified (e.g. <code>"IBM"</code>). The exchange for unqualified symbol is determined automatically by the service.</li>
-<li>The optional parameter <code>gap</code> is an integer specifying the duration between consecutive readings, in seconds. For a reading per minute specify 60, for one per hour specify 3600, and so on. When not specified, <code>gap</code> is taken to be 60 seconds.</li>
-<li>The optional parameter <code>duration</code> is an integer specifying the number of days for which the data is requested. When not specified, <code>duration</code> is taken to be 1 day.</li>
-<li>The <code>ORDERED BY</code> clause <em>declares</em> the sort order of the emitted rows; note that this is an unverified declaration, and Sclera blindly relies on the same while planning further evaluation on these rows.</li>
-</ul>
-<p>The resulting table contains one row per reading for the stock specified by the parameter <code>symbol</code>, and the duration between readings and the number of readings is determined by parameters <code>gap</code> and <code>duration</code> mentioned above. Each output row contains the following columns:</p>
-<ul>
-<li><code>symbol</code>, containing the ticker symbol (same as the <code>symbol</code> input parameter)</li>
-<li><code>exchange</code>, containing the exchange for the <code>symbol</code>; this is taken from the <code>symbols</code> parameter if mentioned with the ticker symbol, or is identified automatically by the service</li>
-<li><code>ts</code>, containing the timestamp of the reading</li>
-<li><code>high</code> value of the stock since the previous reading</li>
-<li><code>low</code> value of the stock since the previous reading</li>
-<li><code>open</code> value after the previous reading</li>
-<li><code>close</code> value before this reading</li>
-</ul>
-<p>The output is ordered on <code>symbol</code>, and on <code>ts</code> within each symbol.</p>
-<p>The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.</p>
-<p>For instance, the following query gives the symbol, exchange, timestamp and the difference between open and close for each two-minute period for past one day. The stocks of interest is ORCL (Oracle).</p>
-<pre><code>&gt; SELECT symbol, exchange, ts, (close - open) as difference
-  FROM EXTERNAL STOCKTICKER("ORCL", 120, 1);
-</code></pre>
                 
                   
                 

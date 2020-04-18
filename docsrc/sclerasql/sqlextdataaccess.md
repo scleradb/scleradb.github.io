@@ -43,7 +43,7 @@ The following query joins this table with a [MySQL (connected as location `myloc
       FROM EXTERNAL CSV("/path/to/custinfo.csv") JOIN myloc.defaulters USING (email)
       GROUP BY location;
 
-Note that since the CSV format does not include the type of the columns, each column in the table returned by `CSV(_)` has type `VARCHAR`.
+Note that since the CSV format does not include the type of the columns, each column in the table returned by `CSV(_)` has type `VARCHAR`. To enable automatic type inferencing, you can use the [TYPEINFER operator](../sclerasql/sqlcleaning.md#automatic-type-inference).
 
 ### Exporting Query Results as CSV Files
 The `EXTERNAL CSV` can also be used to export the result of a query into a CSV file, using the following syntax:
@@ -74,9 +74,9 @@ Sclera can dynamically load raw text data from text files and present the same a
 
 This feature introduces a new [table expression](#table-expression) with the following syntax:
 
-    EXTERNAL TEXTFILES( filedir_path [, ...] )
+    EXTERNAL TEXTFILES( filedir_path )
 
-where `filedir_path` is the path to file to be loaded, or to a directory containing the files to be loaded. Multiple paths can be specified in a comma-separated list.
+where `filedir_path` is the path to file to be loaded, or to a directory containing the files to be loaded.
 
 The resulting virtual table contains a row for each file, with two columns of type `VARCHAR`. The first column, called `file` contains the [canonical path](http://docs.oracle.com/javase/7/docs/api/java/io/File.html#getCanonicalPath\(\)) of the file, and the second column `contents` contains the textual contents of the file.
 
@@ -87,37 +87,3 @@ The following query returns the path and contents of file `"/tmp/myfile"` and al
 
 The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.
 
-<a class="anchor" name="sclera-stockticker"></a>
-## Accessing Web Services
-Sclera can provide access to data provided by web services from within SQL, using components built using the [Sclera Extensions SDK](../sdk/sdkintro.md).
-
-As an illustrative example, Sclera provides access to (dummy) stock ticker streams.
-
-This feature introduces a table expression with the following syntax:
-
-    EXTERNAL STOCKTICKER( symbol [ , gap [ , duration ] ] )
-    [ ORDERED BY ( expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [, ...] ) ]
-
-- The mandatory parameter `symbol` string contains the stock symbol of interest. A stock symbol can be qualified with the exchange symbol (e.g. `"NYSE:IBM"`), or it can be unqualified (e.g. `"IBM"`). The exchange for unqualified symbol is determined automatically by the service.
-- The optional parameter `gap` is an integer specifying the duration between consecutive readings, in seconds. For a reading per minute specify 60, for one per hour specify 3600, and so on. When not specified, `gap` is taken to be 60 seconds.
-- The optional parameter `duration` is an integer specifying the number of days for which the data is requested. When not specified, `duration` is taken to be 1 day.
-- The `ORDERED BY` clause *declares* the sort order of the emitted rows; note that this is an unverified declaration, and Sclera blindly relies on the same while planning further evaluation on these rows.
-
-The resulting table contains one row per reading for the stock specified by the parameter `symbol`, and the duration between readings and the number of readings is determined by parameters `gap` and `duration` mentioned above. Each output row contains the following columns:
-
-- `symbol`, containing the ticker symbol (same as the `symbol` input parameter)
-- `exchange`, containing the exchange for the `symbol`; this is taken from the `symbols` parameter if mentioned with the ticker symbol, or is identified automatically by the service
-- `ts`, containing the timestamp of the reading
-- `high` value of the stock since the previous reading
-- `low` value of the stock since the previous reading
-- `open` value after the previous reading
-- `close` value before this reading
-
-The output is ordered on `symbol`, and on `ts` within each symbol.
-
-The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.
-
-For instance, the following query gives the symbol, exchange, timestamp and the difference between open and close for each two-minute period for past one day. The stocks of interest is ORCL (Oracle).
-
-    > SELECT symbol, exchange, ts, (close - open) as difference
-      FROM EXTERNAL STOCKTICKER("ORCL", 120, 1);
