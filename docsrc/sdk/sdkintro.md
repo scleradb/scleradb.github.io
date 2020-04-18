@@ -2,7 +2,7 @@ Sclera is an open platform that can be extended, as needed, with extensions that
 
 These custom connectors can be built using the [Sclera Extensions Software Development Kit (SDK)](/api/sclera-core/com/scleradb/), provided natively by the [`sclera-core` component](../setup/components.md#sclera-core).
 
-The SDK documentation is [publicly available on GitHub](/api/sclera-core/com/scleradb/).
+For details on the API, please refer to the [`sclera-core` scaladoc](/api/sclera-core/com/scleradb/).
 
 The following type of components are covered:
 
