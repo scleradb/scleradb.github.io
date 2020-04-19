@@ -755,8 +755,8 @@
                 
                   <h1>Configuration Reference</h1>
                 
-                <p>In this document we list the Sclera's configuration parameters, specified in <code>$SCLERA_HOME/assets/config/sclera.conf</code>, where <code>$SCLERA_HOME</code> is the <a href="../install/#sclera-home">directory where Sclera is installed</a>.</p>
-<p>The syntax of the file should be self-evident. A detailed description of the underlying HOCON (Human-Optimized Config Object Notation) sytax specification can be accessed <a href="https://github.com/typesafehub/config/blob/master/HOCON.md">here</a>.</p>
+                <p>In this document we list the Sclera's configuration parameters, specified in <code>&lt;sclera-root&gt;/config/sclera.conf</code>, where <code>&lt;sclera-root&gt;</code> is the <a href="../install/#installing-sclera-core-packages-and-shell">directory where Sclera is installed</a>.</p>
+<p>The syntax of the file should be self-evident. For a detailed description of the underlying HOCON (Human-Optimized Config Object Notation) syntax, please refer to the <a href="https://github.com/typesafehub/config/blob/master/HOCON.md">specification document</a>.</p>
 <table>
 <thead>
 <tr>
@@ -766,7 +766,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a class="anchor" name="sclera-exec-maxbulksize"></a><code>sclera.exec.maxbulksize</code></td>
+<td><a class="anchor" name="sclera-exec-batchsize"></a><code>sclera.exec.batchsize</code></td>
 <td>Number of rows to batch together for bulk input/output (default 100).</td>
 </tr>
 <tr>
@@ -820,14 +820,6 @@
 <tr>
 <td><a class="anchor" name="sclera-storage-objectdir"></a><code>sclera.storage.objectdir</code></td>
 <td>Directory for storing Sclera objects</td>
-</tr>
-<tr>
-<td><a class="anchor" name="sclera-user-email"></a><code>sclera.user.email</code></td>
-<td>Email address (your login at the Sclera website)</td>
-</tr>
-<tr>
-<td><a class="anchor" name="sclera-web-baseurl"></a><code>sclera.web.baseurl</code></td>
-<td>Sclera website URL</td>
 </tr>
 </tbody>
 </table>
