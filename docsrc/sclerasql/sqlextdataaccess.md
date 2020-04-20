@@ -78,7 +78,7 @@ This feature introduces a new [table expression](#table-expression) with the fol
 
 where `filedir_path` is the path to file to be loaded, or to a directory containing the files to be loaded.
 
-The resulting virtual table contains a row for each file, with two columns of type `VARCHAR`. The first column, called `file` contains the [canonical path](http://docs.oracle.com/javase/7/docs/api/java/io/File.html#getCanonicalPath\(\)) of the file, and the second column `contents` contains the textual contents of the file.
+The resulting virtual table contains a row for each file, with two columns of type `VARCHAR`. The first column, called `file` contains the [canonical path](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/io/File.html#getCanonicalPath\(\)) of the file, and the second column `contents` contains the textual contents of the file.
 
 For instance, the following query returns the path and contents of all files under the directory `"/tmp/mydir"`:
 
