@@ -926,9 +926,9 @@
 </code></pre>
 <p>where <code>filedir_path</code> is the path to file to be loaded, or to a directory containing the files to be loaded.</p>
 <p>The resulting virtual table contains a row for each file, with two columns of type <code>VARCHAR</code>. The first column, called <code>file</code> contains the <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html#getCanonicalPath()">canonical path</a> of the file, and the second column <code>contents</code> contains the textual contents of the file.</p>
-<p>The following query returns the path and contents of file <code>"/tmp/myfile"</code> and all files under the directory <code>"/tmp/mydir"</code>.</p>
+<p>For instance, the following query returns the path and contents of all files under the directory <code>"/tmp/mydir"</code>:</p>
 <pre><code>&gt; SELECT file, contents
-  FROM TEXTFILES("/tmp/myfile", "/tmp/mydir");
+  FROM TEXTFILES("/tmp/mydir");
 </code></pre>
 <p>The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.</p>
                 

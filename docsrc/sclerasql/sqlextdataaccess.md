@@ -80,10 +80,10 @@ where `filedir_path` is the path to file to be loaded, or to a directory contain
 
 The resulting virtual table contains a row for each file, with two columns of type `VARCHAR`. The first column, called `file` contains the [canonical path](http://docs.oracle.com/javase/7/docs/api/java/io/File.html#getCanonicalPath\(\)) of the file, and the second column `contents` contains the textual contents of the file.
 
-The following query returns the path and contents of file `"/tmp/myfile"` and all files under the directory `"/tmp/mydir"`.
+For instance, the following query returns the path and contents of all files under the directory `"/tmp/mydir"`:
 
     > SELECT file, contents
-      FROM TEXTFILES("/tmp/myfile", "/tmp/mydir");
+      FROM TEXTFILES("/tmp/mydir");
 
 The resulting table can also be aggregated over, joined with other base or virtual tables, and so on, just like a base table or a view.
 
