@@ -116,12 +116,12 @@ Sclera's JDBC driver [sclera-jdbc](https://github.com/scleradb/sclera/tree/maste
 
 Since JDBC is a well-known standard, the application is written the same way as for any other JDBC compliant database system. The difference is that the queries that the application can submit are now in the much richer [Sclera SQL](../sclerasql/sqlexamples.md) with access to the [Sclera plugins](../setup/components.md) than the standard SQL.
 
+### Sclera - JDBC Example
+
 We illustrate the use of the JDBC interface with Sclera using an example application. The code is available on GitHub, both in Java and Scala:
 
 - [Sclera - JDBC Example (Java version) on GitHub](https://github.com/scleradb/sclera-example-java-jdbc)
 - [Sclera - JDBC Example (Scala version) on GitHub](https://github.com/scleradb/sclera-example-scala-jdbc)
-
-### Sclera - JDBC Example
 
 This example application shows how an application can interface with Sclera using the standard [JDBC API](https://docs.oracle.com/javase/tutorial/jdbc/overview/index.html).
 
