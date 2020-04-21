@@ -120,6 +120,12 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
     }
 }
 
+@media (max-width: 860px) {
+    .license-badge {
+        display: none;
+    }
+}
+
 .bg-dark {
     background-color: rgba(0, 0, 0, 0.9)!important;
 }
