@@ -120,7 +120,7 @@ nav.navbar.sclera-footer ul.navbar-nav li.nav-item a.nav-link {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 865px) {
     .license-badge {
         display: none;
     }
