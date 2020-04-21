@@ -153,7 +153,7 @@ The following example shows a scatterplot with expressions for `FILL` and `SHAPE
 
 ![Scatter Plot with Non-default Aesthetics](images/visualization/sclera-scatter-legends.jpg "Scatter Plot with Non-default Aesthetics")
 
-A full description of the aesthetics parameters appears in the detailed documentation.
+A full description of the aesthetics parameters appears in the [detailed documentation](#aesthetics-scales-and-legends).
 
 ### Group
 
