@@ -137,7 +137,7 @@ A full list of the supported geometries appears as a part of the [detailed docum
 
 The aesthetics parameters specify the "look and feel" of a chart. For a scatterplot, for instance, the parameters specify the shape of the point (circle, square, triangle, and so on), the color to be used to fill the point, the color used for the boundary, and so on.
 
-The set of aesthetics parameters varies with the geometry. For example, a `SHAPE` makes sense for a point, but does not make sense for a line. The list of aesthetics parameters associated with respective geometries appears as a part of the detailed documentation.
+The set of aesthetics parameters varies with the geometry. For example, a `SHAPE` makes sense for a point, but does not make sense for a line. The list of aesthetics parameters associated with respective geometries appears as a part of the [detailed documentation](#aesthetics-scales-and-legends).
 
 An aesthetics parameter can either be a constant, or an expression. If the parameter is a constant, e.g. `FILL="black"`, then the value of the aesthetics is literally taken as the constant. If the parameter is an expression, then distinct values of the columns are mapped to distinct values of the aesthetic.
 
