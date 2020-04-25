@@ -17,7 +17,7 @@ This component includes an embedded [H2 database](http://www.h2database.com), wh
 
 Manages the configuration parameters for Sclera. The default configuratuon parameters are specified in `reference.conf` and can be overriden with a user-defined configuration file `sclera.conf`.
 
-## Extensions
+## Optional Extensions
 The components listed in this section are optional extensions -- they are not core to the working of the Sclera engine.
 
 <a class="anchor" name="sclera-shell"></a>

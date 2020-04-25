@@ -1,4 +1,4 @@
-Sclera is an open platform that can be extended, as needed, with extensions that connect Sclera with multiple data sources, platforms and analytics libraries. The [components documentation](../setup/components.md#extensions) describes the pre-built extensions that are packaged with the Sclera installation.
+Sclera is an open platform that can be extended, as needed, with extensions that connect Sclera with multiple data sources, platforms and analytics libraries. The [components documentation](../setup/components.md#optional-extensions) describes the pre-built extensions that are packaged with the Sclera installation.
 
 These custom connectors can be built using the [Sclera Extensions Software Development Kit (SDK)](/api/sclera-core/com/scleradb/), provided natively by the [`sclera-core` component](../setup/components.md#sclera-core).
 
