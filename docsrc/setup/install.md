@@ -116,7 +116,7 @@ Sclera's JDBC driver [sclera-jdbc](https://github.com/scleradb/sclera/tree/maste
 
 Since JDBC is a well-known standard, the application is written the same way as for any other JDBC compliant database system. The difference is that the queries that the application can submit are now in the much richer [Sclera SQL](../sclerasql/sqlexamples.md) with access to the [Sclera plugins](../setup/components.md) than the standard SQL.
 
-Alternatively, you can use [Sclera's proprietary API](https://www.scleradb.com/api/sclera-core/) in your applications. This API is much simpler than JDBC, but is not a standard.
+Alternatively, you can use [Sclera's proprietary API](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html) in your applications. This API is much simpler than JDBC, but is not a standard.
 
 ### Sclera - JDBC Example
 
@@ -189,7 +189,7 @@ When a connection is initialized, Sclera first checks the sanity of its Schema a
 
 ### Sclera - Proprietary API Example
 
-We illustrate the use of [Sclera's proprietary API](https://www.scleradb.com/api/sclera-core/) using the same example application as above. The code is available on GitHub.
+We illustrate the use of [Sclera's proprietary API](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html) using the same example application as above. The code is available on GitHub:
 
 - [Sclera - Proprietary API Example on GitHub](https://github.com/scleradb/sclera-example-scala-api)
 
