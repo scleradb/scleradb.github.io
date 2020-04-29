@@ -203,11 +203,11 @@ To use Sclera through the proprietary API, the application needs to:
 
 The example application described below is a command line tool to initialize Sclera, and execute queries. See [here](#executable-script) for details on the usage.
 
-## Specify Sclera Root Directory
+#### Specify Sclera Root Directory
 
 We need to specify a directory where Sclera can keep its configuration, metadata, and internal database. This is done by setting the environment variable `SCLERA_ROOT`. If not specified, the default is `$HOME/.sclera`.
 
-## Add Package Dependencies
+#### Add Package Dependencies
 
 This example uses [SBT](https://scala-sbt.org) as the build tool, and the build file is [`build.sbt`](https://github.com/scleradb/sclera-example-scala-api/blob/master/build.sbt).
 
@@ -222,7 +222,7 @@ The required dependencies are added as:
 
 This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the `libraryDependencies` as well.
 
-## Interface with Sclera using the Proprietary API
+#### Interface with Sclera using the Proprietary API
 
 This application consists of a single source file, [`ApiExample.scala`](https://github.com/scleradb/sclera-example-scala-api/blob/master/src/main/scala/ApiExample.scala).
 
@@ -231,14 +231,14 @@ There are two procedures:
 - `initialize()`: This initializes Sclera's schema (metadata). This is called when `--init` is specified on the command line.
 - `runQueries()`: This executes queries provided on the command line and displays the results.
 
-### Code Details: `initialize()`
+***Code Details: `initialize()`***
 
 - Creates and initializes an instance of Sclera [`Processor`](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html)
 - Executes the statement `create schema` on Sclera using the `Processor` instance.
 
 When the `Processor` instance is initialized, Sclera first checks the sanity of its Schema and issues a warning if anything is wrong. Since we are initializing the schema, we bypass this step by passing a flag `checkSchema` in the properties while creating the `Processor` instance.
 
-### Code Details: `runQueries(...)`
+***Code Details: `runQueries(...)`***
 
 - Creates and initializes an instance of Sclera [`Processor`](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html)
 - For each query in the list passed as the parameter,

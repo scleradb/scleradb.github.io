@@ -472,46 +472,32 @@
     Sclera - Proprietary API Example
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#specify-sclera-root-directory_1" class="md-nav__link">
     Specify Sclera Root Directory
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#add-package-dependencies_1" class="md-nav__link">
     Add Package Dependencies
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#interface-with-sclera-using-the-proprietary-api" class="md-nav__link">
     Interface with Sclera using the Proprietary API
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code-details-initialize" class="md-nav__link">
-    Code Details: initialize()
-  </a>
-  
 </li>
         
-          <li class="md-nav__item">
-  <a href="#code-details-runqueries" class="md-nav__link">
-    Code Details: runQueries(...)
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -1053,46 +1039,32 @@
     Sclera - Proprietary API Example
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#specify-sclera-root-directory_1" class="md-nav__link">
     Specify Sclera Root Directory
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#add-package-dependencies_1" class="md-nav__link">
     Add Package Dependencies
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#interface-with-sclera-using-the-proprietary-api" class="md-nav__link">
     Interface with Sclera using the Proprietary API
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code-details-initialize" class="md-nav__link">
-    Code Details: initialize()
-  </a>
-  
 </li>
         
-          <li class="md-nav__item">
-  <a href="#code-details-runqueries" class="md-nav__link">
-    Code Details: runQueries(...)
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -1289,9 +1261,9 @@ Goodbye!
 </li>
 </ul>
 <p>The example application described below is a command line tool to initialize Sclera, and execute queries. See <a href="#executable-script">here</a> for details on the usage.</p>
-<h2 id="specify-sclera-root-directory_1">Specify Sclera Root Directory<a class="headerlink" href="#specify-sclera-root-directory_1" title="Permanent link">&#9668;</a></h2>
+<h4 id="specify-sclera-root-directory_1">Specify Sclera Root Directory<a class="headerlink" href="#specify-sclera-root-directory_1" title="Permanent link">&#9668;</a></h4>
 <p>We need to specify a directory where Sclera can keep its configuration, metadata, and internal database. This is done by setting the environment variable <code>SCLERA_ROOT</code>. If not specified, the default is <code>$HOME/.sclera</code>.</p>
-<h2 id="add-package-dependencies_1">Add Package Dependencies<a class="headerlink" href="#add-package-dependencies_1" title="Permanent link">&#9668;</a></h2>
+<h4 id="add-package-dependencies_1">Add Package Dependencies<a class="headerlink" href="#add-package-dependencies_1" title="Permanent link">&#9668;</a></h4>
 <p>This example uses <a href="https://scala-sbt.org">SBT</a> as the build tool, and the build file is <a href="https://github.com/scleradb/sclera-example-scala-api/blob/master/build.sbt"><code>build.sbt</code></a>.</p>
 <p>The required dependencies are added as:</p>
 <pre><code class="scala">    libraryDependencies ++= Seq(
@@ -1301,20 +1273,20 @@ Goodbye!
 </code></pre>
 
 <p>This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the <code>libraryDependencies</code> as well.</p>
-<h2 id="interface-with-sclera-using-the-proprietary-api">Interface with Sclera using the Proprietary API<a class="headerlink" href="#interface-with-sclera-using-the-proprietary-api" title="Permanent link">&#9668;</a></h2>
+<h4 id="interface-with-sclera-using-the-proprietary-api">Interface with Sclera using the Proprietary API<a class="headerlink" href="#interface-with-sclera-using-the-proprietary-api" title="Permanent link">&#9668;</a></h4>
 <p>This application consists of a single source file, <a href="https://github.com/scleradb/sclera-example-scala-api/blob/master/src/main/scala/ApiExample.scala"><code>ApiExample.scala</code></a>.</p>
 <p>There are two procedures:</p>
 <ul>
 <li><code>initialize()</code>: This initializes Sclera's schema (metadata). This is called when <code>--init</code> is specified on the command line.</li>
 <li><code>runQueries()</code>: This executes queries provided on the command line and displays the results.</li>
 </ul>
-<h3 id="code-details-initialize">Code Details: <code>initialize()</code><a class="headerlink" href="#code-details-initialize" title="Permanent link">&#9668;</a></h3>
+<p><strong><em>Code Details: <code>initialize()</code></em></strong></p>
 <ul>
 <li>Creates and initializes an instance of Sclera <a href="https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html"><code>Processor</code></a></li>
 <li>Executes the statement <code>create schema</code> on Sclera using the <code>Processor</code> instance.</li>
 </ul>
 <p>When the <code>Processor</code> instance is initialized, Sclera first checks the sanity of its Schema and issues a warning if anything is wrong. Since we are initializing the schema, we bypass this step by passing a flag <code>checkSchema</code> in the properties while creating the <code>Processor</code> instance.</p>
-<h3 id="code-details-runqueries">Code Details: <code>runQueries(...)</code><a class="headerlink" href="#code-details-runqueries" title="Permanent link">&#9668;</a></h3>
+<p><strong><em>Code Details: <code>runQueries(...)</code></em></strong></p>
 <ul>
 <li>Creates and initializes an instance of Sclera <a href="https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html"><code>Processor</code></a></li>
 <li>For each query in the list passed as the parameter,<ul>
