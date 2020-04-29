@@ -7,6 +7,8 @@ An online preview, with a number of examples with code, is available at [https:/
 ![ScleraViz Examples](images/visualization/scleraviz-examples.jpg "Visualization Examples")
 ![ScleraViz Bar Example](images/visualization/scleraviz-bar.jpg "Bar Example")
 
+In this document, we first describe [how to set up Sclera to use ScleraViz](#command-line-setup), then illustrate [ScleraViz by example](#scleraviz-by-example), and finally give the [detailed syntax of ScleraSQL visualization queries](#detailed-syntax).
+
 ## Command Line Setup
 
 *In the following, `<sclera-root>` is the directory where Sclera is (or, is to be) installed.*
