@@ -64,7 +64,11 @@ When done, you can close the display web server by saying:
 
     > display stop;
 
-## Example Dataset
+## ScleraViz by Example
+
+This section very briefly introduces the rudiments of the plot specification. This is to quickly get you started on plotting your own graphs. A complete and formal description of the syntax appear in the [next section](#detailed-syntax).
+
+**Example Dataset**
 
 In the following, we will be using the ["tipping" dataset](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html) as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found [here](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html).
 
@@ -75,10 +79,6 @@ To use the dataset, set up the `tips` table as follows:
     TYPEINFER(LIMIT 1);
 
 **Notation:** In the above and the following examples, the ScleraSQL keywords will be capitalized. This is for illustrative reasons only; ScleraSQL is case-insensitive.
-
-## ScleraViz by Example
-
-This section very briefly introduces the rudiments of the plot specification. This is to quickly get you started on plotting your own graphs. A complete and formal description of the syntax appear in the [next section](#detailed-syntax).
 
 <a class="anchor" name="simple-plot"></a>
 ### A Simple Plot
