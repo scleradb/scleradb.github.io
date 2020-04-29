@@ -564,13 +564,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-dataset" class="md-nav__link">
-    Example Dataset
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#scleraviz-by-example" class="md-nav__link">
     ScleraViz by Example
   </a>
@@ -1099,13 +1092,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-dataset" class="md-nav__link">
-    Example Dataset
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#scleraviz-by-example" class="md-nav__link">
     ScleraViz by Example
   </a>
@@ -1424,6 +1410,7 @@
 <p>An online preview, with a number of examples with code, is available at <a href="https://scleraviz.herokuapp.com">https://scleraviz.herokuapp.com</a>.</p>
 <p><img alt="ScleraViz Examples" src="../images/visualization/scleraviz-examples.jpg" title="Visualization Examples" />
 <img alt="ScleraViz Bar Example" src="../images/visualization/scleraviz-bar.jpg" title="Bar Example" /></p>
+<p>In this document, we first describe <a href="#command-line-setup">how to set up Sclera to use ScleraViz</a>, then illustrate <a href="#scleraviz-by-example">ScleraViz by example</a>, and finally give the <a href="#detailed-syntax">detailed syntax of ScleraSQL visualization queries</a>.</p>
 <h2 id="command-line-setup">Command Line Setup<a class="headerlink" href="#command-line-setup" title="Permanent link">&#9668;</a></h2>
 <p><em>In the following, <code>&lt;sclera-root&gt;</code> is the directory where Sclera is (or, is to be) installed.</em></p>
 <p>To run ScleraViz queries, you need to:</p>
@@ -1478,7 +1465,9 @@ Please point your browser to http://localhost:7070
 <p>When done, you can close the display web server by saying:</p>
 <pre><code>&gt; display stop;
 </code></pre>
-<h2 id="example-dataset">Example Dataset<a class="headerlink" href="#example-dataset" title="Permanent link">&#9668;</a></h2>
+<h2 id="scleraviz-by-example">ScleraViz by Example<a class="headerlink" href="#scleraviz-by-example" title="Permanent link">&#9668;</a></h2>
+<p>This section very briefly introduces the rudiments of the plot specification. This is to quickly get you started on plotting your own graphs. A complete and formal description of the syntax appear in the <a href="#detailed-syntax">next section</a>.</p>
+<p><strong>Example Dataset</strong></p>
 <p>In the following, we will be using the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">"tipping" dataset</a> as our running example. The data set contains information about tips received by a waiter in a restaurant over a period of time. The information includes the tip in dollars, total bill in dollars, gender of the bill payer, whether there were smokers in the party, day of the week, time of day, and size of the party. Further details on the data can be found <a href="https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html">here</a>.</p>
 <p>To use the dataset, set up the <code>tips</code> table as follows:</p>
 <pre><code>CREATE TEMP TABLE tips as
@@ -1486,8 +1475,6 @@ EXTERNAL CSV("http://scleraviz.herokuapp.com/assets/data/tips.csv")
 TYPEINFER(LIMIT 1);
 </code></pre>
 <p><strong>Notation:</strong> In the above and the following examples, the ScleraSQL keywords will be capitalized. This is for illustrative reasons only; ScleraSQL is case-insensitive.</p>
-<h2 id="scleraviz-by-example">ScleraViz by Example<a class="headerlink" href="#scleraviz-by-example" title="Permanent link">&#9668;</a></h2>
-<p>This section very briefly introduces the rudiments of the plot specification. This is to quickly get you started on plotting your own graphs. A complete and formal description of the syntax appear in the <a href="#detailed-syntax">next section</a>.</p>
 <p><a class="anchor" name="simple-plot"></a></p>
 <h3 id="a-simple-plot">A Simple Plot<a class="headerlink" href="#a-simple-plot" title="Permanent link">&#9668;</a></h3>
 <p>Putting a <code>PLOT</code> afer the query plots the column <code>y</code> in the query result against the column <code>x</code> in the query result as a scatter plot. So, to plot the <code>tip</code> against the <code>total_bill</code> in the tipping dataset, we say:</p>
