@@ -1,7 +1,7 @@
 Sclera is a stand-alone SQL processor with native support for machine learning, data virtualization and streaming data. Sclera can be deployed as:
 
 - [an independent application with an interactive command-line shell](#installing-and-maintaining-sclera-command-line-application), or
-- [as a library that embeds within your applications to enable advanced real-time analytics capabilities](#using-sclera-to-embed-analytics-in-applications).
+- [as a library that embeds within your applications to enable advanced real-time analytics capabilities](#embedding-sclera-in-applications).
 
 **Prerequisite:** Sclera requires [Java 11 or higher](https://java.com/en/download/help/download_options.xml).
 
