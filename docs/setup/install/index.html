@@ -462,15 +462,63 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#executable-script" class="md-nav__link">
-    Executable Script
+  <a href="#sclera-proprietary-api-example" class="md-nav__link">
+    Sclera - Proprietary API Example
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specify-sclera-root-directory_1" class="md-nav__link">
+    Specify Sclera Root Directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-package-dependencies_1" class="md-nav__link">
+    Add Package Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interface-with-sclera-using-the-proprietary-api" class="md-nav__link">
+    Interface with Sclera using the Proprietary API
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-details-initialize" class="md-nav__link">
+    Code Details: initialize()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-details-runqueries" class="md-nav__link">
+    Code Details: runQueries(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executable-script" class="md-nav__link">
+    Executable Script
+  </a>
   
 </li>
         
@@ -995,15 +1043,63 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#executable-script" class="md-nav__link">
-    Executable Script
+  <a href="#sclera-proprietary-api-example" class="md-nav__link">
+    Sclera - Proprietary API Example
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specify-sclera-root-directory_1" class="md-nav__link">
+    Specify Sclera Root Directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-package-dependencies_1" class="md-nav__link">
+    Add Package Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interface-with-sclera-using-the-proprietary-api" class="md-nav__link">
+    Interface with Sclera using the Proprietary API
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-details-initialize" class="md-nav__link">
+    Code Details: initialize()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-details-runqueries" class="md-nav__link">
+    Code Details: runQueries(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executable-script" class="md-nav__link">
+    Executable Script
+  </a>
   
 </li>
         
@@ -1034,7 +1130,7 @@
                 <p>Sclera is a stand-alone SQL processor with native support for machine learning, data virtualization and streaming data. Sclera can be deployed as:</p>
 <ul>
 <li><a href="#installing-and-maintaining-sclera-command-line-application">an independent application with an interactive command-line shell</a>, or</li>
-<li><a href="#using-sclera-to-embed-analytics-in-applications">as a library that embeds within your applications to enable advanced real-time analytics capabilities</a>.</li>
+<li><a href="#embedding-sclera-in-applications">as a library that embeds within your applications to enable advanced real-time analytics capabilities</a>.</li>
 </ul>
 <p><strong>Prerequisite:</strong> Sclera requires <a href="https://java.com/en/download/help/download_options.xml">Java 11 or higher</a>.</p>
 <p><em>We recommend against installing Sclera with root/admin permissions. Sclera does not need root access for installation or at runtime.</em></p>
@@ -1117,6 +1213,7 @@ Goodbye!
 <h2 id="embedding-sclera-in-applications">Embedding Sclera in Applications<a class="headerlink" href="#embedding-sclera-in-applications" title="Permanent link">&#9668;</a></h2>
 <p>Sclera's JDBC driver <a href="https://github.com/scleradb/sclera/tree/master/modules/interfaces/jdbc">sclera-jdbc</a> provides a <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> type 4 interface. Applications can therefore interface with Sclera using <a href="https://docs.oracle.com/javase/tutorial/jdbc/overview/index.html">JDBC API</a>.</p>
 <p>Since JDBC is a well-known standard, the application is written the same way as for any other JDBC compliant database system. The difference is that the queries that the application can submit are now in the much richer <a href="../../sclerasql/sqlexamples/">Sclera SQL</a> with access to the <a href="../components/">Sclera plugins</a> than the standard SQL.</p>
+<p>Alternatively, you can use <a href="https://www.scleradb.com/api/sclera-core/">Sclera's proprietary API</a> in your applications. This API is much simpler than JDBC, but is not a standard.</p>
 <h3 id="sclera-jdbc-example">Sclera - JDBC Example<a class="headerlink" href="#sclera-jdbc-example" title="Permanent link">&#9668;</a></h3>
 <p>We illustrate the use of the JDBC interface with Sclera using an example application. The code is available on GitHub, both in Java and Scala:</p>
 <ul>
@@ -1176,8 +1273,58 @@ Goodbye!
 </ul>
 </li>
 </ul>
-<h4 id="executable-script">Executable Script<a class="headerlink" href="#executable-script" title="Permanent link">&#9668;</a></h4>
-<p>The build file contains a task <code>mkscript</code> that generates an executable script for the application, called <code>scleraexample</code> in the <code>bin</code> subdirectory. You can generate the script using the command:</p>
+<h3 id="sclera-proprietary-api-example">Sclera - Proprietary API Example<a class="headerlink" href="#sclera-proprietary-api-example" title="Permanent link">&#9668;</a></h3>
+<p>We illustrate the use of <a href="https://www.scleradb.com/api/sclera-core/">Sclera's proprietary API</a> using the same example application as above. The code is available on GitHub.</p>
+<ul>
+<li><a href="https://github.com/scleradb/sclera-example-scala-api">Sclera - Proprietary API Example on GitHub</a></li>
+</ul>
+<p>To use Sclera through the proprietary API, the application needs to:</p>
+<ul>
+<li>specify the Sclera home directory by setting the <code>SCLERA_ROOT</code> environment variable (if not set, the default is <code>$HOME/.sclera</code>)</li>
+<li>add the following dependencies:<ul>
+<li>Sclera Configuration Manager, <a href="https://github.com/scleradb/sclera/tree/master/modules/config">sclera-config</a>,</li>
+<li>Sclera Core Engine, <a href="https://github.com/scleradb/sclera/tree/master/modules/core">sclera-core</a>,</li>
+<li>Sclera plugins needed (if any).</li>
+</ul>
+</li>
+</ul>
+<p>The example application described below is a command line tool to initialize Sclera, and execute queries. See <a href="#executable-script">here</a> for details on the usage.</p>
+<h2 id="specify-sclera-root-directory_1">Specify Sclera Root Directory<a class="headerlink" href="#specify-sclera-root-directory_1" title="Permanent link">&#9668;</a></h2>
+<p>We need to specify a directory where Sclera can keep its configuration, metadata, and internal database. This is done by setting the environment variable <code>SCLERA_ROOT</code>. If not specified, the default is <code>$HOME/.sclera</code>.</p>
+<h2 id="add-package-dependencies_1">Add Package Dependencies<a class="headerlink" href="#add-package-dependencies_1" title="Permanent link">&#9668;</a></h2>
+<p>This example uses <a href="https://scala-sbt.org">SBT</a> as the build tool, and the build file is <a href="https://github.com/scleradb/sclera-example-scala-api/blob/master/build.sbt"><code>build.sbt</code></a>.</p>
+<p>The required dependencies are added as:</p>
+<pre><code class="scala">    libraryDependencies ++= Seq(
+        &quot;com.scleradb&quot; %% &quot;sclera-config&quot; % &quot;4.0-SNAPSHOT&quot;,
+        &quot;com.scleradb&quot; %% &quot;sclera-core&quot; % &quot;4.0-SNAPSHOT&quot;
+    )
+</code></pre>
+
+<p>This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the <code>libraryDependencies</code> as well.</p>
+<h2 id="interface-with-sclera-using-the-proprietary-api">Interface with Sclera using the Proprietary API<a class="headerlink" href="#interface-with-sclera-using-the-proprietary-api" title="Permanent link">&#9668;</a></h2>
+<p>This application consists of a single source file, <a href="https://github.com/scleradb/sclera-example-scala-api/blob/master/src/main/scala/ApiExample.scala"><code>ApiExample.scala</code></a>.</p>
+<p>There are two procedures:</p>
+<ul>
+<li><code>initialize()</code>: This initializes Sclera's schema (metadata). This is called when <code>--init</code> is specified on the command line.</li>
+<li><code>runQueries()</code>: This executes queries provided on the command line and displays the results.</li>
+</ul>
+<h3 id="code-details-initialize">Code Details: <code>initialize()</code><a class="headerlink" href="#code-details-initialize" title="Permanent link">&#9668;</a></h3>
+<ul>
+<li>Creates and initializes an instance of Sclera <a href="https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html"><code>Processor</code></a></li>
+<li>Executes the statement <code>create schema</code> on Sclera using the <code>Processor</code> instance.</li>
+</ul>
+<p>When the <code>Processor</code> instance is initialized, Sclera first checks the sanity of its Schema and issues a warning if anything is wrong. Since we are initializing the schema, we bypass this step by passing a flag <code>checkSchema</code> in the properties while creating the <code>Processor</code> instance.</p>
+<h3 id="code-details-runqueries">Code Details: <code>runQueries(...)</code><a class="headerlink" href="#code-details-runqueries" title="Permanent link">&#9668;</a></h3>
+<ul>
+<li>Creates and initializes an instance of Sclera <a href="https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html"><code>Processor</code></a></li>
+<li>For each query in the list passed as the parameter,<ul>
+<li>Executes the query using the <code>Processor</code> instance, getting the result as an instance of type <a href="https://www.scleradb.com/api/sclera-core/com/scleradb/sql/result/TableResult.html"><code>TableResult</code></a>, containing an iterator over the returned rows and the metadata for the row columns. The rows are of type <a href="https://www.scleradb.com/api/sclera-core/com/scleradb/sql/result/TableRow.html"><code>TableRow</code></a>, and the metadata is a list of instances of type <a href="https://www.scleradb.com/api/sclera-core/com/scleradb/sql/datatypes/Column.html"><code>Column</code></a>.</li>
+<li>Output the column names, followed by the result values one row at a time.</li>
+</ul>
+</li>
+</ul>
+<h3 id="executable-script">Executable Script<a class="headerlink" href="#executable-script" title="Permanent link">&#9668;</a></h3>
+<p>The build file in each of the above cases contains a task <code>mkscript</code> that generates an executable script for the application, called <code>scleraexample</code> in the <code>bin</code> subdirectory. You can generate the script using the command:</p>
 <pre><code>&gt; sbt mkscript
 </code></pre>
 <p>The script is run as follows:</p>
