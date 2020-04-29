@@ -209,7 +209,7 @@ We need to specify a directory where Sclera can keep its configuration, metadata
 
 ## Add Package Dependencies
 
-This example uses [SBT](https://scala-sbt.org) as the build tool, and the build file is [`build.sbt`](build.sbt).
+This example uses [SBT](https://scala-sbt.org) as the build tool, and the build file is [`build.sbt`](https://github.com/scleradb/sclera-example-scala-api/blob/master/build.sbt).
 
 The required dependencies are added as:
 
