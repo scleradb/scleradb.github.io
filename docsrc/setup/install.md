@@ -116,7 +116,7 @@ Sclera's JDBC driver [sclera-jdbc](https://github.com/scleradb/sclera/tree/maste
 
 Since JDBC is a well-known standard, the application is written the same way as for any other JDBC compliant database system. The difference is that the queries that the application can submit are now in the much richer [Sclera SQL](../sclerasql/sqlexamples.md) with access to the [Sclera plugins](../setup/components.md) than the standard SQL.
 
-Alternatively, you can use [Sclera's proprietary API](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html) in your applications. This API is much simpler than JDBC, but is not a standard.
+Alternatively, you can use [Sclera's proprietary API](#sclera-proprietary-api-example) in your applications. This API is much simpler than JDBC, but is not a standard.
 
 ### Sclera - JDBC Example
 
@@ -189,7 +189,7 @@ When a connection is initialized, Sclera first checks the sanity of its Schema a
 
 ### Sclera - Proprietary API Example
 
-We illustrate the use of [Sclera's proprietary API](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html) using the same example application as above. The code is available on GitHub:
+We illustrate the use of [Sclera's proprietary API](/api/sclera-core/com/scleradb/exec/Processor.html) using the same example application as above. The code is available on GitHub:
 
 - [Sclera - Proprietary API Example on GitHub](https://github.com/scleradb/sclera-example-scala-api)
 
@@ -233,16 +233,16 @@ There are two procedures:
 
 ***Code Details: `initialize()`***
 
-- Creates and initializes an instance of Sclera [`Processor`](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html)
+- Creates and initializes an instance of Sclera [`Processor`](/api/sclera-core/com/scleradb/exec/Processor.html)
 - Executes the statement `create schema` on Sclera using the `Processor` instance.
 
 When the `Processor` instance is initialized, Sclera first checks the sanity of its Schema and issues a warning if anything is wrong. Since we are initializing the schema, we bypass this step by passing a flag `checkSchema` in the properties while creating the `Processor` instance.
 
 ***Code Details: `runQueries(...)`***
 
-- Creates and initializes an instance of Sclera [`Processor`](https://www.scleradb.com/api/sclera-core/com/scleradb/exec/Processor.html)
+- Creates and initializes an instance of Sclera [`Processor`](/api/sclera-core/com/scleradb/exec/Processor.html)
 - For each query in the list passed as the parameter,
-    - Executes the query using the `Processor` instance, getting the result as an instance of type [`TableResult`](https://www.scleradb.com/api/sclera-core/com/scleradb/sql/result/TableResult.html), containing an iterator over the returned rows and the metadata for the row columns. The rows are of type [`TableRow`](https://www.scleradb.com/api/sclera-core/com/scleradb/sql/result/TableRow.html), and the metadata is a list of instances of type [`Column`](https://www.scleradb.com/api/sclera-core/com/scleradb/sql/datatypes/Column.html).
+    - Executes the query using the `Processor` instance, getting the result as an instance of type [`TableResult`](/api/sclera-core/com/scleradb/sql/result/TableResult.html), containing an iterator over the returned rows and the metadata for the row columns. The rows are of type [`TableRow`](/api/sclera-core/com/scleradb/sql/result/TableRow.html), and the metadata is a list of instances of type [`Column`](/api/sclera-core/com/scleradb/sql/datatypes/Column.html).
     - Output the column names, followed by the result values one row at a time.
 
 ### Executable Script
