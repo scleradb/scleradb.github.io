@@ -1,8 +1,8 @@
 Sclera is an open platform that can be extended, as needed, with extensions that connect Sclera with multiple data sources, platforms and analytics libraries. The [components documentation](../setup/components.md#optional-extensions) describes the pre-built extensions that are packaged with the Sclera installation.
 
-These custom connectors can be built using the [Sclera Extensions Software Development Kit (SDK)](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/), provided natively by the [`sclera-core` component](../setup/components.md#sclera-core).
+These custom connectors can be built using the [Sclera Extensions Software Development Kit (SDK)](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/index.html), provided natively by the [`sclera-core` component](../setup/components.md#sclera-core).
 
-For details on the API, please refer to the [`sclera-core` scaladoc](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/).
+For details on the API, please refer to the [`sclera-core` scaladoc](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/index.html).
 
 The following type of components are covered:
 
