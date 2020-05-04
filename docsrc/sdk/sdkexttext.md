@@ -6,11 +6,11 @@ The component [Sclera - Apache OpenNLP Connector](../setup/components.md#sclera-
 
 To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:
 
-- <a class="anchor" name="nlpservice"></a> `NlpService` ([API Link](/api/sclera-core/com/scleradb/analytics/nlp/service/NlpService.html))
+- <a class="anchor" name="nlpservice"></a> `NlpService` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/nlp/service/NlpService.html))
     - Provides text analytics operators as a service to Sclera, using the specified library.
     - Contains an `id` that identifies this service.
     - Contains the method `createObject` that is used to create a new task object for the task named in the parameter `taskName` for this service.
-- <a class="anchor" name="nlptask"></a> `NlpTask` ([API Link](/api/sclera-core/com/scleradb/analytics/nlp/objects/NlpTask.html))
+- <a class="anchor" name="nlptask"></a> `NlpTask` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/nlp/objects/NlpTask.html))
     - Wrapper over classes implementing text analytics algorithms.
     - Provides a function `eval` that takes a data stream (an iterator over rows, with associated metadata) as input and returns the same data stream, with each row augmented by columns `resultCols` containing the output of executing the task `taskName` on the text in column `inputCol`. If the evaluation on a row emits multiple evaluation results, the input row is repeated in the output for each such result.
 

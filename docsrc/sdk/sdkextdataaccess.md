@@ -6,15 +6,15 @@ In this document, we show how to build custom connectors to any data source. The
 
 To build a custom data access connector, you need to provide implementations of the following abstract classes in the SDK:
 
-- <a class="anchor" name="externalsourceservice"></a> `ExternalSourceService` ([API Link](/api/sclera-core/com/scleradb/external/service/ExternalSourceService.html))
+- <a class="anchor" name="externalsourceservice"></a> `ExternalSourceService` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/external/service/ExternalSourceService.html))
     - Provides the external data source as a service to Sclera.
     - Contains an `id` that identifies this service.
     - Contains a method `createSource` that is used to create a new [`ExternalSource` instance](#externalsource) for this service.
-- <a class="anchor" name="externalsource"></a> `ExternalSource` ([API Link](/api/sclera-core/com/scleradb/external/objects/ExternalSource.html))
+- <a class="anchor" name="externalsource"></a> `ExternalSource` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/external/objects/ExternalSource.html))
     - Represents the external data source.
     - Provides the schema and other metadata about the sourced data to Sclera at compile-time.
     - Provides the [sourced data](#tableresult) to Sclera at runtime.
-- <a class="anchor" name="tableresult"></a> `TableResult` ([API Link](/api/sclera-core/com/scleradb/sql/result/TableResult.html))
+- <a class="anchor" name="tableresult"></a> `TableResult` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/sql/result/TableResult.html))
     - Represents the data sourced from the external data source.
     - Provides an iterator over the rows containing the sourced data.
  

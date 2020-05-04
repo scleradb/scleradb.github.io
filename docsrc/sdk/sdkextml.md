@@ -8,14 +8,14 @@ This is achieved by mapping the training and execution to the interfaced library
 
 To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:
 
-- <a class="anchor" name="mlservice"></a> `MLService` ([API Link](/api/sclera-core/com/scleradb/analytics/ml/service/MLService.html))
+- <a class="anchor" name="mlservice"></a> `MLService` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/ml/service/MLService.html))
     - Provides machine learning operators as a service to Sclera, using the specified library.
     - Contains an `id` that identifies this service.
     - Contains the method `createClassifier`, `createClusterer` that is used to create (i.e. train), respectively, a new [Classifier](#classifier) or [Clusterer](#clusterer) for this service.
-- <a class="anchor" name="classifier"></a> `Classifier` ([API Link](/api/sclera-core/com/scleradb/analytics/ml/classifier/objects/Classifier.html))
+- <a class="anchor" name="classifier"></a> `Classifier` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/ml/classifier/objects/Classifier.html))
     - Wrapper over classes implementing clustering algorithms. [Training](../sclerasql/sqlextml.md#classifier-training) involves learning a classifier with a designated `targetAttr` using the feature attributes `featureAttrs`, all of which must be present in the input.
     - Provides a function `classifyOpt` that returns the label for a new data point, if one can be assigned by the classifier; this is used by the [`CLASSIFIED WITH` clause](../sclerasql/sqlextml.md#classifier-application).
-- <a class="anchor" name="clusterer"></a> `Clusterer` ([API Link](/api/sclera-core/com/scleradb/analytics/ml/clusterer/objects/Clusterer.html))
+- <a class="anchor" name="clusterer"></a> `Clusterer` ([API Link](https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/ml/clusterer/objects/Clusterer.html))
     - Wrapper over classes implementing clustering algorithms. [Training](../sclerasql/sqlextml.md#clusterer-training) involves clustering the given data.
     - Provides a function `cluster` that assigns a cluster id to a new data point; this is used by the [`CLUSTERED WITH` clause](../sclerasql/sqlextml.md#clusterer-application).
 
