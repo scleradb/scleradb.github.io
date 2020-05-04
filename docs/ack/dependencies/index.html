@@ -832,7 +832,7 @@
                 <p>In this document we list out the third party dependencies for the Sclera components, and the installer.</p>
 <p>These dependencies are not distributed with Sclera, but are <a href="https://www.scala-sbt.org/1.x/docs/Sbt-Launcher.html">downloaded directly from a repository</a> during installation of the respective component.</p>
 <h2 id="sclera-component-dependencies">Sclera Component Dependencies<a class="headerlink" href="#sclera-component-dependencies" title="Permanent link">&#9668;</a></h2>
-<p>The following table lists the direct third-party library dependencies for each Sclera component, along with the dependency's license. Clicking on the mentioned license name will take you to the license statement.</p>
+<p>The following table lists the direct third-party library dependencies for each Sclera component, along with the dependency's license. Clicking on the mentioned license name will take you to the license statement. For a more complete list, please see the file NOTICE.txt in the source of the respective components.</p>
 <table>
 <thead>
 <tr>
@@ -849,37 +849,37 @@
 </tr>
 <tr>
 <td></td>
-<td><a href="http://commons.apache.org/proper/commons-codec">Apache Commons Codec version 1.8</a></td>
-<td><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version 2.0</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="https://github.com/typesafehub/config">Typesafe Config version 1.0.0</a></td>
-<td><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version 2.0</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="http://logback.qos.ch">Logback version 1.0.13</a></td>
+<td><a href="http://logback.qos.ch">Logback</a></td>
 <td><a href="http://logback.qos.ch/license.html">Eclipse Public License version 1.0</a></td>
 </tr>
 <tr>
 <td></td>
-<td><a href="http://verhas.github.io/License3j">License3j version 1.0.4</a></td>
-<td><a href="http://verhas.github.io/License3j/license.html">GNU Lesser General Public License version 3</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="http://brettwooldridge.github.io/HikariCP">HikariCP version 2.4.2</a></td>
+<td><a href="http://brettwooldridge.github.io/HikariCP">HikariCP</a></td>
 <td><a href="https://raw.githubusercontent.com/brettwooldridge/HikariCP/dev/LICENSE">Apache License version 2.0</a></td>
 </tr>
 <tr>
-<td><a href="../../setup/components/#sclera-shell">Sclera - Command Line Shell</a></td>
-<td><a href="http://jline.sourceforge.net">JLine</a></td>
-<td><a href="http://jline.sourceforge.net/license.html">BSD License</a></td>
+<td><a href="../../setup/components/#sclera-config">Sclera - Configuration Manager</a></td>
+<td><a href="https://github.com/typesafehub/config">Typesafe Config</a></td>
+<td><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version 2.0</a></td>
 </tr>
 <tr>
 <td></td>
-<td><a href="http://logback.qos.ch">Logback version 1.0.13</a></td>
+<td><a href="http://logback.qos.ch">Logback</a></td>
+<td><a href="http://logback.qos.ch/license.html">Eclipse Public License version 1.0</a></td>
+</tr>
+<tr>
+<td><a href="../../setup/components/#sclera-shell">Sclera - Command Line Shell</a></td>
+<td><a href="https://jitpack.io/p/jline/jline3">JLine3</a></td>
+<td><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause License</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://fusesource.github.io/jansi/">Jansi</a></td>
+<td><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://logback.qos.ch">Logback</a></td>
 <td><a href="http://logback.qos.ch/license.html">Eclipse Public License version 1.0</a></td>
 </tr>
 <tr>
@@ -889,8 +889,8 @@
 </tr>
 <tr>
 <td><a href="../../setup/components/#sclera-mysql">Sclera - MySQL Connector</a></td>
-<td><a href="http://dev.mysql.com/doc/connector-j/en/index.html">MySQL Connector/J version 5.1.21</a></td>
-<td><a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License version 2</a></td>
+<td><a href="http://dev.mysql.com/doc/connector-j/en/index.html">MySQL Connector/J</a></td>
+<td><a href="https://oss.oracle.com/licenses/universal-foss-exception/">GNU GPL v2 with FOSS Exception</a></td>
 </tr>
 <tr>
 <td><a href="../../setup/components/#sclera-postgresql">Sclera - PostgreSQL Connector</a></td>
@@ -899,7 +899,7 @@
 </tr>
 <tr>
 <td><a href="../../setup/components/#sclera-csv">Sclera - CSV File Connector</a></td>
-<td><a href="http://commons.apache.org/proper/commons-csv/">Apache Commons CSV version 1.1</a></td>
+<td><a href="http://commons.apache.org/proper/commons-csv/">Apache Commons CSV</a></td>
 <td><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version 2.0</a></td>
 </tr>
 <tr>
@@ -909,18 +909,28 @@
 </tr>
 <tr>
 <td><a href="../../setup/components/#sclera-weka">Sclera - Weka Connector</a></td>
-<td><a href="http://www.cs.waikato.ac.nz/ml/weka">Weka version 3.7.11</a></td>
+<td><a href="http://www.cs.waikato.ac.nz/ml/weka">Weka</a></td>
 <td><a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License version 2</a></td>
 </tr>
 <tr>
-<td><a href="../../setup/components/#sclera-visualization">Sclera - Visualization</a></td>
+<td><a href="../../setup/components/#sclera-visualization">Sclera - Web Display</a></td>
 <td><a href="http://d3js.org">D3</a></td>
-<td><a href="https://raw.githubusercontent.com/mbostock/d3/master/LICENSE">D3 License</a></td>
+<td><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause License</a></td>
 </tr>
 <tr>
 <td></td>
 <td><a href="http://d3-legend.susielu.com">D3 SVG Legend</a></td>
 <td><a href="https://raw.githubusercontent.com/susielu/d3-legend/master/LICENSE">D3-Legend License</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://javalin.io">Javalin</a></td>
+<td><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://logback.qos.ch">Logback</a></td>
+<td><a href="http://logback.qos.ch/license.html">Eclipse Public License version 1.0</a></td>
 </tr>
 </tbody>
 </table>
