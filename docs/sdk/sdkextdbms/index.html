@@ -900,24 +900,24 @@
 <h2 id="building-database-system-connectors">Building Database System Connectors<a class="headerlink" href="#building-database-system-connectors" title="Permanent link">&#9668;</a></h2>
 <p>To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:</p>
 <ul>
-<li><a class="anchor" name="dbservice"></a> <code>DBService</code> (<a href="/api/sclera-core/com/scleradb/dbms/service/DBService.html">API Link</a>)<ul>
+<li><a class="anchor" name="dbservice"></a> <code>DBService</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/dbms/service/DBService.html">API Link</a>)<ul>
 <li>Provides the database system as a service to Sclera.</li>
 <li>Contains an <code>id</code> that identifies this service.</li>
 <li>Contains a method <code>createLocation</code> that is used to create a new <a href="#location">location instance</a> for this service.</li>
 </ul>
 </li>
-<li><a class="anchor" name="location"></a> <code>Location</code> (<a href="/api/sclera-core/com/scleradb/dbms/location/Location.html">API Link</a>)<ul>
+<li><a class="anchor" name="location"></a> <code>Location</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/dbms/location/Location.html">API Link</a>)<ul>
 <li>Represents the underlying database system.</li>
 <li>Provides the configuration parameters, and properties (e.g. temporary or persistent, read-only or read-write, etc.).</li>
 <li>Provides the <a href="#statementdriver">driver</a> for interfacing with the underlying system.</li>
 </ul>
 </li>
-<li><a class="anchor" name="statementdriver"></a> <code>StatementDriver</code> (<a href="/api/sclera-core/com/scleradb/dbms/driver/StatementDriver.html">API Link</a>)<ul>
+<li><a class="anchor" name="statementdriver"></a> <code>StatementDriver</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/dbms/driver/StatementDriver.html">API Link</a>)<ul>
 <li>Executes the statements provided by Sclera on the underlying database system, and passes back the results.</li>
 <li>Provides the <a href="#statementmetadatadriver">metadata driver</a> for accessing the metadata for the data stored in the underlying database system.</li>
 </ul>
 </li>
-<li><a class="anchor" name="statementmetadatadriver"></a> <code>StatementMetadataDriver</code> (<a href="/api/sclera-core/com/scleradb/dbms/driver/StatementMetadataDriver.html">API Link</a>)<ul>
+<li><a class="anchor" name="statementmetadatadriver"></a> <code>StatementMetadataDriver</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/dbms/driver/StatementMetadataDriver.html">API Link</a>)<ul>
 <li>Provides the metadata for the data stored in the underlying database system.</li>
 </ul>
 </li>
@@ -925,17 +925,17 @@
 <h3 id="special-case-relational-databases">Special case: Relational Databases<a class="headerlink" href="#special-case-relational-databases" title="Permanent link">&#9668;</a></h3>
 <p>If the underlying system is a relational database system, which talks SQL and uses JDBC as the interface, Sclera does most of the work. For such systems, you need to provide implementations of the following:</p>
 <ul>
-<li><a class="anchor" name="dbservice"></a> <code>DBService</code> (<a href="/api/sclera-core/com/scleradb/dbms/service/DBService.html">API Link</a>)<ul>
+<li><a class="anchor" name="dbservice"></a> <code>DBService</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/dbms/service/DBService.html">API Link</a>)<ul>
 <li>Provides the relational database system as a service to Sclera.</li>
 </ul>
 </li>
-<li><a class="anchor" name="rdbmslocation"></a> <code>RdbmsLocation</code> (<a href="/api/sclera-core/com/scleradb/dbms/rdbms/location/RdbmsLocation.html">API LInk</a>)<ul>
+<li><a class="anchor" name="rdbmslocation"></a> <code>RdbmsLocation</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/dbms/rdbms/location/RdbmsLocation.html">API LInk</a>)<ul>
 <li>Represents the underlying relational database system.</li>
 <li>Provides a standard implementation of <a href="#statementdriver"><code>StatementDriver</code></a> and <a href="#statementmetadatadriver"><code>StatementMetadataDriver</code></a>, based on JDBC. You only need to configure the JDBC configuration parameters (e.g. the JDBC URL) for the underlying system, and additional location properties (e.g. temporary or persistent, read-only or read-write, etc.).</li>
 <li>Provides the <a href="#sqlmapper">SQL mapper</a> for translating Sclera's internal SQL representation to the SQL for the underlying system.</li>
 </ul>
 </li>
-<li><a class="anchor" name="sqlmapper"></a> <code>SqlMapper</code> (<a href="/api/sclera-core/com/scleradb/sql/mapper/SqlMapper.html">API LInk</a>)<ul>
+<li><a class="anchor" name="sqlmapper"></a> <code>SqlMapper</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/sql/mapper/SqlMapper.html">API LInk</a>)<ul>
 <li>Translates Sclera's internal SQL representation to the SQL for the underlying system. This is needed because the <a href="http://troels.arvin.dk/db/rdbms/">SQL clauses and constructs across different systems vary significantly and sometimes do not follow the standard</a>.</li>
 </ul>
 </li>

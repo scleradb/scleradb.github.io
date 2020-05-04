@@ -875,18 +875,18 @@
 <h2 id="building-machine-learning-library-connectors">Building Machine Learning Library Connectors<a class="headerlink" href="#building-machine-learning-library-connectors" title="Permanent link">&#9668;</a></h2>
 <p>To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:</p>
 <ul>
-<li><a class="anchor" name="mlservice"></a> <code>MLService</code> (<a href="/api/sclera-core/com/scleradb/analytics/ml/service/MLService.html">API Link</a>)<ul>
+<li><a class="anchor" name="mlservice"></a> <code>MLService</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/ml/service/MLService.html">API Link</a>)<ul>
 <li>Provides machine learning operators as a service to Sclera, using the specified library.</li>
 <li>Contains an <code>id</code> that identifies this service.</li>
 <li>Contains the method <code>createClassifier</code>, <code>createClusterer</code> that is used to create (i.e. train), respectively, a new <a href="#classifier">Classifier</a> or <a href="#clusterer">Clusterer</a> for this service.</li>
 </ul>
 </li>
-<li><a class="anchor" name="classifier"></a> <code>Classifier</code> (<a href="/api/sclera-core/com/scleradb/analytics/ml/classifier/objects/Classifier.html">API Link</a>)<ul>
+<li><a class="anchor" name="classifier"></a> <code>Classifier</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/ml/classifier/objects/Classifier.html">API Link</a>)<ul>
 <li>Wrapper over classes implementing clustering algorithms. <a href="../../sclerasql/sqlextml/#classifier-training">Training</a> involves learning a classifier with a designated <code>targetAttr</code> using the feature attributes <code>featureAttrs</code>, all of which must be present in the input.</li>
 <li>Provides a function <code>classifyOpt</code> that returns the label for a new data point, if one can be assigned by the classifier; this is used by the <a href="../../sclerasql/sqlextml/#classifier-application"><code>CLASSIFIED WITH</code> clause</a>.</li>
 </ul>
 </li>
-<li><a class="anchor" name="clusterer"></a> <code>Clusterer</code> (<a href="/api/sclera-core/com/scleradb/analytics/ml/clusterer/objects/Clusterer.html">API Link</a>)<ul>
+<li><a class="anchor" name="clusterer"></a> <code>Clusterer</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/ml/clusterer/objects/Clusterer.html">API Link</a>)<ul>
 <li>Wrapper over classes implementing clustering algorithms. <a href="../../sclerasql/sqlextml/#clusterer-training">Training</a> involves clustering the given data.</li>
 <li>Provides a function <code>cluster</code> that assigns a cluster id to a new data point; this is used by the <a href="../../sclerasql/sqlextml/#clusterer-application"><code>CLUSTERED WITH</code> clause</a>.</li>
 </ul>

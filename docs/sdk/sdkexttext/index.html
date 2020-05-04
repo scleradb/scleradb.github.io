@@ -874,13 +874,13 @@
 <h2 id="building-text-analytics-library-connectors">Building Text Analytics Library Connectors<a class="headerlink" href="#building-text-analytics-library-connectors" title="Permanent link">&#9668;</a></h2>
 <p>To build a custom datasource connector, you need to provide implementations of the following abstract classes in the SDK:</p>
 <ul>
-<li><a class="anchor" name="nlpservice"></a> <code>NlpService</code> (<a href="/api/sclera-core/com/scleradb/analytics/nlp/service/NlpService.html">API Link</a>)<ul>
+<li><a class="anchor" name="nlpservice"></a> <code>NlpService</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/nlp/service/NlpService.html">API Link</a>)<ul>
 <li>Provides text analytics operators as a service to Sclera, using the specified library.</li>
 <li>Contains an <code>id</code> that identifies this service.</li>
 <li>Contains the method <code>createObject</code> that is used to create a new task object for the task named in the parameter <code>taskName</code> for this service.</li>
 </ul>
 </li>
-<li><a class="anchor" name="nlptask"></a> <code>NlpTask</code> (<a href="/api/sclera-core/com/scleradb/analytics/nlp/objects/NlpTask.html">API Link</a>)<ul>
+<li><a class="anchor" name="nlptask"></a> <code>NlpTask</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/analytics/nlp/objects/NlpTask.html">API Link</a>)<ul>
 <li>Wrapper over classes implementing text analytics algorithms.</li>
 <li>Provides a function <code>eval</code> that takes a data stream (an iterator over rows, with associated metadata) as input and returns the same data stream, with each row augmented by columns <code>resultCols</code> containing the output of executing the task <code>taskName</code> on the text in column <code>inputCol</code>. If the evaluation on a row emits multiple evaluation results, the input row is repeated in the output for each such result.</li>
 </ul>

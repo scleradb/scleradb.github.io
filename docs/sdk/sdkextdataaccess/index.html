@@ -888,19 +888,19 @@
 <h2 id="building-data-access-connectors">Building Data Access Connectors<a class="headerlink" href="#building-data-access-connectors" title="Permanent link">&#9668;</a></h2>
 <p>To build a custom data access connector, you need to provide implementations of the following abstract classes in the SDK:</p>
 <ul>
-<li><a class="anchor" name="externalsourceservice"></a> <code>ExternalSourceService</code> (<a href="/api/sclera-core/com/scleradb/external/service/ExternalSourceService.html">API Link</a>)<ul>
+<li><a class="anchor" name="externalsourceservice"></a> <code>ExternalSourceService</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/external/service/ExternalSourceService.html">API Link</a>)<ul>
 <li>Provides the external data source as a service to Sclera.</li>
 <li>Contains an <code>id</code> that identifies this service.</li>
 <li>Contains a method <code>createSource</code> that is used to create a new <a href="#externalsource"><code>ExternalSource</code> instance</a> for this service.</li>
 </ul>
 </li>
-<li><a class="anchor" name="externalsource"></a> <code>ExternalSource</code> (<a href="/api/sclera-core/com/scleradb/external/objects/ExternalSource.html">API Link</a>)<ul>
+<li><a class="anchor" name="externalsource"></a> <code>ExternalSource</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/external/objects/ExternalSource.html">API Link</a>)<ul>
 <li>Represents the external data source.</li>
 <li>Provides the schema and other metadata about the sourced data to Sclera at compile-time.</li>
 <li>Provides the <a href="#tableresult">sourced data</a> to Sclera at runtime.</li>
 </ul>
 </li>
-<li><a class="anchor" name="tableresult"></a> <code>TableResult</code> (<a href="/api/sclera-core/com/scleradb/sql/result/TableResult.html">API Link</a>)<ul>
+<li><a class="anchor" name="tableresult"></a> <code>TableResult</code> (<a href="https://www.javadoc.io/doc/com.scleradb/sclera-core_2.13/latest/com/scleradb/sql/result/TableResult.html">API Link</a>)<ul>
 <li>Represents the data sourced from the external data source.</li>
 <li>Provides an iterator over the rows containing the sourced data.</li>
 </ul>
