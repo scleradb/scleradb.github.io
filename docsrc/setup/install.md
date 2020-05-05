@@ -150,11 +150,11 @@ This example uses [SBT](https://scala-sbt.org) as the build tool, and the build 
 The required dependencies are added as:
 
 ```scala
-    libraryDependencies ++= Seq(
-        "com.scleradb" %% "sclera-config" % "4.0-SNAPSHOT",
-        "com.scleradb" %% "sclera-core" % "4.0-SNAPSHOT",
-        "com.scleradb" %% "sclera-jdbc" % "4.0-SNAPSHOT"
-    )
+libraryDependencies ++= Seq(
+    "com.scleradb" %% "sclera-config" % "4.0",
+    "com.scleradb" %% "sclera-core" % "4.0",
+    "com.scleradb" %% "sclera-jdbc" % "4.0"
+)
 ```
 
 This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the `libraryDependencies` as well.
@@ -214,10 +214,10 @@ This example uses [SBT](https://scala-sbt.org) as the build tool, and the build 
 The required dependencies are added as:
 
 ```scala
-    libraryDependencies ++= Seq(
-        "com.scleradb" %% "sclera-config" % "4.0-SNAPSHOT",
-        "com.scleradb" %% "sclera-core" % "4.0-SNAPSHOT"
-    )
+libraryDependencies ++= Seq(
+    "com.scleradb" %% "sclera-config" % "4.0",
+    "com.scleradb" %% "sclera-core" % "4.0"
+)
 ```
 
 This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the `libraryDependencies` as well.

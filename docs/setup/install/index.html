@@ -1211,11 +1211,11 @@ Goodbye!
 <h4 id="add-package-dependencies">Add Package Dependencies<a class="headerlink" href="#add-package-dependencies" title="Permanent link">&#9668;</a></h4>
 <p>This example uses <a href="https://scala-sbt.org">SBT</a> as the build tool, and the build file is <code>build.sbt</code>.</p>
 <p>The required dependencies are added as:</p>
-<pre><code class="scala">    libraryDependencies ++= Seq(
-        &quot;com.scleradb&quot; %% &quot;sclera-config&quot; % &quot;4.0-SNAPSHOT&quot;,
-        &quot;com.scleradb&quot; %% &quot;sclera-core&quot; % &quot;4.0-SNAPSHOT&quot;,
-        &quot;com.scleradb&quot; %% &quot;sclera-jdbc&quot; % &quot;4.0-SNAPSHOT&quot;
-    )
+<pre><code class="scala">libraryDependencies ++= Seq(
+    &quot;com.scleradb&quot; %% &quot;sclera-config&quot; % &quot;4.0&quot;,
+    &quot;com.scleradb&quot; %% &quot;sclera-core&quot; % &quot;4.0&quot;,
+    &quot;com.scleradb&quot; %% &quot;sclera-jdbc&quot; % &quot;4.0&quot;
+)
 </code></pre>
 
 <p>This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the <code>libraryDependencies</code> as well.</p>
@@ -1266,10 +1266,10 @@ Goodbye!
 <h4 id="add-package-dependencies_1">Add Package Dependencies<a class="headerlink" href="#add-package-dependencies_1" title="Permanent link">&#9668;</a></h4>
 <p>This example uses <a href="https://scala-sbt.org">SBT</a> as the build tool, and the build file is <a href="https://github.com/scleradb/sclera-example-scala-api/blob/master/build.sbt"><code>build.sbt</code></a>.</p>
 <p>The required dependencies are added as:</p>
-<pre><code class="scala">    libraryDependencies ++= Seq(
-        &quot;com.scleradb&quot; %% &quot;sclera-config&quot; % &quot;4.0-SNAPSHOT&quot;,
-        &quot;com.scleradb&quot; %% &quot;sclera-core&quot; % &quot;4.0-SNAPSHOT&quot;
-    )
+<pre><code class="scala">libraryDependencies ++= Seq(
+    &quot;com.scleradb&quot; %% &quot;sclera-config&quot; % &quot;4.0&quot;,
+    &quot;com.scleradb&quot; %% &quot;sclera-core&quot; % &quot;4.0&quot;
+)
 </code></pre>
 
 <p>This is a minimal example, and does not include any Sclera plugins. If your example needs a Sclera Plugin, it should be added to the <code>libraryDependencies</code> as well.</p>
