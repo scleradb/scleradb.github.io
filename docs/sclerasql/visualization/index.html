@@ -1553,7 +1553,7 @@ PLOT(GEOM=BAR(x=day, y=running_avg), ALPHA=0.1)
 <p><img alt="Without KEY=day" src="../images/visualization/sclera-nokey.jpg" title="Without KEY=day, each row creates a new bar" /></p>
 <h3 id="position-adjustments">Position Adjustments<a class="headerlink" href="#position-adjustments" title="Permanent link">&#9668;</a></h3>
 <p>Following the grammar of graphics philosophy, the input data is assumed to have one row per data point. When two data points are rendered one over the other, they are said to "collide".</p>
-<p>Colliding data points can be repositioned by specifying a <code>POSITION</code> directive, whcih can take values <code>dodge</code>, <code>stack</code>, or <code>jitter</code>.</p>
+<p>Colliding data points can be repositioned by specifying a <code>POSITION</code> directive, which can take values <code>dodge</code>, <code>stack</code>, or <code>jitter</code>.</p>
 <p>Specifying <code>POSITION=DODGE</code> positions the data points in a row, one after other, around the common <code>x</code> position on the X axis. When the geometry is <code>BAR</code>, this gives the familiar "grouped" bar chart:</p>
 <pre><code>SELECT day, gender, count(*) AS count
 FROM tips

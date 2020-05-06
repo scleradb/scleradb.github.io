@@ -197,7 +197,7 @@ Without `KEY=day`, a new bar will be generated for each update.
 
 Following the grammar of graphics philosophy, the input data is assumed to have one row per data point. When two data points are rendered one over the other, they are said to "collide".
 
-Colliding data points can be repositioned by specifying a `POSITION` directive, whcih can take values `dodge`, `stack`, or `jitter`.
+Colliding data points can be repositioned by specifying a `POSITION` directive, which can take values `dodge`, `stack`, or `jitter`.
 
 Specifying `POSITION=DODGE` positions the data points in a row, one after other, around the common `x` position on the X axis. When the geometry is `BAR`, this gives the familiar "grouped" bar chart:
 
