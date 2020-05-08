@@ -5,7 +5,7 @@ ScleraViz is inspired by [Grammar of Graphics](http://vita.had.co.nz/papers/laye
 An online preview, with a number of examples with code, is available at [https://scleraviz.herokuapp.com](https://scleraviz.herokuapp.com).
 
 ![ScleraViz Examples](images/visualization/scleraviz-examples.jpg "Visualization Examples")
-![ScleraViz Bar Example](images/visualization/scleraviz-bar.jpg "Bar Example")
+![ScleraViz Faceted Scatter Example](images/visualization/scleraviz-faceted-scatter.jpg "Faceted Scatter Example")
 
 In this document, we first describe [how to set up Sclera to use ScleraViz](#command-line-setup), then illustrate [ScleraViz by example](#scleraviz-by-example), and finally give the [detailed syntax of ScleraSQL visualization queries](#detailed-syntax).
 
