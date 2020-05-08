@@ -4,8 +4,8 @@ ScleraViz is inspired by [Grammar of Graphics](http://vita.had.co.nz/papers/laye
 
 An online preview, with a number of examples with code, is available at [https://scleraviz.herokuapp.com](https://scleraviz.herokuapp.com).
 
-![ScleraViz Examples](images/visualization/scleraviz-examples.jpg "Visualization Examples")
-![ScleraViz Faceted Scatter Example](images/visualization/scleraviz-faceted-scatter.jpg "Faceted Scatter Example")
+![ScleraViz Examples](/images/visualization/scleraviz-examples.jpg "Visualization Examples")
+![ScleraViz Faceted Scatter Example](/images/visualization/scleraviz-faceted-scatter.jpg "Faceted Scatter Example")
 
 In this document, we first describe [how to set up Sclera to use ScleraViz](#command-line-setup), then illustrate [ScleraViz by example](#scleraviz-by-example), and finally give the [detailed syntax of ScleraSQL visualization queries](#detailed-syntax).
 
@@ -88,7 +88,7 @@ Putting a `PLOT` afer the query plots the column `y` in the query result against
     SELECT total_bill as x, tip AS y FROM tips
     PLOT;
 
-![Simple Plot](images/visualization/sclera-scatter-simple.jpg "Simple Plot")
+![Simple Plot](/images/visualization/sclera-scatter-simple.jpg "Simple Plot")
 
 The above statement works on a bunch of defaults  -- it creates a scatter-plot, which takes column `x` in the input as the default for the X coordinate, and column `y` in the input as the default for the `y` coordinate, and also takes default values for aesthetics such as point fill and stroke color, size, opacity (alpha), etc.
 
@@ -122,7 +122,7 @@ For instance, to plot the average bill for a given party size against the party 
 
 *<tiny>(Note: `size` needs to be in backquotes as it is a keyword. This is a parser requirement; we understand that it is cumbersome and are working on workarounds. Meanwhile, it is always a good idea to put the column names in backquotes.)</tiny>*
 
-![Simple Bar Chart](images/visualization/sclera-simple-bar.jpg "Simple Bar Chart")
+![Simple Bar Chart](/images/visualization/sclera-simple-bar.jpg "Simple Bar Chart")
 
 Similarly, to plot the same data as a line, we use `GEOM=LINE`:
 
@@ -131,7 +131,7 @@ Similarly, to plot the same data as a line, we use `GEOM=LINE`:
     GROUP BY `size`
     PLOT(GEOM=LINE(x=`size`, y=avg_bill))
 
-![Simple Line Chart](images/visualization/sclera-simple-line.jpg "Simple Line Chart")
+![Simple Line Chart](/images/visualization/sclera-simple-line.jpg "Simple Line Chart")
 
 A full list of the supported geometries appears as a part of the [detailed documentation](#geometry).
 
@@ -153,7 +153,7 @@ The following example shows a scatterplot with expressions for `FILL` and `SHAPE
       SHAPE=`time` LEGEND(TITLE="Time")
     )
 
-![Scatter Plot with Non-default Aesthetics](images/visualization/sclera-scatter-legends.jpg "Scatter Plot with Non-default Aesthetics")
+![Scatter Plot with Non-default Aesthetics](/images/visualization/sclera-scatter-legends.jpg "Scatter Plot with Non-default Aesthetics")
 
 A full description of the aesthetics parameters appears in the [detailed documentation](#aesthetics-scales-and-legends).
 
@@ -169,7 +169,7 @@ For instance, adding a `GROUP` directive to a `LINE` will plot a line for each d
     ORDER BY `size`
     PLOT(GEOM=LINE(x=`size`, y=avg_bill), GROUP=gender, STROKE=gender LEGEND)
 
-![Line Chart with Groups](images/visualization/sclera-group-line.jpg "Line Chart with Groups")
+![Line Chart with Groups](/images/visualization/sclera-group-line.jpg "Line Chart with Groups")
 
 ### Key
 
@@ -183,7 +183,7 @@ With `KEY=day`, the first rows for a value create a bar, and the subsequent roes
     FROM tips T PARTITION BY day
     PLOT(GEOM=BAR(x=day, y=running_avg), KEY=day)
 
-![With `KEY=day`](images/visualization/sclera-key.jpg "With `KEY=day`, each row updates the existing bar")
+![With `KEY=day`](/images/visualization/sclera-key.jpg "With `KEY=day`, each row updates the existing bar")
 
 Without `KEY=day`, a new bar will be generated for each update.
 
@@ -191,7 +191,7 @@ Without `KEY=day`, a new bar will be generated for each update.
     FROM tips T PARTITION BY day
     PLOT(GEOM=BAR(x=day, y=running_avg), ALPHA=0.1)
 
-![Without `KEY=day`](images/visualization/sclera-nokey.jpg "Without `KEY=day`, each row creates a new bar")
+![Without `KEY=day`](/images/visualization/sclera-nokey.jpg "Without `KEY=day`, each row creates a new bar")
 
 ### Position Adjustments
 
@@ -207,7 +207,7 @@ Specifying `POSITION=DODGE` positions the data points in a row, one after other,
     ORDER BY day, gender
     PLOT(GEOM=BAR(x=day, y=count), POSITION=DODGE, FILL=gender LEGEND)
     
-![Grouped Bar Chart](images/visualization/sclera-bar-dodge.jpg "Grouped Bar Chart")
+![Grouped Bar Chart](/images/visualization/sclera-bar-dodge.jpg "Grouped Bar Chart")
 
 Specifying `POSITION=STACK` positions the data points in a column, one over other, at the common `x` position on the X axis. When the geometry is `BAR`, this gives the familiar "stacked" bar chart:
 
@@ -217,7 +217,7 @@ Specifying `POSITION=STACK` positions the data points in a column, one over othe
     ORDER BY day, gender
     PLOT(GEOM=BAR(x=day, y=count), POSITION=STACK, FILL=gender LEGEND)
     
-![Stacked Bar Chart](images/visualization/sclera-bar-stack.jpg "Stacked Bar Chart")
+![Stacked Bar Chart](/images/visualization/sclera-bar-stack.jpg "Stacked Bar Chart")
 
 Specifying `POSITION=jitter` adds a random offset to both the `x` and `y` positions of the data point. This is useful when we have overlapping points, so that the top points obscure the ones below -- the jitter randomly scatters the obscured points within a small ball around their position, making them visible.
 
@@ -237,7 +237,7 @@ For instance, consider the scatter-plot of average tips against the total bill. 
       STAT=LOESS(STROKE="orange", STROKE_WIDTH="5px")
     )
 
-![LOESS Smoothing](images/visualization/sclera-stat-loess.jpg "Loess Smoothing")
+![LOESS Smoothing](/images/visualization/sclera-stat-loess.jpg "Loess Smoothing")
 
 The computed result is plotted in its own layer (see the next section), using a geometry that is determined by the operation, and using aesthetic parameters that can be provided along with the operation, as in the example above.
 
@@ -260,7 +260,7 @@ For example, the following query marks regions in a stock ticker where the curre
       )
     )
 
-![Marked Regions](images/visualization/sclera-mark.jpg "Marked Regions")
+![Marked Regions](/images/visualization/sclera-mark.jpg "Marked Regions")
 
 ### Multi-Layered Plots
 
@@ -283,7 +283,7 @@ We can specify multiple layers in the same plot. The following plots the average
       LAYER(GEOM=RIBBON(x=`size`, ymin=avg_bill - sdev, ymax=avg_bill + sdev))
     )
 
-![Multi-Layer Plot](images/visualization/sclera-multilayer.jpg "Multi-Layer Plot")
+![Multi-Layer Plot](/images/visualization/sclera-multilayer.jpg "Multi-Layer Plot")
 
 Another example on the same query, this time with bars and error lines:
 
@@ -301,7 +301,7 @@ Another example on the same query, this time with bars and error lines:
       )
     )
 
-![Another Multi-Layer Plot](images/visualization/sclera-multilayer-alt.jpg "Another Multi-Layer Plot")
+![Another Multi-Layer Plot](/images/visualization/sclera-multilayer-alt.jpg "Another Multi-Layer Plot")
 
 The `STAT` directive mentioned in the previous section implicitly adds a new layer to the plot, with the result of the associated operation.
 
@@ -317,7 +317,7 @@ For instance, the following specification renders two separate plots on the same
     PLOT(GEOM=POINT(x=`size`, y=total_bill), ALPHA=0.3)
     PLOT(GEOM=POINT(x=total_bill, y=total_bill), ALPHA=0.3)
 
-![Multiple Plots](images/visualization/sclera-multiplot.jpg "Multiple Plots")
+![Multiple Plots](/images/visualization/sclera-multiplot.jpg "Multiple Plots")
 
 The plots are plotted one after the other, in separate rows. As the plots are rendered, the Y-axes of the first two plots, which plot the same column `tip`, and the X-axes of the last two plots, which plot the same column `size` are kept synchronized.
 
@@ -332,7 +332,7 @@ ScalerViz provides an aligned layout mode that places the plots so that plots sh
     PLOT(GEOM=POINT(x=total_bill, y=total_bill), ALPHA=0.3)
     LAYOUT ALIGNED
 
-![Multiple Plots with Aligned Layout](images/visualization/sclera-multiplot-aligned.jpg "Multiple Plots with Aligned Layout")
+![Multiple Plots with Aligned Layout](/images/visualization/sclera-multiplot-aligned.jpg "Multiple Plots with Aligned Layout")
 
 #### Weighted Axes
 
@@ -349,7 +349,7 @@ In ScleraViz, we can assign weights to axes. By default, all axes are assigned a
     AXIS tip(WEIGHT=2)
     LAYOUT ALIGNED
 
-![Multiple Plots with Aligned Layout and Weighted Axes](images/visualization/sclera-multiplot-aligned-weighted.jpg "Multiple Plots with Aligned Layout and Weighted Axes")
+![Multiple Plots with Aligned Layout and Weighted Axes](/images/visualization/sclera-multiplot-aligned-weighted.jpg "Multiple Plots with Aligned Layout and Weighted Axes")
 
 ### Cross Plots
 
@@ -362,7 +362,7 @@ It is common to plot each of a set of columns against each of another set of col
     )
     LAYOUT ALIGNED
 
-![Cross Plot with Aligned Layout](images/visualization/sclera-cross-plot-aligned.jpg "Cross Plot with Aligned Layout")
+![Cross Plot with Aligned Layout](/images/visualization/sclera-cross-plot-aligned.jpg "Cross Plot with Aligned Layout")
 
 ### Faceted Plots
 
@@ -376,7 +376,7 @@ For instance, the following plot separates out the tip and total bill data based
     PLOT(GEOM=POINT(x=total_bill, y=tip), ALPHA=0.3)
     FACET(ROWS=smoker, COLUMNS=gender)
 
-![Faceted Plot](images/visualization/sclera-faceted.jpg "Faceted Plot")
+![Faceted Plot](/images/visualization/sclera-faceted.jpg "Faceted Plot")
 
 ## Detailed Syntax
 

@@ -1408,8 +1408,8 @@
                 <p>Sclera's visualization component, ScleraViz, enables quick and easy visualization of your query results. ScleraViz is integrated with <a href="../sqlintro/">ScleraSQL</a>; this means a few lines of ScleraSQL can fetch, clean, analyze and visualize your data in a single sweep.</p>
 <p>ScleraViz is inspired by <a href="http://vita.had.co.nz/papers/layered-grammar.html">Grammar of Graphics</a>, specifically <a href="http://ggplot2.org/">R's ggplot2</a> -- but is implemented as an extension to <a href="../sqlintro/">ScleraSQL</a> and uses <a href="http://d3js.org">D3</a> as the rendering engine. Moreover, unlike ggplot2, ScleraViz can clean, analyze and plot <em>streaming</em> data.</p>
 <p>An online preview, with a number of examples with code, is available at <a href="https://scleraviz.herokuapp.com">https://scleraviz.herokuapp.com</a>.</p>
-<p><img alt="ScleraViz Examples" src="../images/visualization/scleraviz-examples.jpg" title="Visualization Examples" />
-<img alt="ScleraViz Faceted Scatter Example" src="../images/visualization/scleraviz-faceted-scatter.jpg" title="Faceted Scatter Example" /></p>
+<p><img alt="ScleraViz Examples" src="/images/visualization/scleraviz-examples.jpg" title="Visualization Examples" />
+<img alt="ScleraViz Faceted Scatter Example" src="/images/visualization/scleraviz-faceted-scatter.jpg" title="Faceted Scatter Example" /></p>
 <p>In this document, we first describe <a href="#command-line-setup">how to set up Sclera to use ScleraViz</a>, then illustrate <a href="#scleraviz-by-example">ScleraViz by example</a>, and finally give the <a href="#detailed-syntax">detailed syntax of ScleraSQL visualization queries</a>.</p>
 <h2 id="command-line-setup">Command Line Setup<a class="headerlink" href="#command-line-setup" title="Permanent link">&#9668;</a></h2>
 <p><em>In the following, <code>&lt;sclera-root&gt;</code> is the directory where Sclera is (or, is to be) installed.</em></p>
@@ -1481,7 +1481,7 @@ TYPEINFER(LIMIT 1);
 <pre><code>SELECT total_bill as x, tip AS y FROM tips
 PLOT;
 </code></pre>
-<p><img alt="Simple Plot" src="../images/visualization/sclera-scatter-simple.jpg" title="Simple Plot" /></p>
+<p><img alt="Simple Plot" src="/images/visualization/sclera-scatter-simple.jpg" title="Simple Plot" /></p>
 <p>The above statement works on a bunch of defaults  -- it creates a scatter-plot, which takes column <code>x</code> in the input as the default for the X coordinate, and column <code>y</code> in the input as the default for the <code>y</code> coordinate, and also takes default values for aesthetics such as point fill and stroke color, size, opacity (alpha), etc.</p>
 <p>In the discussion that follows, we show how to explicitly override these defaults, and even vary them as a function of the data.</p>
 <h3 id="specifying-the-geometry">Specifying the Geometry<a class="headerlink" href="#specifying-the-geometry" title="Permanent link">&#9668;</a></h3>
@@ -1503,14 +1503,14 @@ GROUP BY `size`
 PLOT(GEOM=BAR(x=`size`, y=avg_bill))
 </code></pre>
 <p><em><tiny>(Note: <code>size</code> needs to be in backquotes as it is a keyword. This is a parser requirement; we understand that it is cumbersome and are working on workarounds. Meanwhile, it is always a good idea to put the column names in backquotes.)</tiny></em></p>
-<p><img alt="Simple Bar Chart" src="../images/visualization/sclera-simple-bar.jpg" title="Simple Bar Chart" /></p>
+<p><img alt="Simple Bar Chart" src="/images/visualization/sclera-simple-bar.jpg" title="Simple Bar Chart" /></p>
 <p>Similarly, to plot the same data as a line, we use <code>GEOM=LINE</code>:</p>
 <pre><code>SELECT `size`, AVG(total_bill) as avg_bill
 FROM tips
 GROUP BY `size`
 PLOT(GEOM=LINE(x=`size`, y=avg_bill))
 </code></pre>
-<p><img alt="Simple Line Chart" src="../images/visualization/sclera-simple-line.jpg" title="Simple Line Chart" /></p>
+<p><img alt="Simple Line Chart" src="/images/visualization/sclera-simple-line.jpg" title="Simple Line Chart" /></p>
 <p>A full list of the supported geometries appears as a part of the <a href="#geometry">detailed documentation</a>.</p>
 <h3 id="aesthetics-and-legends">Aesthetics and Legends<a class="headerlink" href="#aesthetics-and-legends" title="Permanent link">&#9668;</a></h3>
 <p>The aesthetics parameters specify the "look and feel" of a chart. For a scatterplot, for instance, the parameters specify the shape of the point (circle, square, triangle, and so on), the color to be used to fill the point, the color used for the boundary, and so on.</p>
@@ -1524,7 +1524,7 @@ PLOT(GEOM=LINE(x=`size`, y=avg_bill))
   SHAPE=`time` LEGEND(TITLE="Time")
 )
 </code></pre>
-<p><img alt="Scatter Plot with Non-default Aesthetics" src="../images/visualization/sclera-scatter-legends.jpg" title="Scatter Plot with Non-default Aesthetics" /></p>
+<p><img alt="Scatter Plot with Non-default Aesthetics" src="/images/visualization/sclera-scatter-legends.jpg" title="Scatter Plot with Non-default Aesthetics" /></p>
 <p>A full description of the aesthetics parameters appears in the <a href="#aesthetics-scales-and-legends">detailed documentation</a>.</p>
 <h3 id="group">Group<a class="headerlink" href="#group" title="Permanent link">&#9668;</a></h3>
 <p>The optional <code>GROUP</code> directive specifies an expression on the input data. The input data points are first partitioned based on the values of this expression (similar to the SQL <code>GROUP BY</code>), and each partition is plotted separately in the same layer.</p>
@@ -1535,7 +1535,7 @@ GROUP BY `size`, gender
 ORDER BY `size`
 PLOT(GEOM=LINE(x=`size`, y=avg_bill), GROUP=gender, STROKE=gender LEGEND)
 </code></pre>
-<p><img alt="Line Chart with Groups" src="../images/visualization/sclera-group-line.jpg" title="Line Chart with Groups" /></p>
+<p><img alt="Line Chart with Groups" src="/images/visualization/sclera-group-line.jpg" title="Line Chart with Groups" /></p>
 <h3 id="key">Key<a class="headerlink" href="#key" title="Permanent link">&#9668;</a></h3>
 <p>By default, each row in the input corresponds to a unique data point. The optional <code>KEY</code> directive enables associating multiple rows with the same data point -- successive rows with the same key value render as the same data point, overriding the previous rendering.</p>
 <p>This is helpful to display, say, a dynamic bar chart showing a running average for tips collected on each day of week. We specify <code>KEY=day</code> and, for every input row, generate a row containing the updated running average of <code>tip</code> for the associated value of <code>day</code>.</p>
@@ -1544,13 +1544,13 @@ PLOT(GEOM=LINE(x=`size`, y=avg_bill), GROUP=gender, STROKE=gender LEGEND)
 FROM tips T PARTITION BY day
 PLOT(GEOM=BAR(x=day, y=running_avg), KEY=day)
 </code></pre>
-<p><img alt="With KEY=day" src="../images/visualization/sclera-key.jpg" title="With KEY=day, each row updates the existing bar" /></p>
+<p><img alt="With KEY=day" src="/images/visualization/sclera-key.jpg" title="With KEY=day, each row updates the existing bar" /></p>
 <p>Without <code>KEY=day</code>, a new bar will be generated for each update.</p>
 <pre><code>SELECT day, T.avg(tip) as running_avg
 FROM tips T PARTITION BY day
 PLOT(GEOM=BAR(x=day, y=running_avg), ALPHA=0.1)
 </code></pre>
-<p><img alt="Without KEY=day" src="../images/visualization/sclera-nokey.jpg" title="Without KEY=day, each row creates a new bar" /></p>
+<p><img alt="Without KEY=day" src="/images/visualization/sclera-nokey.jpg" title="Without KEY=day, each row creates a new bar" /></p>
 <h3 id="position-adjustments">Position Adjustments<a class="headerlink" href="#position-adjustments" title="Permanent link">&#9668;</a></h3>
 <p>Following the grammar of graphics philosophy, the input data is assumed to have one row per data point. When two data points are rendered one over the other, they are said to "collide".</p>
 <p>Colliding data points can be repositioned by specifying a <code>POSITION</code> directive, which can take values <code>dodge</code>, <code>stack</code>, or <code>jitter</code>.</p>
@@ -1561,7 +1561,7 @@ GROUP BY day, gender
 ORDER BY day, gender
 PLOT(GEOM=BAR(x=day, y=count), POSITION=DODGE, FILL=gender LEGEND)
 </code></pre>
-<p><img alt="Grouped Bar Chart" src="../images/visualization/sclera-bar-dodge.jpg" title="Grouped Bar Chart" /></p>
+<p><img alt="Grouped Bar Chart" src="/images/visualization/sclera-bar-dodge.jpg" title="Grouped Bar Chart" /></p>
 <p>Specifying <code>POSITION=STACK</code> positions the data points in a column, one over other, at the common <code>x</code> position on the X axis. When the geometry is <code>BAR</code>, this gives the familiar "stacked" bar chart:</p>
 <pre><code>SELECT day, gender, count(*) AS count
 FROM tips
@@ -1569,7 +1569,7 @@ GROUP BY day, gender
 ORDER BY day, gender
 PLOT(GEOM=BAR(x=day, y=count), POSITION=STACK, FILL=gender LEGEND)
 </code></pre>
-<p><img alt="Stacked Bar Chart" src="../images/visualization/sclera-bar-stack.jpg" title="Stacked Bar Chart" /></p>
+<p><img alt="Stacked Bar Chart" src="/images/visualization/sclera-bar-stack.jpg" title="Stacked Bar Chart" /></p>
 <p>Specifying <code>POSITION=jitter</code> adds a random offset to both the <code>x</code> and <code>y</code> positions of the data point. This is useful when we have overlapping points, so that the top points obscure the ones below -- the jitter randomly scatters the obscured points within a small ball around their position, making them visible.</p>
 <h3 id="stat">Stat<a class="headerlink" href="#stat" title="Permanent link">&#9668;</a></h3>
 <p>The <code>STAT</code> directive specifies a statistical operation over the input data points. Supported operations include computing local regression smoothing, computing density histograms, and computing heat-maps.</p>
@@ -1583,7 +1583,7 @@ PLOT(
   STAT=LOESS(STROKE="orange", STROKE_WIDTH="5px")
 )
 </code></pre>
-<p><img alt="LOESS Smoothing" src="../images/visualization/sclera-stat-loess.jpg" title="Loess Smoothing" /></p>
+<p><img alt="LOESS Smoothing" src="/images/visualization/sclera-stat-loess.jpg" title="Loess Smoothing" /></p>
 <p>The computed result is plotted in its own layer (see the next section), using a geometry that is determined by the operation, and using aesthetic parameters that can be provided along with the operation, as in the example above.</p>
 <h3 id="mark">Mark<a class="headerlink" href="#mark" title="Permanent link">&#9668;</a></h3>
 <p>The <code>MARK</code> directive marks out regions where a specified predicate is true. This is done in real time, as the data arrives, and so can be very useful in monitoring for events.</p>
@@ -1601,7 +1601,7 @@ PLOT(
   )
 )
 </code></pre>
-<p><img alt="Marked Regions" src="../images/visualization/sclera-mark.jpg" title="Marked Regions" /></p>
+<p><img alt="Marked Regions" src="/images/visualization/sclera-mark.jpg" title="Marked Regions" /></p>
 <h3 id="multi-layered-plots">Multi-Layered Plots<a class="headerlink" href="#multi-layered-plots" title="Permanent link">&#9668;</a></h3>
 <p>A layer represents a unit of rendering in the plot. The examples so far, except the stats, included a single layer -- which is the default.</p>
 <p>A layer can only support one kind of geometry, and the associated set of aesthetic parameters and position specifications. If you want to include, say, a scatter plot and a line in the same plot, you need to have separate layers for the points and the line.</p>
@@ -1618,7 +1618,7 @@ PLOT(
   LAYER(GEOM=RIBBON(x=`size`, ymin=avg_bill - sdev, ymax=avg_bill + sdev))
 )
 </code></pre>
-<p><img alt="Multi-Layer Plot" src="../images/visualization/sclera-multilayer.jpg" title="Multi-Layer Plot" /></p>
+<p><img alt="Multi-Layer Plot" src="/images/visualization/sclera-multilayer.jpg" title="Multi-Layer Plot" /></p>
 <p>Another example on the same query, this time with bars and error lines:</p>
 <pre><code>SELECT `size`, avg(total_bill) as avg_bill, stddev(total_bill) as sdev
 FROM tips
@@ -1634,7 +1634,7 @@ PLOT(
   )
 )
 </code></pre>
-<p><img alt="Another Multi-Layer Plot" src="../images/visualization/sclera-multilayer-alt.jpg" title="Another Multi-Layer Plot" /></p>
+<p><img alt="Another Multi-Layer Plot" src="/images/visualization/sclera-multilayer-alt.jpg" title="Another Multi-Layer Plot" /></p>
 <p>The <code>STAT</code> directive mentioned in the previous section implicitly adds a new layer to the plot, with the result of the associated operation.</p>
 <h3 id="multi-plots">Multi-Plots<a class="headerlink" href="#multi-plots" title="Permanent link">&#9668;</a></h3>
 <p>We can have multiple plots on the same input data; these plots are plotted simultaneously in a single scan of the input.</p>
@@ -1645,7 +1645,7 @@ PLOT(GEOM=POINT(x=`size`, y=tip), ALPHA=0.3)
 PLOT(GEOM=POINT(x=`size`, y=total_bill), ALPHA=0.3)
 PLOT(GEOM=POINT(x=total_bill, y=total_bill), ALPHA=0.3)
 </code></pre>
-<p><img alt="Multiple Plots" src="../images/visualization/sclera-multiplot.jpg" title="Multiple Plots" /></p>
+<p><img alt="Multiple Plots" src="/images/visualization/sclera-multiplot.jpg" title="Multiple Plots" /></p>
 <p>The plots are plotted one after the other, in separate rows. As the plots are rendered, the Y-axes of the first two plots, which plot the same column <code>tip</code>, and the X-axes of the last two plots, which plot the same column <code>size</code> are kept synchronized.</p>
 <h4 id="automatic-layouts">Automatic Layouts<a class="headerlink" href="#automatic-layouts" title="Permanent link">&#9668;</a></h4>
 <p>ScalerViz provides an aligned layout mode that places the plots so that plots sharing the same X-axis columns are aligned vertically, and the plots sharing the same Y-axis columns are aligned horizontally. We try this mode, activated using the <code>LAYOUT ALIGNED</code> directive on the example above, to get:</p>
@@ -1656,7 +1656,7 @@ PLOT(GEOM=POINT(x=`size`, y=total_bill), ALPHA=0.3)
 PLOT(GEOM=POINT(x=total_bill, y=total_bill), ALPHA=0.3)
 LAYOUT ALIGNED
 </code></pre>
-<p><img alt="Multiple Plots with Aligned Layout" src="../images/visualization/sclera-multiplot-aligned.jpg" title="Multiple Plots with Aligned Layout" /></p>
+<p><img alt="Multiple Plots with Aligned Layout" src="/images/visualization/sclera-multiplot-aligned.jpg" title="Multiple Plots with Aligned Layout" /></p>
 <h4 id="weighted-axes">Weighted Axes<a class="headerlink" href="#weighted-axes" title="Permanent link">&#9668;</a></h4>
 <p>In the multi-plot examples above, all axes have the same size. However, we may sometimes want to emphasize some columns over the others.</p>
 <p>In ScleraViz, we can assign weights to axes. By default, all axes are assigned a weight of 1. Assigning a weight of, say 0.5, makes the size of an axis half of an axis with weight 1. Similarly, assigning a weight of 2.0 makes the size of an axis twice that of an axis with weight 1. The actual axis lengths are assigned respecting these relative size constrainst and the constraint that all the plots need to fit in the given width and height.</p>
@@ -1669,7 +1669,7 @@ AXIS `size`(WEIGHT=0.25, TICKS=3)
 AXIS tip(WEIGHT=2)
 LAYOUT ALIGNED
 </code></pre>
-<p><img alt="Multiple Plots with Aligned Layout and Weighted Axes" src="../images/visualization/sclera-multiplot-aligned-weighted.jpg" title="Multiple Plots with Aligned Layout and Weighted Axes" /></p>
+<p><img alt="Multiple Plots with Aligned Layout and Weighted Axes" src="/images/visualization/sclera-multiplot-aligned-weighted.jpg" title="Multiple Plots with Aligned Layout and Weighted Axes" /></p>
 <h3 id="cross-plots">Cross Plots<a class="headerlink" href="#cross-plots" title="Permanent link">&#9668;</a></h3>
 <p>It is common to plot each of a set of columns against each of another set of columns. In ScleraViz, we can plot such "cross-plots" by using the single-layer <code>PLOT</code> syntax, and specifying a list of columns for the parameters of the geometry.</p>
 <pre><code>tips
@@ -1679,7 +1679,7 @@ PLOT(
 )
 LAYOUT ALIGNED
 </code></pre>
-<p><img alt="Cross Plot with Aligned Layout" src="../images/visualization/sclera-cross-plot-aligned.jpg" title="Cross Plot with Aligned Layout" /></p>
+<p><img alt="Cross Plot with Aligned Layout" src="/images/visualization/sclera-cross-plot-aligned.jpg" title="Cross Plot with Aligned Layout" /></p>
 <h3 id="faceted-plots">Faceted Plots<a class="headerlink" href="#faceted-plots" title="Permanent link">&#9668;</a></h3>
 <p>Faceting a plot on an expression involves displaying separate plots for datapoints partitioned by distinct values of the expression.</p>
 <p>ScleraViz can facet along columns (meaning that the plots corresponding to distinct values are layed out horizontally, in separate columns in a grid), or have faceting along rows (meaning that the plots corresponding to distinct values are layed out vertically, in separate rows in a grid), or both.</p>
@@ -1688,7 +1688,7 @@ LAYOUT ALIGNED
 PLOT(GEOM=POINT(x=total_bill, y=tip), ALPHA=0.3)
 FACET(ROWS=smoker, COLUMNS=gender)
 </code></pre>
-<p><img alt="Faceted Plot" src="../images/visualization/sclera-faceted.jpg" title="Faceted Plot" /></p>
+<p><img alt="Faceted Plot" src="/images/visualization/sclera-faceted.jpg" title="Faceted Plot" /></p>
 <h2 id="detailed-syntax">Detailed Syntax<a class="headerlink" href="#detailed-syntax" title="Permanent link">&#9668;</a></h2>
 <p>This section gives the detailed formal syntax of the ScleraViz specification language.</p>
 <p>Formally, the ScleraViz specification is as follows (recall that <code>|</code> means alternatives, <code>[]</code> means optional, and <code>...</code> means repetitions):</p>
