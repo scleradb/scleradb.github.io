@@ -1494,7 +1494,7 @@ PLOT(GEOM=POINT)
 <p>We can override this default by explicitly specifing custom columns for these parameters. So, another way to write the example above is:</p>
 <pre><code>tips PLOT(GEOM=POINT(x=total_bill, y=tip))
 </code></pre>
-<p>Here, the parameters <code>x</code> and <code>y</code> are mapped to input columns <code>psavert</code> and <code>unemploy</code>; in general, they can be mapped to arbitrary expressions.</p>
+<p>Here, the parameters <code>x</code> and <code>y</code> are mapped to input columns <code>total_bill</code> and <code>tip</code> respectively; in general, they can be mapped to arbitrary expressions.</p>
 <p>Sclera supports a number of alternative geometries.</p>
 <p>For instance, to plot the average bill for a given party size against the party size as a histogram, we can say:</p>
 <pre><code>SELECT `size`, AVG(total_bill) as avg_bill

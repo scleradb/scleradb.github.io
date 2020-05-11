@@ -109,7 +109,7 @@ We can override this default by explicitly specifing custom columns for these pa
 
     tips PLOT(GEOM=POINT(x=total_bill, y=tip))
 
-Here, the parameters `x` and `y` are mapped to input columns `psavert` and `unemploy`; in general, they can be mapped to arbitrary expressions.
+Here, the parameters `x` and `y` are mapped to input columns `total_bill` and `tip` respectively; in general, they can be mapped to arbitrary expressions.
 
 Sclera supports a number of alternative geometries.
 
