@@ -76,7 +76,7 @@ The connector can be deployed simply by having its jar and all its dependencies 
 
 Alternatively, for a managed deployment, follow the following steps:
 
-- First, publish the implementation as a package, locally or in a public artifact repository. In sbt, you can publish locally by running `sbt publish-local`.
+- First, publish the implementation as a package, locally or in a public artifact repository. In sbt, you can publish locally by running [`sbt publishLocal`](https://www.scala-sbt.org/1.x/docs/Publishing.html).
 - Use [`scleradmin`](../setup/install.md#plugin-management) to install the component and its dependencies:
 
         > scleradmin --add <plugin> --root <sclera-root>
