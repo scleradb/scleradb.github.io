@@ -5,15 +5,15 @@
 }
 
 a.btn.btn-block:hover {
-    background-color: rgba(80, 90, 100, 1.0);
+    background-color: #222;
     color: #fff;
 }
 
 a.btn.btn-block {
     display: block;
     width: 100%;
-    background-color: #fff;
-    color: rgba(80, 90, 100, 0.95);
+    background-color: rgba(80, 90, 100, 1.0);
+    color: #fff;
 }
 
 a.btn {
