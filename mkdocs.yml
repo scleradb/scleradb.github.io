@@ -68,11 +68,11 @@ extra_css:
 
 extra:
     social:
-        - type: "github"
+        - icon: "material/github"
           link: "https://github.com/scleradb"
-        - type: "twitter"
+        - icon: "material/twitter"
           link: "https://twitter.com/scleradb"
-        - type: "linkedin"
+        - icon: "material/linkedin"
           link: "https://www.linkedin.com/company/sclera-inc-"
     manifest: "../images/icons/site.webmanifest"
 
