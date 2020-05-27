@@ -1687,7 +1687,7 @@ SET { column_name = scalar_expression } [, ...]
 <p>The <code>DROP TABLE</code> statement drops a base table from Sclera as well as the underlying database system.</p>
 <p>This statement is similar to the <a href="../../setup/dbms/#removing-database-tables"><code>REMOVE TABLE</code> statement</a>. However, <code>REMOVE TABLE</code> only removes the metadata of the named table from Sclera; it does not drop the table from the underlying data store. <code>DROP TABLE</code> remove the table's metadata from Sclera and also drops the table from the underlying datastore.</p>
 <p>The syntax supported in Sclera is as follows:</p>
-<pre><code>    DROP TABLE [location_name.]table_name
+<pre><code>DROP TABLE [location_name.]table_name
 </code></pre>
 <p>Here, <code>table_name</code> is the name of the table to be dropped. The table must exist at the location <code>location_name</code>.  The <code>location_name</code> can be omitted if <code>table_name</code> is unique across locations.</p>
 <p>This syntax is a restricted version of that supported in the SQL standard and <a href="http://www.postgresql.org/docs/current/static/sql-droptable.html">PostgreSQL</a>.</p>

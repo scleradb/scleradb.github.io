@@ -410,7 +410,7 @@ This statement is similar to the [`REMOVE TABLE` statement](../setup/dbms.md#rem
 
 The syntax supported in Sclera is as follows:
 
-        DROP TABLE [location_name.]table_name
+    DROP TABLE [location_name.]table_name
 
 Here, `table_name` is the name of the table to be dropped. The table must exist at the location `location_name`.  The `location_name` can be omitted if `table_name` is unique across locations.
 
