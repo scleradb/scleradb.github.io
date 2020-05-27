@@ -250,7 +250,7 @@ instead of the standard
 
     > SELECT * FROM ORDERS JOIN CUSTOMERS USING (CUSTID) UNION SELECT * FROM PREV;
 
-The queries in the verbose [standard `SELECT` syntax](#select-expression) are still valid, but the equivalent queries in the extended syntax are more compact. As we can see, the difference is more pronouced in more complex queries.
+The queries in the verbose [standard `SELECT` syntax](#select-expression) are still valid, but the equivalent queries in the extended syntax are more compact. As we can see, the difference is more pronounced in more complex queries.
 
 ## Base Tables
 In this section we describe Sclera's SQL commands for creating, updating and deleting base tables.
