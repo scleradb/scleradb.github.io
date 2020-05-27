@@ -27,7 +27,7 @@ As an example, the following statement infers the types of the columns in the in
 
 As another example, the following statement parses the string (e.g. '08/12') in column `month` in each row of the table `input_table`, separating the numbers before and after the / and places them in result columns `m` and `y` respectively.
 
-    > input_table TEXT parse "(\d+)/(\d+)" IN month TO (m, y)
+    > input_table TEXT PARSE "(\d+)/(\d+)" IN month TO (m, y)
 
 Sclera also provides extensions for filling in missing values in the input dataset (called "imputation"); this can be [done through regular SQL](../sclerasql/sqlcleaning.md#data-imputation-with-regular-sql) or [with the help of a classifier](../sclerasql/sqlcleaning.md#data-imputation-using-machine-learning).
 
