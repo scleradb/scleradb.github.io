@@ -1,4 +1,4 @@
-In this section, we describe the extensions that enable access to data in [CSV (Comma-Separated Value) files](#sclera-csv), [free-form text files](#sclera-csv) and web services within a SQL query. This data can be used just like a relational base table within the SQL query.
+In this section, we describe the extensions that enable access to data in [CSV (Comma-Separated Value) files](#sclera-csv), [free-form text files](#sclera-csv) and web services within a SQL query. This data can be used just like a relational base table within the SQL query, and can be joined with data from relational/non-relational data stores (see the [Data Platform Connection Reference](../setup/dbms.md) document for details).
 
 These extensions are developed using the [Sclera Connector Development SDK](../sdk/sdkintro.md), the sources for each of these extensions is available on [GitHub](https://github.com/scleradb) for reference.
 
