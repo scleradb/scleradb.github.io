@@ -5,7 +5,7 @@ In addition to the data stores mentioned in this document, Sclera can also incor
 In the following, the keywords appear in upper case to distinguish them from the other terms; however, Sclera is case-insensitive and keywords in actual commands and queries can be in upper or lower case.
 
 ## Connecting to Database Systems
-Sclera can connect to [Oracle Database 11g Release 2+](http://www.oracle.com), [PostgreSQL 9.1.2+](http://www.postgresql.org), and [MySQL 5.5.28+](http://www.mysql.com) (and also MySQL-compatible systems such as [Google Cloud SQL](https://cloud.google.com/sql))
+Sclera can connect to [Oracle Database 11g Release 2+](http://www.oracle.com), [PostgreSQL 9.1.2+](http://www.postgresql.org), and [MySQL 5.5.28+](http://www.mysql.com) (and also MySQL-compatible systems such as [Google Cloud SQL](https://cloud.google.com/sql)). To connect with a database system not mentioned here, you will need a connector for that database system, which can be built using [Sclera's plugin framework](../sdk/sdkextdbms.md).
 
 <a class="anchor" id="location"></a>In Sclera, a connected database system is called a **location**.
 
