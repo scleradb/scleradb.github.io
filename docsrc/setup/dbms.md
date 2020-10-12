@@ -1,6 +1,6 @@
 Sclera enables a consolidated relational view of multiple underlying relational/non-relational data stores. We now describe how to connect your existing database systems to Sclera. This will enable you to seamlessly execute cross-platform computations via SQL, as discussed in the [ScleraSQL Reference](../sclerasql/sqlregular.md) document.
 
-In addition to the data stores mentioned in this document, Sclera can also incorporate data from CSV files, raw text files, web-services, all within the same SQL query -- for details on how to do so, please refer to the [ScleraSQL External Data Access](../sclerasql/sqlextdataaccess.md) documentation.
+In addition to the data stores mentioned in this document, Sclera can also incorporate data from CSV files, raw text files, web-services, all within the same SQL query -- for details, please refer to the [ScleraSQL External Data Access](../sclerasql/sqlextdataaccess.md) documentation.
 
 In the following, the keywords appear in upper case to distinguish them from the other terms; however, Sclera is case-insensitive and keywords in actual commands and queries can be in upper or lower case.
 
