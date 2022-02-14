@@ -54,8 +54,8 @@ nav:
 
 theme:
     name: "material"
-    logo: "../images/sclera-logo-square.png"
-    favicon: "../images/icons/favicon.ico"
+    logo: "/images/sclera-logo-square.png"
+    favicon: "/images/icons/favicon.ico"
     palette:
         primary: 'black'
         accent: 'indigo'
@@ -64,7 +64,7 @@ theme:
         code: 'Courier Prime'
 
 extra_css:
-    - ../css/docs.css
+    - /css/docs.css
 
 extra:
     social:
@@ -74,7 +74,7 @@ extra:
           link: "https://twitter.com/scleradb"
         - icon: "material/linkedin"
           link: "https://www.linkedin.com/company/sclera-inc-"
-    manifest: "../images/icons/site.webmanifest"
+    manifest: "/images/icons/site.webmanifest"
     analytics:
         provider: google
         property: UA-47770601-1
