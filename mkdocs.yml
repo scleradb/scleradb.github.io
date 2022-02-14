@@ -4,7 +4,7 @@ site_description: "Documentation for Sclera and its plugins"
 
 site_author: "Sclera, Inc."
 
-copyright: "Copyright &copy; 2012 - 2020 Sclera, Inc."
+copyright: "Copyright &copy; 2012 - 2022 Sclera, Inc."
 
 site_url: "https://www.scleradb.com/docs"
 
@@ -75,9 +75,12 @@ extra:
         - icon: "material/linkedin"
           link: "https://www.linkedin.com/company/sclera-inc-"
     manifest: "../images/icons/site.webmanifest"
+    analytics:
+        provider: google
+        property: UA-47770601-1
 
 markdown_extensions:
     - toc:
         permalink: "&#9668;"
 
-google_analytics: ['UA-47770601-1', 'scleradb.com']
+# google_analytics: ['UA-47770601-1', 'scleradb.com']
