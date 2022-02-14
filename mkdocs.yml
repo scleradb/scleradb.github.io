@@ -2,9 +2,9 @@ site_name: "Sclera Documentation"
 
 site_description: "Documentation for Sclera and its plugins"
 
-site_author: "Sclera, Inc."
+site_author: "Prasan Roy"
 
-copyright: "Copyright &copy; 2012 - 2022 Sclera, Inc."
+copyright: "Copyright &copy; 2012 - 2022 Prasan Roy"
 
 site_url: "https://www.scleradb.com/docs"
 
