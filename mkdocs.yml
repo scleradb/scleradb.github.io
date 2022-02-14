@@ -15,7 +15,7 @@ docs_dir: docsrc
 nav:
     - 'Home': "/"
     - 'Source Code': "https://github.com/scleradb"
-    - 'Documentation Contents': index.md
+    - 'Reference Guide': index.md
     - 'Introduction':
         - 'Why Sclera?': intro/whysclera.md
         - 'FAQ': intro/faq.md
